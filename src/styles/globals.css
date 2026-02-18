@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Custom base styles
+ */
+@layer base {
+  html,
+  body {
+    overscroll-behavior: none;
+  }
+}
+
+/**
+ * Custom component styles
+ */
+@layer components {
+}
+
+/**
+ * Custom utility styles
+ */
+@layer utilities {
+}
