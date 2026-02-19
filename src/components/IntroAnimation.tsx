@@ -4,9 +4,9 @@ import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 
-import AtriumLogo from '@/components/icons/atrium-logo'
 import AtriumLogoStep1 from '@/components/icons/atrium-logo-step-1'
 import AtriumLogoStep2 from '@/components/icons/atrium-logo-step-2'
+import AtriumLogoStep3 from '@/components/icons/atrium-logo-step-3'
 
 const IntroAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -135,7 +135,7 @@ const IntroAnimation = () => {
           {
             scale: 1,
             opacity: 1,
-            duration: 1.5,
+            duration: 2,
             ease: 'power3.out',
             immediateRender: false,
           },
@@ -154,20 +154,20 @@ const IntroAnimation = () => {
       className="fixed inset-0 flex items-center justify-center bg-beige-100 z-50"
     >
       <div ref={step1Ref} className="absolute opacity-0">
-        <AtriumLogoStep1 fillColor="#000000" className="size-12" />
+        <AtriumLogoStep1 className="w-[4vw] h-auto" />
       </div>
 
       <div ref={step2Ref} className="absolute opacity-0">
-        <AtriumLogoStep2 fillColor="#000000" className="size-12" />
+        <AtriumLogoStep2 className="w-[4vw] h-auto" />
       </div>
 
       <div ref={step3Ref} className="absolute opacity-0">
-        <AtriumLogo fillColor="#000000" className="size-12" />
+        <AtriumLogoStep3 className="w-[4vw] h-auto" />
       </div>
 
       <div
         ref={squareRef}
-        className="absolute bg-black-100 opacity-0 w-[20px] h-[15px]"
+        className="absolute bg-black-100 opacity-0 w-[0.95vw] h-[0.65vw]"
       />
 
       <div
@@ -180,7 +180,7 @@ const IntroAnimation = () => {
           alt="Atrium"
           width={1920}
           height={1194}
-          className="w-full h-auto"
+          className="w-full"
           priority
         />
       </div>

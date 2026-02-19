@@ -2,22 +2,25 @@ import React, { FC } from 'react'
 
 import { IconProps } from '@/interfaces/ui'
 
-const AtriumLogoStep1: FC<IconProps> = ({
-  fillColor = '#141715',
-  className,
-}) => (
+const AtriumLogoStep1: FC<IconProps> = ({ className }) => (
   <svg
-    width="117"
-    height="115"
-    viewBox="0 0 117 115"
+    width="1256"
+    height="613"
+    viewBox="0 0 1256 613"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="none"
     className={className}
   >
     <path
-      d="M116.782 0H64.4612H52.3208H0V11.988H46.8645L0 114.98H13.2836L21.3756 97.0484L32.0384 73.2275H31.9835L40.4499 54.4407H40.4549L58.391 11.988L75.2488 53.0109L75.2638 53.0359L84.3092 73.2275H84.2493L94.8573 97.0634L102.839 114.98H116.782L69.9174 11.988H116.782V0Z"
-      fill={fillColor}
+      d="M912 63L912 613H976V362.589L976 301V239.411V63H912Z"
+      fill="#a8a4a6"
+    />
+    <path d="M489 403H133V467H275.863H311H346.137H489V403Z" fill="#a8a4a6" />
+    <path d="M1256 0H632V64H882.411H944H1005.59H1256V0Z" fill="#141715" />
+    <path
+      d="M346.962 0H277.944L250.411 64.24L0 613H70.9782L114.216 517.456L171.191 390.534H170.897L216.135 290.435H216.162L312 64.24L402.076 282.817L402.156 282.95L450.489 390.534H450.169L506.85 517.536L549.501 613H624L373.589 64.24L346.962 0Z"
+      fill="#141715"
     />
   </svg>
 )
