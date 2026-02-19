@@ -29,7 +29,13 @@ const IntroAnimation = () => {
       tl.fromTo(
         step1Ref.current,
         { scale: 0, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'back.out(1.4)',
+          transformOrigin: 'center center',
+        },
       )
         .to(
           step1Ref.current,
@@ -37,7 +43,7 @@ const IntroAnimation = () => {
             scale: 0,
             opacity: 0,
             duration: 0.4,
-            ease: 'power2.in',
+            ease: 'back.in(1.2)',
           },
           '+=0.75',
         )
@@ -47,7 +53,7 @@ const IntroAnimation = () => {
         .to(squareRef.current, {
           scale: 1,
           opacity: 1,
-          duration: 0.2,
+          duration: 0.25,
           ease: 'power2.out',
         })
         .to(
@@ -65,7 +71,13 @@ const IntroAnimation = () => {
         .fromTo(
           step2Ref.current,
           { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.6,
+            ease: 'back.out(1.4)',
+            transformOrigin: 'center center',
+          },
         )
         .to(
           step2Ref.current,
@@ -73,7 +85,7 @@ const IntroAnimation = () => {
             scale: 0,
             opacity: 0,
             duration: 0.4,
-            ease: 'power2.in',
+            ease: 'back.in(1.2)',
           },
           '+=0.75',
         )
@@ -83,7 +95,7 @@ const IntroAnimation = () => {
         .to(squareRef.current, {
           scale: 1,
           opacity: 1,
-          duration: 0.2,
+          duration: 0.25,
           ease: 'power2.out',
         })
         .to(
@@ -101,7 +113,13 @@ const IntroAnimation = () => {
         .fromTo(
           step3Ref.current,
           { scale: 0, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: 'power2.out' },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.6,
+            ease: 'back.out(1.4)',
+            transformOrigin: 'center center',
+          },
         )
         .to(
           step3Ref.current,
@@ -109,7 +127,7 @@ const IntroAnimation = () => {
             scale: 0,
             opacity: 0,
             duration: 0.4,
-            ease: 'power2.in',
+            ease: 'back.in(1.2)',
           },
           '+=0.75',
         )
@@ -119,7 +137,7 @@ const IntroAnimation = () => {
         .to(squareRef.current, {
           scale: 1,
           opacity: 1,
-          duration: 0.2,
+          duration: 0.25,
           ease: 'power2.out',
         })
 
