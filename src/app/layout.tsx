@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 
 import '@/styles/globals.css'
 
+import { LenisProvider } from '@/components/LenisProvider'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
@@ -19,11 +20,13 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en">
+    <html lang="en" className="lenis">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <LenisProvider>
+          <Header />
+          {children}
+          <Footer />
+        </LenisProvider>
       </body>
     </html>
   )

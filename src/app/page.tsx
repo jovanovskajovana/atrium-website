@@ -1,7 +1,9 @@
+import IntroAnimation from '@/components/IntroAnimation'
+
 const Home = () => {
   return (
     <main>
-      <h1>Atrium</h1>
+      <IntroAnimation />
     </main>
   )
 }

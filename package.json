@@ -10,6 +10,8 @@
     "lint:fix": "next lint --fix"
   },
   "dependencies": {
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.17",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

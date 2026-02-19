@@ -3,12 +3,53 @@
 @tailwind utilities;
 
 /**
+ * Gotham – primary typography (add font files to public/fonts/)
+ */
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/gotham-light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/gotham-book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/gotham-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('/fonts/gotham-bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/**
  * Custom base styles
  */
 @layer base {
   html,
   body {
+    @apply bg-beige-100 font-sans;
     overscroll-behavior: none;
+  }
+
+  /* Lenis: scroll-behavior override (lenis.css imported in LenisProvider) */
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
   }
 }
 
