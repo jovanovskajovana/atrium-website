@@ -47,7 +47,7 @@
     overscroll-behavior: none;
   }
 
-  /* Lenis: scroll-behavior override (lenis.css imported in LenisProvider) */
+  /* Lenis */
   .lenis.lenis-smooth {
     scroll-behavior: auto !important;
   }
