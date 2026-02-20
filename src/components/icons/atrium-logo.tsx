@@ -2,18 +2,18 @@ import React, { FC } from 'react'
 
 import { IconProps } from '@/interfaces/ui'
 
-const AtriumLogo: FC<IconProps> = ({ fillColor = '#141715', className }) => (
+const AtriumLogo: FC<IconProps> = ({ fillColor = '#1d1d1b', className }) => (
   <svg
-    width="117"
-    height="115"
-    viewBox="0 0 117 115"
+    width="1256"
+    height="660"
+    viewBox="0 0 1256 660"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
     preserveAspectRatio="none"
     className={className}
   >
     <path
-      d="M116.782 0H64.4612H52.3208H0V11.988H46.8645L0 114.98H13.2836L21.3756 97.0484L32.0384 73.2275H31.9835L40.4499 54.4407H40.4549L58.391 11.988L75.2488 53.0109L75.2638 53.0359L84.3092 73.2275H84.2493L94.8573 97.0634L102.839 114.98H116.782L69.9174 11.988H116.782V0Z"
+      d="M963 0H662.826H593.174H293V68.8122H561.871L293 660H369.211L415.636 557.069L476.81 420.334H476.495L525.068 312.496H525.097L628 68.8122L724.717 304.289L724.803 304.432L776.698 420.334H776.354L837.214 557.155L883.009 660H963L694.129 68.8122H963V0Z"
       fill={fillColor}
     />
   </svg>
