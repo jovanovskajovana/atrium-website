@@ -152,21 +152,23 @@ const IntroAnimation = () => {
             ease: 'power3.in',
             transformOrigin: 'center center',
           },
-          '+=0.8',
+          '+=0.4',
         )
 
-        // — Image expands from the same center —
+        // — Image expands from center with horizontal clip reveal —
         .fromTo(
           imageRef.current,
           {
-            scale: startScale,
+            scale: startScale * 1.15,
             opacity: 1,
+            clipPath: 'inset(0% 45% 0% 45%)',
             transformOrigin: 'center center',
           },
           {
             scale: 1,
             opacity: 1,
-            duration: 2,
+            clipPath: 'inset(0% 0% 0% 0%)',
+            duration: 1.6,
             ease: 'power3.out',
             immediateRender: false,
           },
