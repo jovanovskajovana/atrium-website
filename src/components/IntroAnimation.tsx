@@ -3,6 +3,7 @@
 import { useRef, useEffect } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
+import AtriumLogo from '@/components/icons/atrium-logo'
 
 const FULL_A =
   'M42.7443 2.2507H52.2308L93.1342 92.8439H82.2365L71.7191 69.0703H22.8632L12.2232 92.8439H1.84082L42.7443 2.2507ZM67.7552 59.9568L47.3587 14.0699L26.8394 59.9445H67.7429L67.7552 59.9568Z'
@@ -24,10 +25,87 @@ const CENTERS_X = [47.5, 142.9, 260.3, 348.1, 441.8, 568.3]
 const CENTER_SHIFT = 306.5 - (CENTERS_X[0] + CENTERS_X[1]) / 2
 const MERGE_SHIFT = (CENTERS_X[1] - CENTERS_X[0]) / 2
 
+const MENU_ITEMS = [
+  'reference',
+  'proizvodnja',
+  'novice',
+  'zaposlitev',
+  'o nas',
+  'kontakt',
+]
+
+const COLLAGE_IMAGES = [
+  {
+    src: '/assets/img-2.webp',
+    w: 1919,
+    h: 2560,
+    top: '2%',
+    left: '72%',
+    width: '18vw',
+  },
+  {
+    src: '/assets/img-3.webp',
+    w: 1919,
+    h: 2560,
+    top: '32%',
+    left: '38%',
+    width: '18vw',
+  },
+  {
+    src: '/assets/img-4.webp',
+    w: 750,
+    h: 833,
+    top: '22%',
+    left: '58%',
+    width: '13vw',
+  },
+  {
+    src: '/assets/img-5.webp',
+    w: 1919,
+    h: 2560,
+    top: '52%',
+    left: '48%',
+    width: '16vw',
+  },
+  {
+    src: '/assets/img-6.webp',
+    w: 1919,
+    h: 2560,
+    top: '5%',
+    left: '33%',
+    width: '14vw',
+  },
+  {
+    src: '/assets/img-7.webp',
+    w: 1919,
+    h: 2559,
+    top: '60%',
+    left: '28%',
+    width: '15vw',
+  },
+  {
+    src: '/assets/img-8.webp',
+    w: 1920,
+    h: 1194,
+    top: '75%',
+    left: '50%',
+    width: '20vw',
+  },
+  {
+    src: '/assets/img-9.webp',
+    w: 1920,
+    h: 1194,
+    top: '64%',
+    left: '68%',
+    width: '24vw',
+  },
+]
+
 const IntroAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const textSvgRef = useRef<SVGSVGElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
+  const logoRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     document.body.style.overflow = 'hidden'
@@ -53,7 +131,7 @@ const IntroAnimation = () => {
 
       const tl = gsap.timeline({ delay: 0.3 })
 
-      // — ATRIUM appears letter by letter —
+      // — Phase 1: ATRIUM appears letter by letter —
       tl.fromTo(
         allLetters,
         { opacity: 0, y: 12 },
@@ -66,7 +144,7 @@ const IntroAnimation = () => {
         },
       )
 
-        // — R, I, U, M collapse right-to-left toward A+T —
+        // — Phase 2: R, I, U, M collapse right-to-left toward A+T —
         .to(
           dissolving,
           {
@@ -81,7 +159,7 @@ const IntroAnimation = () => {
           '+=0.05',
         )
 
-        // — A + T slide to center —
+        // — Phase 3: A + T slide to center —
         .to(
           [groupA, groupT],
           {
@@ -92,7 +170,7 @@ const IntroAnimation = () => {
           '+=0.2',
         )
 
-        // — Strip away: full letters crossfade to essential strokes —
+        // — Phase 4: Strip away full letters, crossfade to essential strokes —
         .to(
           [fullA, fullT],
           {
@@ -112,7 +190,7 @@ const IntroAnimation = () => {
           '<',
         )
 
-        // — Merge: strokes slide together to form the mark —
+        // — Phase 5: Merge strokes to form the mark —
         .to(
           groupA,
           {
@@ -142,7 +220,7 @@ const IntroAnimation = () => {
           '<',
         )
 
-        // — Hold, then mark compresses to a point —
+        // — Phase 6: Mark compresses to a point —
         .to(
           textSvgRef.current,
           {
@@ -155,7 +233,7 @@ const IntroAnimation = () => {
           '+=0.4',
         )
 
-        // — Image expands from center with horizontal clip reveal —
+        // — Phase 7: Image expands from center with horizontal clip —
         .fromTo(
           imageRef.current,
           {
@@ -174,6 +252,71 @@ const IntroAnimation = () => {
           },
           '-=0.1',
         )
+
+        // — Phase 8a: Image slides to right-side collage position —
+        .to(
+          imageRef.current,
+          {
+            x: '10vw',
+            y: '-18vh',
+            scale: 0.47,
+            duration: 1.2,
+            ease: 'power2.inOut',
+          },
+          '-=0.1',
+        )
+
+        // — Phase 8b: AT logo fades in at top-left —
+        .fromTo(
+          logoRef.current,
+          { opacity: 0, y: 20 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: 'power2.out',
+          },
+          '-=0.8',
+        )
+
+        // — Phase 8c: Menu items stagger in —
+        .fromTo(
+          '[data-menu-item]',
+          { opacity: 0, y: 15 },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.07,
+            duration: 0.5,
+            ease: 'power3.out',
+          },
+          '-=0.3',
+        )
+
+        // — Phase 8d: Collage images grow in with same clip reveal as hero —
+        .fromTo(
+          '[data-collage]',
+          {
+            opacity: 1,
+            scale: 0.15,
+            clipPath: 'inset(0% 45% 0% 45%)',
+            transformOrigin: 'center center',
+          },
+          {
+            scale: 1,
+            clipPath: 'inset(0% 0% 0% 0%)',
+            stagger: 0.07,
+            duration: 1.2,
+            ease: 'power3.out',
+            immediateRender: false,
+          },
+          '-=0.9',
+        )
+
+        // — Phase 9: Unlock scroll —
+        .call(() => {
+          document.body.style.overflow = ''
+        })
     }, containerRef)
 
     return () => {
@@ -185,7 +328,7 @@ const IntroAnimation = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 flex items-center justify-center bg-beige-100 z-50"
+      className="fixed inset-0 flex items-center justify-center bg-beige-100 z-50 overflow-hidden"
     >
       <svg
         ref={textSvgRef}
@@ -234,6 +377,48 @@ const IntroAnimation = () => {
           priority
         />
       </div>
+
+      <div
+        ref={logoRef}
+        className="absolute top-[4vh] left-[4vw] w-[2.5vw] opacity-0"
+      >
+        <AtriumLogo className="w-full h-auto" />
+      </div>
+
+      <nav className="absolute top-[16vh] left-[4vw]">
+        {MENU_ITEMS.map((item) => (
+          <a
+            key={item}
+            data-menu-item
+            href="#"
+            className="block text-black-100 opacity-0"
+            style={{ fontSize: '1.1vw', lineHeight: 2.2 }}
+          >
+            {item}
+          </a>
+        ))}
+      </nav>
+
+      {COLLAGE_IMAGES.map((img, i) => (
+        <div
+          key={img.src}
+          data-collage
+          className="absolute opacity-0"
+          style={{
+            top: img.top,
+            left: img.left,
+            width: img.width,
+          }}
+        >
+          <Image
+            src={img.src}
+            alt={`Atrium ${i + 2}`}
+            width={img.w}
+            height={img.h}
+            className="w-full h-auto"
+          />
+        </div>
+      ))}
     </div>
   )
 }
