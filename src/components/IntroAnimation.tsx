@@ -60,8 +60,8 @@ const IntroAnimation = () => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
-          stagger: 0.07,
+          duration: 0.6,
+          stagger: 0.09,
           ease: 'power3.out',
         },
       )
@@ -78,7 +78,7 @@ const IntroAnimation = () => {
             ease: 'power3.in',
             transformOrigin: 'center center',
           },
-          '+=0.2',
+          '+=0.05',
         )
 
         // — A + T slide to center —
