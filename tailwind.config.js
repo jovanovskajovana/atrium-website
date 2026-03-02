@@ -1,9 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/app/**/*.{ts,tsx}', './src/components/**/*.{ts,tsx}'],
+  content: [
+    './src/app/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
+    './src/constants/**/*.ts',
+  ],
   theme: {
     fontFamily: {
-      sans: ['Gotham', 'system-ui', 'sans-serif'],
+      sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
     },
     screens: {
       xs: '360px',
