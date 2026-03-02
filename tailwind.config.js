@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      sans: ['Gotham', 'system-ui', 'sans-serif'],
+      sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
     },
     screens: {
       xs: '360px',
