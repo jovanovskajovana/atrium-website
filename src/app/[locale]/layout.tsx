@@ -34,11 +34,11 @@ export function generateStaticParams() {
 
 interface RootLayoutProps {
   children: ReactNode
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
 const RootLayout = async ({ children, params }: RootLayoutProps) => {
-  const { locale } = params
+  const { locale } = await params
 
   if (!hasLocale(routing.locales, locale)) {
     notFound()
