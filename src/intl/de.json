@@ -1,0 +1,11 @@
+{
+  "header": {
+    "header": "Kopf"
+  },
+  "footer": {
+    "footer": "Fuss"
+  },
+  "not-found": {
+    "not-found": "Oops! Seite nicht gefunden."
+  }
+}

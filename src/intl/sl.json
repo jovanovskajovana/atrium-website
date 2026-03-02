@@ -1,0 +1,11 @@
+{
+  "header": {
+    "header": "Glava"
+  },
+  "footer": {
+    "footer": "Noga"
+  },
+  "not-found": {
+    "not-found": "Oops! Stran ne obstaja."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "header": {
+    "header": "Header"
+  },
+  "footer": {
+    "footer": "Footer"
+  },
+  "not-found": {
+    "not-found": "Oops! Page not found."
+  }
+}
