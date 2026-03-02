@@ -1,5 +1,3 @@
-const ReferencesPage = () => {
-  return <main>References</main>
-}
+const ReferencesPage = () => <main>References</main>
 
 export default ReferencesPage

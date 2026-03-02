@@ -44,11 +44,13 @@ export function LenisProvider({ children, options = {} }: LenisProviderProps) {
     })
 
     const onScroll = () => ScrollTrigger.update()
+
     lenisInstance.on('scroll', onScroll)
 
     const tick = (time: number) => {
       lenisInstance.raf(time * 1000)
     }
+
     gsap.ticker.add(tick)
 
     gsap.ticker.lagSmoothing(0)
