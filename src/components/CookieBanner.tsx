@@ -1,0 +1,100 @@
+'use client'
+
+import { useRef, useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+import { gsap } from 'gsap'
+
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
+
+import { Link } from '@/i18n/navigation'
+
+const CookieBanner = () => {
+  const t = useTranslations('cookie_banner')
+
+  const bannerRef = useRef<HTMLDivElement>(null)
+
+  const [shouldRender, setShouldRender] = useState(false)
+
+  useEffect(() => {
+    const consent = localStorage.getItem('cookie-consent')
+
+    if (consent) return
+
+    const hasIntro = document.querySelector('[data-intro-animation]')
+
+    if (!hasIntro) {
+      setShouldRender(true)
+      return
+    }
+
+    const show = () => setShouldRender(true)
+    window.addEventListener('intro-complete', show, { once: true })
+
+    return () => window.removeEventListener('intro-complete', show)
+  }, [])
+
+  useIsomorphicLayoutEffect(() => {
+    if (!shouldRender || !bannerRef.current) return
+
+    const ctx = gsap.context(() => {
+      gsap.set(bannerRef.current, { opacity: 0, y: 20 })
+
+      gsap.to(bannerRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power2.out',
+      })
+    }, bannerRef)
+
+    return () => ctx.revert()
+  }, [shouldRender])
+
+  const dismiss = (choice: string) => {
+    if (!bannerRef.current) return
+
+    localStorage.setItem('cookie-consent', choice)
+    gsap.killTweensOf(bannerRef.current)
+
+    gsap.to(bannerRef.current, {
+      opacity: 0,
+      y: 20,
+      duration: 0.4,
+      ease: 'power2.in',
+      onComplete: () => setShouldRender(false),
+    })
+  }
+
+  if (!shouldRender) return null
+
+  return (
+    <div
+      ref={bannerRef}
+      className="fixed bottom-0 right-[3vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
+    >
+      <p className="text-white-100 text-[0.8vw] mr-[1vw]">
+        {t('message')}{' '}
+        <Link
+          href="/privacy-policy"
+          className="hover:opacity-80 transition-opacity"
+        >
+          {t('privacy_link')}
+        </Link>
+      </p>
+      <button
+        onClick={() => dismiss('denied')}
+        className="text-white-100 text-[0.8vw] underline hover:opacity-80 transition-opacity"
+      >
+        {t('deny')}
+      </button>
+      <button
+        onClick={() => dismiss('accepted')}
+        className="text-white-100 text-[0.8vw] border border-white-100 py-[1%] px-[1.1vw] hover:bg-white-100 hover:text-black-100 transition-all duration-500 ease-in-out"
+      >
+        {t('accept')}
+      </button>
+    </div>
+  )
+}
+
+export default CookieBanner

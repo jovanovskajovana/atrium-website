@@ -1,11 +1,46 @@
 {
-  "header": {
-    "header": "Kopf"
+  "nav": {
+    "references": "referenzen",
+    "production": "produktion",
+    "news": "news",
+    "careers": "karriere",
+    "about": "über uns",
+    "contact": "kontakt"
+  },
+  "cookie_banner": {
+    "message": "Wir verwenden Cookies. Mehr dazu in unserer",
+    "privacy_link": "Datenschutzerklärung.",
+    "deny": "ablehnen",
+    "accept": "akzeptieren"
   },
   "footer": {
     "footer": "Fuss"
   },
-  "not-found": {
-    "not-found": "Oops! Seite nicht gefunden."
+  "not_found": {
+    "not_found": "Oops! Seite nicht gefunden."
+  },
+  "home": {
+    "title": "Startseite"
+  },
+  "about": {
+    "title": "Über uns"
+  },
+  "references": {
+    "title": "Referenzen"
+  },
+  "production": {
+    "title": "Produktion"
+  },
+  "news": {
+    "title": "News"
+  },
+  "careers": {
+    "title": "Karriere"
+  },
+  "contact": {
+    "title": "Kontakt"
+  },
+  "privacy_policy": {
+    "title": "Datenschutzerklärung"
   }
 }

@@ -1,10 +1,10 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 
-import AtriumLogo from '@/components/icons/atrium-logo'
+import Navigation from '@/components/Navigation'
 
 import {
   FULL_A,
@@ -18,20 +18,27 @@ import {
   CENTERS_X,
   CENTER_SHIFT,
   MERGE_SHIFT,
-  MENU_ITEMS,
   COLLAGE_IMAGES,
 } from '@/constants/intro-animation'
+
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 const IntroAnimation = () => {
   const containerRef = useRef<HTMLDivElement>(null)
   const textSvgRef = useRef<SVGSVGElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
-  const logoRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
+    if (!containerRef.current || !textSvgRef.current || !imageRef.current)
+      return
+
     document.body.style.overflow = 'hidden'
 
     const ctx = gsap.context(() => {
+      gsap.set('[data-logo]', { opacity: 0 })
+      gsap.set('[data-menu-item]', { opacity: 0 })
+      gsap.set('[data-lang-picker]', { opacity: 0 })
+
       const imgW = window.innerWidth * 0.6
       const startScale = 20 / imgW
 
@@ -189,7 +196,7 @@ const IntroAnimation = () => {
 
         // Phase 8b: AT logo fades in at top-left
         .fromTo(
-          logoRef.current,
+          '[data-logo]',
           { opacity: 0, y: 20 },
           {
             opacity: 1,
@@ -214,7 +221,20 @@ const IntroAnimation = () => {
           '-=0.3'
         )
 
-        // Phase 8d: Collage images grow in with same clip reveal as hero
+        // Phase 8d: Language picker fades in
+        .fromTo(
+          '[data-lang-picker]',
+          { opacity: 0, y: 15 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            ease: 'power3.out',
+          },
+          '<'
+        )
+
+        // Phase 8e: Collage images grow in with same clip reveal as hero
         .fromTo(
           '[data-collage]',
           {
@@ -234,9 +254,10 @@ const IntroAnimation = () => {
           '-=0.9'
         )
 
-        // Phase 9: Unlock scroll
+        // Phase 9: Unlock scroll and signal completion
         .call(() => {
           document.body.style.overflow = ''
+          window.dispatchEvent(new Event('intro-complete'))
         })
     }, containerRef)
 
@@ -249,7 +270,8 @@ const IntroAnimation = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 flex items-center justify-center bg-beige-100 z-50 overflow-hidden"
+      className="fixed inset-0 flex items-center justify-center bg-beige-100 overflow-hidden z-50"
+      data-intro-animation
     >
       <svg
         ref={textSvgRef}
@@ -258,28 +280,28 @@ const IntroAnimation = () => {
         xmlns="http://www.w3.org/2000/svg"
         className="absolute w-[15vw] h-auto"
       >
-        <path data-part="r" d={FULL_R} fill="#1d1d1b" opacity="0" />
-        <path data-part="i" d={FULL_I} fill="#1d1d1b" opacity="0" />
-        <path data-part="u" d={FULL_U} fill="#1d1d1b" opacity="0" />
-        <path data-part="m" d={FULL_M} fill="#1d1d1b" opacity="0" />
+        <path d={FULL_R} fill="#1d1d1b" opacity="0" data-part="r" />
+        <path d={FULL_I} fill="#1d1d1b" opacity="0" data-part="i" />
+        <path d={FULL_U} fill="#1d1d1b" opacity="0" data-part="u" />
+        <path d={FULL_M} fill="#1d1d1b" opacity="0" data-part="m" />
 
         <g data-group="a">
-          <path data-part="full-a" d={FULL_A} fill="#1d1d1b" opacity="0" />
+          <path d={FULL_A} fill="#1d1d1b" opacity="0" data-part="full-a" />
           <path
-            data-part="chevron-a"
             d={CHEVRON_A}
             fill="#1d1d1b"
             opacity="0"
+            data-part="chevron-a"
           />
         </g>
 
         <g data-group="t">
-          <path data-part="full-t" d={FULL_T} fill="#1d1d1b" opacity="0" />
+          <path d={FULL_T} fill="#1d1d1b" opacity="0" data-part="full-t" />
           <path
-            data-part="crossbar-t"
             d={CROSSBAR_T}
             fill="#1d1d1b"
             opacity="0"
+            data-part="crossbar-t"
           />
         </g>
       </svg>
@@ -298,31 +320,13 @@ const IntroAnimation = () => {
         />
       </div>
 
-      <div
-        ref={logoRef}
-        className="absolute top-[4vh] left-[4vw] w-[2.5vw] opacity-0"
-      >
-        <AtriumLogo className="w-full h-auto" />
-      </div>
-
-      <nav className="absolute top-[16vh] left-[4vw]">
-        {MENU_ITEMS.map((item) => (
-          <a
-            key={item}
-            data-menu-item
-            href="#"
-            className="block text-black-100 opacity-0 text-[1.1vw] leading-[2.2]"
-          >
-            {item}
-          </a>
-        ))}
-      </nav>
+      <Navigation />
 
       {COLLAGE_IMAGES.map((img, i) => (
         <div
           key={img.src}
-          data-collage
           className={`absolute opacity-0 ${img.className}`}
+          data-collage
         >
           <Image
             src={img.src}

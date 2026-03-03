@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { FC, ReactNode } from 'react'
 import { Montserrat } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
@@ -6,6 +6,7 @@ import { getMessages } from 'next-intl/server'
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import CookieBanner from '@/components/CookieBanner'
 import { LenisProvider } from '@/components/LenisProvider'
 
 import { routing } from '@/i18n/routing'
@@ -37,7 +38,7 @@ interface RootLayoutProps {
   params: Promise<{ locale: string }>
 }
 
-const RootLayout = async ({ children, params }: RootLayoutProps) => {
+const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
   const { locale } = await params
 
   if (!hasLocale(routing.locales, locale)) {
@@ -54,6 +55,7 @@ const RootLayout = async ({ children, params }: RootLayoutProps) => {
             <Header />
             {children}
             <Footer />
+            <CookieBanner />
           </LenisProvider>
         </NextIntlClientProvider>
       </body>

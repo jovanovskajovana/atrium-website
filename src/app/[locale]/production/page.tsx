@@ -1,7 +1,7 @@
 import { useTranslations } from 'next-intl'
 
-const AboutPage = () => {
-  const t = useTranslations('about')
+const ProductionPage = () => {
+  const t = useTranslations('production')
 
   return (
     <main>
@@ -12,4 +12,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default ProductionPage

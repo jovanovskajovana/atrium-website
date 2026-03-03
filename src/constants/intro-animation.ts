@@ -18,15 +18,6 @@ export const CENTERS_X = [47.5, 142.9, 260.3, 348.1, 441.8, 568.3]
 export const CENTER_SHIFT = 306.5 - (CENTERS_X[0] + CENTERS_X[1]) / 2
 export const MERGE_SHIFT = (CENTERS_X[1] - CENTERS_X[0]) / 2
 
-export const MENU_ITEMS = [
-  'reference',
-  'proizvodnja',
-  'novice',
-  'zaposlitev',
-  'o nas',
-  'kontakt',
-]
-
 export const COLLAGE_IMAGES = [
   {
     src: '/assets/img-2.webp',

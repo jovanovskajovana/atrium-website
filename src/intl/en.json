@@ -1,11 +1,46 @@
 {
-  "header": {
-    "header": "Header"
+  "nav": {
+    "references": "references",
+    "production": "production",
+    "news": "news",
+    "careers": "careers",
+    "about": "about us",
+    "contact": "contact"
+  },
+  "cookie_banner": {
+    "message": "We use cookies. Read more in our",
+    "privacy_link": "Privacy Policy.",
+    "deny": "deny",
+    "accept": "accept"
   },
   "footer": {
     "footer": "Footer"
   },
-  "not-found": {
-    "not-found": "Oops! Page not found."
+  "not_found": {
+    "not_found": "Oops! Page not found."
+  },
+  "home": {
+    "title": "Home"
+  },
+  "about": {
+    "title": "About us"
+  },
+  "references": {
+    "title": "References"
+  },
+  "production": {
+    "title": "Production"
+  },
+  "news": {
+    "title": "News"
+  },
+  "careers": {
+    "title": "Careers"
+  },
+  "contact": {
+    "title": "Contact"
+  },
+  "privacy_policy": {
+    "title": "Privacy Policy"
   }
 }

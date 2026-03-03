@@ -1,11 +1,46 @@
 {
-  "header": {
-    "header": "Glava"
+  "nav": {
+    "references": "reference",
+    "production": "proizvodnja",
+    "news": "novice",
+    "careers": "zaposlitev",
+    "about": "o nas",
+    "contact": "kontakt"
+  },
+  "cookie_banner": {
+    "message": "Uporabljamo piškotke. Več o tem v naši",
+    "privacy_link": "Politiki zasebnosti.",
+    "deny": "zavrni",
+    "accept": "sprejmi"
   },
   "footer": {
     "footer": "Noga"
   },
-  "not-found": {
-    "not-found": "Oops! Stran ne obstaja."
+  "not_found": {
+    "not_found": "Oops! Stran ne obstaja."
+  },
+  "home": {
+    "title": "Domov"
+  },
+  "about": {
+    "title": "O nas"
+  },
+  "references": {
+    "title": "Reference"
+  },
+  "production": {
+    "title": "Proizvodnja"
+  },
+  "news": {
+    "title": "Novice"
+  },
+  "careers": {
+    "title": "Zaposlitev"
+  },
+  "contact": {
+    "title": "Kontakt"
+  },
+  "privacy_policy": {
+    "title": "Politika zasebnosti"
   }
 }

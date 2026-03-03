@@ -1,13 +1,9 @@
-import { useTranslations } from 'next-intl'
+import Navigation from '@/components/Navigation'
 
-const Header = () => {
-  const t = useTranslations('header')
-
-  return (
-    <header>
-      <nav>{t('header')}</nav>
-    </header>
-  )
-}
+const Header = () => (
+  <header className="fixed top-0 left-0 w-full z-50">
+    <Navigation />
+  </header>
+)
 
 export default Header

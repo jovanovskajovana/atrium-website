@@ -1,16 +1,12 @@
 'use client'
 
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
-} from 'react'
+import { createContext, useContext, useState, type ReactNode } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import type { LenisOptions } from 'lenis'
+
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 import 'lenis/dist/lenis.css'
 
@@ -30,7 +26,7 @@ interface LenisProviderProps {
 export function LenisProvider({ children, options = {} }: LenisProviderProps) {
   const [lenis, setLenis] = useState<Lenis | null>(null)
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     const lenisInstance = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
