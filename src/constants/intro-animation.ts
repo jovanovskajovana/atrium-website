@@ -21,50 +21,51 @@ export const MERGE_SHIFT = (CENTERS_X[1] - CENTERS_X[0]) / 2
 export const COLLAGE_IMAGES = [
   {
     src: '/assets/img-2.webp',
-    w: 1919,
-    h: 2560,
-    className: 'top-[2%] left-[72%] w-[18vw]',
+    w: 750,
+    h: 833,
+    className: 'top-[22%] right-[25.5%] w-[14vw]',
   },
   {
     src: '/assets/img-3.webp',
     w: 1919,
     h: 2560,
-    className: 'top-[32%] left-[38%] w-[18vw]',
+    className: 'top-0 left-[72%] w-[18vw]',
   },
   {
     src: '/assets/img-4.webp',
-    w: 750,
-    h: 833,
-    className: 'top-[22%] left-[58%] w-[13vw]',
+    w: 1919,
+    h: 2560,
+    className: 'top-[32%] left-[38%] w-[18vw]',
   },
+
   {
     src: '/assets/img-5.webp',
     w: 1919,
     h: 2560,
-    className: 'top-[52%] left-[48%] w-[16vw]',
+    className: 'top-[51%] left-[48%] w-[16vw]',
   },
   {
     src: '/assets/img-6.webp',
     w: 1919,
     h: 2560,
-    className: 'top-[5%] left-[33%] w-[14vw]',
+    className: 'top-[4%] left-[32%] w-[16vw]',
   },
   {
     src: '/assets/img-7.webp',
     w: 1919,
     h: 2559,
-    className: 'top-[60%] left-[28%] w-[15vw]',
+    className: 'bottom-0 left-[28%] w-[16vw]',
   },
   {
     src: '/assets/img-8.webp',
     w: 1920,
     h: 1194,
-    className: 'top-[75%] left-[50%] w-[20vw]',
+    className: 'bottom-0 left-[50%] w-[21vw]',
   },
   {
     src: '/assets/img-9.webp',
     w: 1920,
     h: 1194,
-    className: 'top-[64%] left-[68%] w-[24vw]',
+    className: 'bottom-[7%] right-[5%] w-[26vw]',
   },
 ]
