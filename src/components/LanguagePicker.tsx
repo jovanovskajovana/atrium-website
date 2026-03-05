@@ -26,7 +26,7 @@ const LanguagePicker = () => {
               locale === loc
                 ? 'text-black-100 font-medium'
                 : 'text-black-100/40'
-            } hover:text-black-100 hover:font-medium transition-all`}
+            } hover:text-black-100 hover:font-medium transition-all duration-300`}
           >
             {loc}
           </button>

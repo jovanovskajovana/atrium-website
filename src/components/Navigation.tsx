@@ -18,7 +18,7 @@ const Navigation = () => {
         <AtriumLogo className="w-full h-auto" />
       </Link>
 
-      <nav className="absolute top-[16%] left-[3vw]">
+      <nav className="absolute top-[16%] left-[3vw]" data-nav>
         <Link
           href="/references"
           className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"

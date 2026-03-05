@@ -22,6 +22,19 @@
  * Custom component styles
  */
 @layer components {
+  /* Navigation */
+  [data-nav]:hover [data-menu-item] {
+    opacity: 0.4 !important;
+  }
+
+  [data-nav]:hover [data-menu-item]:hover {
+    opacity: 1 !important;
+  }
+
+  [data-menu-item] {
+    transition: opacity 0.3s ease;
+  }
+
 }
 
 /**
