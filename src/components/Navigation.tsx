@@ -21,42 +21,42 @@ const Navigation = () => {
       <nav className="absolute top-[16%] left-[3vw]">
         <Link
           href="/references"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('references')}
         </Link>
         <Link
           href="/production"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('production')}
         </Link>
         <Link
           href="/news"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('news')}
         </Link>
         <Link
           href="/careers"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('careers')}
         </Link>
         <Link
           href="/about"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('about')}
         </Link>
         <Link
           href="/contact"
-          className="flex text-black-100 text-[1vw] leading-[1.6]"
+          className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
           data-menu-item
         >
           {t('contact')}
