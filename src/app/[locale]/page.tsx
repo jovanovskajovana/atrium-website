@@ -26,6 +26,7 @@ const Home = () => {
             width={1920}
             height={1194}
             className="w-full"
+            loading="eager"
             priority
           />
         </div>
@@ -37,7 +38,9 @@ const Home = () => {
               alt="Atrium"
               width={img.w}
               height={img.h}
-              className="w-full h-auto"
+              className="w-full"
+              loading="eager"
+              priority
             />
           </div>
         ))}
