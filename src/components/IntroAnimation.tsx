@@ -4,8 +4,6 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 
-import Navigation from '@/components/Navigation'
-
 import {
   FULL_A,
   FULL_T,
@@ -23,8 +21,13 @@ import {
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-const IntroAnimation = () => {
+interface IntroAnimationProps {
+  onComplete: () => void
+}
+
+const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
   const containerRef = useRef<HTMLDivElement>(null)
+  const bgRef = useRef<HTMLDivElement>(null)
   const textSvgRef = useRef<SVGSVGElement>(null)
   const imageRef = useRef<HTMLDivElement>(null)
 
@@ -33,6 +36,7 @@ const IntroAnimation = () => {
       return
 
     document.body.style.overflow = 'hidden'
+    document.body.setAttribute('data-animating', '')
 
     const ctx = gsap.context(() => {
       gsap.set('[data-logo]', { opacity: 0 })
@@ -194,7 +198,18 @@ const IntroAnimation = () => {
           '-=0.1'
         )
 
-        // Phase 8b: AT logo fades in at top-left
+        // Phase 8b: Overlay background fades out to reveal Header
+        .to(
+          bgRef.current,
+          {
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.inOut',
+          },
+          '-=0.6'
+        )
+
+        // Phase 8c: AT logo fades in
         .fromTo(
           '[data-logo]',
           { opacity: 0, y: 20 },
@@ -204,10 +219,10 @@ const IntroAnimation = () => {
             duration: 0.6,
             ease: 'power2.out',
           },
-          '-=0.8'
+          '<+=0.1'
         )
 
-        // Phase 8c: Menu items stagger in
+        // Phase 8d: Menu items stagger in
         .fromTo(
           '[data-menu-item]',
           { opacity: 0, y: 15 },
@@ -221,7 +236,7 @@ const IntroAnimation = () => {
           '-=0.3'
         )
 
-        // Phase 8d: Language picker fades in
+        // Phase 8e: Language picker fades in
         .fromTo(
           '[data-lang-picker]',
           { opacity: 0, y: 15 },
@@ -234,7 +249,7 @@ const IntroAnimation = () => {
           '<'
         )
 
-        // Phase 8e: Collage images grow in with same clip reveal as hero
+        // Phase 8f: Collage images grow in with clip reveal
         .fromTo(
           '[data-collage]',
           {
@@ -257,22 +272,27 @@ const IntroAnimation = () => {
         // Phase 9: Unlock scroll and signal completion
         .call(() => {
           document.body.style.overflow = ''
+          document.body.removeAttribute('data-animating')
           window.dispatchEvent(new Event('intro-complete'))
+          onComplete()
         })
-    }, containerRef)
+    })
 
     return () => {
       document.body.style.overflow = ''
+      document.body.removeAttribute('data-animating')
       ctx.revert()
     }
-  }, [])
+  }, [onComplete])
 
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 flex items-center justify-center bg-beige-100 overflow-hidden z-50"
+      className="fixed inset-0 flex items-center justify-center overflow-hidden z-[60]"
       data-intro-animation
     >
+      <div ref={bgRef} className="absolute inset-0 bg-beige-100" />
+
       <svg
         ref={textSvgRef}
         viewBox="0 0 613 94"
@@ -319,8 +339,6 @@ const IntroAnimation = () => {
           priority
         />
       </div>
-
-      <Navigation />
 
       {COLLAGE_IMAGES.map((img, i) => (
         <div

@@ -22,7 +22,7 @@
  * Custom component styles
  */
 @layer components {
-  /* Navigation */
+  /* Navigation hover effect */
   [data-nav]:hover [data-menu-item] {
     opacity: 0.4 !important;
   }
@@ -31,10 +31,9 @@
     opacity: 1 !important;
   }
 
-  [data-menu-item] {
+  body:not([data-animating]) [data-menu-item] {
     transition: opacity 0.3s ease;
   }
-
 }
 
 /**
