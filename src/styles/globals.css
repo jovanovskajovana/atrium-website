@@ -23,11 +23,16 @@
  */
 @layer components {
   /* Navigation hover effect */
-  [data-nav]:hover [data-menu-item] {
+  [data-nav]:has([data-active]) [data-menu-item]:not([data-active]) {
+    opacity: 0.4;
+  }
+
+  [data-nav]:hover [data-menu-item]:not([data-active]):not(:hover) {
     opacity: 0.4 !important;
   }
 
-  [data-nav]:hover [data-menu-item]:hover {
+  [data-nav]:hover [data-menu-item]:hover,
+  [data-menu-item][data-active] {
     opacity: 1 !important;
   }
 
