@@ -32,7 +32,7 @@ const Home = () => {
         </div>
 
         {COLLAGE_IMAGES.map((img, i) => (
-          <div key={img.src} className={`absolute ${img.className}`}>
+          <div key={i} className={`absolute ${img.className}`}>
             <Image
               src={img.src}
               alt="Atrium"

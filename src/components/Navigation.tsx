@@ -30,7 +30,7 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="flex text-black-100 text-[1vw] font-[450] leading-[1.8]"
+            className="flex text-black-100 text-[1vw] font-[450] leading-[1.6]"
             data-menu-item
             data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
           >
