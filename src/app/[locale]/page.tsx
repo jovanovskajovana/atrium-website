@@ -9,6 +9,8 @@ import IntroAnimation from '@/components/IntroAnimation'
 
 import { COLLAGE_IMAGES } from '@/constants/intro-animation'
 
+import { useTranslations } from 'next-intl'
+
 import useIntroAnimation from '@/hooks/useIntroAnimation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
@@ -18,10 +20,12 @@ const COLLAGE_REST = COLLAGE_IMAGES.slice(0, -1)
 const IMG9 = COLLAGE_IMAGES[COLLAGE_IMAGES.length - 1]
 
 const Home = () => {
+  const t = useTranslations('home')
   const { showIntro, completeIntro } = useIntroAnimation()
   const sectionRef = useRef<HTMLElement>(null)
   const section2Ref = useRef<HTMLElement>(null)
   const img9Ref = useRef<HTMLDivElement>(null)
+  const section3Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) return
@@ -54,22 +58,42 @@ const Home = () => {
       const fromX = collagePosX - img9PosX
       const fromY = collagePosY - img9PosY
 
+      const naturalHeight = img9Rect.height
+      const targetHeight = naturalHeight * 0.85
+
       gsap.set(img9, {
         transformOrigin: '0% 0%',
         x: fromX,
         y: fromY,
         scale: fromScale,
+        height: naturalHeight,
       })
+
+      const imgEl = img9.querySelector('img')
 
       const tl = gsap.timeline({ paused: true })
 
-      tl.to(img9, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        duration: 1,
-        ease: 'power2.inOut',
-      })
+      tl.to(
+        img9,
+        {
+          x: 0,
+          y: 0,
+          scale: 1,
+          height: targetHeight,
+          duration: 1,
+          ease: 'power2.inOut',
+        },
+        0
+      )
+
+      if (imgEl) {
+        tl.fromTo(
+          imgEl,
+          { scale: 1 },
+          { scale: 1.2, duration: 1, ease: 'power2.inOut' },
+          0
+        )
+      }
 
       ScrollTrigger.create({
         trigger: img5El,
@@ -77,6 +101,87 @@ const Home = () => {
         onEnter: () => tl.play(),
         onLeaveBack: () => tl.reverse(),
       })
+
+      const textBlock = section2.querySelector('[data-text-reveal]')
+      if (textBlock) {
+        gsap.set(textBlock, { y: 100, opacity: 0 })
+        ScrollTrigger.create({
+          trigger: textBlock,
+          start: 'top 120%',
+          onEnter: () => {
+            gsap.to(textBlock, { opacity: 1, duration: 0.3, ease: 'none' })
+            gsap.to(textBlock, {
+              y: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+            })
+          },
+          onLeaveBack: () => {
+            gsap.to(textBlock, { opacity: 0, duration: 0.3, ease: 'none' })
+            gsap.to(textBlock, {
+              y: 100,
+              duration: 0.8,
+              ease: 'power3.out',
+            })
+          },
+        })
+      }
+
+      const btnBlock =
+        section2.querySelector('[data-btn-reveal]')?.parentElement
+      if (btnBlock) {
+        gsap.set(btnBlock, { y: 60, opacity: 0 })
+        ScrollTrigger.create({
+          trigger: btnBlock,
+          start: 'top 120%',
+          onEnter: () => {
+            gsap.to(btnBlock, { opacity: 1, duration: 0.3, ease: 'none' })
+            gsap.to(btnBlock, {
+              y: 0,
+              duration: 1,
+              ease: 'power3.out',
+            })
+          },
+          onLeaveBack: () => {
+            gsap.to(btnBlock, { opacity: 0, duration: 0.3, ease: 'none' })
+            gsap.to(btnBlock, {
+              y: 60,
+              duration: 1,
+              ease: 'power3.out',
+            })
+          },
+        })
+      }
+
+      const section3 = section3Ref.current
+      if (section3) {
+        const pillars = section3.querySelectorAll('[data-pillar]')
+        const track = section3.querySelector(
+          '[data-pillars-track]'
+        ) as HTMLElement
+        gsap.set(pillars, { opacity: 0.4 })
+        gsap.set(track, { y: 100, opacity: 0 })
+
+        ScrollTrigger.create({
+          trigger: section3,
+          start: 'top 120%',
+          onEnter: () => {
+            gsap.to(track, { opacity: 1, duration: 0.3, ease: 'none' })
+            gsap.to(track, { y: 0, duration: 0.8, ease: 'power3.out' })
+            gsap.to(pillars[0], {
+              opacity: 1,
+              duration: 0.6,
+              delay: 0.6,
+              ease: 'power2.inOut',
+            })
+          },
+          onLeaveBack: () => {
+            gsap.to(track, { opacity: 0, duration: 0.3, ease: 'none' })
+            gsap.to(track, { y: 100, duration: 0.8, ease: 'power3.out' })
+            gsap.to(pillars[0], { opacity: 0.4, duration: 0.3, ease: 'none' })
+          },
+        })
+      }
     })
 
     return () => ctx.revert()
@@ -122,60 +227,82 @@ const Home = () => {
         ))}
       </section>
 
-      <section ref={section2Ref} className="relative bg-beige-100 pt-[8%]">
-        <div ref={img9Ref} className="relative z-20">
+      <section ref={section2Ref} className="relative pt-[6%]">
+        <div
+          ref={img9Ref}
+          className="relative flex items-center overflow-hidden z-20"
+        >
           <Image
             src={IMG9.src}
             alt="Atrium"
             width={IMG9.w}
             height={IMG9.h}
-            className="w-full"
+            className="w-full flex-shrink-0"
             sizes="100vw"
             loading="eager"
             priority
           />
         </div>
 
-        <div className="flex flex-col max-w-[60vw] pb-[8%] px-[3vw] m-auto">
-          <h2
-            data-text-reveal
-            className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase pl-[1.5vw] mt-[0.25%]"
-          >
-            Bespoke Furniture
+        <div
+          className="flex flex-col max-w-[60vw] px-[3vw] m-auto"
+          data-text-reveal
+        >
+          <h2 className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[1.5vw] mt-[6%]">
+            {t('section_2_title_1')}
           </h2>
-          <h2
-            data-text-reveal
-            className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase pl-[5vw]"
-          >
-            Industrial Precision
+          <h2 className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[5vw]">
+            {t('section_2_title_2')}
           </h2>
 
-          <div
-            className="text-[0.92vw] leading-[1.8] text-black-100 w-[70%] mx-auto"
-            data-text-reveal
-          >
-            <p className="indent-[3em] mt-[0.5%]">
-              We work closely with architects, designers, and craftsmen to turn
-              design ideas into custom furniture. Our approach combines precise
-              manufacturing with careful attention to detail, ensuring that
-              every piece is produced exactly as envisioned by the designer.
-            </p>
-            <p className="indent-[3em] mt-[1%]">
-              Using advanced CNC machining, we achieve outstanding dimensional
-              accuracy and perfect tolerances for every detail. Yet, the warmth
-              and individuality of each piece comes from the hands of our
-              craftspeople, who finish every element with care—imparting
-              authenticity and human character.
-            </p>
-            <p className="indent-[3em] mt-[1%]">
-              Rooted in the European Union, we combine a heritage of
-              craftsmanship with strict quality standards and sustainable
-              sourcing. Our local, traceable supply chains ensure materials are
-              responsibly selected, resulting in furniture that embodies
-              engineered precision and the enduring values of EU-made
-              excellence.
-            </p>
+          <div className="text-[0.92vw] leading-[1.8] text-black-100 w-[70%] mx-auto">
+            <p className="indent-[3em] mt-[2%]">{t('section_2_text_1')}</p>
+            <p className="indent-[3em] mt-[2%]">{t('section_2_text_2')}</p>
+            <p className="indent-[3em] mt-[2%]">{t('section_2_text_3')}</p>
           </div>
+        </div>
+
+        <div className="flex justify-between w-[37.5vw] pb-[7%] mt-[8%] mx-auto">
+          <button
+            data-btn-reveal
+            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
+          >
+            {t('section_2_cta_meeting')}
+          </button>
+          <button
+            data-btn-reveal
+            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
+          >
+            {t('section_2_cta_inquiry')}
+          </button>
+          <button
+            data-btn-reveal
+            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
+          >
+            {t('section_2_cta_oem')}
+          </button>
+        </div>
+      </section>
+
+      <section ref={section3Ref} className="relative pb-[8%]">
+        <div data-pillars-track className="flex gap-[4vw] pl-[31.25vw]">
+          {[1, 2, 3, 4].map((n) => (
+            <div
+              key={n}
+              data-pillar
+              className="flex flex-col shrink-0 w-[20vw]"
+            >
+              <span className="text-[0.75vw] text-black-100/40 mb-[1vw]">
+                {String(n).padStart(2, '0')}
+              </span>
+              <h3 className="text-[1.1vw] font-medium text-black-100 uppercase tracking-[0.08em] leading-[1.3] mb-[1vw]">
+                {t(`section_3_pillar_${n}_title`)}
+              </h3>
+              <p className="text-[0.85vw] leading-[1.8] text-black-100/60">
+                {t(`section_3_pillar_${n}_text`)}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

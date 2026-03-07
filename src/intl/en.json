@@ -20,7 +20,22 @@
     "not_found": "Oops! Page not found."
   },
   "home": {
-    "title": "Home"
+    "section_2_title_1": "Bespoke Furniture",
+    "section_2_title_2": "Industrial Precision",
+    "section_2_text_1": "We work closely with architects, designers, and craftsmen to turn design ideas into custom furniture. Our approach combines precise manufacturing with careful attention to detail, ensuring that every piece is produced exactly as envisioned by the designer.",
+    "section_2_text_2": "Using advanced CNC machining, we achieve outstanding dimensional accuracy and perfect tolerances for every detail. Yet, the warmth and individuality of each piece comes from the hands of our craftspeople, who finish every element with care—imparting authenticity and human character.",
+    "section_2_text_3": "Rooted in the European Union, we combine a heritage of craftsmanship with strict quality standards and sustainable sourcing. Our local, traceable supply chains ensure materials are responsibly selected, resulting in furniture that embodies engineered precision and the enduring values of EU-made excellence.",
+    "section_2_cta_meeting": "book a meeting",
+    "section_2_cta_inquiry": "send inquiry",
+    "section_2_cta_oem": "for OEM partners",
+    "section_3_pillar_1_title": "Quality You Can Trust",
+    "section_3_pillar_1_text": "We work exclusively with premium materials, certified suppliers, and high-performance hardware.",
+    "section_3_pillar_2_title": "Designed & Made to Measure",
+    "section_3_pillar_2_text": "In-house design, prototyping, project management, and full custom execution.",
+    "section_3_pillar_3_title": "Advanced, Automation-Driven Production",
+    "section_3_pillar_3_text": "Robotic machining, optimized workflows, and consistent precision at scale.",
+    "section_3_pillar_4_title": "End-to-End Expertise",
+    "section_3_pillar_4_text": "Technicians, engineers, architects, carpenters, installers — a complete team under one roof."
   },
   "about": {
     "title": "About us"
