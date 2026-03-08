@@ -275,7 +275,7 @@ const Home = () => {
   }, [showIntro])
 
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <section
         ref={sectionRef}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
