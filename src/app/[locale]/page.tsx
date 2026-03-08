@@ -150,7 +150,6 @@ const Home = () => {
             opacity: 1,
             duration: 1.3,
             ease: 'power3.out',
-            stagger: 0.15,
           },
           0
         )
@@ -219,9 +218,9 @@ const Home = () => {
           lines,
           {
             scaleX: 1,
-            duration: 1.4,
+            duration: 1.8,
             ease: 'power3.inOut',
-            stagger: 0.1,
+            stagger: 0.12,
           },
           0
         )
