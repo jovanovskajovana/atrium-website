@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -26,6 +27,7 @@ const Home = () => {
   const section2Ref = useRef<HTMLElement>(null)
   const img9Ref = useRef<HTMLDivElement>(null)
   const section3Ref = useRef<HTMLElement>(null)
+  const section4Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) return
@@ -268,6 +270,50 @@ const Home = () => {
           onLeaveBack: () => tl.reverse(),
         })
       }
+
+      const section4 = section4Ref.current
+      if (section4) {
+        const projectItems = section4.querySelectorAll('[data-project-item]')
+        const projectTagline = section4.querySelector('[data-project-tagline]')
+        const projectLink = section4.querySelector('[data-project-link]')
+
+        gsap.set(projectItems, { y: 120, opacity: 0 })
+
+        const s4Tl = gsap.timeline({ paused: true })
+
+        s4Tl.to(projectItems, {
+          y: 0,
+          opacity: 1,
+          duration: 1.4,
+          ease: 'power3.out',
+          stagger: 0.08,
+        })
+
+        if (projectTagline) {
+          gsap.set(projectTagline, { y: 30, opacity: 0 })
+          s4Tl.to(
+            projectTagline,
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
+            0.5
+          )
+        }
+
+        if (projectLink) {
+          gsap.set(projectLink, { y: 30, opacity: 0 })
+          s4Tl.to(
+            projectLink,
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
+            0.7
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: section4,
+          start: 'top 80%',
+          onEnter: () => s4Tl.play(),
+          onLeaveBack: () => s4Tl.reverse(),
+        })
+      }
     })
 
     return () => ctx.revert()
@@ -416,6 +462,69 @@ const Home = () => {
             </div>
           ))}
           <div data-pillar-line className="h-px bg-black-100/20 origin-left" />
+        </div>
+      </section>
+
+      <section ref={section4Ref} className="relative pb-[6%]">
+        <div className="flex items-center gap-[20px] justify-center">
+          {[
+            '/assets/img-10.webp',
+            '/assets/img-11.webp',
+            '/assets/img-12.webp',
+            '/assets/img-13.webp',
+            '/assets/img-14.webp',
+            '/assets/img-15.webp',
+            '/assets/img-16.webp',
+            '/assets/img-17.webp',
+          ].map((src, i) => {
+            const isLarge = i % 2 === 0
+            const w = isLarge ? 312 : 228
+            const h = isLarge ? 420 : 307
+            const num = String(i + 1).padStart(2, '0')
+            return (
+              <div
+                key={i}
+                className="shrink-0"
+                style={{ width: w }}
+                data-project-item
+              >
+                <p className="text-[0.8vw] text-black-100/40 mb-[1%]">{num}</p>
+                <div
+                  className="overflow-hidden"
+                  style={{ width: w, height: h }}
+                >
+                  <Image
+                    src={src}
+                    alt="Atrium project"
+                    width={w}
+                    height={h}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <p className="text-[0.92vw] text-black-100 mt-[2%]">
+                  {t(`section_4_project_${i + 1}`)}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="text-center mt-[5%]" data-project-tagline>
+          <p className="text-[1.5vw] font-[450] text-black-100 uppercase">
+            {t('section_4_tagline_1')}
+          </p>
+          <p className="text-[1.1vw] font-[350] text-black-100/50 mt-[0.6vw]">
+            {t('section_4_tagline_2')}
+          </p>
+        </div>
+
+        <div className="flex justify-center mt-[3%]" data-project-link>
+          <Link
+            href="/references"
+            className="text-black-100 text-[0.92vw] underline hover:opacity-80 transition-opacity"
+          >
+            {t('section_4_cta')}
+          </Link>
         </div>
       </section>
 
