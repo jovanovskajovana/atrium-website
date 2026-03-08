@@ -35,8 +35,6 @@ const Home = () => {
     const img9 = img9Ref.current
     if (!section || !section2 || !img9) return
 
-    const img5El = section.querySelectorAll('[data-collage-item]')[3]
-
     const ctx = gsap.context(() => {
       const sectionRect = section.getBoundingClientRect()
       const img9Rect = img9.getBoundingClientRect()
@@ -71,9 +69,16 @@ const Home = () => {
 
       const imgEl = img9.querySelector('img')
 
-      const tl = gsap.timeline({ paused: true })
+      const img9Tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=5%',
+          scrub: 1.5,
+        },
+      })
 
-      tl.to(
+      img9Tl.to(
         img9,
         {
           x: 0,
@@ -81,33 +86,55 @@ const Home = () => {
           scale: 1,
           height: targetHeight,
           duration: 1,
-          ease: 'power2.inOut',
+          ease: 'none',
         },
         0
       )
 
       if (imgEl) {
-        tl.fromTo(
+        img9Tl.fromTo(
           imgEl,
           { scale: 1 },
-          { scale: 1.2, duration: 1, ease: 'power2.inOut' },
+          { scale: 1.2, duration: 1, ease: 'none' },
           0
         )
       }
 
-      ScrollTrigger.create({
-        trigger: img5El,
-        start: 'top 5%',
-        onEnter: () => tl.play(),
-        onLeaveBack: () => tl.reverse(),
+      const collageItems = section.querySelectorAll('[data-collage-item]')
+      const collageBg = section.querySelector('[data-collage-bg]')
+
+      collageItems.forEach((item, i) => {
+        gsap.to(item, {
+          y: () => -window.innerHeight * (0.15 + i * 0.06),
+          opacity: 0,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top top',
+            end: '+=100%',
+            scrub: true,
+          },
+        })
       })
+
+      if (collageBg) {
+        gsap.to(collageBg, {
+          opacity: 0,
+          scrollTrigger: {
+            trigger: section,
+            start: '40% top',
+            end: '+=60%',
+            scrub: true,
+          },
+        })
+      }
 
       const s2Titles = section2.querySelectorAll('[data-s2-title]')
       const s2Texts = section2.querySelectorAll('[data-s2-text]')
       const textBlock = section2.querySelector('[data-text-reveal]')
 
       if (textBlock && s2Titles.length) {
-        gsap.set(s2Titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(s2Titles, { y: 40, opacity: 0 })
         gsap.set(s2Texts, { y: 20, opacity: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
@@ -115,9 +142,10 @@ const Home = () => {
         s2Tl.to(
           s2Titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0
@@ -178,7 +206,7 @@ const Home = () => {
 
         gsap.set(lines, { scaleX: 0 })
         gsap.set(numbers, { y: 60, opacity: 0 })
-        gsap.set(titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(titles, { y: 30, opacity: 0 })
         gsap.set(texts, { y: 20, opacity: 0 })
 
         const tl = gsap.timeline({ paused: true })
@@ -209,9 +237,10 @@ const Home = () => {
         tl.to(
           titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0.5
@@ -245,9 +274,10 @@ const Home = () => {
     <main>
       <section
         ref={sectionRef}
-        className={`relative h-screen w-full overflow-hidden ${showIntro ? 'invisible' : 'visible'}`}
+        className={`sticky top-0 z-0 h-screen w-full overflow-hidden ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
+          data-collage-bg
           className="absolute inset-0 w-[60vw] m-auto h-fit"
           style={{ transform: 'translate(10vw, -18vh) scale(0.47)' }}
         >
@@ -281,7 +311,7 @@ const Home = () => {
         ))}
       </section>
 
-      <section ref={section2Ref} className="relative pt-[6%]">
+      <section ref={section2Ref} className="relative z-10 bg-beige-100">
         <div
           ref={img9Ref}
           className="relative flex items-center overflow-hidden z-20"
@@ -350,7 +380,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative pb-[8%] pt-[2%]">
+      <section
+        ref={section3Ref}
+        className="relative z-10 bg-beige-100 pb-[8%] pt-[2%]"
+      >
         <div data-pillars-track>
           {[1, 2, 3, 4].map((n) => (
             <div key={n} data-pillar>
@@ -386,7 +419,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="h-[100vh] pb-[8%]"></section>
+      <section className="relative z-10 bg-beige-100 h-[100vh] pb-[8%]"></section>
 
       {showIntro && <IntroAnimation onComplete={completeIntro} />}
     </main>
