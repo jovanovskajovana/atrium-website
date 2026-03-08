@@ -35,8 +35,6 @@ const Home = () => {
     const img9 = img9Ref.current
     if (!section || !section2 || !img9) return
 
-    const img5El = section.querySelectorAll('[data-collage-item]')[3]
-
     const ctx = gsap.context(() => {
       const sectionRect = section.getBoundingClientRect()
       const img9Rect = img9.getBoundingClientRect()
@@ -69,11 +67,30 @@ const Home = () => {
         height: naturalHeight,
       })
 
+      gsap.to(section, {
+        scale: 1.35,
+        opacity: 0,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true,
+        },
+      })
+
       const imgEl = img9.querySelector('img')
 
-      const tl = gsap.timeline({ paused: true })
+      const img9Tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=10%',
+          scrub: 1.5,
+        },
+      })
 
-      tl.to(
+      img9Tl.to(
         img9,
         {
           x: 0,
@@ -81,33 +98,26 @@ const Home = () => {
           scale: 1,
           height: targetHeight,
           duration: 1,
-          ease: 'power2.inOut',
+          ease: 'none',
         },
         0
       )
 
       if (imgEl) {
-        tl.fromTo(
+        img9Tl.fromTo(
           imgEl,
           { scale: 1 },
-          { scale: 1.2, duration: 1, ease: 'power2.inOut' },
+          { scale: 1.2, duration: 1, ease: 'none' },
           0
         )
       }
-
-      ScrollTrigger.create({
-        trigger: img5El,
-        start: 'top 5%',
-        onEnter: () => tl.play(),
-        onLeaveBack: () => tl.reverse(),
-      })
 
       const s2Titles = section2.querySelectorAll('[data-s2-title]')
       const s2Texts = section2.querySelectorAll('[data-s2-text]')
       const textBlock = section2.querySelector('[data-text-reveal]')
 
       if (textBlock && s2Titles.length) {
-        gsap.set(s2Titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(s2Titles, { y: 40, opacity: 0 })
         gsap.set(s2Texts, { y: 20, opacity: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
@@ -115,9 +125,10 @@ const Home = () => {
         s2Tl.to(
           s2Titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0
@@ -178,7 +189,7 @@ const Home = () => {
 
         gsap.set(lines, { scaleX: 0 })
         gsap.set(numbers, { y: 60, opacity: 0 })
-        gsap.set(titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(titles, { y: 30, opacity: 0 })
         gsap.set(texts, { y: 20, opacity: 0 })
 
         const tl = gsap.timeline({ paused: true })
@@ -209,9 +220,10 @@ const Home = () => {
         tl.to(
           titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0.5
