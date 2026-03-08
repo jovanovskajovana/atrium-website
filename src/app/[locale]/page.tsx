@@ -102,28 +102,44 @@ const Home = () => {
         onLeaveBack: () => tl.reverse(),
       })
 
+      const s2Titles = section2.querySelectorAll('[data-s2-title]')
+      const s2Texts = section2.querySelectorAll('[data-s2-text]')
       const textBlock = section2.querySelector('[data-text-reveal]')
-      if (textBlock) {
-        gsap.set(textBlock, { y: 100, opacity: 0 })
+
+      if (textBlock && s2Titles.length) {
+        gsap.set(s2Titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(s2Texts, { y: 20, opacity: 0 })
+
+        const s2Tl = gsap.timeline({ paused: true })
+
+        s2Tl.to(
+          s2Titles,
+          {
+            clipPath: 'inset(0 0% 0 0)',
+            duration: 1.3,
+            ease: 'power2.inOut',
+            stagger: 0.15,
+          },
+          0
+        )
+
+        s2Tl.to(
+          s2Texts,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            stagger: 0.15,
+          },
+          0.3
+        )
+
         ScrollTrigger.create({
           trigger: textBlock,
-          start: 'top 120%',
-          onEnter: () => {
-            gsap.to(textBlock, { opacity: 1, duration: 0.3, ease: 'none' })
-            gsap.to(textBlock, {
-              y: 0,
-              duration: 0.8,
-              ease: 'power3.out',
-            })
-          },
-          onLeaveBack: () => {
-            gsap.to(textBlock, { opacity: 0, duration: 0.3, ease: 'none' })
-            gsap.to(textBlock, {
-              y: 100,
-              duration: 0.8,
-              ease: 'power3.out',
-            })
-          },
+          start: 'top bottom',
+          onEnter: () => s2Tl.play(),
+          onLeaveBack: () => s2Tl.reverse(),
         })
       }
 
@@ -155,31 +171,69 @@ const Home = () => {
 
       const section3 = section3Ref.current
       if (section3) {
-        const pillars = section3.querySelectorAll('[data-pillar]')
-        const track = section3.querySelector(
-          '[data-pillars-track]'
-        ) as HTMLElement
-        gsap.set(pillars, { opacity: 0.4 })
-        gsap.set(track, { y: 100, opacity: 0 })
+        const lines = section3.querySelectorAll('[data-pillar-line]')
+        const numbers = section3.querySelectorAll('[data-pillar-num]')
+        const titles = section3.querySelectorAll('[data-pillar-title]')
+        const texts = section3.querySelectorAll('[data-pillar-text]')
+
+        gsap.set(lines, { scaleX: 0 })
+        gsap.set(numbers, { y: 60, opacity: 0 })
+        gsap.set(titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(texts, { y: 20, opacity: 0 })
+
+        const tl = gsap.timeline({ paused: true })
+
+        tl.to(
+          lines,
+          {
+            scaleX: 1,
+            duration: 1.4,
+            ease: 'power3.inOut',
+            stagger: 0.1,
+          },
+          0
+        )
+
+        tl.to(
+          numbers,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.4,
+            ease: 'power3.out',
+            stagger: 0.15,
+          },
+          0.3
+        )
+
+        tl.to(
+          titles,
+          {
+            clipPath: 'inset(0 0% 0 0)',
+            duration: 1.3,
+            ease: 'power2.inOut',
+            stagger: 0.15,
+          },
+          0.5
+        )
+
+        tl.to(
+          texts,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            stagger: 0.15,
+          },
+          0.7
+        )
 
         ScrollTrigger.create({
           trigger: section3,
-          start: 'top 120%',
-          onEnter: () => {
-            gsap.to(track, { opacity: 1, duration: 0.3, ease: 'none' })
-            gsap.to(track, { y: 0, duration: 0.8, ease: 'power3.out' })
-            gsap.to(pillars[0], {
-              opacity: 1,
-              duration: 0.6,
-              delay: 0.6,
-              ease: 'power2.inOut',
-            })
-          },
-          onLeaveBack: () => {
-            gsap.to(track, { opacity: 0, duration: 0.3, ease: 'none' })
-            gsap.to(track, { y: 100, duration: 0.8, ease: 'power3.out' })
-            gsap.to(pillars[0], { opacity: 0.4, duration: 0.3, ease: 'none' })
-          },
+          start: 'top bottom',
+          onEnter: () => tl.play(),
+          onLeaveBack: () => tl.reverse(),
         })
       }
     })
@@ -248,21 +302,33 @@ const Home = () => {
           className="flex flex-col max-w-[60vw] px-[3vw] m-auto"
           data-text-reveal
         >
-          <h2 className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[1.5vw] mt-[6%]">
+          <h2
+            data-s2-title
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[1.5vw] mt-[2%]"
+          >
             {t('section_2_title_1')}
           </h2>
-          <h2 className="text-[3.7vw] font-medium text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[5vw]">
+          <h2
+            data-s2-title
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.2] uppercase whitespace-nowrap pl-[5vw]"
+          >
             {t('section_2_title_2')}
           </h2>
 
           <div className="text-[0.92vw] leading-[1.8] text-black-100 w-[70%] mx-auto">
-            <p className="indent-[3em] mt-[2%]">{t('section_2_text_1')}</p>
-            <p className="indent-[3em] mt-[2%]">{t('section_2_text_2')}</p>
-            <p className="indent-[3em] mt-[2%]">{t('section_2_text_3')}</p>
+            <p data-s2-text className="indent-[3em] mt-[2.5%]">
+              {t('section_2_text_1')}
+            </p>
+            <p data-s2-text className="indent-[3em] mt-[2%]">
+              {t('section_2_text_2')}
+            </p>
+            <p data-s2-text className="indent-[3em] mt-[2%]">
+              {t('section_2_text_3')}
+            </p>
           </div>
         </div>
 
-        <div className="flex justify-between w-[37.5vw] pb-[7%] mt-[8%] mx-auto">
+        <div className="flex justify-between w-[37.5vw] pb-[8%] mt-[8%] mx-auto">
           <button
             data-btn-reveal
             className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
@@ -284,27 +350,43 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative pb-[8%]">
-        <div data-pillars-track className="flex gap-[4vw] pl-[31.25vw]">
+      <section ref={section3Ref} className="relative pb-[8%] pt-[2%]">
+        <div data-pillars-track>
           {[1, 2, 3, 4].map((n) => (
-            <div
-              key={n}
-              data-pillar
-              className="flex flex-col shrink-0 w-[20vw]"
-            >
-              <span className="text-[0.75vw] text-black-100/40 mb-[1vw]">
-                {String(n).padStart(2, '0')}
-              </span>
-              <h3 className="text-[1.1vw] font-medium text-black-100 uppercase tracking-[0.08em] leading-[1.3] mb-[1vw]">
-                {t(`section_3_pillar_${n}_title`)}
-              </h3>
-              <p className="text-[0.85vw] leading-[1.8] text-black-100/60">
-                {t(`section_3_pillar_${n}_text`)}
-              </p>
+            <div key={n} data-pillar>
+              <div
+                className="h-px bg-black-100/20 origin-left"
+                data-pillar-line
+              />
+              <div className="grid grid-cols-[6vw_1fr] gap-[2vw] items-start py-[2%] pl-[23.25vw] pr-[12vw]">
+                <span
+                  className="text-[3.2vw] font-light leading-none text-black-100/[0.1]"
+                  data-pillar-num
+                >
+                  {String(n).padStart(2, '0')}
+                </span>
+                <div className="flex flex-col">
+                  <h3
+                    className="text-[1.1vw] font-medium text-black-100 leading-[1.2] uppercase pt-[0.5%]"
+                    data-pillar-title
+                  >
+                    {t(`section_3_pillar_${n}_title`)}
+                  </h3>
+                  <p
+                    className="text-[0.92vw] leading-[1.8] text-black-100/60 max-w-[32vw] pt-[1.5%]"
+                    data-pillar-text
+                  >
+                    {t(`section_3_pillar_${n}_text`)}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
+          <div data-pillar-line className="h-px bg-black-100/20 origin-left" />
         </div>
       </section>
+
+      <section className="h-[100vh] pb-[8%]"></section>
 
       {showIntro && <IntroAnimation onComplete={completeIntro} />}
     </main>
