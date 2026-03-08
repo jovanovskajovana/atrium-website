@@ -71,9 +71,16 @@ const Home = () => {
 
       const imgEl = img9.querySelector('img')
 
-      const tl = gsap.timeline({ paused: true })
+      const img9Tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=50%',
+          scrub: 0.5,
+        },
+      })
 
-      tl.to(
+      img9Tl.to(
         img9,
         {
           x: 0,
@@ -81,33 +88,57 @@ const Home = () => {
           scale: 1,
           height: targetHeight,
           duration: 1,
-          ease: 'power2.inOut',
+          ease: 'none',
         },
         0
       )
 
       if (imgEl) {
-        tl.fromTo(
+        img9Tl.fromTo(
           imgEl,
           { scale: 1 },
-          { scale: 1.2, duration: 1, ease: 'power2.inOut' },
+          { scale: 1.2, duration: 1, ease: 'none' },
           0
         )
       }
 
-      ScrollTrigger.create({
-        trigger: img5El,
-        start: 'top 5%',
-        onEnter: () => tl.play(),
-        onLeaveBack: () => tl.reverse(),
+      const collageItems = section.querySelectorAll('[data-collage-item]')
+      const collageBg = section.querySelector('[data-collage-bg]')
+
+      const scatterDirs = [
+        { x: -200, y: -150, rotation: -15, scale: 1.8 },
+        { x: 250, y: -200, rotation: 12, scale: 2.0 },
+        { x: -300, y: 50, rotation: -20, scale: 1.6 },
+        { x: 200, y: 250, rotation: 18, scale: 1.9 },
+        { x: -250, y: -250, rotation: 25, scale: 2.2 },
+        { x: -200, y: 300, rotation: -12, scale: 1.7 },
+        { x: 300, y: 150, rotation: -18, scale: 2.0 },
+      ]
+
+      const scatterTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top',
+          end: '+=50%',
+          scrub: 0.5,
+        },
       })
+
+      collageItems.forEach((item, i) => {
+        const dir = scatterDirs[i % scatterDirs.length]
+        scatterTl.to(item, { ...dir, opacity: 0, duration: 1 }, 0)
+      })
+
+      if (collageBg) {
+        scatterTl.to(collageBg, { opacity: 0, duration: 1 }, 0.1)
+      }
 
       const s2Titles = section2.querySelectorAll('[data-s2-title]')
       const s2Texts = section2.querySelectorAll('[data-s2-text]')
       const textBlock = section2.querySelector('[data-text-reveal]')
 
       if (textBlock && s2Titles.length) {
-        gsap.set(s2Titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(s2Titles, { y: 40, opacity: 0 })
         gsap.set(s2Texts, { y: 20, opacity: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
@@ -115,9 +146,10 @@ const Home = () => {
         s2Tl.to(
           s2Titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0
@@ -178,7 +210,7 @@ const Home = () => {
 
         gsap.set(lines, { scaleX: 0 })
         gsap.set(numbers, { y: 60, opacity: 0 })
-        gsap.set(titles, { clipPath: 'inset(0 100% 0 0)' })
+        gsap.set(titles, { y: 30, opacity: 0 })
         gsap.set(texts, { y: 20, opacity: 0 })
 
         const tl = gsap.timeline({ paused: true })
@@ -209,9 +241,10 @@ const Home = () => {
         tl.to(
           titles,
           {
-            clipPath: 'inset(0 0% 0 0)',
+            y: 0,
+            opacity: 1,
             duration: 1.3,
-            ease: 'power2.inOut',
+            ease: 'power3.out',
             stagger: 0.15,
           },
           0.5
@@ -245,9 +278,10 @@ const Home = () => {
     <main>
       <section
         ref={sectionRef}
-        className={`relative h-screen w-full overflow-hidden ${showIntro ? 'invisible' : 'visible'}`}
+        className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
+          data-collage-bg
           className="absolute inset-0 w-[60vw] m-auto h-fit"
           style={{ transform: 'translate(10vw, -18vh) scale(0.47)' }}
         >
