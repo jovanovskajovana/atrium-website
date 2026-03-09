@@ -204,28 +204,15 @@ const Home = () => {
 
       const section3 = section3Ref.current
       if (section3) {
-        const lines = section3.querySelectorAll('[data-pillar-line]')
         const numbers = section3.querySelectorAll('[data-pillar-num]')
         const titles = section3.querySelectorAll('[data-pillar-title]')
         const texts = section3.querySelectorAll('[data-pillar-text]')
 
-        gsap.set(lines, { scaleX: 0 })
         gsap.set(numbers, { y: 60, opacity: 0 })
         gsap.set(titles, { y: 30, opacity: 0 })
         gsap.set(texts, { y: 20, opacity: 0 })
 
         const tl = gsap.timeline({ paused: true })
-
-        tl.to(
-          lines,
-          {
-            scaleX: 1,
-            duration: 1.8,
-            ease: 'power3.inOut',
-            stagger: 0.12,
-          },
-          0
-        )
 
         tl.to(
           numbers,
@@ -284,7 +271,7 @@ const Home = () => {
           gsap.set(item, { x: vw, opacity: 0 })
           s4Tl.to(
             item,
-            { x: 0, opacity: 1, duration: 1.65, ease: 'power2.inOut' },
+            { x: 0, opacity: 1, duration: 2, ease: 'power2.inOut' },
             i * 0.08
           )
         })
@@ -438,14 +425,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative pb-[8%] pt-[2%]">
+      <section ref={section3Ref} className="relative pb-[8%]">
         <div data-pillars-track>
           {[1, 2, 3, 4].map((n) => (
             <div key={n} data-pillar>
-              <div
-                className="h-px bg-black-100/20 origin-left"
-                data-pillar-line
-              />
               <div className="grid grid-cols-[6vw_1fr] gap-[2vw] items-start py-[2%] pl-[23.25vw] pr-[12vw]">
                 <span
                   className="text-[3.2vw] font-light leading-none text-black-100/[0.1]"
@@ -470,7 +453,6 @@ const Home = () => {
               </div>
             </div>
           ))}
-          <div data-pillar-line className="h-px bg-black-100/20 origin-left" />
         </div>
       </section>
 
