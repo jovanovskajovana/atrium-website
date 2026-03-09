@@ -277,39 +277,48 @@ const Home = () => {
         const projectTagline = section4.querySelector('[data-project-tagline]')
         const projectLink = section4.querySelector('[data-project-link]')
 
-        gsap.set(projectItems, { y: 120, opacity: 0 })
-
+        const vw = window.innerWidth
         const s4Tl = gsap.timeline({ paused: true })
 
-        s4Tl.to(projectItems, {
-          y: 0,
-          opacity: 1,
-          duration: 1.4,
-          ease: 'power3.out',
-          stagger: 0.08,
+        projectItems.forEach((item, i) => {
+          gsap.set(item, { x: vw, opacity: 0 })
+          s4Tl.to(
+            item,
+            { x: 0, opacity: 1, duration: 1.65, ease: 'power2.inOut' },
+            i * 0.08
+          )
         })
 
+        const s4TextTl = gsap.timeline({ paused: true })
+
         if (projectTagline) {
-          gsap.set(projectTagline, { y: 30, opacity: 0 })
-          s4Tl.to(
+          gsap.set(projectTagline, { y: 20, opacity: 0 })
+          s4TextTl.to(
             projectTagline,
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
-            0.5
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0
           )
         }
 
         if (projectLink) {
-          gsap.set(projectLink, { y: 30, opacity: 0 })
-          s4Tl.to(
+          gsap.set(projectLink, { y: 20, opacity: 0 })
+          s4TextTl.to(
             projectLink,
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
-            0.7
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.15
           )
         }
 
         ScrollTrigger.create({
+          trigger: projectTagline || projectLink,
+          start: 'top 90%',
+          onEnter: () => s4TextTl.play(),
+          onLeaveBack: () => s4TextTl.reverse(),
+        })
+
+        ScrollTrigger.create({
           trigger: section4,
-          start: 'top 80%',
+          start: 'top-=100 bottom',
           onEnter: () => s4Tl.play(),
           onLeaveBack: () => s4Tl.reverse(),
         })
