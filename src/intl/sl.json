@@ -20,6 +20,8 @@
     "not_found": "Oops! Stran ne obstaja."
   },
   "home": {
+    "hero_tagline": "Kjer rokodelstvo sreča natančnost",
+    "section_2_label": "Naš podpis",
     "section_2_title_1": "Pohištvo po meri",
     "section_2_title_2": "Industrijska natančnost",
     "section_2_text_1": "Tesno sodelujemo z arhitekti, oblikovalci in rokodelci, da oblikovalske ideje pretvorimo v pohištvo po meri. Naš pristop združuje natančno proizvodnjo s skrbno pozornostjo do detajlov, kar zagotavlja, da je vsak kos izdelan natanko po viziji oblikovalca.",
@@ -36,6 +38,10 @@
     "section_3_pillar_3_text": "Robotska obdelava, optimizirani delovni procesi in dosledna natančnost v velikem obsegu.",
     "section_3_pillar_4_title": "Celovito strokovno znanje",
     "section_3_pillar_4_text": "Tehniki, inženirji, arhitekti, mizarji, monterji — celotna ekipa pod eno streho.",
+    "section_projects_label": "Naše delo",
+    "section_pillars_label": "Naš pristop",
+    "closing_cta_title": "Ustvarjajmo skupaj",
+    "closing_cta_text": "Ste arhitekt, oblikovalec ali blagovna znamka? Z veseljem bi slišali o vašem projektu.",
     "section_4_project_1": "Zasebna rezidenca",
     "section_4_project_2": "Hotelski avla",
     "section_4_project_3": "Direktorska pisarna",

@@ -20,6 +20,8 @@
     "not_found": "Oops! Page not found."
   },
   "home": {
+    "hero_tagline": "Where craft meets precision",
+    "section_2_label": "Our Signature",
     "section_2_title_1": "Bespoke Furniture",
     "section_2_title_2": "Industrial Precision",
     "section_2_text_1": "We work closely with architects, designers, and craftsmen to turn design ideas into custom furniture. Our approach combines precise manufacturing with careful attention to detail, ensuring that every piece is produced exactly as envisioned by the designer.",
@@ -36,6 +38,10 @@
     "section_3_pillar_3_text": "Robotic machining, optimized workflows, and consistent precision at scale.",
     "section_3_pillar_4_title": "End-to-End Expertise",
     "section_3_pillar_4_text": "Technicians, engineers, architects, carpenters, installers — a complete team under one roof.",
+    "section_projects_label": "Our Work",
+    "section_pillars_label": "Our Approach",
+    "closing_cta_title": "Let's build something together",
+    "closing_cta_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project.",
     "section_4_project_1": "Private Residence",
     "section_4_project_2": "Hotel Lobby",
     "section_4_project_3": "Executive Office",
