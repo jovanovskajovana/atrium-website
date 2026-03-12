@@ -35,6 +35,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
     if (!containerRef.current || !textSvgRef.current || !imageRef.current)
       return
 
+    window.scrollTo(0, 0)
     document.body.style.overflow = 'hidden'
     document.body.setAttribute('data-animating', '')
 

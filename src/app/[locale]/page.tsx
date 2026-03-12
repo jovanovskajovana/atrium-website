@@ -32,7 +32,10 @@ const Home = () => {
   const closingRef = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
-    if (showIntro) return
+    if (showIntro) {
+      window.scrollTo(0, 0)
+      return
+    }
 
     const section = sectionRef.current
     const section2 = section2Ref.current
