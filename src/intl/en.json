@@ -20,9 +20,8 @@
     "not_found": "Oops! Page not found."
   },
   "home": {
-    "hero_tagline_1": "130 years",
-    "hero_tagline_2": "of heritage",
-    "hero_tagline_3": "Precision and vision",
+    "hero_tagline_1": "130 years of heritage",
+    "hero_tagline_2": "Precision and vision",
     "section_2_label": "Our Signature",
     "section_2_title_1": "Bespoke Furniture",
     "section_2_title_2": "Industrial Precision",
@@ -43,7 +42,7 @@
     "section_projects_label": "Our Work",
     "section_pillars_label": "Our Approach",
     "closing_cta_title": "Let's build something together",
-    "closing_cta_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project.",
+    "closing_cta_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project",
     "section_4_project_1": "Private Residence",
     "section_4_project_2": "Hotel Lobby",
     "section_4_project_3": "Executive Office",
