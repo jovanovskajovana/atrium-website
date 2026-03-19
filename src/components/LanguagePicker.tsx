@@ -24,9 +24,9 @@ const LanguagePicker = () => {
             onClick={() => handleChange(loc)}
             className={`${
               locale === loc
-                ? 'text-black-100 font-medium'
+                ? 'text-black-100 font-[500]'
                 : 'text-black-100/40'
-            } hover:text-black-100 hover:font-medium transition-all duration-300`}
+            } hover:text-black-100 hover:font-[500] transition-all duration-300`}
           >
             {loc}
           </button>

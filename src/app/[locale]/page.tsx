@@ -437,7 +437,7 @@ const Home = () => {
         />
 
         <div
-          className="absolute bottom-[10%] left-[3vw] z-20 pointer-events-none"
+          className="absolute bottom-[10%] left-[3vw] z-20"
           data-hero-tagline
         >
           <p className="text-[2.2vw] text-black-100 font-[450] leading-[1.15] uppercase">
@@ -620,7 +620,7 @@ const Home = () => {
                 </span>
                 <div className="flex flex-col">
                   <h3
-                    className="text-[1.1vw] font-medium text-black-100 leading-[1.2] uppercase pt-[0.5%]"
+                    className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
                     data-pillar-title
                   >
                     {t(`section_3_pillar_${n}_title`)}
@@ -643,7 +643,7 @@ const Home = () => {
           <h2 className="text-[2.8vw] font-[450] text-black-100 uppercase leading-[1.2]">
             {t('closing_cta_title')}
           </h2>
-          <p className="text-[1.1vw] text-black-100/60 mt-[1.5vw] max-w-[35vw] mx-auto leading-[1.8]">
+          <p className="text-[1.1vw] text-black-100/60 font-[350] leading-[1.8] max-w-[35vw] mx-auto mt-[1.5vw]">
             {t('closing_cta_text')}
           </p>
           <div className="flex justify-center gap-[1.5vw] mt-[3vw]">
