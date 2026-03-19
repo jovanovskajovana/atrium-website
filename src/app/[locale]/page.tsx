@@ -43,25 +43,13 @@ const Home = () => {
     if (!section || !section2 || !img9) return
 
     const ctx = gsap.context(() => {
-      const sectionRect = section.getBoundingClientRect()
       const img9Rect = img9.getBoundingClientRect()
-      const scrollY = window.scrollY
+      const img9Pos = section.querySelector('[data-img9-position]')
+      const colRect = img9Pos ? img9Pos.getBoundingClientRect() : img9Rect
 
-      const collageW = window.innerWidth * 0.26
-      const collageH = collageW * (IMG9.h / IMG9.w)
-      const collageLeft =
-        sectionRect.width - sectionRect.width * 0.05 - collageW
-      const collageTop =
-        sectionRect.height - sectionRect.height * 0.07 - collageH
-
-      const collagePosX = sectionRect.left + collageLeft
-      const collagePosY = sectionRect.top + scrollY + collageTop
-      const img9PosX = img9Rect.left
-      const img9PosY = img9Rect.top + scrollY
-
-      const fromScale = collageW / img9Rect.width
-      const fromX = collagePosX - img9PosX
-      const fromY = collagePosY - img9PosY
+      const fromScale = colRect.width / img9Rect.width
+      const fromX = colRect.left - img9Rect.left
+      const fromY = colRect.top - img9Rect.top
 
       const naturalHeight = img9Rect.height
       const targetHeight = naturalHeight * 0.85
@@ -111,13 +99,8 @@ const Home = () => {
       const collageBg = section.querySelector('[data-collage-bg]')
 
       const scatterDirs = [
-        { x: -200, y: -150, rotation: -15, scale: 1.8 },
-        { x: 250, y: -200, rotation: 12, scale: 2.0 },
-        { x: -300, y: 50, rotation: -20, scale: 1.6 },
-        { x: 200, y: 250, rotation: 18, scale: 1.9 },
-        { x: -250, y: -250, rotation: 25, scale: 2.2 },
-        { x: -200, y: 300, rotation: -12, scale: 1.7 },
-        { x: 300, y: 150, rotation: -18, scale: 2.0 },
+        { x: -250, y: -150, rotation: -15, scale: 1.8 },
+        { x: -200, y: 200, rotation: 12, scale: 1.7 },
       ]
 
       const scatterTl = gsap.timeline({
@@ -135,12 +118,23 @@ const Home = () => {
       })
 
       if (collageBg) {
-        scatterTl.to(collageBg, { opacity: 0, duration: 1 }, 0.1)
+        scatterTl.to(
+          collageBg,
+          {
+            x: 300,
+            y: -200,
+            rotation: 10,
+            scale: 1.8,
+            opacity: 0,
+            duration: 1,
+          },
+          0
+        )
       }
 
       const heroTagline = section.querySelector('[data-hero-tagline]')
       if (heroTagline) {
-        gsap.set(heroTagline, { y: 20, opacity: 0 })
+        gsap.set(heroTagline, { y: 30, opacity: 0 })
         gsap.to(heroTagline, {
           y: 0,
           opacity: 1,
@@ -151,7 +145,7 @@ const Home = () => {
 
         scatterTl.to(
           heroTagline,
-          { y: -30, duration: 1, ease: 'power2.inOut' },
+          { x: -80, opacity: 0, duration: 1, ease: 'power2.inOut' },
           0
         )
       }
@@ -406,11 +400,7 @@ const Home = () => {
         ref={sectionRef}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
-        <div
-          data-collage-bg
-          className="absolute inset-0 w-[60vw] m-auto h-fit"
-          style={{ transform: 'translate(10vw, -18vh) scale(0.47)' }}
-        >
+        <div data-collage-bg className="absolute top-0 left-[40%] w-[44vw]">
           <Image
             src="/assets/img-1.webp"
             alt="Atrium"
@@ -441,11 +431,23 @@ const Home = () => {
         ))}
 
         <div
-          className="absolute bottom-[6vh] left-0 right-0 text-center z-20 pointer-events-none"
+          data-img9-position
+          className={`absolute invisible ${IMG9.className}`}
+          style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
+        />
+
+        <div
+          className="absolute bottom-[10%] left-[3vw] z-20 pointer-events-none"
           data-hero-tagline
         >
-          <p className="text-[1.1vw] uppercase tracking-[0.3em] text-black-100/40">
-            {t('hero_tagline')}
+          <p className="text-[2.2vw] text-black-100 font-[450] leading-[1.15] uppercase">
+            {t('hero_tagline_1')}
+            <br />
+            {t('hero_tagline_2')}
+          </p>
+          <div className="w-[4vw] h-px bg-black-100/25 my-[1vw]" />
+          <p className="text-[1.1vw] text-black-100/40 font-[350] leading-[1.5] tracking-[0.03em]">
+            {t('hero_tagline_3')}
           </p>
         </div>
       </section>

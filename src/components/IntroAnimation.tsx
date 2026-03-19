@@ -47,6 +47,16 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       const imgW = window.innerWidth * 0.6
       const startScale = 20 / imgW
 
+      const coverBg = document.querySelector('[data-collage-bg]')
+      const coverRect = coverBg?.getBoundingClientRect()
+      const slideScale = coverRect ? coverRect.width / imgW : 0.7333
+      const slideX = coverRect
+        ? coverRect.left + coverRect.width / 2 - window.innerWidth / 2
+        : 0
+      const slideY = coverRect
+        ? coverRect.top + coverRect.height / 2 - window.innerHeight / 2
+        : 0
+
       const svg = textSvgRef.current!
       const fullA = svg.querySelector('[data-part="full-a"]')
       const fullT = svg.querySelector('[data-part="full-t"]')
@@ -190,9 +200,9 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         .to(
           imageRef.current,
           {
-            x: '10vw',
-            y: '-18vh',
-            scale: 0.47,
+            x: slideX,
+            y: slideY,
+            scale: slideScale,
             duration: 1.2,
             ease: 'power2.inOut',
           },
