@@ -16,21 +16,17 @@ const Navigation = () => {
   const isHome = pathname === '/'
 
   return (
-    <>
-      <Link
-        href="/"
-        className="absolute top-[4vh] left-[3vw] w-[2.2vw]"
-        data-logo
-      >
+    <div className="flex items-center justify-between px-[3vw] py-[2.5vh]">
+      <Link href="/" className="w-[2.2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>
 
-      <nav className="absolute top-[16vh] left-[3vw]" data-nav>
+      <nav className="flex items-center gap-[2vw]" data-nav>
         {NAV_ITEMS.map(({ href, key }) => (
           <Link
             key={key}
             href={href}
-            className="flex text-[0.92vw] font-[450] leading-[1.6] text-black-100"
+            className="text-[0.82vw] font-[450] text-black-100"
             data-menu-item
             data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
           >
@@ -39,10 +35,10 @@ const Navigation = () => {
         ))}
       </nav>
 
-      <div className="absolute top-[4vh] right-[3vw]" data-lang-picker>
+      <div data-lang-picker>
         <LanguagePicker />
       </div>
-    </>
+    </div>
   )
 }
 

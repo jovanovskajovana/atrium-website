@@ -45,11 +45,13 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       gsap.set('[data-lang-picker]', { opacity: 0 })
 
       const imgW = window.innerWidth * 0.6
+      const imgH = imgW * (1194 / 1920)
       const startScale = 20 / imgW
 
       const coverBg = document.querySelector('[data-collage-bg]')
       const coverRect = coverBg?.getBoundingClientRect()
-      const slideScale = coverRect ? coverRect.width / imgW : 0.7333
+      const slideScale = coverRect ? coverRect.height / imgH : 0.5
+      const slideClip = ((1 - 1194 / 1920) / 2) * 100
       const slideX = coverRect
         ? coverRect.left + coverRect.width / 2 - window.innerWidth / 2
         : 0
@@ -196,17 +198,19 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           '-=0.1'
         )
 
-        // Phase 8a: Image slides to right-side collage position
+        // Phase 8a: Image slides to collage position, cropping to square
+        .addLabel('slide')
         .to(
           imageRef.current,
           {
             x: slideX,
             y: slideY,
             scale: slideScale,
+            clipPath: `inset(0% ${slideClip}% 0% ${slideClip}%)`,
             duration: 1.2,
             ease: 'power2.inOut',
           },
-          '-=0.1'
+          'slide'
         )
 
         // Phase 8b: Overlay background fades out to reveal Header
@@ -260,7 +264,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           '<'
         )
 
-        // Phase 8f: Collage images grow in with clip reveal
+        // Phase 8f: Collage images grow in alongside img-1 slide
         .fromTo(
           '[data-collage]',
           {
@@ -272,12 +276,12 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           {
             scale: 1,
             clipPath: 'inset(0% 0% 0% 0%)',
-            stagger: 0.07,
-            duration: 1.2,
+            stagger: 0.05,
+            duration: 1.0,
             ease: 'power3.out',
             immediateRender: false,
           },
-          '-=0.9'
+          'slide+=0.6'
         )
 
         // Phase 9: Unlock scroll and signal completion
@@ -351,10 +355,10 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         />
       </div>
 
-      {COLLAGE_IMAGES.map((img, i) => (
+      {COLLAGE_IMAGES.slice(0, -1).map((img, i) => (
         <div
           key={img.src}
-          className={`absolute opacity-0 ${img.className}`}
+          className={`absolute opacity-0 aspect-square overflow-hidden ${img.className}`}
           data-collage
         >
           <Image
@@ -362,7 +366,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             alt={`Atrium ${i + 2}`}
             width={img.w}
             height={img.h}
-            className="w-full h-auto"
+            className="w-full h-full object-cover"
           />
         </div>
       ))}

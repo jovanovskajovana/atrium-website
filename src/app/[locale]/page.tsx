@@ -51,15 +51,12 @@ const Home = () => {
       const fromX = colRect.left - img9Rect.left
       const fromY = colRect.top - img9Rect.top
 
-      const naturalHeight = img9Rect.height
-      const targetHeight = naturalHeight * 0.85
-
       gsap.set(img9, {
         transformOrigin: '0% 0%',
         x: fromX,
         y: fromY,
         scale: fromScale,
-        height: naturalHeight,
+        autoAlpha: 0,
       })
 
       const imgEl = img9.querySelector('img')
@@ -79,7 +76,7 @@ const Home = () => {
           x: 0,
           y: 0,
           scale: 1,
-          height: targetHeight,
+          autoAlpha: 1,
           duration: 1,
           ease: 'none',
         },
@@ -90,7 +87,7 @@ const Home = () => {
         img9Tl.fromTo(
           imgEl,
           { scale: 1 },
-          { scale: 1.2, duration: 1, ease: 'none' },
+          { scale: 1.15, duration: 1, ease: 'none' },
           0
         )
       }
@@ -99,8 +96,8 @@ const Home = () => {
       const collageBg = section.querySelector('[data-collage-bg]')
 
       const scatterDirs = [
-        { x: -250, y: -150, rotation: -15, scale: 1.8 },
-        { x: -200, y: 200, rotation: 12, scale: 1.7 },
+        { x: -300, y: -200, rotation: -12, scale: 1.5 },
+        { x: 300, y: -200, rotation: 12, scale: 1.5 },
       ]
 
       const scatterTl = gsap.timeline({
@@ -121,10 +118,9 @@ const Home = () => {
         scatterTl.to(
           collageBg,
           {
-            x: 300,
-            y: -200,
-            rotation: 10,
-            scale: 1.8,
+            y: -250,
+            rotation: 5,
+            scale: 1.4,
             opacity: 0,
             duration: 1,
           },
@@ -145,7 +141,7 @@ const Home = () => {
 
         scatterTl.to(
           heroTagline,
-          { x: -80, opacity: 0, duration: 1, ease: 'power2.inOut' },
+          { y: -60, opacity: 0, duration: 1, ease: 'power2.inOut' },
           0
         )
       }
@@ -400,13 +396,31 @@ const Home = () => {
         ref={sectionRef}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
-        <div data-collage-bg className="absolute top-0 left-[40%] w-[44vw]">
+        <div
+          className="absolute top-[15%] left-1/2 -translate-x-1/2 z-20 text-center"
+          data-hero-tagline
+        >
+          <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
+            {t('hero_tagline_1')}
+            <br />
+            {t('hero_tagline_2')}
+          </h1>
+          <div className="w-[2.5vw] h-px bg-black-100/20 mx-auto my-[1vw]" />
+          <p className="text-[0.72vw] text-black-100/40 tracking-[0.25em] uppercase">
+            {t('hero_tagline_3')}
+          </p>
+        </div>
+
+        <div
+          data-collage-bg
+          className="absolute bottom-0 left-[35vw] w-[30vw] aspect-square overflow-hidden"
+        >
           <Image
             src="/assets/img-1.webp"
             alt="Atrium"
             width={1920}
             height={1194}
-            className="w-full"
+            className="w-full h-full object-cover"
             loading="eager"
             priority
           />
@@ -415,7 +429,7 @@ const Home = () => {
         {COLLAGE_REST.map((img, i) => (
           <div
             key={i}
-            className={`absolute ${img.className}`}
+            className={`absolute aspect-square overflow-hidden ${img.className}`}
             data-collage-item
           >
             <Image
@@ -423,7 +437,7 @@ const Home = () => {
               alt="Atrium"
               width={img.w}
               height={img.h}
-              className="w-full"
+              className="w-full h-full object-cover"
               loading="eager"
               priority
             />
@@ -435,27 +449,12 @@ const Home = () => {
           className={`absolute invisible ${IMG9.className}`}
           style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
         />
-
-        <div
-          className="absolute bottom-[10%] left-[3vw] z-20"
-          data-hero-tagline
-        >
-          <p className="text-[2.2vw] text-black-100 font-[450] leading-[1.15] uppercase">
-            {t('hero_tagline_1')}
-            <br />
-            {t('hero_tagline_2')}
-          </p>
-          <div className="w-[4vw] h-px bg-black-100/25 my-[1vw]" />
-          <p className="text-[1.1vw] text-black-100/40 font-[350] leading-[1.5] tracking-[0.03em]">
-            {t('hero_tagline_3')}
-          </p>
-        </div>
       </section>
 
       <section ref={section2Ref} className="relative pt-[6%]">
         <div
           ref={img9Ref}
-          className="relative flex items-center overflow-hidden z-20"
+          className="relative flex items-center overflow-hidden z-20 opacity-0"
         >
           <Image
             src={IMG9.src}
