@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
+import Button from '@/components/Button'
 import { Link } from '@/i18n/navigation'
 
 const CookieBanner = () => {
@@ -87,12 +88,9 @@ const CookieBanner = () => {
       >
         {t('deny')}
       </button>
-      <button
-        onClick={() => dismiss('accepted')}
-        className="text-white-100 text-[0.8vw] border border-white-100 py-[1%] px-[1.1vw] hover:bg-white-100 hover:text-black-100 transition-all duration-500 ease-in-out"
-      >
+      <Button variant="light" onClick={() => dismiss('accepted')}>
         {t('accept')}
-      </button>
+      </Button>
     </div>
   )
 }

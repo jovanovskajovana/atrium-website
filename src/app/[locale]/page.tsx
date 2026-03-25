@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
 
 import { COLLAGE_IMAGES } from '@/constants/intro-animation'
@@ -469,7 +470,7 @@ const Home = () => {
 
         <div className="max-w-[75vw] mx-auto mt-[4%]" data-text-reveal>
           <p
-            className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 mb-[1.5%]"
+            className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 mb-[1.5%]"
             data-section-label
           >
             {t('section_2_label')}
@@ -507,24 +508,9 @@ const Home = () => {
         </div>
 
         <div className="flex justify-center gap-[1.5vw] pb-[8%] mt-[8%]">
-          <button
-            data-btn-reveal
-            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
-          >
-            {t('section_2_cta_meeting')}
-          </button>
-          <button
-            data-btn-reveal
-            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
-          >
-            {t('section_2_cta_inquiry')}
-          </button>
-          <button
-            data-btn-reveal
-            className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out"
-          >
-            {t('section_2_cta_oem')}
-          </button>
+          <Button data-btn-reveal>{t('section_2_cta_meeting')}</Button>
+          <Button data-btn-reveal>{t('section_2_cta_inquiry')}</Button>
+          <Button data-btn-reveal>{t('section_2_cta_oem')}</Button>
         </div>
       </section>
 
@@ -541,12 +527,12 @@ const Home = () => {
 
       <section ref={section4Ref} className="relative pb-[8%]">
         <p
-          className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
           data-section-label
         >
           {t('section_projects_label')}
         </p>
-        <div className="flex items-center gap-[24px] justify-center">
+        <div className="flex items-center justify-center gap-[1.5vw]">
           {[
             '/assets/img-10.webp',
             '/assets/img-11.webp',
@@ -601,7 +587,7 @@ const Home = () => {
 
       <section ref={section3Ref} className="relative pb-[8%]">
         <p
-          className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
           data-section-label
         >
           {t('section_pillars_label')}
@@ -645,12 +631,8 @@ const Home = () => {
             {t('closing_cta_text')}
           </p>
           <div className="flex justify-center gap-[1.5vw] mt-[3vw]">
-            <button className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out">
-              {t('section_2_cta_meeting')}
-            </button>
-            <button className="text-black-100 text-[0.8vw] border border-black-100 py-[1%] px-[1.1vw] hover:bg-black-100 hover:text-white-100 transition-all duration-500 ease-in-out">
-              {t('section_2_cta_inquiry')}
-            </button>
+            <Button>{t('section_2_cta_meeting')}</Button>
+            <Button>{t('section_2_cta_inquiry')}</Button>
           </div>
         </div>
       </section>
