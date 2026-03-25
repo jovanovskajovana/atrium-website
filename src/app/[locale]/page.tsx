@@ -141,7 +141,7 @@ const Home = () => {
 
         scatterTl.to(
           heroTagline,
-          { y: -60, opacity: 0, duration: 1, ease: 'power2.inOut' },
+          { y: -60, opacity: 0, duration: 0.6, ease: 'power2.inOut' },
           0
         )
       }
@@ -397,7 +397,7 @@ const Home = () => {
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
-          className="absolute top-[18%] left-1/2 -translate-x-1/2 z-20 text-center"
+          className="absolute top-[18%] left-1/2 -translate-x-1/2 text-center"
           data-hero-tagline
         >
           <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
