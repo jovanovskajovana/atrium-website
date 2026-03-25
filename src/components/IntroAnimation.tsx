@@ -245,8 +245,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           {
             opacity: 1,
             y: 0,
-            stagger: 0.07,
-            duration: 0.5,
+            stagger: 0.1,
+            duration: 0.8,
             ease: 'power3.out',
           },
           '-=0.3'

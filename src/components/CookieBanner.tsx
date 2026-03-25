@@ -4,6 +4,8 @@ import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 
+import Button from '@/components/Button'
+
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 import { Link } from '@/i18n/navigation'
@@ -87,12 +89,9 @@ const CookieBanner = () => {
       >
         {t('deny')}
       </button>
-      <button
-        onClick={() => dismiss('accepted')}
-        className="text-white-100 text-[0.8vw] border border-white-100 py-[1%] px-[1.1vw] hover:bg-white-100 hover:text-black-100 transition-all duration-500 ease-in-out"
-      >
+      <Button variant="light" onClick={() => dismiss('accepted')}>
         {t('accept')}
-      </button>
+      </Button>
     </div>
   )
 }

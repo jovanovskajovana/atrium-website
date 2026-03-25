@@ -29,11 +29,16 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="text-[0.86vw] leading-[1] text-black-100"
+            className="group relative overflow-hidden inline-block text-[0.86vw] leading-[1.4] text-black-100"
             data-menu-item
             data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
           >
-            {t(key)}
+            <span className="block transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              {t(key)}
+            </span>
+            <span className="absolute left-0 top-full transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+              {t(key)}
+            </span>
           </Link>
         ))}
       </nav>
