@@ -16,12 +16,15 @@ const Navigation = () => {
   const isHome = pathname === '/'
 
   return (
-    <div className="flex items-center justify-between px-[3vw] py-[2.5vh]">
+    <div className="relative flex items-center justify-between px-[3vw] py-[2.5vh]">
       <Link href="/" className="w-[2.2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>
 
-      <nav className="flex items-center gap-[2vw]" data-nav>
+      <nav
+        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-[2vw]"
+        data-nav
+      >
         {NAV_ITEMS.map(({ href, key }) => (
           <Link
             key={key}
