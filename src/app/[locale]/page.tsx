@@ -128,17 +128,8 @@ const Home = () => {
         )
       }
 
-      const heroTagline = section.querySelector('[data-hero-tagline]')
+      const heroTagline = document.querySelector('[data-hero-tagline]')
       if (heroTagline) {
-        gsap.set(heroTagline, { y: 30, opacity: 0 })
-        gsap.to(heroTagline, {
-          y: 0,
-          opacity: 1,
-          duration: 1.4,
-          ease: 'power3.out',
-          delay: 0.3,
-        })
-
         scatterTl.to(
           heroTagline,
           { y: -60, opacity: 0, duration: 0.6, ease: 'power2.inOut' },
@@ -391,25 +382,25 @@ const Home = () => {
   }, [showIntro])
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="relative overflow-x-hidden">
+      <div
+        className="absolute top-[17.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
+        data-hero-tagline
+      >
+        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
+          {t('hero_tagline_1')}
+          <br />
+          {t('hero_tagline_2')}
+        </h1>
+        <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
+          {t('hero_tagline_3')}
+        </p>
+      </div>
+
       <section
         ref={sectionRef}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
-        <div
-          className="absolute top-[18%] left-1/2 -translate-x-1/2 text-center"
-          data-hero-tagline
-        >
-          <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
-            {t('hero_tagline_1')}
-            <br />
-            {t('hero_tagline_2')}
-          </h1>
-          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
-            {t('hero_tagline_3')}
-          </p>
-        </div>
-
         <div
           data-collage-bg
           className="absolute bottom-0 left-[34.83vw] w-[30.33vw] aspect-square overflow-hidden"

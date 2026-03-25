@@ -43,6 +43,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       gsap.set('[data-logo]', { opacity: 0 })
       gsap.set('[data-menu-item]', { opacity: 0 })
       gsap.set('[data-lang-picker]', { opacity: 0 })
+      gsap.set('[data-hero-tagline]', { opacity: 0 })
 
       const imgW = window.innerWidth * 0.6
       const imgH = imgW * (1194 / 1920)
@@ -282,6 +283,14 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             immediateRender: false,
           },
           'slide+=0.6'
+        )
+
+        // Phase 8g: Hero tagline slides up and fades in
+        .fromTo(
+          '[data-hero-tagline]',
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
+          'slide+=0.7'
         )
 
         // Phase 9: Unlock scroll and signal completion
