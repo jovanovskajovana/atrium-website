@@ -397,7 +397,7 @@ const Home = () => {
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
-          className="absolute top-[15%] left-1/2 -translate-x-1/2 z-20 text-center"
+          className="absolute top-[18%] left-1/2 -translate-x-1/2 z-20 text-center"
           data-hero-tagline
         >
           <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
@@ -405,15 +405,14 @@ const Home = () => {
             <br />
             {t('hero_tagline_2')}
           </h1>
-          <div className="w-[2.5vw] h-px bg-black-100/20 mx-auto my-[1vw]" />
-          <p className="text-[0.72vw] text-black-100/40 tracking-[0.25em] uppercase">
+          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
             {t('hero_tagline_3')}
           </p>
         </div>
 
         <div
           data-collage-bg
-          className="absolute bottom-0 left-[35vw] w-[30vw] aspect-square overflow-hidden"
+          className="absolute bottom-0 left-[34.83vw] w-[30.33vw] aspect-square overflow-hidden"
         >
           <Image
             src="/assets/img-1.webp"
@@ -470,7 +469,7 @@ const Home = () => {
 
         <div className="max-w-[75vw] mx-auto mt-[4%]" data-text-reveal>
           <p
-            className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 mb-[1.5%]"
+            className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 mb-[1.5%]"
             data-section-label
           >
             {t('section_2_label')}
@@ -542,12 +541,12 @@ const Home = () => {
 
       <section ref={section4Ref} className="relative pb-[8%]">
         <p
-          className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
           data-section-label
         >
           {t('section_projects_label')}
         </p>
-        <div className="flex items-center gap-[24px] justify-center">
+        <div className="flex items-center justify-center gap-[1.5vw]">
           {[
             '/assets/img-10.webp',
             '/assets/img-11.webp',
@@ -602,7 +601,7 @@ const Home = () => {
 
       <section ref={section3Ref} className="relative pb-[8%]">
         <p
-          className="text-[0.72vw] uppercase tracking-[0.3em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
           data-section-label
         >
           {t('section_pillars_label')}

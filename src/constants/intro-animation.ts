@@ -23,18 +23,18 @@ export const COLLAGE_IMAGES = [
     src: '/assets/img-6.webp',
     w: 1919,
     h: 2560,
-    className: 'bottom-0 left-[3vw] w-[30vw]',
+    className: 'bottom-0 left-[3vw] w-[30.33vw]',
   },
   {
     src: '/assets/img-4.webp',
     w: 1919,
     h: 2560,
-    className: 'bottom-0 right-[3vw] w-[30vw]',
+    className: 'bottom-0 right-[3vw] w-[30.33vw]',
   },
   {
     src: '/assets/img-9.webp',
     w: 1920,
     h: 1194,
-    className: 'bottom-0 left-[35vw] w-[30vw]',
+    className: 'bottom-0 left-[34.83vw] w-[30.33vw]',
   },
 ]

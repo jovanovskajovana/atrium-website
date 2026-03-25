@@ -26,7 +26,7 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="text-[0.82vw] font-[450] text-black-100"
+            className="text-[0.86vw] leading-[1] text-black-100"
             data-menu-item
             data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
           >

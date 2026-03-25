@@ -15,7 +15,7 @@ const LanguagePicker = () => {
   }
 
   return (
-    <div className="flex items-center gap-[0.25vw] text-[0.8vw]">
+    <div className="flex items-center gap-[0.25vw] text-[0.8vw] leading-[1]">
       {routing.locales.map((loc, i) => (
         <span key={loc} className="flex items-center gap-[0.25vw]">
           {i > 0 && <span className="text-black-100/40">|</span>}
@@ -23,9 +23,7 @@ const LanguagePicker = () => {
             type="button"
             onClick={() => handleChange(loc)}
             className={`${
-              locale === loc
-                ? 'text-black-100 font-[500]'
-                : 'text-black-100/40'
+              locale === loc ? 'text-black-100 font-[500]' : 'text-black-100/40'
             } hover:text-black-100 hover:font-[500] transition-all duration-300`}
           >
             {loc}
