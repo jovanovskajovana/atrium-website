@@ -20,8 +20,9 @@
     "not_found": "Oops! Page not found."
   },
   "home": {
-    "hero_tagline_1": "130 years of heritage",
-    "hero_tagline_2": "Precision and vision",
+    "hero_tagline_1": "130 years",
+    "hero_tagline_2": "of heritage",
+    "hero_tagline_3": "Precision and vision",
     "section_2_label": "Our Signature",
     "section_2_title_1": "Bespoke Furniture",
     "section_2_title_2": "Industrial Precision",

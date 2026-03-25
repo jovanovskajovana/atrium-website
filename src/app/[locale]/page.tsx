@@ -133,20 +133,11 @@ const Home = () => {
         )
       }
 
-      const heroTagline = section.querySelector('[data-hero-tagline]')
+      const heroTagline = document.querySelector('[data-hero-tagline]')
       if (heroTagline) {
-        gsap.set(heroTagline, { y: 30, opacity: 0 })
-        gsap.to(heroTagline, {
-          y: 0,
-          opacity: 1,
-          duration: 1.4,
-          ease: 'power3.out',
-          delay: 0.3,
-        })
-
         scatterTl.to(
           heroTagline,
-          { x: -80, opacity: 0, duration: 1, ease: 'power2.inOut' },
+          { y: -60, opacity: 0, duration: 1, ease: 'power2.inOut' },
           0
         )
       }
@@ -396,7 +387,7 @@ const Home = () => {
   }, [showIntro])
 
   return (
-    <main className="overflow-x-hidden">
+    <main className="relative overflow-x-hidden">
       <section
         ref={sectionRef}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
@@ -437,16 +428,23 @@ const Home = () => {
           style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
         />
 
+      </section>
+
+      <div className="absolute top-0 left-0 w-full h-screen pointer-events-none">
         <div
-          className="absolute bottom-[10%] left-[20%] z-20"
+          className="absolute bottom-[20%] left-[20%] z-20"
           data-hero-tagline
         >
-          <p className="text-[2.2vw] text-black-100 font-[350] leading-[1.3] tracking-[0.02em] max-w-[18vw]">
-            {t('hero_tagline_1')}{' '}
-            <span className="font-[300] opacity-40">{t('hero_tagline_2')}</span>
+          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
+            {t('hero_tagline_1')}
+            <br />
+            {t('hero_tagline_2')}
+          </h1>
+          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
+            {t('hero_tagline_3')}
           </p>
         </div>
-      </section>
+      </div>
 
       <section ref={section2Ref} className="relative pt-[6%]">
         <div

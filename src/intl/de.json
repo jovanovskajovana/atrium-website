@@ -20,8 +20,9 @@
     "not_found": "Oops! Seite nicht gefunden."
   },
   "home": {
-    "hero_tagline_1": "130 Jahre Tradition",
-    "hero_tagline_2": "Präzision und Vision",
+    "hero_tagline_1": "130 Jahre",
+    "hero_tagline_2": "Tradition",
+    "hero_tagline_3": "Präzision und Vision",
     "section_2_label": "Unsere Signatur",
     "section_2_title_1": "Maßgefertigte Möbel",
     "section_2_title_2": "Industrielle Präzision",

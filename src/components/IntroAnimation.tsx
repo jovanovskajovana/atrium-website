@@ -43,6 +43,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       gsap.set('[data-logo]', { opacity: 0 })
       gsap.set('[data-menu-item]', { opacity: 0 })
       gsap.set('[data-lang-picker]', { opacity: 0 })
+      gsap.set('[data-hero-tagline]', { opacity: 0 })
 
       const imgW = window.innerWidth * 0.6
       const startScale = 20 / imgW
@@ -197,6 +198,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         )
 
         // Phase 8a: Image slides to right-side collage position
+        .addLabel('slide')
         .to(
           imageRef.current,
           {
@@ -206,7 +208,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             duration: 1.2,
             ease: 'power2.inOut',
           },
-          '-=0.1'
+          'slide'
         )
 
         // Phase 8b: Overlay background fades out to reveal Header
@@ -278,6 +280,14 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             immediateRender: false,
           },
           '-=0.9'
+        )
+
+        // Phase 8g: Hero tagline slides up and fades in
+        .fromTo(
+          '[data-hero-tagline]',
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 1.8, ease: 'power3.out' },
+          '<+=0.4'
         )
 
         // Phase 9: Unlock scroll and signal completion

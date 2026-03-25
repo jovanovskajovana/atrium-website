@@ -20,8 +20,9 @@
     "not_found": "Oops! Stran ne obstaja."
   },
   "home": {
-    "hero_tagline_1": "130 let tradicije",
-    "hero_tagline_2": "Natančnost in vizija",
+    "hero_tagline_1": "130 let",
+    "hero_tagline_2": "tradicije",
+    "hero_tagline_3": "Natančnost in vizija",
     "section_2_label": "Naš podpis",
     "section_2_title_1": "Pohištvo po meri",
     "section_2_title_2": "Industrijska natančnost",
