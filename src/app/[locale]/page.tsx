@@ -391,7 +391,7 @@ const Home = () => {
             <br />
             {t('hero_tagline_2')}
           </h1>
-          <p className="text-[0.82vw] uppercase tracking-[0.15em] text-black-100/30 pl-[0.1vw]">
+          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase pl-[0.1vw]">
             {t('hero_tagline_3')}
           </p>
         </div>
