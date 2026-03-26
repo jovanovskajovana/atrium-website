@@ -389,7 +389,7 @@ const Home = () => {
           className="absolute top-[14.5%] right-[7vw] w-[23vw]"
           data-hero-tagline
         >
-          <h1 className="text-[1.8vw] font-[300] text-black-100 uppercase leading-[1.3] tracking-[0.05em] mb-[2%]">
+          <h1 className="text-[1.8vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.05em] mb-[2%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
@@ -473,13 +473,13 @@ const Home = () => {
             <div>
               <h2
                 data-s2-title
-                className="text-[3.7vw] font-[300] text-black-100 leading-[1.15] uppercase tracking-[0.03em] whitespace-nowrap ml-[-0.3vw]"
+                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] whitespace-nowrap ml-[-0.3vw]"
               >
                 {t('section_2_title_1')}
               </h2>
               <h2
                 data-s2-title
-                className="text-[3.7vw] font-[300] text-black-100 leading-[1.15] uppercase tracking-[0.03em] whitespace-nowrap ml-[-0.3vw]"
+                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] whitespace-nowrap ml-[-0.3vw]"
               >
                 {t('section_2_title_2')}
               </h2>
@@ -510,10 +510,10 @@ const Home = () => {
 
       <section ref={taglineRef} className="relative pb-[6%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
-          <p className="text-[2.4vw] font-[300] text-black-100 uppercase leading-[1.3] tracking-[0.03em]">
+          <p className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.03em]">
             {t('section_4_tagline_1')}
           </p>
-          <p className="text-[1.2vw] font-[300] text-black-100/40 mt-[1.2vw]">
+          <p className="text-[1.2vw] font-[350] text-black-100/40 mt-[1.2vw]">
             {t('section_4_tagline_2')}
           </p>
         </div>
@@ -598,7 +598,7 @@ const Home = () => {
                 </span>
                 <div className="flex flex-col">
                   <h3
-                    className="text-[1.1vw] font-[300] text-black-100 leading-[1.2] uppercase tracking-[0.05em] pt-[0.5%]"
+                    className="text-[1.1vw] font-[450] text-black-100 leading-[1.2] uppercase tracking-[0.05em] pt-[0.5%]"
                     data-pillar-title
                   >
                     {t(`section_3_pillar_${n}_title`)}
@@ -618,7 +618,7 @@ const Home = () => {
 
       <section ref={closingRef} className="relative py-[10%]">
         <div className="text-center" data-closing-reveal>
-          <h2 className="text-[2.8vw] font-[300] text-black-100 uppercase leading-[1.2] tracking-[0.03em]">
+          <h2 className="text-[2.8vw] font-[450] text-black-100 uppercase leading-[1.2] tracking-[0.03em]">
             {t('closing_cta_title')}
           </h2>
           <p className="text-[1.1vw] text-black-100/60 font-[350] leading-[1.8] max-w-[35vw] mx-auto mt-[1.5vw]">
