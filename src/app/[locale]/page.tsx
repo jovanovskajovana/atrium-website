@@ -427,7 +427,6 @@ const Home = () => {
           className={`absolute invisible ${IMG9.className}`}
           style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
         />
-
       </section>
 
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none">
@@ -435,12 +434,12 @@ const Home = () => {
           className="absolute bottom-[20%] left-[20%] z-20"
           data-hero-tagline
         >
-          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
+          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] mb-[4%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
           </h1>
-          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
+          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
             {t('hero_tagline_3')}
           </p>
         </div>
