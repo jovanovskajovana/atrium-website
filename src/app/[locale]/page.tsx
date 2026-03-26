@@ -389,7 +389,7 @@ const Home = () => {
           className="absolute top-[14.5%] right-[7vw] w-[23vw]"
           data-hero-tagline
         >
-          <h1 className="text-[1.8vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.05em] mb-[2%]">
+          <h1 className="text-[1.8vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.04em] mb-[2%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
