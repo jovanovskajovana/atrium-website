@@ -46,12 +46,13 @@ const Header = () => {
         <span className="text-[0.8vw] text-black-100/40">
           {sectionLabel} / {String(SECTION_COUNT).padStart(2, '0')}
         </span>
-      </div>
-      <div className="fixed top-0 left-0 w-full h-[2px] z-[70] pointer-events-none">
-        <div
-          className="h-full w-full bg-black-100 origin-left"
-          style={{ transform: `scaleX(${progress})` }}
-        />
+        {/* <div className="relative w-[1px] h-[2.5vw] mt-[50%] ml-[0.1vw]">
+          <div className="absolute inset-0 bg-black-100/15" />
+          <div
+            className="absolute inset-0 bg-black-100 origin-top"
+            style={{ transform: `scaleY(${progress})` }}
+          />
+        </div> */}
       </div>
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-transform duration-500 ease-in-out ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
