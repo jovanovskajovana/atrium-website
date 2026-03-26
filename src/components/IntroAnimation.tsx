@@ -270,6 +270,19 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           '-=0.9'
         )
 
+        // Phase 8g: Hero tagline fades in
+        .fromTo(
+          '[data-hero-tagline]',
+          { y: 20, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+          },
+          '-=0.7'
+        )
+
         // Phase 9: Unlock scroll and signal completion
         .call(() => {
           document.body.style.overflow = ''

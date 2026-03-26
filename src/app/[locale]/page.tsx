@@ -141,15 +141,6 @@ const Home = () => {
 
       const heroTagline = section.querySelector('[data-hero-tagline]')
       if (heroTagline) {
-        gsap.set(heroTagline, { y: 20, opacity: 0 })
-        gsap.to(heroTagline, {
-          y: 0,
-          opacity: 1,
-          duration: 1.4,
-          ease: 'power3.out',
-          delay: 0.3,
-        })
-
         scatterTl.to(
           heroTagline,
           { y: -30, duration: 1, ease: 'power2.inOut' },
@@ -441,15 +432,16 @@ const Home = () => {
           </div>
         ))}
 
-        <div
-          className="absolute bottom-[6vh] left-0 right-0 text-center z-20 pointer-events-none"
-          data-hero-tagline
-        >
-          <p className="text-[1.1vw] uppercase tracking-[0.3em] text-black-100/40">
-            {t('hero_tagline')}
-          </p>
-        </div>
       </section>
+
+      <div
+        className="absolute bottom-[6vh] left-0 right-0 text-center z-[61] pointer-events-none"
+        data-hero-tagline
+      >
+        <p className="text-[1.1vw] uppercase tracking-[0.3em] text-black-100/40">
+          {t('hero_tagline')}
+        </p>
+      </div>
 
       <section ref={section2Ref} className="relative pt-[6%]">
         <div
