@@ -23,18 +23,30 @@ export const COLLAGE_IMAGES = [
     src: '/assets/img-6.webp',
     w: 1919,
     h: 2560,
-    className: 'bottom-0 left-[3vw] w-[30.33vw]',
+    className: 'top-[20%] left-[7vw] w-[23vw]',
+  },
+  {
+    src: '/assets/img-3.webp',
+    w: 1919,
+    h: 2560,
+    className: 'top-[71%] left-[7vw] w-[23vw]',
   },
   {
     src: '/assets/img-4.webp',
+    w: 750,
+    h: 833,
+    className: 'top-[30%] right-[7vw] w-[23vw]',
+  },
+  {
+    src: '/assets/img-2.webp',
     w: 1919,
     h: 2560,
-    className: 'bottom-0 right-[3vw] w-[30.33vw]',
+    className: 'top-[81%] right-[7vw] w-[23vw]',
   },
   {
     src: '/assets/img-9.webp',
     w: 1920,
     h: 1194,
-    className: 'bottom-0 left-[34.83vw] w-[30.33vw]',
+    className: 'top-[87.6%] left-[33vw] w-[34vw]',
   },
 ]

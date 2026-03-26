@@ -57,7 +57,6 @@ const Home = () => {
         x: fromX,
         y: fromY,
         scale: fromScale,
-        autoAlpha: 0,
       })
 
       const imgEl = img9.querySelector('img')
@@ -77,7 +76,6 @@ const Home = () => {
           x: 0,
           y: 0,
           scale: 1,
-          autoAlpha: 1,
           duration: 1,
           ease: 'none',
         },
@@ -97,8 +95,10 @@ const Home = () => {
       const collageBg = section.querySelector('[data-collage-bg]')
 
       const scatterDirs = [
-        { x: -300, y: -200, rotation: -12, scale: 1.5 },
-        { x: 300, y: -200, rotation: 12, scale: 1.5 },
+        { x: -250, y: -200, rotation: -10, scale: 1.5 },
+        { x: -200, y: 200, rotation: -8, scale: 1.4 },
+        { x: 250, y: -150, rotation: 10, scale: 1.5 },
+        { x: 200, y: 200, rotation: 8, scale: 1.4 },
       ]
 
       const scatterTl = gsap.timeline({
@@ -384,18 +384,17 @@ const Home = () => {
 
   return (
     <main className="relative overflow-x-hidden">
-      <div
-        className="absolute top-[17.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
-        data-hero-tagline
-      >
-        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.04em]">
-          {t('hero_tagline_1')}
-          <br />
-          {t('hero_tagline_2')}
-        </h1>
-        <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mt-[1vw]">
-          {t('hero_tagline_3')}
-        </p>
+      <div className="absolute top-0 left-0 w-full h-screen pointer-events-none">
+        <div className="absolute top-[12%] right-[6vw]" data-hero-tagline>
+          <p className="text-[1vw] font-[350] text-black-100 leading-[1.5] tracking-[0.02em]">
+            {t('hero_tagline_1')}
+            <br />
+            {t('hero_tagline_2')}
+          </p>
+          <p className="text-[0.8vw] font-[350] text-black-100/40 tracking-[0.02em] mt-[0.6vw]">
+            {t('hero_tagline_3')}
+          </p>
+        </div>
       </div>
 
       <section
@@ -404,7 +403,7 @@ const Home = () => {
       >
         <div
           data-collage-bg
-          className="absolute bottom-0 left-[34.83vw] w-[30.33vw] aspect-square overflow-hidden"
+          className="absolute top-[15%] left-[33vw] w-[34vw] aspect-square overflow-hidden"
         >
           <Image
             src="/assets/img-1.webp"
@@ -445,7 +444,8 @@ const Home = () => {
       <section ref={section2Ref} className="relative pt-[6%]">
         <div
           ref={img9Ref}
-          className="relative flex items-center overflow-hidden z-20 opacity-0"
+          data-img9
+          className="relative flex items-center overflow-hidden z-20"
         >
           <Image
             src={IMG9.src}

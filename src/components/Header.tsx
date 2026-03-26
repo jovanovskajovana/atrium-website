@@ -34,10 +34,11 @@ const Header = () => {
 
   return (
     <>
-      <div className="fixed top-0 left-0 w-full h-[2px] z-[60]">
+      <div className="fixed left-[3.25vw] top-1/2 -translate-y-1/2 w-[2px] h-[18vh] z-[60]">
+        <div className="absolute inset-0 bg-black-100/15" />
         <div
-          className="bg-black-100 h-full origin-left"
-          style={{ transform: `scaleX(${progress})` }}
+          className="absolute top-0 left-0 w-full bg-black-100 origin-top"
+          style={{ height: `${progress * 100}%` }}
         />
       </div>
       <header

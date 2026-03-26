@@ -379,6 +379,25 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
           />
         </div>
       ))}
+
+      {(() => {
+        const img9 = COLLAGE_IMAGES[COLLAGE_IMAGES.length - 1]
+        return (
+          <div
+            className={`absolute opacity-0 overflow-hidden ${img9.className}`}
+            style={{ aspectRatio: `${img9.w}/${img9.h}` }}
+            data-collage
+          >
+            <Image
+              src={img9.src}
+              alt="Atrium"
+              width={img9.w}
+              height={img9.h}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        )
+      })()}
     </div>
   )
 }

@@ -17,7 +17,7 @@ const Navigation = () => {
 
   return (
     <div className="relative flex items-center justify-between px-[3vw] py-[2.5vh]">
-      <Link href="/" className="w-[2.2vw]" data-logo>
+      <Link href="/" className="w-[2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>
 
