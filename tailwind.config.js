@@ -26,7 +26,6 @@ module.exports = {
         100: '#1d1d1b',
       },
       beige: {
-        // 100: '#f5f4f0',
         // 100: '#ebeee9',
         100: '#fff',
       },
