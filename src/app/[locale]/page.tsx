@@ -385,13 +385,16 @@ const Home = () => {
   return (
     <main className="relative overflow-x-hidden">
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none">
-        <div className="absolute top-[12%] right-[6vw]" data-hero-tagline>
-          <p className="text-[1vw] font-[350] text-black-100 leading-[1.5] tracking-[0.02em]">
+        <div
+          className="absolute top-[14.5%] right-[7vw] w-[23vw]"
+          data-hero-tagline
+        >
+          <h1 className="text-[1.8vw] font-[450] text-black-100 uppercase leading-[1.3] mb-[2%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
-          </p>
-          <p className="text-[0.8vw] font-[350] text-black-100/40 tracking-[0.02em] mt-[0.6vw]">
+          </h1>
+          <p className="text-[0.82vw] uppercase tracking-[0.15em] text-black-100/40">
             {t('hero_tagline_3')}
           </p>
         </div>
