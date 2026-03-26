@@ -434,12 +434,12 @@ const Home = () => {
           className="absolute bottom-[20%] left-[20%] z-20"
           data-hero-tagline
         >
-          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] mb-[4%]">
+          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] mb-[6%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
           </h1>
-          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
+          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] pl-[0.1vw] uppercase">
             {t('hero_tagline_3')}
           </p>
         </div>
