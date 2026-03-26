@@ -133,8 +133,8 @@ const Home = () => {
       if (heroTagline) {
         scatterTl.to(
           heroTagline,
-          { y: -60, opacity: 0, duration: 0.6, ease: 'power2.inOut' },
-          0
+          { y: -40, opacity: 0, duration: 1, ease: 'power2.out' },
+          0.3
         )
       }
 
@@ -385,16 +385,13 @@ const Home = () => {
   return (
     <main className="relative overflow-x-hidden">
       <div className="absolute top-0 left-0 w-full h-screen pointer-events-none">
-        <div
-          className="absolute top-[14.5%] right-[7vw] w-[23vw]"
-          data-hero-tagline
-        >
-          <h1 className="text-[1.8vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.04em] mb-[2%]">
+        <div className="absolute bottom-[19%] left-[3vw]" data-hero-tagline>
+          <h1 className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3] tracking-[0.04em] mb-[6%]">
             {t('hero_tagline_1')}
             <br />
             {t('hero_tagline_2')}
           </h1>
-          <p className="text-[0.82vw] uppercase tracking-[0.15em] text-black-100/30">
+          <p className="text-[0.82vw] uppercase tracking-[0.15em] text-black-100/30 pl-[0.1vw]">
             {t('hero_tagline_3')}
           </p>
         </div>
@@ -406,7 +403,7 @@ const Home = () => {
       >
         <div
           data-collage-bg
-          className="absolute top-[15%] left-[33vw] w-[34vw] aspect-square overflow-hidden"
+          className="absolute top-[14%] left-[25vw] w-[42vw] h-[25vw] overflow-hidden"
         >
           <Image
             src="/assets/img-1.webp"
@@ -422,7 +419,7 @@ const Home = () => {
         {COLLAGE_REST.map((img, i) => (
           <div
             key={i}
-            className={`absolute aspect-square overflow-hidden ${img.className}`}
+            className={`absolute overflow-hidden ${img.className}`}
             data-collage-item
           >
             <Image
@@ -440,7 +437,6 @@ const Home = () => {
         <div
           data-img9-position
           className={`absolute invisible ${IMG9.className}`}
-          style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
         />
       </section>
 

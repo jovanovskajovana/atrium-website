@@ -4,11 +4,19 @@ import { useEffect, useRef, useState } from 'react'
 
 import Navigation from '@/components/Navigation'
 
+const SECTION_COUNT = 5
+
 const Header = () => {
   const lastY = useRef(0)
 
   const [hidden, setHidden] = useState(false)
   const [progress, setProgress] = useState(0)
+
+  const currentSection = Math.min(
+    SECTION_COUNT,
+    Math.floor(progress * SECTION_COUNT) + 1
+  )
+  const sectionLabel = String(currentSection).padStart(2, '0')
 
   useEffect(() => {
     const onScroll = () => {
@@ -34,11 +42,15 @@ const Header = () => {
 
   return (
     <>
-      <div className="fixed left-[3.25vw] top-1/2 -translate-y-1/2 w-[2px] h-[18vh] z-[60]">
-        <div className="absolute inset-0 bg-black-100/15" />
+      <div className="fixed top-[14%] left-[3vw] z-[60]">
+        <span className="text-[0.8vw] text-black-100/40">
+          {sectionLabel} / {String(SECTION_COUNT).padStart(2, '0')}
+        </span>
+      </div>
+      <div className="fixed top-0 left-0 w-full h-[2px] z-[70] pointer-events-none">
         <div
-          className="absolute top-0 left-0 w-full bg-black-100 origin-top"
-          style={{ height: `${progress * 100}%` }}
+          className="h-full w-full bg-black-100 origin-left"
+          style={{ transform: `scaleX(${progress})` }}
         />
       </div>
       <header

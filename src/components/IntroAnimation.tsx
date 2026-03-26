@@ -51,8 +51,10 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
 
       const coverBg = document.querySelector('[data-collage-bg]')
       const coverRect = coverBg?.getBoundingClientRect()
-      const slideScale = coverRect ? coverRect.height / imgH : 0.5
-      const slideClip = ((1 - 1194 / 1920) / 2) * 100
+      const slideScale = coverRect ? coverRect.width / imgW : 0.5
+      const slideClipV = coverRect
+        ? (1 - coverRect.height / (imgH * slideScale)) * 50
+        : 0
       const slideX = coverRect
         ? coverRect.left + coverRect.width / 2 - window.innerWidth / 2
         : 0
@@ -207,7 +209,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
             x: slideX,
             y: slideY,
             scale: slideScale,
-            clipPath: `inset(0% ${slideClip}% 0% ${slideClip}%)`,
+            clipPath: `inset(${slideClipV}% 0% ${slideClipV}% 0%)`,
             duration: 1.2,
             ease: 'power2.inOut',
           },
@@ -367,7 +369,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       {COLLAGE_IMAGES.slice(0, -1).map((img, i) => (
         <div
           key={img.src}
-          className={`absolute opacity-0 aspect-square overflow-hidden ${img.className}`}
+          className={`absolute opacity-0 overflow-hidden ${img.className}`}
           data-collage
         >
           <Image
@@ -385,7 +387,6 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         return (
           <div
             className={`absolute opacity-0 overflow-hidden ${img9.className}`}
-            style={{ aspectRatio: `${img9.w}/${img9.h}` }}
             data-collage
           >
             <Image
