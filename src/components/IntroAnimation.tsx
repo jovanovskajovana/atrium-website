@@ -43,6 +43,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       gsap.set('[data-logo]', { opacity: 0 })
       gsap.set('[data-menu-item]', { opacity: 0 })
       gsap.set('[data-lang-picker]', { opacity: 0 })
+      gsap.set('[data-hero-tagline]', { opacity: 0, zIndex: 61 })
+      gsap.set('[data-scroll-hint]', { opacity: 0, zIndex: 61 })
 
       const imgW = window.innerWidth * 0.6
       const startScale = 20 / imgW
@@ -273,13 +275,8 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         // Phase 8g: Hero tagline fades in
         .fromTo(
           '[data-hero-tagline]',
-          { y: 20, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-          },
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' },
           '-=0.7'
         )
 

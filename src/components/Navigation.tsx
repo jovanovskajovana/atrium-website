@@ -13,6 +13,7 @@ import { Link, usePathname } from '@/i18n/navigation'
 const Navigation = () => {
   const t = useTranslations('nav')
   const pathname = usePathname()
+
   const [hoveredItem, setHoveredItem] = useState<string | null>(null)
 
   const isHome = pathname === '/'

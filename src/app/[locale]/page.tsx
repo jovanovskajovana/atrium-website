@@ -139,13 +139,37 @@ const Home = () => {
         scatterTl.to(collageBg, { opacity: 0, duration: 1 }, 0.1)
       }
 
-      const heroTagline = section.querySelector('[data-hero-tagline]')
+      const heroTagline = document.querySelector('[data-hero-tagline]')
       if (heroTagline) {
         scatterTl.to(
           heroTagline,
           { y: -30, duration: 1, ease: 'power2.inOut' },
           0
         )
+      }
+
+      const scrollHint = document.querySelector('[data-scroll-hint]')
+      const scrollHintDot = document.querySelector('[data-scroll-hint-dot]')
+      if (scrollHint && scrollHintDot) {
+        gsap.fromTo(
+          scrollHint,
+          { opacity: 0 },
+          { opacity: 1, duration: 1.2, ease: 'power2.out' }
+        )
+
+        gsap.fromTo(
+          scrollHintDot,
+          { top: '-40%' },
+          {
+            top: '100%',
+            duration: 2,
+            ease: 'power1.inOut',
+            repeat: -1,
+            repeatDelay: 0.05,
+          }
+        )
+
+        scatterTl.to(scrollHint, { opacity: 0, duration: 0.4 }, 0)
       }
 
       const s2Label = section2.querySelector('[data-section-label]')
@@ -431,16 +455,29 @@ const Home = () => {
             />
           </div>
         ))}
-
       </section>
 
       <div
-        className="absolute bottom-[6vh] left-0 right-0 text-center z-[61] pointer-events-none"
+        className="absolute bottom-[6vh] left-0 right-0 text-center pointer-events-none"
         data-hero-tagline
       >
-        <p className="text-[1.1vw] uppercase tracking-[0.3em] text-black-100/40">
+        <p className="text-[1.1vw] uppercase tracking-[0.2em] text-black-100/40">
           {t('hero_tagline')}
         </p>
+      </div>
+
+      <div
+        className="fixed bottom-[6vh] left-[3vw] flex flex-col items-center pointer-events-none"
+        data-scroll-hint
+      >
+        <div className="relative w-[1px] h-[4vw] overflow-hidden">
+          <div className="absolute inset-0 bg-black-100/20" />
+          <div
+            className="absolute left-0 bg-black-100 w-full h-[40%]"
+            style={{ top: '-40%' }}
+            data-scroll-hint-dot
+          />
+        </div>
       </div>
 
       <section ref={section2Ref} className="relative pt-[6%]">
