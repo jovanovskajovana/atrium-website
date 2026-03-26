@@ -21,7 +21,7 @@ const Navigation = () => {
     <>
       <Link
         href="/"
-        className="absolute top-[4vh] left-[3vw] w-[2.2vw]"
+        className="absolute top-[4vh] left-[3vw] w-[2vw]"
         data-logo
       >
         <AtriumLogo className="w-full h-auto" />
