@@ -163,9 +163,8 @@ const Home = () => {
           {
             top: '100%',
             duration: 2,
-            ease: 'power1.inOut',
+            ease: 'power1.out',
             repeat: -1,
-            repeatDelay: 0.05,
           }
         )
 
@@ -470,11 +469,11 @@ const Home = () => {
         className="fixed bottom-[6vh] left-[3vw] flex flex-col items-center pointer-events-none"
         data-scroll-hint
       >
-        <div className="relative w-[1px] h-[4vw] overflow-hidden">
-          <div className="absolute inset-0 bg-black-100/20" />
+        <div className="relative w-[1.5px] h-[4vw] overflow-hidden">
+          <div className="absolute inset-0 bg-black-100/15" />
           <div
-            className="absolute left-0 bg-black-100 w-full h-[40%]"
-            style={{ top: '-40%' }}
+            className="absolute left-0 bg-black-100 w-full h-[50%]"
+            style={{ top: '-50%' }}
             data-scroll-hint-dot
           />
         </div>
