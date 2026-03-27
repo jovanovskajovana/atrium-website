@@ -423,8 +423,7 @@ const Home = () => {
       >
         <div
           data-collage-bg
-          className="absolute inset-0 w-[60vw] m-auto h-fit"
-          style={{ transform: 'translate(10vw, -18vh) scale(0.47)' }}
+          className="absolute inset-0 w-[60vw] m-auto h-fit translate-x-[10vw] -translate-y-[18vh] scale-[0.47]"
         >
           <Image
             src="/assets/img-1.webp"
@@ -472,8 +471,7 @@ const Home = () => {
         <div className="relative w-[1.5px] h-[4vw] overflow-hidden">
           <div className="absolute inset-0 bg-black-100/15" />
           <div
-            className="absolute left-0 bg-black-100 w-full h-[50%]"
-            style={{ top: '-50%' }}
+            className="absolute left-0 top-[-50%] bg-black-100 w-full h-[50%]"
             data-scroll-hint-dot
           />
         </div>
