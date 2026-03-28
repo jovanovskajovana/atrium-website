@@ -14,7 +14,35 @@
     "accept": "sprejmi"
   },
   "footer": {
-    "footer": "Noga"
+    "home_label": "domov",
+    "nav_about": "o nas",
+    "nav_references": "reference",
+    "nav_production": "proizvodnja",
+    "nav_news": "novice",
+    "nav_contact": "kontakt",
+    "contact_title": "Kontakt",
+    "navigation_title": "Navigacija",
+    "address_title": "Naslov",
+    "hours_title": "Delovni čas",
+    "legal_title": "Pravno",
+    "follow_title": "Sledite nam",
+    "contact_email": "studio@atriumstudio.com",
+    "contact_phone": "+386 1 234 5678",
+    "address_line_1": "Tabor 2B",
+    "address_line_2": "2000 Maribor",
+    "address_line_3": "Slovenia EU",
+    "hours_weekdays": "Pon-Pet 09:00 - 18:00",
+    "instagram_label": "Instagram",
+    "instagram_url": "https://instagram.com",
+    "facebook_label": "Facebook",
+    "facebook_url": "https://facebook.com",
+    "linkedin_label": "LinkedIn",
+    "linkedin_url": "https://linkedin.com",
+    "privacy_notice_label": "Politika zasebnosti",
+    "cookie_policy_label": "Politika piškotkov",
+    "terms_of_use_label": "Pogoji uporabe",
+    "quote": "Ustvarjeno z namenom, zgrajeno za trajnost.",
+    "rights": "Vse pravice pridržane."
   },
   "not_found": {
     "not_found": "Oops! Stran ne obstaja."
@@ -92,5 +120,11 @@
   },
   "privacy_policy": {
     "title": "Politika zasebnosti"
+  },
+  "cookie_policy": {
+    "title": "Politika piškotkov"
+  },
+  "terms_of_use": {
+    "title": "Pogoji uporabe"
   }
 }
