@@ -315,7 +315,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
       className="fixed inset-0 flex items-center justify-center overflow-hidden z-[60]"
       data-intro-animation
     >
-      <div ref={bgRef} className="absolute inset-0 bg-beige-100" />
+      <div ref={bgRef} className="absolute inset-0 bg-white-100" />
 
       <svg
         ref={textSvgRef}
