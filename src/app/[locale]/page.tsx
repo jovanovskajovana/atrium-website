@@ -35,7 +35,6 @@ const Home = () => {
   const section7Ref = useRef<HTMLElement>(null)
   const section8Ref = useRef<HTMLElement>(null)
   const section9Ref = useRef<HTMLElement>(null)
-  const section10Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) {
@@ -513,26 +512,6 @@ const Home = () => {
           onLeaveBack: () => partnersTl.reverse(),
         })
       }
-
-      const section10 = section10Ref.current
-      if (section10) {
-        const closingReveal = section10.querySelector('[data-closing-reveal]')
-        if (closingReveal) {
-          gsap.set(closingReveal, { y: 40, opacity: 0 })
-          const closingTl = gsap.timeline({ paused: true })
-          closingTl.to(
-            closingReveal,
-            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
-            0
-          )
-          ScrollTrigger.create({
-            trigger: section10,
-            start: 'top 80%',
-            onEnter: () => closingTl.play(),
-            onLeaveBack: () => closingTl.reverse(),
-          })
-        }
-      }
     })
 
     return () => ctx.revert()
@@ -884,7 +863,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section9Ref} className="relative mb-[14%]">
+      <section ref={section9Ref} className="relative mb-[12%]">
         <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
           {t('section_9_label')}
         </p>
@@ -904,21 +883,6 @@ const Home = () => {
               />
             </div>
           ))}
-        </div>
-      </section>
-
-      <section ref={section10Ref} className="relative mb-[14%]">
-        <div className="text-center" data-closing-reveal>
-          <h2 className="text-[2.8vw] font-[450] text-black-100 leading-[1.2] uppercase">
-            {t('section_10_title')}
-          </h2>
-          <p className="text-[1.2vw] font-[350] text-black-100/60 leading-[1.8] max-w-[38vw] mx-auto mt-[1.5vw]">
-            {t('section_10_text')}
-          </p>
-          <div className="flex justify-center gap-[1.5vw] mt-[3vw]">
-            <Button>{t('section_2_cta_1')}</Button>
-            <Button>{t('section_2_cta_2')}</Button>
-          </div>
         </div>
       </section>
 
