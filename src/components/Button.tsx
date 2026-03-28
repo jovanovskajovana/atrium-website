@@ -21,7 +21,7 @@ const Button: FC<ButtonProps> = ({
       {...rest}
     >
       <span
-        className={`absolute inset-0 ${s.fill} translate-y-full transition-transform duration-500 ease-in-out group-hover:translate-y-0`}
+        className={`absolute inset-0 ${s.fill} translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0`}
       />
       <span
         className={`relative ${s.text} transition-colors duration-500 ease-in-out`}

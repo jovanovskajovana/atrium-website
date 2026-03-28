@@ -30,6 +30,9 @@ const Home = () => {
   const section3Ref = useRef<HTMLElement>(null)
   const section4Ref = useRef<HTMLElement>(null)
   const taglineRef = useRef<HTMLElement>(null)
+  const designRef = useRef<HTMLElement>(null)
+  const sustainabilityRef = useRef<HTMLElement>(null)
+  const productionRef = useRef<HTMLElement>(null)
   const closingRef = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
@@ -362,6 +365,128 @@ const Home = () => {
         }
       }
 
+      const design = designRef.current
+      if (design) {
+        const designTitle = design.querySelector('[data-design-title]')
+        const designText = design.querySelector('[data-design-text]')
+        const designOptions = design.querySelector('[data-design-options]')
+
+        if (designTitle) gsap.set(designTitle, { y: 40, opacity: 0 })
+        if (designText) gsap.set(designText, { y: 20, opacity: 0 })
+        if (designOptions) gsap.set(designOptions, { y: 40, opacity: 0 })
+
+        const designTl = gsap.timeline({ paused: true })
+
+        if (designTitle) {
+          designTl.to(
+            designTitle,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (designText) {
+          designTl.to(
+            designText,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.2
+          )
+        }
+        if (designOptions) {
+          designTl.to(
+            designOptions,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0.4
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: design,
+          start: 'top 80%',
+          onEnter: () => designTl.play(),
+          onLeaveBack: () => designTl.reverse(),
+        })
+      }
+
+      const sustainability = sustainabilityRef.current
+      if (sustainability) {
+        const susItems = sustainability.querySelectorAll('[data-sus-item]')
+        if (susItems.length) {
+          gsap.set(susItems, { y: 50, opacity: 0 })
+          const susTl = gsap.timeline({ paused: true })
+          susTl.to(susItems, {
+            y: 0,
+            opacity: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+            stagger: 0.2,
+          })
+          ScrollTrigger.create({
+            trigger: sustainability,
+            start: 'top 80%',
+            onEnter: () => susTl.play(),
+            onLeaveBack: () => susTl.reverse(),
+          })
+        }
+      }
+
+      const production = productionRef.current
+      if (production) {
+        const prodLabel = production.querySelector('[data-production-label]')
+        const prodTitle = production.querySelector('[data-production-title]')
+        const prodText = production.querySelector('[data-production-text]')
+        const prodBtn = production.querySelector('[data-production-btn]')
+
+        gsap.set(production, { y: 60, autoAlpha: 0 })
+        if (prodLabel) gsap.set(prodLabel, { y: 20, opacity: 0 })
+        if (prodTitle) gsap.set(prodTitle, { y: 40, opacity: 0 })
+        if (prodText) gsap.set(prodText, { y: 20, opacity: 0 })
+        if (prodBtn) gsap.set(prodBtn, { y: 20, opacity: 0 })
+
+        const prodTl = gsap.timeline({ paused: true })
+
+        prodTl.to(
+          production,
+          { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
+          0
+        )
+
+        if (prodLabel) {
+          prodTl.to(
+            prodLabel,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.3
+          )
+        }
+        if (prodTitle) {
+          prodTl.to(
+            prodTitle,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0.4
+          )
+        }
+        if (prodText) {
+          prodTl.to(
+            prodText,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.6
+          )
+        }
+        if (prodBtn) {
+          prodTl.to(
+            prodBtn,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.8
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: production,
+          start: 'top 80%',
+          onEnter: () => prodTl.play(),
+          onLeaveBack: () => prodTl.reverse(),
+        })
+      }
+
       const closing = closingRef.current
       if (closing) {
         const closingReveal = closing.querySelector('[data-closing-reveal]')
@@ -473,27 +598,27 @@ const Home = () => {
             <div>
               <h2
                 data-s2-title
-                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.3vw]"
+                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
               >
                 {t('section_2_title_1')}
               </h2>
               <h2
                 data-s2-title
-                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.3vw]"
+                className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
               >
                 {t('section_2_title_2')}
               </h2>
             </div>
 
             <p
-              className="text-[0.92vw] leading-[1.8] text-black-100"
+              className="text-[0.92vw] leading-[1.8] text-black-100/60"
               data-s2-text
             >
               {t('section_2_text_1')}
             </p>
           </div>
 
-          <div className="text-[0.92vw] leading-[1.8] text-black-100 mt-[2%]">
+          <div className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[2%]">
             <p data-s2-text>{t('section_2_text_2')}</p>
             <p data-s2-text className="mt-[2%]">
               {t('section_2_text_3')}
@@ -501,14 +626,14 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-[1.5vw] pb-[8%] mt-[8%]">
+        <div className="flex justify-center gap-[1.5vw] pb-[10%] mt-[8%]">
           <Button data-btn-reveal>{t('section_2_cta_meeting')}</Button>
           <Button data-btn-reveal>{t('section_2_cta_inquiry')}</Button>
           <Button data-btn-reveal>{t('section_2_cta_oem')}</Button>
         </div>
       </section>
 
-      <section ref={taglineRef} className="relative pb-[6%]">
+      <section ref={taglineRef} className="relative pb-[10%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
           <p className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3]">
             {t('section_4_tagline_1')}
@@ -519,7 +644,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section4Ref} className="relative pb-[8%]">
+      <section ref={section4Ref} className="relative pb-[10%]">
         <p
           className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
           data-section-label
@@ -538,8 +663,8 @@ const Home = () => {
             '/assets/img-17.webp',
           ].map((src, i) => {
             const isLarge = i % 2 === 0
-            const w = isLarge ? 340 : 248
-            const h = isLarge ? 458 : 334
+            const w = isLarge ? 380 : 280
+            const h = isLarge ? 512 : 377
             const num = String(i + 1).padStart(2, '0')
             return (
               <div
@@ -591,7 +716,7 @@ const Home = () => {
             <div key={n} data-pillar>
               <div className="grid grid-cols-[6vw_1fr] gap-[2vw] items-start py-[2%] pl-[23.25vw] pr-[12vw]">
                 <span
-                  className="text-[3.2vw] font-light leading-none text-black-100/[0.1]"
+                  className="text-[3.2vw] font-light leading-none text-black-100/15"
                   data-pillar-num
                 >
                   {String(n).padStart(2, '0')}
@@ -613,6 +738,129 @@ const Home = () => {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section
+        ref={productionRef}
+        className="relative mx-[3vw] bg-black-100 py-[8%]"
+      >
+        <div className="max-w-[75vw] mx-auto">
+          <p
+            className="text-[0.92vw] uppercase tracking-[0.15em] text-white-100/40 mb-[1.5%]"
+            data-production-label
+          >
+            {t('section_5_label')}
+          </p>
+          <h2
+            className="text-[3.7vw] font-[450] text-white-100 uppercase leading-[1.15]"
+            data-production-title
+          >
+            {t('section_5_title')}
+          </h2>
+          <p
+            className="text-[0.92vw] text-white-100/60 leading-[1.8] max-w-[40vw] mt-[1.5vw]"
+            data-production-text
+          >
+            {t('section_5_text')}
+          </p>
+          <div className="mt-[3vw]" data-production-btn>
+            <Link href="/production">
+              <Button variant="light">{t('section_5_cta')}</Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section ref={designRef} className="relative py-[10%]">
+        <div className="max-w-[75vw] mx-auto">
+          <h2
+            className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3] ml-[-0.2vw]"
+            data-design-title
+          >
+            {t('section_6_title')}
+          </h2>
+          <p
+            className="text-[0.92vw] leading-[1.8] text-black-100/60 max-w-[32vw] mt-[1.2vw]"
+            data-design-text
+          >
+            {t('section_6_text')}
+          </p>
+
+          <div
+            className="grid grid-cols-2 gap-[3vw] mt-[5%]"
+            data-design-options
+          >
+            <div>
+              <div className="overflow-hidden aspect-[4/3]">
+                <Image
+                  src="/assets/img-18.webp"
+                  alt={t('section_6_option_1')}
+                  width={960}
+                  height={720}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-[1.1vw] font-[500] text-black-100 uppercase mt-[1.5vw]">
+                {t('section_6_option_1')}
+              </h3>
+              <p className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[0.5vw]">
+                {t('section_6_option_1_text')}
+              </p>
+            </div>
+
+            <div>
+              <div className="overflow-hidden aspect-[4/3]">
+                <Image
+                  src="/assets/img-19.webp"
+                  alt={t('section_6_option_2')}
+                  width={960}
+                  height={720}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="text-[1.1vw] font-[500] text-black-100 uppercase mt-[1.5vw]">
+                {t('section_6_option_2')}
+              </h3>
+              <p className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[0.5vw]">
+                {t('section_6_option_2_text')}
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="flex justify-center gap-[1.5vw] mt-[5%]"
+            data-design-btn
+          >
+            <Button>{t('section_6_cta')}</Button>
+            <Button>{t('section_6_cta_2')}</Button>
+          </div>
+        </div>
+      </section>
+
+      <section ref={sustainabilityRef} className="relative py-[2%]">
+        <div
+          className="max-w-[75vw] mx-auto text-center"
+          data-sustainability-reveal
+        >
+          <h2
+            className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.15]"
+            data-sus-item
+          >
+            {t('section_7_title_1')}
+          </h2>
+          <p
+            className="text-[1.2vw] font-[350] text-black-100/50 mt-[1.2vw]"
+            data-sus-item
+          >
+            {t('section_7_title_2')}
+          </p>
+          <p
+            className="text-[0.92vw] leading-[1.9] text-black-100/60 max-w-[34vw] mx-auto mt-[1.5vw]"
+            data-sus-item
+          >
+            {t('section_7_text')}
+          </p>
         </div>
       </section>
 
