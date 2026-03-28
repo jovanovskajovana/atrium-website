@@ -20,6 +20,11 @@ export const routing = defineRouting({
       de: '/referenzen',
       sl: '/reference',
     },
+    '/references/[slug]': {
+      en: '/references/[slug]',
+      de: '/referenzen/[slug]',
+      sl: '/reference/[slug]',
+    },
     '/news': {
       en: '/news',
       de: '/news',
