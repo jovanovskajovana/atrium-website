@@ -2,7 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,6 +10,7 @@ import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
 
 import { COLLAGE_IMAGES } from '@/constants/intro-animation'
+import { PROJECTS } from '@/constants/projects'
 
 import { useTranslations } from 'next-intl'
 
@@ -513,7 +514,7 @@ const Home = () => {
         className="absolute top-[17.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
         data-hero-tagline
       >
-        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase tracking-[0.03em] mb-[6%]">
+        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] tracking-[0.03em] uppercase mb-[6%]">
           {t('hero_tagline_1')}
           <br />
           {t('hero_tagline_2')}
@@ -528,8 +529,8 @@ const Home = () => {
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
-          data-collage-bg
           className="absolute bottom-0 left-[34.83vw] w-[30.33vw] aspect-square overflow-hidden"
+          data-collage-bg
         >
           <Image
             src="/assets/img-1.webp"
@@ -561,16 +562,16 @@ const Home = () => {
         ))}
 
         <div
-          data-img9-position
           className={`absolute invisible ${IMG9.className}`}
           style={{ aspectRatio: `${IMG9.w}/${IMG9.h}` }}
+          data-img9-position
         />
       </section>
 
       <section ref={section2Ref} className="relative pt-[6%]">
         <div
           ref={img9Ref}
-          className="relative flex items-center overflow-hidden z-20 opacity-0"
+          className="relative flex items-center overflow-hidden opacity-0 z-20"
         >
           <Image
             src={IMG9.src}
@@ -586,36 +587,34 @@ const Home = () => {
 
         <div className="max-w-[75vw] mx-auto mt-[4%]" data-text-reveal>
           <p
-            className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 mb-[1.5%]"
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
             data-section-label
           >
             {t('section_2_label')}
           </p>
-          <div className="grid grid-cols-[1.4fr_1fr] gap-[3vw] items-start">
+          <div className="grid grid-cols-[1.4fr_1fr] items-start gap-[3vw]">
             <div>
               <h2
-                data-s2-title
                 className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+                data-s2-title
               >
                 {t('section_2_title_1')}
               </h2>
               <h2
-                data-s2-title
                 className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+                data-s2-title
               >
                 {t('section_2_title_2')}
               </h2>
             </div>
-
             <p
-              className="text-[0.92vw] leading-[1.8] text-black-100/60"
+              className="text-[0.92vw] text-black-100/60 leading-[1.8]"
               data-s2-text
             >
               {t('section_2_text_1')}
             </p>
           </div>
-
-          <div className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[2%]">
+          <div className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[2%]">
             <p data-s2-text>{t('section_2_text_2')}</p>
             <p data-s2-text className="mt-[2%]">
               {t('section_2_text_3')}
@@ -623,70 +622,64 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-[1.5vw] pb-[10%] mt-[8%]">
+        <div className="flex justify-center gap-[1.5vw] mt-[8%] mb-[10%]">
           <Button data-btn-reveal>{t('section_2_cta_meeting')}</Button>
           <Button data-btn-reveal>{t('section_2_cta_inquiry')}</Button>
           <Button data-btn-reveal>{t('section_2_cta_oem')}</Button>
         </div>
       </section>
 
-      <section ref={taglineRef} className="relative pb-[10%]">
+      <section ref={taglineRef} className="relative mb-[10%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
-          <p className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3]">
+          <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[2%]">
             {t('section_4_tagline_1')}
           </p>
-          <p className="text-[1.2vw] font-[350] text-black-100/50 mt-[1.2vw]">
+          <p className="text-[1.2vw] font-[350] text-black-100/50">
             {t('section_4_tagline_2')}
           </p>
         </div>
       </section>
 
-      <section ref={section4Ref} className="relative pb-[10%]">
+      <section ref={section4Ref} className="relative mb-[10%]">
         <p
-          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
         >
           {t('section_projects_label')}
         </p>
         <div className="flex items-center justify-center gap-[1.5vw]">
-          {[
-            '/assets/img-10.webp',
-            '/assets/img-11.webp',
-            '/assets/img-12.webp',
-            '/assets/img-13.webp',
-            '/assets/img-14.webp',
-            '/assets/img-15.webp',
-            '/assets/img-16.webp',
-            '/assets/img-17.webp',
-          ].map((src, i) => {
+          {PROJECTS.map((project, i) => {
             const isLarge = i % 2 === 0
-            const w = isLarge ? 380 : 280
-            const h = isLarge ? 512 : 377
+            const w = isLarge ? '25vw' : '18.5vw'
             const num = String(i + 1).padStart(2, '0')
             return (
-              <div
-                key={i}
+              <Link
+                key={project.slug}
+                href={{
+                  pathname: '/references/[slug]',
+                  params: { slug: project.slug },
+                }}
                 className="shrink-0"
                 style={{ width: w }}
                 data-project-item
               >
                 <p className="text-[0.8vw] text-black-100/40 mb-[1%]">{num}</p>
                 <div
-                  className="overflow-hidden"
-                  style={{ width: w, height: h }}
+                  className="overflow-hidden aspect-[960/1294]"
+                  style={{ width: w }}
                 >
                   <Image
-                    src={src}
-                    alt="Atrium project"
-                    width={w}
-                    height={h}
+                    src={project.image}
+                    alt={t(`section_4_project_${i + 1}`)}
+                    width={960}
+                    height={1294}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <p className="text-[0.92vw] text-black-100 mt-[2%]">
                   {t(`section_4_project_${i + 1}`)}
                 </p>
-              </div>
+              </Link>
             )
           })}
         </div>
@@ -694,16 +687,16 @@ const Home = () => {
         <div className="flex justify-center mt-[4%]" data-project-link>
           <Link
             href="/references"
-            className="text-black-100 text-[0.92vw] underline hover:opacity-80 transition-opacity"
+            className="text-[0.92vw] text-black-100 underline hover:opacity-80 transition-opacity"
           >
             {t('section_4_cta')}
           </Link>
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative pb-[8%]">
+      <section ref={section3Ref} className="relative mb-[8%]">
         <p
-          className="text-[0.92vw] uppercase tracking-[0.15em] text-black-100/40 text-center mb-[4%]"
+          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
         >
           {t('section_pillars_label')}
@@ -713,7 +706,7 @@ const Home = () => {
             <div key={n} data-pillar>
               <div className="grid grid-cols-[6vw_1fr] gap-[2vw] items-start py-[2%] pl-[23.25vw] pr-[12vw]">
                 <span
-                  className="text-[3.2vw] font-light leading-none text-black-100/15"
+                  className="text-[3.2vw] text-black-100/15 font-light leading-none"
                   data-pillar-num
                 >
                   {String(n).padStart(2, '0')}
@@ -726,7 +719,7 @@ const Home = () => {
                     {t(`section_3_pillar_${n}_title`)}
                   </h3>
                   <p
-                    className="text-[0.92vw] leading-[1.8] text-black-100/60 max-w-[32vw] pt-[1.5%]"
+                    className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw] pt-[1.5%]"
                     data-pillar-text
                   >
                     {t(`section_3_pillar_${n}_text`)}
@@ -740,28 +733,28 @@ const Home = () => {
 
       <section
         ref={productionRef}
-        className="relative mx-[3vw] bg-black-100 py-[8%]"
+        className="relative bg-black-100 py-[8%] mx-[3vw]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] uppercase tracking-[0.15em] text-white-100/40 mb-[1.5%]"
+            className="text-[0.92vw] text-white-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
             data-production-label
           >
             {t('section_5_label')}
           </p>
           <h2
-            className="text-[3.7vw] font-[450] text-white-100 uppercase leading-[1.15]"
+            className="text-[3.7vw] font-[450] text-white-100 leading-[1.15] uppercase"
             data-production-title
           >
             {t('section_5_title')}
           </h2>
           <p
-            className="text-[0.92vw] text-white-100/60 leading-[1.8] max-w-[40vw] mt-[1.5vw]"
+            className="text-[0.92vw] text-white-100/60 leading-[1.8] max-w-[40vw] mt-[2%]"
             data-production-text
           >
             {t('section_5_text')}
           </p>
-          <div className="mt-[3vw]" data-production-btn>
+          <div className="mt-[4%]" data-production-btn>
             <Link href="/production">
               <Button variant="light">{t('section_5_cta')}</Button>
             </Link>
@@ -769,16 +762,16 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={designRef} className="relative py-[10%]">
+      <section ref={designRef} className="relative my-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.3] ml-[-0.2vw]"
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]"
             data-design-title
           >
             {t('section_6_title')}
           </h2>
           <p
-            className="text-[0.92vw] leading-[1.8] text-black-100/60 max-w-[32vw] mt-[1.2vw]"
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]"
             data-design-text
           >
             {t('section_6_text')}
@@ -798,10 +791,10 @@ const Home = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[1.1vw] font-[500] text-black-100 uppercase mt-[1.5vw]">
+              <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
                 {t('section_6_option_1')}
               </h3>
-              <p className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[0.5vw]">
+              <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
                 {t('section_6_option_1_text')}
               </p>
             </div>
@@ -816,17 +809,17 @@ const Home = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-[1.1vw] font-[500] text-black-100 uppercase mt-[1.5vw]">
+              <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
                 {t('section_6_option_2')}
               </h3>
-              <p className="text-[0.92vw] leading-[1.8] text-black-100/60 mt-[0.5vw]">
+              <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
                 {t('section_6_option_2_text')}
               </p>
             </div>
           </div>
 
           <div
-            className="flex justify-center gap-[1.5vw] mt-[5%]"
+            className="flex justify-center gap-[1.5vw] mt-[6%]"
             data-design-btn
           >
             <Button>{t('section_6_cta')}</Button>
@@ -835,25 +828,25 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={sustainabilityRef} className="relative py-[2%]">
+      <section ref={sustainabilityRef} className="relative my-[2%]">
         <div
           className="max-w-[75vw] mx-auto text-center"
           data-sustainability-reveal
         >
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 uppercase leading-[1.15]"
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[1.5%]"
             data-sus-item
           >
             {t('section_7_title_1')}
           </h2>
           <p
-            className="text-[1.2vw] font-[350] text-black-100/50 mt-[1.2vw]"
+            className="text-[1.2vw] font-[350] text-black-100/50 mb-[2%]"
             data-sus-item
           >
             {t('section_7_title_2')}
           </p>
           <p
-            className="text-[0.92vw] leading-[1.9] text-black-100/60 max-w-[34vw] mx-auto mt-[1.5vw]"
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw] mx-auto"
             data-sus-item
           >
             {t('section_7_text')}
@@ -861,12 +854,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={closingRef} className="relative py-[10%]">
+      <section ref={closingRef} className="relative my-[10%]">
         <div className="text-center" data-closing-reveal>
-          <h2 className="text-[2.8vw] font-[450] text-black-100 uppercase leading-[1.2]">
+          <h2 className="text-[2.8vw] font-[450] text-black-100 leading-[1.2] uppercase">
             {t('closing_cta_title')}
           </h2>
-          <p className="text-[1.1vw] text-black-100/60 font-[350] leading-[1.8] max-w-[35vw] mx-auto mt-[1.5vw]">
+          <p className="text-[1.2vw] font-[350] text-black-100/60 leading-[1.8] max-w-[38vw] mx-auto mt-[1.5vw]">
             {t('closing_cta_text')}
           </p>
           <div className="flex justify-center gap-[1.5vw] mt-[3vw]">

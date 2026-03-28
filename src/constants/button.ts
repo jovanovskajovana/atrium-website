@@ -10,3 +10,8 @@ export const BUTTON_STYLES = {
     text: 'text-white-100 group-hover:text-black-100',
   },
 }
+
+export const BUTTON_SIZES = {
+  default: 'h-[3.3vw]',
+  small: 'h-[2vw]',
+}
