@@ -33,6 +33,7 @@ const Home = () => {
   const taglineRef = useRef<HTMLElement>(null)
   const designRef = useRef<HTMLElement>(null)
   const sustainabilityRef = useRef<HTMLElement>(null)
+  const partnersRef = useRef<HTMLElement>(null)
   const productionRef = useRef<HTMLElement>(null)
   const closingRef = useRef<HTMLElement>(null)
 
@@ -488,6 +489,35 @@ const Home = () => {
         })
       }
 
+      const partners = partnersRef.current
+      if (partners) {
+        const partnerLogos = partners.querySelectorAll('[data-partner-logo]')
+        gsap.set(partnerLogos, { autoAlpha: 0, y: 50, x: 25, rotation: 6 })
+
+        const partnersTl = gsap.timeline({ paused: true })
+        partnerLogos.forEach((logo, i) => {
+          partnersTl.to(
+            logo,
+            {
+              autoAlpha: 1,
+              y: 0,
+              x: 0,
+              rotation: 0,
+              duration: 0.8,
+              ease: 'power3.out',
+            },
+            i * 0.1
+          )
+        })
+
+        ScrollTrigger.create({
+          trigger: partners,
+          start: 'top 50%',
+          onEnter: () => partnersTl.play(),
+          onLeaveBack: () => partnersTl.reverse(),
+        })
+      }
+
       const closing = closingRef.current
       if (closing) {
         const closingReveal = closing.querySelector('[data-closing-reveal]')
@@ -854,6 +884,29 @@ const Home = () => {
           >
             {t('section_7_text')}
           </p>
+        </div>
+      </section>
+
+      <section ref={partnersRef} className="relative py-[8%]">
+        <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
+          {t('section_8_label')}
+        </p>
+        <div className="max-w-[75vw] mx-auto grid grid-cols-6 gap-y-[4vw] gap-x-[3vw]">
+          {Array.from({ length: 12 }, (_, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center h-[3vw]"
+              data-partner-logo
+            >
+              <Image
+                src={`/assets/logo-${i + 1}.png`}
+                alt={`Partner ${i + 1}`}
+                width={160}
+                height={60}
+                className="max-h-full w-auto object-contain opacity-40 hover:opacity-100 transition-opacity duration-500"
+              />
+            </div>
+          ))}
         </div>
       </section>
 
