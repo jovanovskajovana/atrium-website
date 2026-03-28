@@ -618,7 +618,7 @@ const Home = () => {
         data-hero-tagline
       >
         <p className="text-[1.1vw] uppercase tracking-[0.2em] text-black-100/40">
-          {t('hero_tagline')}
+          {t('section_1_label')}
         </p>
       </div>
 
@@ -690,19 +690,19 @@ const Home = () => {
         </div>
 
         <div className="flex justify-center gap-[1.5vw] mt-[8%] mb-[10%]">
-          <Button data-btn-reveal>{t('section_2_cta_meeting')}</Button>
-          <Button data-btn-reveal>{t('section_2_cta_inquiry')}</Button>
-          <Button data-btn-reveal>{t('section_2_cta_oem')}</Button>
+          <Button data-btn-reveal>{t('section_2_cta_1')}</Button>
+          <Button data-btn-reveal>{t('section_2_cta_2')}</Button>
+          <Button data-btn-reveal>{t('section_2_cta_3')}</Button>
         </div>
       </section>
 
       <section ref={section3Ref} className="relative mb-[10%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
           <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[2%]">
-            {t('section_4_tagline_1')}
+            {t('section_3_title')}
           </p>
           <p className="text-[1.2vw] font-[350] text-black-100/50">
-            {t('section_4_tagline_2')}
+            {t('section_3_text')}
           </p>
         </div>
       </section>
@@ -712,7 +712,7 @@ const Home = () => {
           className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
         >
-          {t('section_projects_label')}
+          {t('section_4_label')}
         </p>
         <div className="flex items-center justify-center gap-[1.5vw]">
           {PROJECTS.map((project, i) => {
@@ -766,7 +766,7 @@ const Home = () => {
           className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
         >
-          {t('section_pillars_label')}
+          {t('section_5_label')}
         </p>
         <div data-pillars-track>
           {[1, 2, 3, 4].map((n) => (
@@ -783,13 +783,13 @@ const Home = () => {
                     className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
                     data-pillar-title
                   >
-                    {t(`section_3_pillar_${n}_title`)}
+                    {t(`section_5_pillar_${n}_title`)}
                   </h3>
                   <p
                     className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw] pt-[1.5%]"
                     data-pillar-text
                   >
-                    {t(`section_3_pillar_${n}_text`)}
+                    {t(`section_5_pillar_${n}_text`)}
                   </p>
                 </div>
               </div>
@@ -807,23 +807,23 @@ const Home = () => {
             className="text-[0.92vw] text-white-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
             data-production-label
           >
-            {t('section_5_label')}
+            {t('section_6_label')}
           </p>
           <h2
             className="text-[3.7vw] font-[450] text-white-100 leading-[1.15] uppercase"
             data-production-title
           >
-            {t('section_5_title')}
+            {t('section_6_title')}
           </h2>
           <p
             className="text-[0.92vw] text-white-100/60 leading-[1.8] max-w-[40vw] mt-[2%]"
             data-production-text
           >
-            {t('section_5_text')}
+            {t('section_6_text')}
           </p>
           <div className="mt-[4%]" data-production-btn>
             <Link href="/production">
-              <Button variant="light">{t('section_5_cta')}</Button>
+              <Button variant="light">{t('section_6_cta')}</Button>
             </Link>
           </div>
         </div>
@@ -835,13 +835,13 @@ const Home = () => {
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]"
             data-design-title
           >
-            {t('section_6_title')}
+            {t('section_7_title')}
           </h2>
           <p
             className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]"
             data-design-text
           >
-            {t('section_6_text')}
+            {t('section_7_text')}
           </p>
 
           <div
@@ -852,17 +852,17 @@ const Home = () => {
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-18.webp"
-                  alt={t('section_6_option_1')}
+                  alt={t('section_7_option_1')}
                   width={960}
                   height={720}
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
-                {t('section_6_option_1')}
+                {t('section_7_option_1')}
               </h3>
               <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
-                {t('section_6_option_1_text')}
+                {t('section_7_option_1_text')}
               </p>
             </div>
 
@@ -870,17 +870,17 @@ const Home = () => {
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-19.webp"
-                  alt={t('section_6_option_2')}
+                  alt={t('section_7_option_2')}
                   width={960}
                   height={720}
                   className="w-full h-full object-cover"
                 />
               </div>
               <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
-                {t('section_6_option_2')}
+                {t('section_7_option_2')}
               </h3>
               <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
-                {t('section_6_option_2_text')}
+                {t('section_7_option_2_text')}
               </p>
             </div>
           </div>
@@ -889,8 +889,8 @@ const Home = () => {
             className="flex justify-center gap-[1.5vw] mt-[6%]"
             data-design-btn
           >
-            <Button>{t('section_6_cta')}</Button>
-            <Button>{t('section_6_cta_2')}</Button>
+            <Button>{t('section_7_cta_1')}</Button>
+            <Button>{t('section_7_cta_2')}</Button>
           </div>
         </div>
       </section>
@@ -904,26 +904,26 @@ const Home = () => {
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[1.5%]"
             data-sus-item
           >
-            {t('section_7_title_1')}
+            {t('section_8_title_1')}
           </h2>
           <p
             className="text-[1.2vw] font-[350] text-black-100/50 mb-[2%]"
             data-sus-item
           >
-            {t('section_7_title_2')}
+            {t('section_8_text_1')}
           </p>
           <p
             className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw] mx-auto"
             data-sus-item
           >
-            {t('section_7_text')}
+            {t('section_8_text_2')}
           </p>
         </div>
       </section>
 
       <section ref={section9Ref} className="relative py-[8%]">
         <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
-          {t('section_8_label')}
+          {t('section_9_label')}
         </p>
         <div className="max-w-[75vw] mx-auto grid grid-cols-6 gap-y-[4vw] gap-x-[3vw]">
           {Array.from({ length: 12 }, (_, i) => (
@@ -947,14 +947,14 @@ const Home = () => {
       <section ref={section10Ref} className="relative my-[10%]">
         <div className="text-center" data-closing-reveal>
           <h2 className="text-[2.8vw] font-[450] text-black-100 leading-[1.2] uppercase">
-            {t('closing_cta_title')}
+            {t('section_10_title')}
           </h2>
           <p className="text-[1.2vw] font-[350] text-black-100/60 leading-[1.8] max-w-[38vw] mx-auto mt-[1.5vw]">
-            {t('closing_cta_text')}
+            {t('section_10_text')}
           </p>
           <div className="flex justify-center gap-[1.5vw] mt-[3vw]">
-            <Button>{t('section_2_cta_meeting')}</Button>
-            <Button>{t('section_2_cta_inquiry')}</Button>
+            <Button>{t('section_2_cta_1')}</Button>
+            <Button>{t('section_2_cta_2')}</Button>
           </div>
         </div>
       </section>
