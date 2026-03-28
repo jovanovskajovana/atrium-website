@@ -25,17 +25,17 @@ const IMG9 = COLLAGE_IMAGES[COLLAGE_IMAGES.length - 1]
 const Home = () => {
   const t = useTranslations('home')
   const { showIntro, completeIntro } = useIntroAnimation()
-  const sectionRef = useRef<HTMLElement>(null)
-  const section2Ref = useRef<HTMLElement>(null)
   const img9Ref = useRef<HTMLDivElement>(null)
+  const section1Ref = useRef<HTMLElement>(null)
+  const section2Ref = useRef<HTMLElement>(null)
   const section3Ref = useRef<HTMLElement>(null)
   const section4Ref = useRef<HTMLElement>(null)
-  const taglineRef = useRef<HTMLElement>(null)
-  const designRef = useRef<HTMLElement>(null)
-  const sustainabilityRef = useRef<HTMLElement>(null)
-  const partnersRef = useRef<HTMLElement>(null)
-  const productionRef = useRef<HTMLElement>(null)
-  const closingRef = useRef<HTMLElement>(null)
+  const section5Ref = useRef<HTMLElement>(null)
+  const section6Ref = useRef<HTMLElement>(null)
+  const section7Ref = useRef<HTMLElement>(null)
+  const section8Ref = useRef<HTMLElement>(null)
+  const section9Ref = useRef<HTMLElement>(null)
+  const section10Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) {
@@ -43,15 +43,17 @@ const Home = () => {
       return
     }
 
-    const section = sectionRef.current
+    const section1 = section1Ref.current
     const section2 = section2Ref.current
     const img9 = img9Ref.current
-    if (!section || !section2 || !img9) return
+    if (!section1 || !section2 || !img9) return
 
     const ctx = gsap.context(() => {
-      const sectionRect = section.getBoundingClientRect()
+      const sectionRect = section1.getBoundingClientRect()
       const img9Rect = img9.getBoundingClientRect()
       const scrollY = window.scrollY
+      const img9Pos = section1.querySelector('[data-img9-position]')
+      const colRect = img9Pos ? img9Pos.getBoundingClientRect() : img9Rect
 
       const collageW = window.innerWidth * 0.26
       const collageH = collageW * (IMG9.h / IMG9.w)
@@ -62,8 +64,8 @@ const Home = () => {
 
       const collagePosX = sectionRect.left + collageLeft
       const collagePosY = sectionRect.top + scrollY + collageTop
-      const img9PosX = img9Rect.left
-      const img9PosY = img9Rect.top + scrollY
+      const img9PosX = colRect.left
+      const img9PosY = colRect.top + scrollY
 
       const fromScale = collageW / img9Rect.width
       const fromX = collagePosX - img9PosX
@@ -84,7 +86,7 @@ const Home = () => {
 
       const img9Tl = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
+          trigger: section1,
           start: 'top top',
           end: '+=50%',
           scrub: 0.5,
@@ -113,8 +115,8 @@ const Home = () => {
         )
       }
 
-      const collageItems = section.querySelectorAll('[data-collage-item]')
-      const collageBg = section.querySelector('[data-collage-bg]')
+      const collageItems = section1.querySelectorAll('[data-collage-item]')
+      const collageBg = section1.querySelector('[data-collage-bg]')
 
       const scatterDirs = [
         { x: -200, y: -150, rotation: -15, scale: 1.8 },
@@ -128,7 +130,7 @@ const Home = () => {
 
       const scatterTl = gsap.timeline({
         scrollTrigger: {
-          trigger: section,
+          trigger: section1,
           start: 'top top',
           end: '+=50%',
           scrub: 0.5,
@@ -253,12 +255,12 @@ const Home = () => {
         })
       }
 
-      const section3 = section3Ref.current
-      if (section3) {
-        const pillarLabel = section3.querySelector('[data-section-label]')
-        const numbers = section3.querySelectorAll('[data-pillar-num]')
-        const titles = section3.querySelectorAll('[data-pillar-title]')
-        const texts = section3.querySelectorAll('[data-pillar-text]')
+      const section5 = section5Ref.current
+      if (section5) {
+        const pillarLabel = section5.querySelector('[data-section-label]')
+        const numbers = section5.querySelectorAll('[data-pillar-num]')
+        const titles = section5.querySelectorAll('[data-pillar-title]')
+        const texts = section5.querySelectorAll('[data-pillar-text]')
 
         if (pillarLabel) gsap.set(pillarLabel, { y: 20, opacity: 0 })
         gsap.set(numbers, { y: 60, opacity: 0 })
@@ -312,7 +314,7 @@ const Home = () => {
         )
 
         ScrollTrigger.create({
-          trigger: section3,
+          trigger: section5,
           start: 'top bottom',
           onEnter: () => tl.play(),
           onLeaveBack: () => tl.reverse(),
@@ -376,9 +378,9 @@ const Home = () => {
         })
       }
 
-      const tagline = taglineRef.current
-      if (tagline) {
-        const taglineReveal = tagline.querySelector('[data-tagline-reveal]')
+      const section3 = section3Ref.current
+      if (section3) {
+        const taglineReveal = section3.querySelector('[data-tagline-reveal]')
         if (taglineReveal) {
           gsap.set(taglineReveal, { y: 40, opacity: 0 })
           const taglineTl = gsap.timeline({ paused: true })
@@ -388,7 +390,7 @@ const Home = () => {
             0
           )
           ScrollTrigger.create({
-            trigger: tagline,
+            trigger: section3,
             start: 'top 80%',
             onEnter: () => taglineTl.play(),
             onLeaveBack: () => taglineTl.reverse(),
@@ -396,11 +398,11 @@ const Home = () => {
         }
       }
 
-      const design = designRef.current
-      if (design) {
-        const designTitle = design.querySelector('[data-design-title]')
-        const designText = design.querySelector('[data-design-text]')
-        const designOptions = design.querySelector('[data-design-options]')
+      const section7 = section7Ref.current
+      if (section7) {
+        const designTitle = section7.querySelector('[data-design-title]')
+        const designText = section7.querySelector('[data-design-text]')
+        const designOptions = section7.querySelector('[data-design-options]')
 
         if (designTitle) gsap.set(designTitle, { y: 40, opacity: 0 })
         if (designText) gsap.set(designText, { y: 20, opacity: 0 })
@@ -431,16 +433,16 @@ const Home = () => {
         }
 
         ScrollTrigger.create({
-          trigger: design,
+          trigger: section7,
           start: 'top 80%',
           onEnter: () => designTl.play(),
           onLeaveBack: () => designTl.reverse(),
         })
       }
 
-      const sustainability = sustainabilityRef.current
-      if (sustainability) {
-        const susItems = sustainability.querySelectorAll('[data-sus-item]')
+      const section8 = section8Ref.current
+      if (section8) {
+        const susItems = section8.querySelectorAll('[data-sus-item]')
         if (susItems.length) {
           gsap.set(susItems, { y: 50, opacity: 0 })
           const susTl = gsap.timeline({ paused: true })
@@ -452,7 +454,7 @@ const Home = () => {
             stagger: 0.2,
           })
           ScrollTrigger.create({
-            trigger: sustainability,
+            trigger: section8,
             start: 'top 80%',
             onEnter: () => susTl.play(),
             onLeaveBack: () => susTl.reverse(),
@@ -460,14 +462,14 @@ const Home = () => {
         }
       }
 
-      const production = productionRef.current
-      if (production) {
-        const prodLabel = production.querySelector('[data-production-label]')
-        const prodTitle = production.querySelector('[data-production-title]')
-        const prodText = production.querySelector('[data-production-text]')
-        const prodBtn = production.querySelector('[data-production-btn]')
+      const section6 = section6Ref.current
+      if (section6) {
+        const prodLabel = section6.querySelector('[data-production-label]')
+        const prodTitle = section6.querySelector('[data-production-title]')
+        const prodText = section6.querySelector('[data-production-text]')
+        const prodBtn = section6.querySelector('[data-production-btn]')
 
-        gsap.set(production, { y: 60, autoAlpha: 0 })
+        gsap.set(section6, { y: 60, autoAlpha: 0 })
         if (prodLabel) gsap.set(prodLabel, { y: 20, opacity: 0 })
         if (prodTitle) gsap.set(prodTitle, { y: 40, opacity: 0 })
         if (prodText) gsap.set(prodText, { y: 20, opacity: 0 })
@@ -476,7 +478,7 @@ const Home = () => {
         const prodTl = gsap.timeline({ paused: true })
 
         prodTl.to(
-          production,
+          section6,
           { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
           0
         )
@@ -511,16 +513,16 @@ const Home = () => {
         }
 
         ScrollTrigger.create({
-          trigger: production,
+          trigger: section6,
           start: 'top 80%',
           onEnter: () => prodTl.play(),
           onLeaveBack: () => prodTl.reverse(),
         })
       }
 
-      const partners = partnersRef.current
-      if (partners) {
-        const partnerLogos = partners.querySelectorAll('[data-partner-logo]')
+      const section9 = section9Ref.current
+      if (section9) {
+        const partnerLogos = section9.querySelectorAll('[data-partner-logo]')
         gsap.set(partnerLogos, { autoAlpha: 0, y: 50, x: 25, rotation: 6 })
 
         const partnersTl = gsap.timeline({ paused: true })
@@ -540,16 +542,16 @@ const Home = () => {
         })
 
         ScrollTrigger.create({
-          trigger: partners,
+          trigger: section9,
           start: 'top 50%',
           onEnter: () => partnersTl.play(),
           onLeaveBack: () => partnersTl.reverse(),
         })
       }
 
-      const closing = closingRef.current
-      if (closing) {
-        const closingReveal = closing.querySelector('[data-closing-reveal]')
+      const section10 = section10Ref.current
+      if (section10) {
+        const closingReveal = section10.querySelector('[data-closing-reveal]')
         if (closingReveal) {
           gsap.set(closingReveal, { y: 40, opacity: 0 })
           const closingTl = gsap.timeline({ paused: true })
@@ -559,7 +561,7 @@ const Home = () => {
             0
           )
           ScrollTrigger.create({
-            trigger: closing,
+            trigger: section10,
             start: 'top 80%',
             onEnter: () => closingTl.play(),
             onLeaveBack: () => closingTl.reverse(),
@@ -574,7 +576,7 @@ const Home = () => {
   return (
     <main className="overflow-x-hidden">
       <section
-        ref={sectionRef}
+        ref={section1Ref}
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
@@ -694,7 +696,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={taglineRef} className="relative mb-[10%]">
+      <section ref={section3Ref} className="relative mb-[10%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
           <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[2%]">
             {t('section_4_tagline_1')}
@@ -759,7 +761,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative mb-[8%]">
+      <section ref={section5Ref} className="relative mb-[8%]">
         <p
           className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
@@ -797,7 +799,7 @@ const Home = () => {
       </section>
 
       <section
-        ref={productionRef}
+        ref={section6Ref}
         className="relative bg-black-100 py-[8%] mx-[3vw]"
       >
         <div className="max-w-[75vw] mx-auto">
@@ -827,7 +829,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={designRef} className="relative my-[10%]">
+      <section ref={section7Ref} className="relative my-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]"
@@ -893,7 +895,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={sustainabilityRef} className="relative my-[2%]">
+      <section ref={section8Ref} className="relative my-[2%]">
         <div
           className="max-w-[75vw] mx-auto text-center"
           data-sustainability-reveal
@@ -919,7 +921,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={partnersRef} className="relative py-[8%]">
+      <section ref={section9Ref} className="relative py-[8%]">
         <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
           {t('section_8_label')}
         </p>
@@ -942,7 +944,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={closingRef} className="relative my-[10%]">
+      <section ref={section10Ref} className="relative my-[10%]">
         <div className="text-center" data-closing-reveal>
           <h2 className="text-[2.8vw] font-[450] text-black-100 leading-[1.2] uppercase">
             {t('closing_cta_title')}
