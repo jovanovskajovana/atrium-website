@@ -14,7 +14,35 @@
     "accept": "akzeptieren"
   },
   "footer": {
-    "footer": "Fuss"
+    "home_label": "startseite",
+    "nav_about": "über uns",
+    "nav_references": "referenzen",
+    "nav_production": "produktion",
+    "nav_news": "news",
+    "nav_contact": "kontakt",
+    "contact_title": "Kontakt",
+    "navigation_title": "Navigation",
+    "address_title": "Adresse",
+    "hours_title": "Arbeitszeiten",
+    "legal_title": "Rechtliches",
+    "follow_title": "Folgen Sie uns",
+    "contact_email": "studio@atriumstudio.com",
+    "contact_phone": "+386 1 234 5678",
+    "address_line_1": "Tabor 2B",
+    "address_line_2": "2000 Maribor",
+    "address_line_3": "Slovenia EU",
+    "hours_weekdays": "Mo-Fr 09:00 - 18:00",
+    "instagram_label": "Instagram",
+    "instagram_url": "https://instagram.com",
+    "facebook_label": "Facebook",
+    "facebook_url": "https://facebook.com",
+    "linkedin_label": "LinkedIn",
+    "linkedin_url": "https://linkedin.com",
+    "privacy_notice_label": "Datenschutzerklärung",
+    "cookie_policy_label": "Cookie-Richtlinie",
+    "terms_of_use_label": "Nutzungsbedingungen",
+    "quote": "Mit Absicht gefertigt, für die Ewigkeit gebaut.",
+    "rights": "Alle Rechte vorbehalten."
   },
   "not_found": {
     "not_found": "Oops! Seite nicht gefunden."
@@ -90,5 +118,11 @@
   },
   "privacy_policy": {
     "title": "Datenschutzerklärung"
+  },
+  "cookie_policy": {
+    "title": "Cookie-Richtlinie"
+  },
+  "terms_of_use": {
+    "title": "Nutzungsbedingungen"
   }
 }

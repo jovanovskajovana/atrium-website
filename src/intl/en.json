@@ -9,12 +9,40 @@
   },
   "cookie_banner": {
     "message": "We use cookies. Read more in our",
-    "privacy_link": "Privacy Policy.",
+    "privacy_link": "Privacy Notice.",
     "deny": "deny",
     "accept": "accept"
   },
   "footer": {
-    "footer": "Footer"
+    "home_label": "home",
+    "nav_about": "about us",
+    "nav_references": "references",
+    "nav_production": "production",
+    "nav_news": "news",
+    "nav_contact": "contact",
+    "contact_title": "Contact",
+    "navigation_title": "Navigations",
+    "address_title": "Address",
+    "hours_title": "Working Hours",
+    "legal_title": "Legals",
+    "follow_title": "Follow Us",
+    "contact_email": "studio@atriumstudio.com",
+    "contact_phone": "+386 1 234 5678",
+    "address_line_1": "Tabor 2B",
+    "address_line_2": "2000 Maribor",
+    "address_line_3": "Slovenia EU",
+    "hours_weekdays": "Mon-Fri 09:00 - 18:00",
+    "instagram_label": "Instagram",
+    "instagram_url": "https://instagram.com",
+    "facebook_label": "Facebook",
+    "facebook_url": "https://facebook.com",
+    "linkedin_label": "LinkedIn",
+    "linkedin_url": "https://linkedin.com",
+    "privacy_notice_label": "Privacy Notice",
+    "cookie_policy_label": "Cookie Policy",
+    "terms_of_use_label": "Terms of Use",
+    "quote": "Crafted with intention, built to last.",
+    "rights": "All rights reserved."
   },
   "not_found": {
     "not_found": "Oops! Page not found."
@@ -89,6 +117,12 @@
     "title": "Contact"
   },
   "privacy_policy": {
-    "title": "Privacy Policy"
+    "title": "Privacy Notice"
+  },
+  "cookie_policy": {
+    "title": "Cookie Policy"
+  },
+  "terms_of_use": {
+    "title": "Terms of Use"
   }
 }

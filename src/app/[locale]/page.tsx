@@ -800,7 +800,7 @@ const Home = () => {
 
       <section
         ref={section6Ref}
-        className="relative bg-black-100 py-[8%] mx-[3vw]"
+        className="relative bg-black-100 py-[8%] mx-[3vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
@@ -829,7 +829,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section7Ref} className="relative my-[10%]">
+      <section ref={section7Ref} className="relative mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]"
@@ -895,7 +895,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section8Ref} className="relative my-[2%]">
+      <section ref={section8Ref} className="relative mb-[12%]">
         <div
           className="max-w-[75vw] mx-auto text-center"
           data-sustainability-reveal
@@ -921,7 +921,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section9Ref} className="relative py-[8%]">
+      <section ref={section9Ref} className="relative mb-[14%]">
         <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
           {t('section_9_label')}
         </p>
@@ -944,7 +944,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section10Ref} className="relative my-[10%]">
+      <section ref={section10Ref} className="relative mb-[14%]">
         <div className="text-center" data-closing-reveal>
           <h2 className="text-[2.8vw] font-[450] text-black-100 leading-[1.2] uppercase">
             {t('section_10_title')}
