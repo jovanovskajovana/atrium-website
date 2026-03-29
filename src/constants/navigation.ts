@@ -6,3 +6,9 @@ export const NAV_ITEMS = [
   { href: '/about', key: 'about' },
   { href: '/contact', key: 'contact' },
 ] as const
+
+export const LOCALE_LABELS: Record<string, string> = {
+  en: 'english',
+  de: 'deutsch',
+  sl: 'slovenščina',
+}
