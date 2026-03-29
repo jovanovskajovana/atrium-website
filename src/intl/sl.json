@@ -31,7 +31,8 @@
     "address_line_1": "Tabor 2B",
     "address_line_2": "2000 Maribor",
     "address_line_3": "Slovenia EU",
-    "hours_weekdays": "Pon-Pet 09:00 - 18:00",
+    "hours_days": "Ponedeljek - Petek",
+    "hours_time": "09:00 - 18:00",
     "instagram_label": "Instagram",
     "instagram_url": "https://instagram.com",
     "facebook_label": "Facebook",
@@ -45,8 +46,9 @@
     "cta_text": "Ste arhitekt, oblikovalec ali blagovna znamka? Z veseljem bi slišali o vašem projektu",
     "cta_button_1": "rezerviraj sestanek",
     "cta_button_2": "pošlji povpraševanje",
-    "quote": "Ustvarjeno z namenom, zgrajeno za trajnost.",
-    "rights": "Vse pravice pridržane."
+    "quote": "Pohištvo po naročilu, izdelano v EU — ustvarjeno z namenom, zgrajeno za trajnost.",
+    "rights": "Vse pravice pridržane.",
+    "language_title": "Jezik"
   },
   "not_found": {
     "not_found": "Oops! Stran ne obstaja."
