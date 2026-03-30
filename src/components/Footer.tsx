@@ -107,7 +107,7 @@ const Footer = () => {
       </section>
 
       <div className="border-t border-white-100/15" data-footer-content>
-        <div className="grid grid-cols-[1.2fr_2fr] gap-[6vw] py-[4%] px-[1.5vw]">
+        <div className="grid grid-cols-[1.2fr_2fr] gap-[5.5vw] py-[4%] px-[1.5vw]">
           <div data-footer-item>
             <AtriumLogoFull
               className="w-[13vw] h-auto"
@@ -118,7 +118,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-[1.2fr_0.8fr_0.8fr] gap-[4vw]">
+          <div className="grid grid-cols-[1.2fr_0.8fr_0.8fr] gap-[5.5vw]">
             <div className="space-y-[2.2vw]" data-footer-item>
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
