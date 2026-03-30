@@ -38,7 +38,7 @@ const ProductionPage = () => {
       }
 
       if (video) {
-        gsap.set(video, { scale: 0.97, y: 30, autoAlpha: 0 })
+        gsap.set(video, { scale: 0.956, y: 30, autoAlpha: 0 })
 
         gsap.to(video, {
           y: 0,
@@ -483,7 +483,7 @@ const ProductionPage = () => {
         </p>
       </div>
 
-      <div className="relative mt-[calc(100vh-31.33vw)] h-[52vw]">
+      <div className="relative mt-[calc(100vh-30.87vw)] h-[52vw]">
         <div
           ref={videoRef}
           className="absolute inset-0 overflow-hidden origin-top invisible"
@@ -636,28 +636,9 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      {/* <section ref={statementRef} className="relative py-[8%]">
-        <div className="max-w-[65vw] mx-auto text-center" data-statement-text>
-          <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.06em]">
-            {t('section_4_title')}
-          </p>
-        </div>
-      </section>
-
-      <div ref={panoRef} className="overflow-hidden mx-[1.5vw] mb-[10%]">
-        <Image
-          src="/assets/img-5.webp"
-          alt="Production panoramic"
-          width={1920}
-          height={800}
-          className="w-full h-auto object-cover"
-          sizes="94vw"
-        />
-      </div>
-
-      <section
+      {/* <section
         ref={oemRef}
-        className="relative bg-black-100 py-[8%] mx-[1.5vw] mb-[10%]"
+        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
