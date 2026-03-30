@@ -9,12 +9,46 @@
   },
   "cookie_banner": {
     "message": "We use cookies. Read more in our",
-    "privacy_link": "Privacy Policy.",
+    "privacy_link": "Privacy Notice.",
     "deny": "deny",
     "accept": "accept"
   },
   "footer": {
-    "footer": "Footer"
+    "home_label": "home",
+    "nav_about": "about us",
+    "nav_references": "references",
+    "nav_production": "production",
+    "nav_news": "news",
+    "nav_contact": "contact",
+    "contact_title": "Contact",
+    "navigation_title": "Navigation",
+    "address_title": "Address",
+    "hours_title": "Working Hours",
+    "legal_title": "Legals",
+    "follow_title": "Follow Us",
+    "contact_email": "studio@atriumstudio.com",
+    "contact_phone": "+386 1 234 5678",
+    "address_line_1": "Tabor 2B",
+    "address_line_2": "2000 Maribor",
+    "address_line_3": "Slovenia EU",
+    "hours_days": "Monday - Friday",
+    "hours_time": "09:00 - 18:00",
+    "instagram_label": "Instagram",
+    "instagram_url": "https://instagram.com",
+    "facebook_label": "Facebook",
+    "facebook_url": "https://facebook.com",
+    "linkedin_label": "LinkedIn",
+    "linkedin_url": "https://linkedin.com",
+    "privacy_notice_label": "Privacy Notice",
+    "cookie_policy_label": "Cookie Policy",
+    "terms_of_use_label": "Terms of Use",
+    "cta_title": "Let's build something together",
+    "cta_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project",
+    "cta_button_1": "book a meeting",
+    "cta_button_2": "send inquiry",
+    "quote": "Bespoke furniture, made in the EU — crafted with intention, built to last.",
+    "rights": "All rights reserved.",
+    "language_title": "Language"
   },
   "not_found": {
     "not_found": "Oops! Page not found."
@@ -68,9 +102,7 @@
     "section_8_title_1": "Materials matter",
     "section_8_text_1": "Zero waste. Responsible process. Lasting design.",
     "section_8_text_2": "At Atrium, sustainability isn't a claim — it's built into every decision we make. From material selection to production process, we minimize waste, source responsibly, and build things that last.",
-    "section_9_label": "Trusted By",
-    "section_10_title": "Let's build something together",
-    "section_10_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project"
+    "section_9_label": "Trusted By"
   },
   "about": {
     "title": "About us"
@@ -91,6 +123,12 @@
     "title": "Contact"
   },
   "privacy_policy": {
-    "title": "Privacy Policy"
+    "title": "Privacy Notice"
+  },
+  "cookie_policy": {
+    "title": "Cookie Policy"
+  },
+  "terms_of_use": {
+    "title": "Terms of Use"
   }
 }

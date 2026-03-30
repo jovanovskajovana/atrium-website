@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 
-import LanguagePicker from '@/components/LanguagePicker'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 import AtriumLogo from '@/components/icons/atrium-logo'
 
 import { NAV_ITEMS } from '@/constants/navigation'
@@ -44,7 +44,7 @@ const Navigation = () => {
       </nav>
 
       <div data-lang-picker>
-        <LanguagePicker />
+        <LanguageSwitcher />
       </div>
     </div>
   )
