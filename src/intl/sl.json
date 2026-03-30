@@ -14,7 +14,41 @@
     "accept": "sprejmi"
   },
   "footer": {
-    "footer": "Noga"
+    "home_label": "domov",
+    "nav_about": "o nas",
+    "nav_references": "reference",
+    "nav_production": "proizvodnja",
+    "nav_news": "novice",
+    "nav_contact": "kontakt",
+    "contact_title": "Kontakt",
+    "navigation_title": "Navigacija",
+    "address_title": "Naslov",
+    "hours_title": "Delovni čas",
+    "legal_title": "Pravno",
+    "follow_title": "Sledite nam",
+    "contact_email": "studio@atriumstudio.com",
+    "contact_phone": "+386 1 234 5678",
+    "address_line_1": "Tabor 2B",
+    "address_line_2": "2000 Maribor",
+    "address_line_3": "Slovenia EU",
+    "hours_days": "Ponedeljek - Petek",
+    "hours_time": "09:00 - 18:00",
+    "instagram_label": "Instagram",
+    "instagram_url": "https://instagram.com",
+    "facebook_label": "Facebook",
+    "facebook_url": "https://facebook.com",
+    "linkedin_label": "LinkedIn",
+    "linkedin_url": "https://linkedin.com",
+    "privacy_notice_label": "Politika zasebnosti",
+    "cookie_policy_label": "Politika piškotkov",
+    "terms_of_use_label": "Pogoji uporabe",
+    "cta_title": "Ustvarjajmo skupaj",
+    "cta_text": "Ste arhitekt, oblikovalec ali blagovna znamka? Z veseljem bi slišali o vašem projektu",
+    "cta_button_1": "rezerviraj sestanek",
+    "cta_button_2": "pošlji povpraševanje",
+    "quote": "Pohištvo po naročilu, izdelano v EU — ustvarjeno z namenom, zgrajeno za trajnost.",
+    "rights": "Vse pravice pridržane.",
+    "language_title": "Jezik"
   },
   "not_found": {
     "not_found": "Oops! Stran ne obstaja."
@@ -68,9 +102,7 @@
     "section_8_title_1": "Materiali štejejo",
     "section_8_text_1": "Nič odpadkov. Odgovoren proces. Trajen dizajn.",
     "section_8_text_2": "Pri Atriumu trajnost ni le beseda — vgrajena je v vsako odločitev. Od izbire materialov do proizvodnega procesa zmanjšujemo odpadke, odgovorno pridobivamo vire in gradimo stvari, ki trajajo.",
-    "section_9_label": "Zaupajo nam",
-    "section_10_title": "Ustvarjajmo skupaj",
-    "section_10_text": "Ste arhitekt, oblikovalec ali blagovna znamka? Z veseljem bi slišali o vašem projektu"
+    "section_9_label": "Zaupajo nam"
   },
   "about": {
     "title": "O nas"
@@ -92,5 +124,11 @@
   },
   "privacy_policy": {
     "title": "Politika zasebnosti"
+  },
+  "cookie_policy": {
+    "title": "Politika piškotkov"
+  },
+  "terms_of_use": {
+    "title": "Pogoji uporabe"
   }
 }
