@@ -82,7 +82,7 @@ const Footer = () => {
       className="relative w-full bg-black-100 text-white-100 overflow-hidden"
     >
       <section
-        className="relative text-center py-[10%] px-[2.2vw]"
+        className="relative text-center py-[10%] px-[1.5vw]"
         data-footer-cta
       >
         <h2
@@ -107,7 +107,7 @@ const Footer = () => {
       </section>
 
       <div className="border-t border-white-100/15" data-footer-content>
-        <div className="grid grid-cols-[1.2fr_2fr] gap-[6vw] py-[4%] px-[2.2vw]">
+        <div className="grid grid-cols-[1.2fr_2fr] gap-[6vw] py-[4%] px-[1.5vw]">
           <div data-footer-item>
             <AtriumLogoFull
               className="w-[13vw] h-auto"
@@ -300,7 +300,7 @@ const Footer = () => {
         </div>
 
         <div
-          className="border-t border-white-100/10 py-[1.5%] px-[2.2vw]"
+          className="border-t border-white-100/10 py-[1.5%] px-[1.5vw]"
           data-footer-item
         >
           <p className="text-[0.74vw] text-white-100/45">

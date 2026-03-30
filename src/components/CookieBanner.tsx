@@ -72,7 +72,7 @@ const CookieBanner = () => {
   return (
     <div
       ref={bannerRef}
-      className="fixed bottom-0 right-[2.2vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
+      className="fixed bottom-0 right-[1.5vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
     >
       <p className="text-[0.8vw] text-white-100 mr-[1vw]">
         {t('message')}{' '}

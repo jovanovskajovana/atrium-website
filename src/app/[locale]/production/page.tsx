@@ -302,7 +302,7 @@ const ProductionPage = () => {
 
   return (
     <main className="relative overflow-x-hidden">
-      <div className="absolute top-[17.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none z-10">
+      <div className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none z-10">
         <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] tracking-[0.03em] uppercase mb-[0.4em]">
           {t('section_1_title_1')}
           <br />
@@ -314,8 +314,8 @@ const ProductionPage = () => {
       </div>
 
       <div
-        className="relative aspect-[16/9] overflow-hidden mx-[2.2vw]"
-        style={{ marginTop: 'calc(100vh - 30.87vw)' }}
+        className="relative aspect-[16/9] overflow-hidden mx-[1.5vw]"
+        style={{ marginTop: 'calc(100vh - 31.33vw)' }}
       >
         <iframe
           src="https://player.vimeo.com/video/1142351975?badge=0&autopause=0&player_id=0&app_id=58479&portrait=0&color=fff&title=0&byline=0&background=1&dnt=1"
@@ -357,7 +357,7 @@ const ProductionPage = () => {
 
       <div
         ref={dualImagesRef}
-        className="grid grid-cols-2 gap-[1.5vw] mx-[2.2vw] mb-[8%]"
+        className="grid grid-cols-2 gap-[1.5vw] mx-[1.5vw] mb-[8%]"
       >
         <div className="overflow-hidden aspect-[4/3]" data-dual-image>
           <Image
@@ -402,7 +402,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <div ref={panoRef} className="overflow-hidden mx-[2.2vw] mb-[10%]">
+      <div ref={panoRef} className="overflow-hidden mx-[1.5vw] mb-[10%]">
         <Image
           src="/assets/img-5.webp"
           alt="Production panoramic"
@@ -415,7 +415,7 @@ const ProductionPage = () => {
 
       <section
         ref={oemRef}
-        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
+        className="relative bg-black-100 py-[8%] mx-[1.5vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
