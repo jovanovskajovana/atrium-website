@@ -82,7 +82,7 @@ const Footer = () => {
       className="relative w-full bg-black-100 text-white-100 overflow-hidden"
     >
       <section
-        className="relative text-center py-[10%] px-[3vw]"
+        className="relative text-center py-[10%] px-[2.2vw]"
         data-footer-cta
       >
         <h2
@@ -107,7 +107,7 @@ const Footer = () => {
       </section>
 
       <div className="border-t border-white-100/15" data-footer-content>
-        <div className="grid grid-cols-[1.2fr_2fr] gap-[6vw] py-[4%] px-[3vw]">
+        <div className="grid grid-cols-[1.2fr_2fr] gap-[6vw] py-[4%] px-[2.2vw]">
           <div data-footer-item>
             <AtriumLogoFull
               className="w-[13vw] h-auto"
@@ -176,14 +176,6 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/about"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
-                    >
-                      {t('nav_about')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/references"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
@@ -208,6 +200,22 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
+                      href="/careers"
+                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                    >
+                      {t('nav_careers')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/about"
+                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                    >
+                      {t('nav_about')}
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
                       href="/contact"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
@@ -217,15 +225,6 @@ const Footer = () => {
                 </ul>
               </div>
 
-              <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('language_title')}
-                </p>
-                <LanguageSwitcher variant="list" />
-              </div>
-            </div>
-
-            <div className="space-y-[2.2vw]" data-footer-item>
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
                   {t('legal_title')}
@@ -241,14 +240,6 @@ const Footer = () => {
                   </li>
                   <li>
                     <Link
-                      href="/cookie-policy"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
-                    >
-                      {t('cookie_policy_label')}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
                       href="/terms-of-use"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
@@ -256,6 +247,15 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
+              </div>
+            </div>
+
+            <div className="space-y-[2.2vw]" data-footer-item>
+              <div>
+                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                  {t('language_title')}
+                </p>
+                <LanguageSwitcher variant="list" />
               </div>
 
               <div>
@@ -300,7 +300,7 @@ const Footer = () => {
         </div>
 
         <div
-          className="border-t border-white-100/10 py-[1.5%] px-[3vw]"
+          className="border-t border-white-100/10 py-[1.5%] px-[2.2vw]"
           data-footer-item
         >
           <p className="text-[0.74vw] text-white-100/45">

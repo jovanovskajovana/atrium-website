@@ -16,7 +16,7 @@ const Navigation = () => {
   const isHome = pathname === '/'
 
   return (
-    <div className="relative flex items-center justify-between px-[3vw] py-[1.5%]">
+    <div className="relative flex items-center justify-between py-[1.6%] px-[2.2vw]">
       <Link href="/" className="w-[2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>

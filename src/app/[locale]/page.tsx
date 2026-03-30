@@ -523,7 +523,7 @@ const Home = () => {
         className="absolute top-[17.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
         data-hero-tagline
       >
-        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] tracking-[0.03em] uppercase mb-[6%]">
+        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] tracking-[0.03em] uppercase mb-[0.4em]">
           {t('section_1_title_1')}
           <br />
           {t('section_1_title_2')}
@@ -538,7 +538,7 @@ const Home = () => {
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
-          className="absolute bottom-0 left-[34.83vw] w-[30.33vw] aspect-square overflow-hidden"
+          className="absolute bottom-0 left-[34.57vw] w-[30.87vw] aspect-square overflow-hidden"
           data-collage-bg
         >
           <Image
@@ -659,7 +659,7 @@ const Home = () => {
         <div className="flex items-center justify-center gap-[1.5vw]">
           {PROJECTS.map((project, i) => {
             const isLarge = i % 2 === 0
-            const w = isLarge ? '25vw' : '18.5vw'
+            const w = isLarge ? '25vw' : '20vw'
             const num = String(i + 1).padStart(2, '0')
             return (
               <Link
@@ -742,7 +742,7 @@ const Home = () => {
 
       <section
         ref={section6Ref}
-        className="relative bg-black-100 py-[8%] mx-[3vw] mb-[10%]"
+        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
