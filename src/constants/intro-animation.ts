@@ -38,3 +38,6 @@ export const COLLAGE_IMAGES = [
     className: 'bottom-0 left-[34.33vw] w-[31.33vw]',
   },
 ]
+
+export const COLLAGE_REST = COLLAGE_IMAGES.slice(0, -1)
+export const IMG9 = COLLAGE_IMAGES[COLLAGE_IMAGES.length - 1]

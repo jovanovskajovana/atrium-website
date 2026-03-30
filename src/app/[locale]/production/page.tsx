@@ -14,9 +14,10 @@ gsap.registerPlugin(ScrollTrigger)
 const ProductionPage = () => {
   const t = useTranslations('production')
 
-  const statsRef = useRef<HTMLDivElement>(null)
-  const dualImagesRef = useRef<HTMLDivElement>(null)
-  const capsRef = useRef<HTMLElement>(null)
+  const videoRef = useRef<HTMLDivElement>(null)
+  const section2Ref = useRef<HTMLElement>(null)
+  const section3Ref = useRef<HTMLElement>(null)
+  const section4Ref = useRef<HTMLElement>(null)
   const statementRef = useRef<HTMLElement>(null)
   const panoRef = useRef<HTMLDivElement>(null)
   const oemRef = useRef<HTMLElement>(null)
@@ -25,35 +26,138 @@ const ProductionPage = () => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const stats = statsRef.current
-      if (stats) {
-        const statItems = stats.querySelectorAll('[data-stat-item]')
-        gsap.set(statItems, { y: 40, opacity: 0 })
+      const heroTagline = document.querySelector('[data-hero-tagline]')
+      const video = videoRef.current
 
-        const statsTl = gsap.timeline({ paused: true })
-        statsTl.to(statItems, {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'power3.out',
-          stagger: 0.08,
-        })
-
-        ScrollTrigger.create({
-          trigger: stats,
-          start: 'top 85%',
-          onEnter: () => statsTl.play(),
-          onLeaveBack: () => statsTl.reverse(),
-        })
+      if (heroTagline) {
+        gsap.fromTo(
+          heroTagline,
+          { opacity: 0, y: 30 },
+          { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
+        )
       }
 
-      const dualImages = dualImagesRef.current
-      if (dualImages) {
-        const images = dualImages.querySelectorAll('[data-dual-image]')
-        gsap.set(images, { y: 50, opacity: 0 })
+      if (video) {
+        gsap.set(video, { scale: 0.97, y: 30, autoAlpha: 0 })
 
-        const dualTl = gsap.timeline({ paused: true })
-        dualTl.to(images, {
+        gsap.to(video, {
+          y: 0,
+          autoAlpha: 1,
+          duration: 1,
+          ease: 'power3.out',
+          delay: 0.2,
+        })
+
+        const videoTl = gsap.timeline({
+          scrollTrigger: {
+            start: 0,
+            end: () => window.innerHeight * 0.5,
+            scrub: 0.5,
+          },
+        })
+
+        videoTl.to(video, { scale: 1, duration: 1, ease: 'none' }, 0)
+      }
+
+      const section2 = section2Ref.current
+      if (section2) {
+        const s2Title = section2.querySelector('[data-s2-title]')
+        const s2Btns = section2.querySelector('[data-s2-btns]')
+        const s2Image = section2.querySelector('[data-s2-image]')
+
+        if (s2Title) gsap.set(s2Title, { y: 40, opacity: 0 })
+        if (s2Btns) gsap.set(s2Btns, { y: 40, opacity: 0 })
+        if (s2Image) gsap.set(s2Image, { y: 40, autoAlpha: 0 })
+
+        const s2Tl = gsap.timeline({ paused: true })
+
+        if (s2Title) {
+          s2Tl.to(
+            s2Title,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (s2Btns) {
+          s2Tl.to(
+            s2Btns,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.3
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: section2,
+          start: 'top 80%',
+          onEnter: () => s2Tl.play(),
+          onLeaveBack: () => s2Tl.reverse(),
+        })
+
+        if (s2Image) {
+          const s2ImgEl = s2Image.querySelector('img')
+          const s2ImgTl = gsap.timeline({ paused: true })
+
+          s2ImgTl.to(s2Image, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+
+          if (s2ImgEl) {
+            s2ImgTl.fromTo(
+              s2ImgEl,
+              { scale: 1.08 },
+              { scale: 1, duration: 1.3, ease: 'power3.out' },
+              0
+            )
+          }
+
+          ScrollTrigger.create({
+            trigger: s2Image,
+            start: 'top 85%',
+            onEnter: () => s2ImgTl.play(),
+            onLeaveBack: () => s2ImgTl.reverse(),
+          })
+        }
+      }
+
+      const section3 = section3Ref.current
+      if (section3) {
+        const s3Title = section3.querySelector('[data-s3-title]')
+        const s3Text = section3.querySelector('[data-s3-text]')
+        const s3Items = section3.querySelectorAll('[data-s3-item]')
+        const s3Grid = section3.querySelector('[data-s3-grid]')
+
+        if (s3Title) gsap.set(s3Title, { y: 40, opacity: 0 })
+        if (s3Text) gsap.set(s3Text, { y: 20, opacity: 0 })
+        gsap.set(s3Items, { y: 50, opacity: 0 })
+
+        const s3TextTl = gsap.timeline({ paused: true })
+        if (s3Title) {
+          s3TextTl.to(
+            s3Title,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (s3Text) {
+          s3TextTl.to(
+            s3Text,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.2
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: section3,
+          start: 'top 80%',
+          onEnter: () => s3TextTl.play(),
+          onLeaveBack: () => s3TextTl.reverse(),
+        })
+
+        const s3CardsTl = gsap.timeline({ paused: true })
+        s3CardsTl.to(s3Items, {
           y: 0,
           opacity: 1,
           duration: 1.3,
@@ -62,33 +166,96 @@ const ProductionPage = () => {
         })
 
         ScrollTrigger.create({
-          trigger: dualImages,
-          start: 'top 80%',
-          onEnter: () => dualTl.play(),
-          onLeaveBack: () => dualTl.reverse(),
+          trigger: s3Grid,
+          start: 'top 75%',
+          onEnter: () => s3CardsTl.play(),
+          onLeaveBack: () => s3CardsTl.reverse(),
         })
       }
 
-      const caps = capsRef.current
-      if (caps) {
-        const capItems = caps.querySelectorAll('[data-cap-item]')
-        gsap.set(capItems, { y: 30, opacity: 0 })
+      const section4 = section4Ref.current
+      if (section4) {
+        const s4Title = section4.querySelector('[data-s4-title]')
+        const s4Image = section4.querySelector('[data-s4-image]')
+        const s4ImgEl = s4Image?.querySelector('img')
+        const s4Features = section4.querySelectorAll('[data-s4-feature]')
 
-        const capsTl = gsap.timeline({ paused: true })
-        capsTl.to(capItems, {
-          y: 0,
-          opacity: 1,
-          duration: 1.2,
-          ease: 'power3.out',
-          stagger: 0.2,
-        })
+        if (s4Title) gsap.set(s4Title, { y: 40, opacity: 0 })
+        if (s4Image) gsap.set(s4Image, { y: 40, autoAlpha: 0 })
+        gsap.set(s4Features, { y: 30, opacity: 0 })
+
+        const s4TitleTl = gsap.timeline({ paused: true })
+        if (s4Title) {
+          s4TitleTl.to(
+            s4Title,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
 
         ScrollTrigger.create({
-          trigger: caps,
+          trigger: section4,
           start: 'top 80%',
-          onEnter: () => capsTl.play(),
-          onLeaveBack: () => capsTl.reverse(),
+          onEnter: () => s4TitleTl.play(),
+          onLeaveBack: () => s4TitleTl.reverse(),
         })
+
+        const s4ContentTl = gsap.timeline({ paused: true })
+        if (s4Image) {
+          s4ContentTl.to(
+            s4Image,
+            { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (s4ImgEl) {
+          s4ContentTl.fromTo(
+            s4ImgEl,
+            { scale: 1.08 },
+            { scale: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        s4ContentTl.to(
+          s4Features,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            stagger: 0.12,
+          },
+          0.15
+        )
+
+        ScrollTrigger.create({
+          trigger: s4Image,
+          start: 'top 80%',
+          onEnter: () => s4ContentTl.play(),
+          onLeaveBack: () => s4ContentTl.reverse(),
+        })
+
+        const s4Statement = document.querySelector('[data-s4-statement]')
+        if (s4Statement) {
+          const s4StTitles = s4Statement.querySelectorAll('[data-s4-st-title]')
+
+          gsap.set(s4StTitles, { y: 40, opacity: 0 })
+
+          const s4StTl = gsap.timeline({ paused: true })
+          s4StTl.to(s4StTitles, {
+            y: 0,
+            opacity: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+            stagger: 0.1,
+          })
+          ScrollTrigger.create({
+            trigger: s4Statement,
+            start: 'top 80%',
+            onEnter: () => s4StTl.play(),
+            onLeaveBack: () => s4StTl.reverse(),
+          })
+        }
       }
 
       const statement = statementRef.current
@@ -302,7 +469,10 @@ const ProductionPage = () => {
 
   return (
     <main className="relative overflow-x-hidden">
-      <div className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none z-10">
+      <div
+        className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-0 z-10"
+        data-hero-tagline
+      >
         <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] tracking-[0.03em] uppercase mb-[0.4em]">
           {t('section_1_title_1')}
           <br />
@@ -313,88 +483,160 @@ const ProductionPage = () => {
         </p>
       </div>
 
-      <div
-        className="relative aspect-[16/9] overflow-hidden mx-[1.5vw]"
-        style={{ marginTop: 'calc(100vh - 31.33vw)' }}
-      >
-        <iframe
-          src="https://player.vimeo.com/video/1142351975?badge=0&autopause=0&player_id=0&app_id=58479&portrait=0&color=fff&title=0&byline=0&background=1&dnt=1"
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
-          style={{
-            border: 0,
-            width: '177.77vh',
-            minWidth: '100%',
-            height: '100vh',
-            minHeight: '56.25vw',
-          }}
-          allow="autoplay; fullscreen; picture-in-picture"
-          title={t('section_1_label')}
-        />
+      <div className="relative mt-[calc(100vh-31.33vw)] h-[52vw]">
+        <div
+          ref={videoRef}
+          className="absolute inset-0 overflow-hidden origin-top invisible"
+        >
+          <Image
+            src="/assets/img-20.webp"
+            alt="Production facility"
+            width={1920}
+            height={800}
+            className="w-full h-auto object-cover"
+            sizes="94vw"
+          />
+          {/* <iframe
+            src="https://player.vimeo.com/video/1142351975?badge=0&autopause=0&player_id=0&app_id=58479&portrait=0&color=fff&title=0&byline=0&background=1&dnt=1"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0 w-[177.77vh] min-w-full h-screen min-h-[56.25vw]"
+            allow="autoplay; fullscreen; picture-in-picture"
+            title={t('section_1_label')}
+          /> */}
+        </div>
       </div>
 
-      <section className="relative pt-[6%]">
-        <p
-          className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw] mx-auto text-center mb-[5%]"
-          data-hero-text
+      <section ref={section2Ref} className="relative pt-[4%] mb-[10%]">
+        <div className="max-w-[35vw] mx-auto text-center">
+          <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
+            {t('section_2_text')}
+          </p>
+        </div>
+        {/* <div className="max-w-[45vw] mx-auto text-center">
+          <h2
+            className="text-[1.1vw] font-[400] text-black-100/60 leading-[1.7] tracking-[0.02em]"
+            data-s2-title
+          >
+            {t('section_2_text')}
+          </h2>
+        </div> */}
+        <div className="flex justify-center gap-[1.5vw] mt-[8%]" data-s2-btns>
+          <Button>{t('section_2_cta_1')}</Button>
+          <Button>{t('section_2_cta_2')}</Button>
+        </div>
+
+        <div
+          className="overflow-hidden w-[35vw] mt-[10%] mx-auto"
+          data-s2-image
         >
-          {t('section_2_text')}
-        </p>
-        <div ref={statsRef} className="max-w-[60vw] mx-auto mb-[8%]">
-          <div className="grid grid-cols-3 gap-y-[3vw] gap-x-[4vw]">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <div key={n} className="text-center" data-stat-item>
-                <p className="text-[2vw] font-[450] text-black-100 leading-none">
-                  {t(`section_2_stat_${n}_value`)}
-                </p>
-                <p className="text-[0.78vw] text-black-100/40 tracking-[0.08em] uppercase mt-[0.6vw]">
-                  {t(`section_2_stat_${n}_label`)}
-                </p>
-              </div>
-            ))}
-          </div>
+          <Image
+            src="/assets/img-20.webp"
+            alt="Production facility"
+            width={800}
+            height={1200}
+            className="w-full h-auto object-cover"
+            sizes="35vw"
+          />
         </div>
       </section>
 
-      <div
-        ref={dualImagesRef}
-        className="grid grid-cols-2 gap-[1.5vw] mx-[1.5vw] mb-[8%]"
-      >
-        <div className="overflow-hidden aspect-[4/3]" data-dual-image>
-          <Image
-            src="/assets/img-2.webp"
-            alt="Production facility"
-            width={960}
-            height={720}
-            className="w-full h-full object-cover"
-          />
+      <section ref={section3Ref} className="relative mb-[10%]">
+        <div className="mx-auto text-center mb-[5%]">
+          <h2
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] mb-[1.5%]"
+            data-s3-title
+          >
+            {t('section_3_title')}
+          </h2>
+          <p
+            className="text-[0.92vw] text-black-100/50 leading-[1.8] max-w-[34vw] mx-auto"
+            data-s3-text
+          >
+            {t('section_3_text')}
+          </p>
         </div>
-        <div className="overflow-hidden aspect-[4/3]" data-dual-image>
-          <Image
-            src="/assets/img-3.webp"
-            alt="Workshop detail"
-            width={960}
-            height={720}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      </div>
 
-      <section ref={capsRef} className="max-w-[75vw] mx-auto mb-[8%]">
-        <div className="grid grid-cols-2 gap-[6vw]">
-          {[1, 2].map((n) => (
-            <div key={n} data-cap-item>
-              <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mb-[1.5%]">
-                {t(`section_3_title_${n}`)}
-              </h3>
-              <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
-                {t(`section_3_text_${n}`)}
+        <div
+          className="grid grid-cols-4 gap-[1vw] max-w-[75vw] mx-auto"
+          data-s3-grid
+        >
+          {[
+            { value: '130+', key: 1 },
+            { value: '500+', key: 2 },
+            { value: '14', key: 3 },
+            { value: '60+', key: 4 },
+          ].map(({ value, key }) => (
+            <div
+              key={key}
+              className="bg-beige-100 aspect-square flex flex-col justify-end py-[10%] px-[1.8vw]"
+              data-s3-item
+            >
+              <p className="text-[3.2vw] font-[400] text-black-100 leading-[1.2] tracking-[-0.02em]">
+                {value}
+              </p>
+              <p className="text-[0.8vw] text-black-100/40 tracking-[0.1em] uppercase mt-[0.3vw]">
+                {t(`section_3_stat_${key}_label`)}
               </p>
             </div>
           ))}
         </div>
       </section>
 
-      <section ref={statementRef} className="relative py-[8%]">
+      <section ref={section4Ref} className="relative mb-[10%]">
+        <div className="max-w-[75vw] mx-auto">
+          <h2
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] text-center mb-[6%]"
+            data-s4-title
+          >
+            {t('section_4_heading')}
+          </h2>
+          <div className="grid grid-cols-[1fr_1.2fr] gap-[6vw] items-start">
+            <div className="overflow-hidden" data-s4-image>
+              <Image
+                src="/assets/img-21.webp"
+                alt={t('section_4_heading')}
+                width={720}
+                height={960}
+                className="w-full h-auto object-cover"
+              />
+            </div>
+            <div className="pt-[2%]">
+              {[1, 2, 3, 4].map((n) => (
+                <div
+                  key={n}
+                  className="border-t border-black-100/10 py-[2vw]"
+                  data-s4-feature
+                >
+                  <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mb-[0.6vw]">
+                    {t(`section_4_feature_${n}_title`)}
+                  </h3>
+                  <p className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[28vw]">
+                    {t(`section_4_feature_${n}_text`)}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative mb-[10%]">
+        <div className="max-w-[75vw] mx-auto" data-s4-statement>
+          <h2
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+            data-s4-st-title
+          >
+            {t('section_4_statement_1')}
+          </h2>
+          <h2
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+            data-s4-st-title
+          >
+            {t('section_4_statement_2')}
+          </h2>
+        </div>
+      </section>
+
+      {/* <section ref={statementRef} className="relative py-[8%]">
         <div className="max-w-[65vw] mx-auto text-center" data-statement-text>
           <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.06em]">
             {t('section_4_title')}
@@ -537,7 +779,7 @@ const ProductionPage = () => {
             <Button>{t('section_7_cta_2')}</Button>
           </div>
         </div>
-      </section>
+      </section> */}
     </main>
   )
 }

@@ -5,26 +5,25 @@ import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useTranslations } from 'next-intl'
 
 import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
 
-import { COLLAGE_IMAGES } from '@/constants/intro-animation'
+import { COLLAGE_REST, IMG9 } from '@/constants/intro-animation'
 import { PROJECTS } from '@/constants/projects'
-
-import { useTranslations } from 'next-intl'
 
 import useIntroAnimation from '@/hooks/useIntroAnimation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const COLLAGE_REST = COLLAGE_IMAGES.slice(0, -1)
-const IMG9 = COLLAGE_IMAGES[COLLAGE_IMAGES.length - 1]
-
 const Home = () => {
   const t = useTranslations('home')
+
   const { showIntro, completeIntro } = useIntroAnimation()
+
+  const introJustEndedRef = useRef(false)
   const img9Ref = useRef<HTMLDivElement>(null)
   const section1Ref = useRef<HTMLElement>(null)
   const section2Ref = useRef<HTMLElement>(null)
@@ -38,9 +37,13 @@ const Home = () => {
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) {
+      introJustEndedRef.current = true
       window.scrollTo(0, 0)
       return
     }
+
+    const comingFromIntro = introJustEndedRef.current
+    introJustEndedRef.current = false
 
     const section1 = section1Ref.current
     const section2 = section2Ref.current
@@ -48,6 +51,43 @@ const Home = () => {
     if (!section1 || !section2 || !img9) return
 
     const ctx = gsap.context(() => {
+      const heroTagline = document.querySelector('[data-hero-tagline]')
+      const collageItems = section1.querySelectorAll('[data-collage-item]')
+      const collageBg = section1.querySelector('[data-collage-bg]')
+
+      if (!comingFromIntro) {
+        if (collageBg) {
+          gsap.set(collageBg, { y: 30, autoAlpha: 0 })
+          gsap.to(collageBg, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.2,
+          })
+        }
+
+        if (collageItems.length) {
+          gsap.set(collageItems, { y: 30, autoAlpha: 0 })
+          gsap.to(collageItems, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.2,
+            stagger: 0.05,
+          })
+        }
+
+        if (heroTagline) {
+          gsap.fromTo(
+            heroTagline,
+            { opacity: 0, y: 30 },
+            { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out', delay: 0.3 }
+          )
+        }
+      }
+
       const img9Rect = img9.getBoundingClientRect()
       const img9Pos = section1.querySelector('[data-img9-position]')
       const colRect = img9Pos ? img9Pos.getBoundingClientRect() : img9Rect
@@ -97,9 +137,6 @@ const Home = () => {
         )
       }
 
-      const collageItems = section1.querySelectorAll('[data-collage-item]')
-      const collageBg = section1.querySelector('[data-collage-bg]')
-
       const scatterDirs = [
         { x: -300, y: -200, rotation: -12, scale: 1.5 },
         { x: 300, y: -200, rotation: 12, scale: 1.5 },
@@ -133,7 +170,6 @@ const Home = () => {
         )
       }
 
-      const heroTagline = document.querySelector('[data-hero-tagline]')
       if (heroTagline) {
         scatterTl.to(
           heroTagline,
