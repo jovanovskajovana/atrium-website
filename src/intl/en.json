@@ -110,7 +110,12 @@
     "title": "About us"
   },
   "references": {
-    "title": "References"
+    "title": "References",
+    "sector_residential": "Residential",
+    "sector_hospitality": "Hospitality",
+    "sector_office": "Office",
+    "sector_health": "Health",
+    "sector_public": "Public"
   },
   "production": {
     "section_1_title_1": "Built on experience",

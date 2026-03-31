@@ -20,6 +20,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
   const t = useTranslations('home')
+  const tRef = useTranslations('references')
 
   const { showIntro, completeIntro } = useIntroAnimation()
 
@@ -687,7 +688,7 @@ const Home = () => {
 
       <section ref={section4Ref} className="relative mb-[10%]">
         <p
-          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
+          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
         >
           {t('section_4_label')}
@@ -697,6 +698,7 @@ const Home = () => {
             const isLarge = i % 2 === 0
             const w = isLarge ? '25vw' : '20vw'
             const num = String(i + 1).padStart(2, '0')
+
             return (
               <Link
                 key={project.slug}
@@ -704,13 +706,16 @@ const Home = () => {
                   pathname: '/references/[slug]',
                   params: { slug: project.slug },
                 }}
-                className="shrink-0"
+                className="group shrink-0"
                 style={{ width: w }}
                 data-project-item
               >
-                <p className="text-[0.8vw] text-black-100/40 mb-[1%]">{num}</p>
+                <p className="text-[0.75vw] text-black-100/40 tracking-[0.15em] mb-[2%]">
+                  {num}
+                </p>
+
                 <div
-                  className="overflow-hidden aspect-[960/1294]"
+                  className="relative overflow-hidden aspect-[960/1294]"
                   style={{ width: w }}
                 >
                   <Image
@@ -718,18 +723,24 @@ const Home = () => {
                     alt={t(`section_4_project_${i + 1}`)}
                     width={960}
                     height={1294}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
+
+                  <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
                 </div>
-                <p className="text-[0.92vw] text-black-100 mt-[2%]">
+
+                <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[4%]">
                   {t(`section_4_project_${i + 1}`)}
+                </p>
+                <p className="text-[0.75vw] text-black-100/40 uppercase mt-[1%]">
+                  {tRef(`sector_${project.sector}`)}
                 </p>
               </Link>
             )
           })}
         </div>
 
-        <div className="flex justify-center mt-[4%]" data-project-link>
+        <div className="flex justify-center mt-[5%]" data-project-link>
           <Link
             href="/references"
             className="text-[0.92vw] text-black-100 underline hover:opacity-80 transition-opacity"
@@ -863,10 +874,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div
-            className="grid grid-cols-2 gap-[1.5vw] mt-[6%]"
-            data-design-btn
-          >
+          <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-design-btn>
             <div className="flex justify-end">
               <Button>{t('section_7_cta_1')}</Button>
             </div>
