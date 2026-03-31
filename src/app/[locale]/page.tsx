@@ -823,7 +823,7 @@ const Home = () => {
           </p>
 
           <div
-            className="grid grid-cols-2 gap-[3vw] mt-[5%]"
+            className="grid grid-cols-2 gap-[1.5vw] mt-[5%]"
             data-design-options
           >
             <div>
@@ -864,11 +864,15 @@ const Home = () => {
           </div>
 
           <div
-            className="flex justify-center gap-[1.5vw] mt-[6%]"
+            className="grid grid-cols-2 gap-[1.5vw] mt-[6%]"
             data-design-btn
           >
-            <Button>{t('section_7_cta_1')}</Button>
-            <Button>{t('section_7_cta_2')}</Button>
+            <div className="flex justify-end">
+              <Button>{t('section_7_cta_1')}</Button>
+            </div>
+            <div>
+              <Button>{t('section_7_cta_2')}</Button>
+            </div>
           </div>
         </div>
       </section>
