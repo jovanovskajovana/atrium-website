@@ -20,6 +20,11 @@ export const routing = defineRouting({
       de: '/referenzen',
       sl: '/reference',
     },
+    '/references/[slug]': {
+      en: '/references/[slug]',
+      de: '/referenzen/[slug]',
+      sl: '/reference/[slug]',
+    },
     '/news': {
       en: '/news',
       de: '/news',
@@ -46,9 +51,19 @@ export const routing = defineRouting({
       sl: '/kontakt',
     },
     '/privacy-policy': {
-      en: '/privacy-policy',
+      en: '/privacy-notice',
       de: '/datenschutz',
       sl: '/politika-zasebnosti',
+    },
+    '/cookie-policy': {
+      en: '/cookie-policy',
+      de: '/cookie-richtlinie',
+      sl: '/politika-piskotkov',
+    },
+    '/terms-of-use': {
+      en: '/terms-of-use',
+      de: '/nutzungsbedingungen',
+      sl: '/pogoji-uporabe',
     },
   },
 })

@@ -4,9 +4,10 @@ import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 
+import Button from '@/components/Button'
+
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-import Button from '@/components/Button'
 import { Link } from '@/i18n/navigation'
 
 const CookieBanner = () => {
@@ -71,9 +72,9 @@ const CookieBanner = () => {
   return (
     <div
       ref={bannerRef}
-      className="fixed bottom-0 right-[3vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
+      className="fixed bottom-0 right-[2.2vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
     >
-      <p className="text-white-100 text-[0.8vw] mr-[1vw]">
+      <p className="text-[0.8vw] text-white-100 mr-[1vw]">
         {t('message')}{' '}
         <Link
           href="/privacy-policy"
@@ -84,11 +85,11 @@ const CookieBanner = () => {
       </p>
       <button
         onClick={() => dismiss('denied')}
-        className="text-white-100 text-[0.8vw] underline hover:opacity-80 transition-opacity"
+        className="text-[0.8vw] text-white-100 underline hover:opacity-80 transition-opacity"
       >
         {t('deny')}
       </button>
-      <Button variant="light" onClick={() => dismiss('accepted')}>
+      <Button variant="light" size="small" onClick={() => dismiss('accepted')}>
         {t('accept')}
       </Button>
     </div>
