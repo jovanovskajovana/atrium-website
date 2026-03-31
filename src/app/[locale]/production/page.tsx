@@ -18,11 +18,11 @@ const ProductionPage = () => {
   const section2Ref = useRef<HTMLElement>(null)
   const section3Ref = useRef<HTMLElement>(null)
   const section4Ref = useRef<HTMLElement>(null)
-  const statementRef = useRef<HTMLElement>(null)
-  const panoRef = useRef<HTMLDivElement>(null)
-  const oemRef = useRef<HTMLElement>(null)
-  const interiorsRef = useRef<HTMLElement>(null)
-  const ctaRef = useRef<HTMLElement>(null)
+  const section5Ref = useRef<HTMLElement>(null)
+  const section6Ref = useRef<HTMLElement>(null)
+  const section7Ref = useRef<HTMLElement>(null)
+  const section8Ref = useRef<HTMLElement>(null)
+  const section9Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -235,14 +235,14 @@ const ProductionPage = () => {
           onLeaveBack: () => s4ContentTl.reverse(),
         })
 
-        const s4Statement = document.querySelector('[data-s4-statement]')
-        if (s4Statement) {
-          const s4StTitles = s4Statement.querySelectorAll('[data-s4-st-title]')
+        const s5Statement = document.querySelector('[data-s5-statement]')
+        if (s5Statement) {
+          const s5Titles = s5Statement.querySelectorAll('[data-s5-title]')
 
-          gsap.set(s4StTitles, { y: 40, opacity: 0 })
+          gsap.set(s5Titles, { y: 40, opacity: 0 })
 
-          const s4StTl = gsap.timeline({ paused: true })
-          s4StTl.to(s4StTitles, {
+          const s5Tl = gsap.timeline({ paused: true })
+          s5Tl.to(s5Titles, {
             y: 0,
             opacity: 1,
             duration: 1.3,
@@ -250,15 +250,85 @@ const ProductionPage = () => {
             stagger: 0.1,
           })
           ScrollTrigger.create({
-            trigger: s4Statement,
+            trigger: s5Statement,
             start: 'top 80%',
-            onEnter: () => s4StTl.play(),
-            onLeaveBack: () => s4StTl.reverse(),
+            onEnter: () => s5Tl.play(),
+            onLeaveBack: () => s5Tl.reverse(),
+          })
+        }
+
+        const s6Wrap = document.querySelector('[data-s6-wrap]')
+        if (s6Wrap) {
+          const s6Label = s6Wrap.querySelector('[data-s6-label]')
+          const s6Left = s6Wrap.querySelector('[data-s6-left]')
+          const s6Right = s6Wrap.querySelector('[data-s6-right]')
+
+          gsap.set(s6Wrap, { visibility: 'visible' })
+          if (s6Label) gsap.set(s6Label, { y: 40, opacity: 0 })
+          if (s6Left) {
+            gsap.set(s6Left, { y: 40, visibility: 'hidden' })
+          }
+          if (s6Right) {
+            gsap.set(s6Right, { y: 40, visibility: 'hidden' })
+          }
+
+          const s6Tl = gsap.timeline({
+            paused: true,
+            onComplete: () => {
+              if (s6Left) gsap.set(s6Left, { clearProps: 'all' })
+              if (s6Right) gsap.set(s6Right, { clearProps: 'all' })
+            },
+            onReverseComplete: () => {
+              if (s6Left) {
+                gsap.set(s6Left, { y: 40, visibility: 'hidden' })
+              }
+              if (s6Right) {
+                gsap.set(s6Right, { y: 40, visibility: 'hidden' })
+              }
+            },
+          })
+          if (s6Label) {
+            s6Tl.to(s6Label, {
+              y: 0,
+              opacity: 1,
+              duration: 1.3,
+              ease: 'power3.out',
+            })
+          }
+          if (s6Left) {
+            s6Tl.to(
+              s6Left,
+              {
+                y: 0,
+                visibility: 'visible',
+                duration: 1.3,
+                ease: 'power3.out',
+              },
+              0.1
+            )
+          }
+          if (s6Right) {
+            s6Tl.to(
+              s6Right,
+              {
+                y: 0,
+                visibility: 'visible',
+                duration: 1.3,
+                ease: 'power3.out',
+              },
+              0.2
+            )
+          }
+          ScrollTrigger.create({
+            trigger: s6Wrap,
+            start: 'top 80%',
+            onEnter: () => s6Tl.play(),
+            onLeaveBack: () => s6Tl.reverse(),
           })
         }
       }
 
-      const statement = statementRef.current
+      const statement = section5Ref.current
       if (statement) {
         const stText = statement.querySelector('[data-statement-text]')
         if (stText) {
@@ -279,63 +349,57 @@ const ProductionPage = () => {
         }
       }
 
-      const pano = panoRef.current
-      if (pano) {
-        gsap.set(pano, { y: 40, autoAlpha: 0 })
-        const panoImg = pano.querySelector('img')
-
-        const panoTl = gsap.timeline({ paused: true })
-        panoTl.to(pano, {
-          y: 0,
-          autoAlpha: 1,
-          duration: 1.3,
-          ease: 'power3.out',
-        })
-
-        if (panoImg) {
-          panoTl.fromTo(
-            panoImg,
-            { scale: 1.08 },
-            { scale: 1, duration: 1.3, ease: 'power3.out' },
-            0
-          )
-        }
-
-        ScrollTrigger.create({
-          trigger: pano,
-          start: 'top 85%',
-          onEnter: () => panoTl.play(),
-          onLeaveBack: () => panoTl.reverse(),
-        })
-      }
-
-      const oem = oemRef.current
+      const oem = section7Ref.current
       if (oem) {
-        const oemLabel = oem.querySelector('[data-oem-label]')
+        const oemImage = oem.querySelector('[data-oem-image]')
         const oemTitle = oem.querySelector('[data-oem-title]')
+        const oemLabel = oem.querySelector('[data-oem-label]')
         const oemText = oem.querySelector('[data-oem-text]')
         const oemFeatures = oem.querySelectorAll('[data-oem-feature]')
-        const oemImage = oem.querySelector('[data-oem-image]')
 
-        if (oemLabel) gsap.set(oemLabel, { y: 20, opacity: 0 })
+        if (oemImage) {
+          const img = oemImage.querySelector('img')
+          gsap.set(oemImage, { y: 40, autoAlpha: 0 })
+          const oemImgTl = gsap.timeline({ paused: true })
+          oemImgTl.to(oemImage, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+          if (img) {
+            oemImgTl.fromTo(
+              img,
+              { scale: 1.08 },
+              { scale: 1, duration: 1.3, ease: 'power3.out' },
+              0
+            )
+          }
+          ScrollTrigger.create({
+            trigger: oemImage,
+            start: 'top 85%',
+            onEnter: () => oemImgTl.play(),
+            onLeaveBack: () => oemImgTl.reverse(),
+          })
+        }
+
         if (oemTitle) gsap.set(oemTitle, { y: 40, opacity: 0 })
+        if (oemLabel) gsap.set(oemLabel, { y: 20, opacity: 0 })
         if (oemText) gsap.set(oemText, { y: 20, opacity: 0 })
         gsap.set(oemFeatures, { y: 30, opacity: 0 })
-        if (oemImage) gsap.set(oemImage, { y: 50, opacity: 0 })
 
         const oemTl = gsap.timeline({ paused: true })
-
-        if (oemLabel) {
-          oemTl.to(
-            oemLabel,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0
-          )
-        }
         if (oemTitle) {
           oemTl.to(
             oemTitle,
             { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (oemLabel) {
+          oemTl.to(
+            oemLabel,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
             0.1
           )
         }
@@ -343,7 +407,7 @@ const ProductionPage = () => {
           oemTl.to(
             oemText,
             { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.3
+            0.2
           )
         }
         oemTl.to(
@@ -353,53 +417,71 @@ const ProductionPage = () => {
             opacity: 1,
             duration: 1,
             ease: 'power2.out',
-            stagger: 0.12,
+            stagger: 0.1,
           },
-          0.4
+          0.35
         )
-        if (oemImage) {
-          oemTl.to(
-            oemImage,
-            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
-            0.3
-          )
-        }
-
         ScrollTrigger.create({
-          trigger: oem,
+          trigger: oemTitle || oem,
           start: 'top 80%',
           onEnter: () => oemTl.play(),
           onLeaveBack: () => oemTl.reverse(),
         })
       }
 
-      const interiors = interiorsRef.current
+      const interiors = section8Ref.current
       if (interiors) {
-        const intLabel = interiors.querySelector('[data-int-label]')
+        const intImage = interiors.querySelector('[data-int-image]')
         const intTitle = interiors.querySelector('[data-int-title]')
+        const intLabel = interiors.querySelector('[data-int-label]')
         const intText = interiors.querySelector('[data-int-text]')
         const intFeatures = interiors.querySelectorAll('[data-int-feature]')
-        const intImages = interiors.querySelectorAll('[data-int-image]')
+        const intDelivery = interiors.querySelector('[data-int-delivery]')
 
-        if (intLabel) gsap.set(intLabel, { y: 20, opacity: 0 })
+        if (intImage) {
+          const img = intImage.querySelector('img')
+          gsap.set(intImage, { y: 40, autoAlpha: 0 })
+          const intImgTl = gsap.timeline({ paused: true })
+          intImgTl.to(intImage, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+          if (img) {
+            intImgTl.fromTo(
+              img,
+              { scale: 1.08 },
+              { scale: 1, duration: 1.3, ease: 'power3.out' },
+              0
+            )
+          }
+          ScrollTrigger.create({
+            trigger: intImage,
+            start: 'top 85%',
+            onEnter: () => intImgTl.play(),
+            onLeaveBack: () => intImgTl.reverse(),
+          })
+        }
+
         if (intTitle) gsap.set(intTitle, { y: 40, opacity: 0 })
+        if (intLabel) gsap.set(intLabel, { y: 20, opacity: 0 })
         if (intText) gsap.set(intText, { y: 20, opacity: 0 })
         gsap.set(intFeatures, { y: 30, opacity: 0 })
-        gsap.set(intImages, { y: 50, opacity: 0 })
+        if (intDelivery) gsap.set(intDelivery, { y: 20, opacity: 0 })
 
         const intTl = gsap.timeline({ paused: true })
-
-        if (intLabel) {
-          intTl.to(
-            intLabel,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0
-          )
-        }
         if (intTitle) {
           intTl.to(
             intTitle,
             { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+        if (intLabel) {
+          intTl.to(
+            intLabel,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
             0.1
           )
         }
@@ -407,7 +489,7 @@ const ProductionPage = () => {
           intTl.to(
             intText,
             { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.3
+            0.2
           )
         }
         intTl.to(
@@ -417,43 +499,57 @@ const ProductionPage = () => {
             opacity: 1,
             duration: 1,
             ease: 'power2.out',
-            stagger: 0.12,
+            stagger: 0.1,
           },
-          0.4
+          0.35
         )
-        intTl.to(
-          intImages,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.3,
-            ease: 'power3.out',
-            stagger: 0.15,
-          },
-          0.3
-        )
-
+        if (intDelivery) {
+          intTl.to(
+            intDelivery,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.6
+          )
+        }
         ScrollTrigger.create({
-          trigger: interiors,
+          trigger: intTitle || interiors,
           start: 'top 80%',
           onEnter: () => intTl.play(),
           onLeaveBack: () => intTl.reverse(),
         })
       }
 
-      const cta = ctaRef.current
+      const cta = section9Ref.current
       if (cta) {
-        const ctaItems = cta.querySelectorAll('[data-cta-item]')
-        gsap.set(ctaItems, { y: 40, opacity: 0 })
+        const ctaTitle = cta.querySelector('[data-cta-title]')
+        const ctaIndustries = cta.querySelector('[data-cta-industries]')
+        const ctaButtons = cta.querySelector('[data-cta-buttons]')
+
+        if (ctaTitle) gsap.set(ctaTitle, { y: 30, opacity: 0 })
+        if (ctaIndustries) gsap.set(ctaIndustries, { y: 20, opacity: 0 })
+        if (ctaButtons) gsap.set(ctaButtons, { y: 20, opacity: 0 })
 
         const ctaTl = gsap.timeline({ paused: true })
-        ctaTl.to(ctaItems, {
-          y: 0,
-          opacity: 1,
-          duration: 1.3,
-          ease: 'power3.out',
-          stagger: 0.15,
-        })
+        if (ctaTitle) {
+          ctaTl.to(
+            ctaTitle,
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
+            0
+          )
+        }
+        if (ctaIndustries) {
+          ctaTl.to(
+            ctaIndustries,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.15
+          )
+        }
+        if (ctaButtons) {
+          ctaTl.to(
+            ctaButtons,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.3
+          )
+        }
 
         ScrollTrigger.create({
           trigger: cta,
@@ -587,13 +683,13 @@ const ProductionPage = () => {
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] text-center mb-[6%]"
             data-s4-title
           >
-            {t('section_4_heading')}
+            {t('section_4_title')}
           </h2>
           <div className="grid grid-cols-[1fr_1.2fr] gap-[6vw] items-start">
             <div className="overflow-hidden" data-s4-image>
               <Image
                 src="/assets/img-21.webp"
-                alt={t('section_4_heading')}
+                alt={t('section_4_title')}
                 width={720}
                 height={960}
                 className="w-full h-auto object-cover"
@@ -619,25 +715,202 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section className="relative mb-[10%]">
-        <div className="max-w-[75vw] mx-auto" data-s4-statement>
+      <section ref={section5Ref} className="relative mb-[10%]">
+        <div className="max-w-[75vw] mx-auto" data-s5-statement>
           <h2
             className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
-            data-s4-st-title
+            data-s5-title
           >
-            {t('section_4_statement_1')}
+            {t('section_5_title_1')}
           </h2>
           <h2
             className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
-            data-s4-st-title
+            data-s5-title
           >
-            {t('section_4_statement_2')}
+            {t('section_5_title_2')}
           </h2>
         </div>
       </section>
 
+      <section ref={section6Ref} className="relative mb-[10%]">
+        <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%]"
+            data-s6-label
+          >
+            {t('section_6_label')}
+          </p>
+          <div className="grid grid-cols-2 gap-[1.5vw]">
+            <a
+              href="#oem-services"
+              className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
+              data-s6-left
+            >
+              <span className="text-[0.75vw] text-black-100/40 tracking-[0.15em] uppercase">
+                01
+              </span>
+              <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+                {t('section_6_option_1')}
+              </h3>
+            </a>
+            <a
+              href="#project-interiors"
+              className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
+              data-s6-right
+            >
+              <span className="text-[0.75vw] text-black-100/40 tracking-[0.15em] uppercase">
+                02
+              </span>
+              <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+                {t('section_6_option_2')}
+              </h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        ref={section7Ref}
+        id="oem-services"
+        className="relative mb-[10%]"
+      >
+        <div className="overflow-hidden mx-[2.2vw]" data-oem-image>
+          <Image
+            src="/assets/img-22.webp"
+            alt={t('section_7_title')}
+            width={1920}
+            height={1080}
+            className="w-full h-[60vh] object-cover"
+          />
+        </div>
+        <div className="max-w-[75vw] mx-auto mt-[6%]">
+          <h2
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase"
+            data-oem-title
+          >
+            {t('section_7_title')}
+          </h2>
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.05em] mt-[1.5%] mb-[1%]"
+            data-oem-label
+          >
+            {t('section_7_label')}
+          </p>
+          <p
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw]"
+            data-oem-text
+          >
+            {t('section_7_text')}
+          </p>
+          <div className="mt-[5%] max-w-[40vw]">
+            {[1, 2, 3, 4].map((n) => (
+              <div
+                key={n}
+                className="border-t border-black-100/10 py-[1.8vw]"
+                data-oem-feature
+              >
+                <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
+                  <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase">
+                    {t(`section_7_feature_${n}_title`)}
+                  </h4>
+                  <p className="text-[0.85vw] text-black-100/50 leading-[1.7]">
+                    {t(`section_7_feature_${n}_text`)}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section
+        ref={section8Ref}
+        id="project-interiors"
+        className="relative mb-[10%]"
+      >
+        <div className="overflow-hidden mx-[2.2vw]" data-int-image>
+          <Image
+            src="/assets/img-23.webp"
+            alt={t('section_8_title')}
+            width={1920}
+            height={1080}
+            className="w-full h-[60vh] object-cover"
+          />
+        </div>
+        <div className="max-w-[75vw] mx-auto mt-[6%]">
+          <h2
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase"
+            data-int-title
+          >
+            {t('section_8_title')}
+          </h2>
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.05em] mt-[1.5%] mb-[1%]"
+            data-int-label
+          >
+            {t('section_8_label')}
+          </p>
+          <p
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[40vw]"
+            data-int-text
+          >
+            {t('section_8_text')}
+          </p>
+          <div className="mt-[5%] max-w-[40vw]">
+            {[1, 2, 3].map((n) => (
+              <div
+                key={n}
+                className="border-t border-black-100/10 py-[1.8vw]"
+                data-int-feature
+              >
+                <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
+                  <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase">
+                    {t(`section_8_feature_${n}_title`)}
+                  </h4>
+                  <p className="text-[0.85vw] text-black-100/50 leading-[1.7]">
+                    {t(`section_8_feature_${n}_text`)}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p
+            className="text-[1.1vw] font-[400] text-black-100/50 mt-[4%]"
+            data-int-delivery
+          >
+            {t('section_8_delivery')}
+          </p>
+        </div>
+      </section>
+
+      <section ref={section9Ref} className="relative py-[8%] mb-[4%]">
+        <div className="max-w-[75vw] mx-auto text-center">
+          <h3
+            className="text-[1.6vw] font-[450] text-black-100 tracking-[0.03em] mb-[2%]"
+            data-cta-title
+          >
+            {t('section_9_title')}
+          </h3>
+          <p
+            className="text-[0.85vw] text-black-100/50 leading-[2] max-w-[50vw] mx-auto border-t border-black-100/10 pt-[2%]"
+            data-cta-industries
+          >
+            {t('section_9_industries')}
+          </p>
+          <div
+            className="flex justify-center gap-[1.5vw] mt-[5%]"
+            data-cta-buttons
+          >
+            <Button>{t('section_9_cta_1')}</Button>
+            <Button>{t('section_9_cta_2')}</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Additional content: */}
+
       {/* <section
-        ref={oemRef}
+        ref={section7Ref}
         className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
@@ -687,7 +960,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={interiorsRef} className="relative mb-[10%]">
+      <section ref={section8Ref} className="relative mb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
             className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
@@ -747,7 +1020,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={ctaRef} className="relative py-[6%] mb-[4%]">
+      <section ref={section9Ref} className="relative py-[6%] mb-[4%]">
         <div className="max-w-[55vw] mx-auto text-center">
           <p
             className="text-[1.2vw] font-[350] text-black-100/50 mb-[3%]"
