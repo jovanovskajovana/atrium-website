@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
+import { Link } from '@/i18n/navigation'
 import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -22,7 +23,6 @@ const ProductionPage = () => {
   const section6Ref = useRef<HTMLElement>(null)
   const section7Ref = useRef<HTMLElement>(null)
   const section8Ref = useRef<HTMLElement>(null)
-  const section9Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
@@ -351,42 +351,19 @@ const ProductionPage = () => {
 
       const oem = section7Ref.current
       if (oem) {
-        const oemImage = oem.querySelector('[data-oem-image]')
         const oemTitle = oem.querySelector('[data-oem-title]')
         const oemLabel = oem.querySelector('[data-oem-label]')
         const oemText = oem.querySelector('[data-oem-text]')
+        const oemImage = oem.querySelector('[data-oem-image]')
         const oemFeatures = oem.querySelectorAll('[data-oem-feature]')
-
-        if (oemImage) {
-          const img = oemImage.querySelector('img')
-          gsap.set(oemImage, { y: 40, autoAlpha: 0 })
-          const oemImgTl = gsap.timeline({ paused: true })
-          oemImgTl.to(oemImage, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 1.3,
-            ease: 'power3.out',
-          })
-          if (img) {
-            oemImgTl.fromTo(
-              img,
-              { scale: 1.08 },
-              { scale: 1, duration: 1.3, ease: 'power3.out' },
-              0
-            )
-          }
-          ScrollTrigger.create({
-            trigger: oemImage,
-            start: 'top 85%',
-            onEnter: () => oemImgTl.play(),
-            onLeaveBack: () => oemImgTl.reverse(),
-          })
-        }
+        const oemDelivery = oem.querySelector('[data-oem-delivery]')
 
         if (oemTitle) gsap.set(oemTitle, { y: 40, opacity: 0 })
         if (oemLabel) gsap.set(oemLabel, { y: 20, opacity: 0 })
         if (oemText) gsap.set(oemText, { y: 20, opacity: 0 })
+        if (oemImage) gsap.set(oemImage, { y: 40, autoAlpha: 0 })
         gsap.set(oemFeatures, { y: 30, opacity: 0 })
+        if (oemDelivery) gsap.set(oemDelivery, { y: 20, opacity: 0 })
 
         const oemTl = gsap.timeline({ paused: true })
         if (oemTitle) {
@@ -410,6 +387,13 @@ const ProductionPage = () => {
             0.2
           )
         }
+        if (oemImage) {
+          oemTl.to(
+            oemImage,
+            { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
+            0.15
+          )
+        }
         oemTl.to(
           oemFeatures,
           {
@@ -421,8 +405,15 @@ const ProductionPage = () => {
           },
           0.35
         )
+        if (oemDelivery) {
+          oemTl.to(
+            oemDelivery,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.7
+          )
+        }
         ScrollTrigger.create({
-          trigger: oemTitle || oem,
+          trigger: oem,
           start: 'top 80%',
           onEnter: () => oemTl.play(),
           onLeaveBack: () => oemTl.reverse(),
@@ -431,44 +422,17 @@ const ProductionPage = () => {
 
       const interiors = section8Ref.current
       if (interiors) {
-        const intImage = interiors.querySelector('[data-int-image]')
         const intTitle = interiors.querySelector('[data-int-title]')
         const intLabel = interiors.querySelector('[data-int-label]')
         const intText = interiors.querySelector('[data-int-text]')
         const intFeatures = interiors.querySelectorAll('[data-int-feature]')
-        const intDelivery = interiors.querySelector('[data-int-delivery]')
-
-        if (intImage) {
-          const img = intImage.querySelector('img')
-          gsap.set(intImage, { y: 40, autoAlpha: 0 })
-          const intImgTl = gsap.timeline({ paused: true })
-          intImgTl.to(intImage, {
-            y: 0,
-            autoAlpha: 1,
-            duration: 1.3,
-            ease: 'power3.out',
-          })
-          if (img) {
-            intImgTl.fromTo(
-              img,
-              { scale: 1.08 },
-              { scale: 1, duration: 1.3, ease: 'power3.out' },
-              0
-            )
-          }
-          ScrollTrigger.create({
-            trigger: intImage,
-            start: 'top 85%',
-            onEnter: () => intImgTl.play(),
-            onLeaveBack: () => intImgTl.reverse(),
-          })
-        }
+        const intImages = interiors.querySelector('[data-int-images]')
 
         if (intTitle) gsap.set(intTitle, { y: 40, opacity: 0 })
         if (intLabel) gsap.set(intLabel, { y: 20, opacity: 0 })
         if (intText) gsap.set(intText, { y: 20, opacity: 0 })
         gsap.set(intFeatures, { y: 30, opacity: 0 })
-        if (intDelivery) gsap.set(intDelivery, { y: 20, opacity: 0 })
+        if (intImages) gsap.set(intImages, { y: 40, autoAlpha: 0 })
 
         const intTl = gsap.timeline({ paused: true })
         if (intTitle) {
@@ -499,64 +463,54 @@ const ProductionPage = () => {
             opacity: 1,
             duration: 1,
             ease: 'power2.out',
-            stagger: 0.1,
+            stagger: 0.15,
           },
           0.35
         )
-        if (intDelivery) {
-          intTl.to(
-            intDelivery,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.6
-          )
-        }
         ScrollTrigger.create({
-          trigger: intTitle || interiors,
+          trigger: interiors,
           start: 'top 80%',
           onEnter: () => intTl.play(),
           onLeaveBack: () => intTl.reverse(),
         })
-      }
 
-      const cta = section9Ref.current
-      if (cta) {
-        const ctaTitle = cta.querySelector('[data-cta-title]')
-        const ctaIndustries = cta.querySelector('[data-cta-industries]')
-        const ctaButtons = cta.querySelector('[data-cta-buttons]')
-
-        if (ctaTitle) gsap.set(ctaTitle, { y: 30, opacity: 0 })
-        if (ctaIndustries) gsap.set(ctaIndustries, { y: 20, opacity: 0 })
-        if (ctaButtons) gsap.set(ctaButtons, { y: 20, opacity: 0 })
-
-        const ctaTl = gsap.timeline({ paused: true })
-        if (ctaTitle) {
-          ctaTl.to(
-            ctaTitle,
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power3.out' },
-            0
-          )
-        }
-        if (ctaIndustries) {
-          ctaTl.to(
-            ctaIndustries,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.15
-          )
-        }
-        if (ctaButtons) {
-          ctaTl.to(
-            ctaButtons,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.3
-          )
+        if (intImages) {
+          const intImgsTl = gsap.timeline({ paused: true })
+          intImgsTl.to(intImages, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+          ScrollTrigger.create({
+            trigger: intImages,
+            start: 'top 85%',
+            onEnter: () => intImgsTl.play(),
+            onLeaveBack: () => intImgsTl.reverse(),
+          })
         }
 
-        ScrollTrigger.create({
-          trigger: cta,
-          start: 'top 80%',
-          onEnter: () => ctaTl.play(),
-          onLeaveBack: () => ctaTl.reverse(),
-        })
+        const intCta = interiors.querySelector('[data-int-cta]')
+        if (intCta) {
+          const ctaChildren = intCta.children
+          gsap.set(ctaChildren, { y: 20, opacity: 0 })
+
+          const ctaTl = gsap.timeline({ paused: true })
+          ctaTl.to(ctaChildren, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power2.out',
+            stagger: 0.12,
+          })
+
+          ScrollTrigger.create({
+            trigger: intCta,
+            start: 'top 85%',
+            onEnter: () => ctaTl.play(),
+            onLeaveBack: () => ctaTl.reverse(),
+          })
+        }
       }
     })
 
@@ -702,10 +656,10 @@ const ProductionPage = () => {
                   className="border-t border-black-100/10 py-[2vw]"
                   data-s4-feature
                 >
-                  <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase mb-[0.6vw]">
+                  <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase">
                     {t(`section_4_feature_${n}_title`)}
                   </h3>
-                  <p className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[28vw]">
+                  <p className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[28vw] pt-[2%]">
                     {t(`section_4_feature_${n}_text`)}
                   </p>
                 </div>
@@ -772,53 +726,68 @@ const ProductionPage = () => {
       <section
         ref={section7Ref}
         id="oem-services"
-        className="relative mb-[10%]"
+        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
-        <div className="overflow-hidden mx-[2.2vw]" data-oem-image>
-          <Image
-            src="/assets/img-22.webp"
-            alt={t('section_7_title')}
-            width={1920}
-            height={1080}
-            className="w-full h-[60vh] object-cover"
-          />
-        </div>
-        <div className="max-w-[75vw] mx-auto mt-[6%]">
+        <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase"
+            className="text-[3.7vw] font-[450] text-white-100 leading-[1.15] uppercase ml-[-0.2vw] mb-[1.5%]"
             data-oem-title
           >
             {t('section_7_title')}
           </h2>
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.05em] mt-[1.5%] mb-[1%]"
+            className="text-[1vw] font-[350] text-white-100/40 tracking-[0.05em] mb-[2%]"
             data-oem-label
           >
             {t('section_7_label')}
           </p>
           <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw]"
+            className="text-[0.92vw] text-white-100/60 leading-[1.8]"
             data-oem-text
           >
             {t('section_7_text')}
           </p>
-          <div className="mt-[5%] max-w-[40vw]">
-            {[1, 2, 3, 4].map((n) => (
-              <div
-                key={n}
-                className="border-t border-black-100/10 py-[1.8vw]"
-                data-oem-feature
-              >
-                <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
-                  <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase">
-                    {t(`section_7_feature_${n}_title`)}
-                  </h4>
-                  <p className="text-[0.85vw] text-black-100/50 leading-[1.7]">
-                    {t(`section_7_feature_${n}_text`)}
-                  </p>
+          <div className="grid grid-cols-[1.2fr_1fr] gap-[6vw] mt-[6%]">
+            <div className="flex flex-col justify-between">
+              <div>
+                {[1, 2, 3, 4].map((n) => (
+                  <div
+                    key={n}
+                    className="border-t border-white-100/10 py-[2vw]"
+                    data-oem-feature
+                  >
+                    <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
+                      <h4 className="text-[0.92vw] font-[500] text-white-100 leading-[1.3] uppercase">
+                        {t(`section_7_feature_${n}_title`)}
+                      </h4>
+                      <p className="text-[0.85vw] text-white-100/50 leading-[1.7]">
+                        {t(`section_7_feature_${n}_text`)}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div data-oem-delivery>
+                <p className="text-[1.2vw] font-[350] text-white-100/40">
+                  {t('section_7_delivery')}
+                </p>
+                <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
+                  <Link href="/references">
+                    <Button variant="light">{t('section_8_cta_1')}</Button>
+                  </Link>
+                  <Button variant="light">{t('section_8_cta_2')}</Button>
                 </div>
               </div>
-            ))}
+            </div>
+            <div className="overflow-hidden" data-oem-image>
+              <Image
+                src="/assets/img-22.webp"
+                alt={t('section_7_title')}
+                width={720}
+                height={960}
+                className="w-full h-auto object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -828,212 +797,76 @@ const ProductionPage = () => {
         id="project-interiors"
         className="relative mb-[10%]"
       >
-        <div className="overflow-hidden mx-[2.2vw]" data-int-image>
-          <Image
-            src="/assets/img-23.webp"
-            alt={t('section_8_title')}
-            width={1920}
-            height={1080}
-            className="w-full h-[60vh] object-cover"
-          />
-        </div>
-        <div className="max-w-[75vw] mx-auto mt-[6%]">
+        <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase"
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] mb-[1.5%]"
             data-int-title
           >
             {t('section_8_title')}
           </h2>
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.05em] mt-[1.5%] mb-[1%]"
+            className="text-[1vw] font-[350] text-black-100/40 tracking-[0.05em] mb-[2%]"
             data-int-label
           >
             {t('section_8_label')}
           </p>
           <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[40vw]"
+            className="text-[0.92vw] text-black-100/60 leading-[1.8]"
             data-int-text
           >
             {t('section_8_text')}
           </p>
-          <div className="mt-[5%] max-w-[40vw]">
+          <div className="grid grid-cols-3 gap-[3vw] mt-[6%]">
             {[1, 2, 3].map((n) => (
-              <div
-                key={n}
-                className="border-t border-black-100/10 py-[1.8vw]"
-                data-int-feature
-              >
-                <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
-                  <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase">
-                    {t(`section_8_feature_${n}_title`)}
-                  </h4>
-                  <p className="text-[0.85vw] text-black-100/50 leading-[1.7]">
-                    {t(`section_8_feature_${n}_text`)}
-                  </p>
-                </div>
+              <div key={n} data-int-feature>
+                <p className="text-[2.4vw] text-black-100/10 font-light leading-none mb-[6%]">
+                  {String(n).padStart(2, '0')}
+                </p>
+                <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">
+                  {t(`section_8_feature_${n}_title`)}
+                </h4>
+                <p className="text-[0.82vw] text-black-100/50 leading-[1.7] max-w-[20vw]">
+                  {t(`section_8_feature_${n}_text`)}
+                </p>
               </div>
             ))}
           </div>
-          <p
-            className="text-[1.1vw] font-[400] text-black-100/50 mt-[4%]"
-            data-int-delivery
-          >
-            {t('section_8_delivery')}
-          </p>
-        </div>
-      </section>
-
-      <section ref={section9Ref} className="relative py-[8%] mb-[4%]">
-        <div className="max-w-[75vw] mx-auto text-center">
-          <h3
-            className="text-[1.6vw] font-[450] text-black-100 tracking-[0.03em] mb-[2%]"
-            data-cta-title
-          >
-            {t('section_9_title')}
-          </h3>
-          <p
-            className="text-[0.85vw] text-black-100/50 leading-[2] max-w-[50vw] mx-auto border-t border-black-100/10 pt-[2%]"
-            data-cta-industries
-          >
-            {t('section_9_industries')}
-          </p>
-          <div
-            className="flex justify-center gap-[1.5vw] mt-[5%]"
-            data-cta-buttons
-          >
-            <Button>{t('section_9_cta_1')}</Button>
-            <Button>{t('section_9_cta_2')}</Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Additional content: */}
-
-      {/* <section
-        ref={section7Ref}
-        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
-      >
-        <div className="max-w-[75vw] mx-auto">
-          <p
-            className="text-[0.92vw] text-white-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
-            data-oem-label
-          >
-            {t('section_5_label')}
-          </p>
-          <div className="grid grid-cols-[1.2fr_1fr] gap-[4vw] items-start">
-            <div>
-              <h2
-                className="text-[3.7vw] font-[450] text-white-100 leading-[1.15] uppercase"
-                data-oem-title
-              >
-                {t('section_5_title')}
-              </h2>
-              <p
-                className="text-[0.92vw] text-white-100/60 leading-[1.8] mt-[3%] max-w-[32vw]"
-                data-oem-text
-              >
-                {t('section_5_text')}
-              </p>
-              <div className="grid grid-cols-2 gap-x-[3vw] gap-y-[2vw] mt-[5%]">
-                {[1, 2, 3, 4].map((n) => (
-                  <div key={n} data-oem-feature>
-                    <h4 className="text-[0.92vw] font-[500] text-white-100 leading-[1.3] uppercase mb-[0.5vw]">
-                      {t(`section_5_feature_${n}_title`)}
-                    </h4>
-                    <p className="text-[0.82vw] text-white-100/50 leading-[1.7]">
-                      {t(`section_5_feature_${n}_text`)}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="overflow-hidden aspect-[3/4]" data-oem-image>
+          <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-int-images>
+            <div className="overflow-hidden aspect-[3/4]">
               <Image
-                src="/assets/img-7.webp"
-                alt={t('section_5_title')}
+                src="/assets/img-23.webp"
+                alt={t('section_8_title')}
+                width={720}
+                height={960}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="overflow-hidden aspect-[3/4]">
+              <Image
+                src="/assets/img-24.webp"
+                alt={t('section_8_title')}
                 width={720}
                 height={960}
                 className="w-full h-full object-cover"
               />
             </div>
           </div>
-        </div>
-      </section>
-
-      <section ref={section8Ref} className="relative mb-[10%]">
-        <div className="max-w-[75vw] mx-auto">
-          <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
-            data-int-label
-          >
-            {t('section_6_label')}
-          </p>
-          <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase"
-            data-int-title
-          >
-            {t('section_6_title')}
-          </h2>
-          <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[40vw] mt-[2%]"
-            data-int-text
-          >
-            {t('section_6_text')}
-          </p>
-
-          <div className="grid grid-cols-3 gap-[3vw] mt-[5%]">
-            {[1, 2, 3].map((n) => (
-              <div key={n} data-int-feature>
-                <span className="text-[2.4vw] text-black-100/10 font-light leading-none">
-                  {String(n).padStart(2, '0')}
-                </span>
-                <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[0.8vw] mb-[0.5vw]">
-                  {t(`section_6_feature_${n}_title`)}
-                </h4>
-                <p className="text-[0.82vw] text-black-100/50 leading-[1.7]">
-                  {t(`section_6_feature_${n}_text`)}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-[1.4fr_1fr] gap-[1.5vw] mt-[5%]">
-            <div className="overflow-hidden aspect-[16/10]" data-int-image>
-              <Image
-                src="/assets/img-18.webp"
-                alt={t('section_6_title')}
-                width={960}
-                height={600}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="overflow-hidden aspect-[16/10]" data-int-image>
-              <Image
-                src="/assets/img-19.webp"
-                alt={t('section_6_title')}
-                width={960}
-                height={600}
-                className="w-full h-full object-cover"
-              />
+          <div className="mt-[6%]" data-int-cta>
+            <p className="text-[1.2vw] font-[350] text-black-100">
+              {t('section_8_industries_title')}
+            </p>
+            <p className="text-[0.92vw] text-black-100/50 leading-[2] mt-[1.5%]">
+              {t('section_8_industries_list')}
+            </p>
+            <div className="flex gap-[1.5vw] mt-[3%]">
+              <Link href="/references">
+                <Button>{t('section_8_cta_1')}</Button>
+              </Link>
+              <Button>{t('section_8_cta_2')}</Button>
             </div>
           </div>
         </div>
       </section>
-
-      <section ref={section9Ref} className="relative py-[6%] mb-[4%]">
-        <div className="max-w-[55vw] mx-auto text-center">
-          <p
-            className="text-[1.2vw] font-[350] text-black-100/50 mb-[3%]"
-            data-cta-item
-          >
-            {t('section_7_text')}
-          </p>
-          <div className="flex justify-center gap-[1.5vw]" data-cta-item>
-            <Button>{t('section_7_cta_1')}</Button>
-            <Button>{t('section_7_cta_2')}</Button>
-          </div>
-        </div>
-      </section> */}
     </main>
   )
 }

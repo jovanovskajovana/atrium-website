@@ -141,7 +141,7 @@
     "section_6_option_2": "Project Interiors",
     "section_7_label": "For brands and manufacturers",
     "section_7_title": "OEM Services",
-    "section_7_text": "Your vision. Our production. Full control. You bring the design. We handle everything from engineering to delivery.",
+    "section_7_text": "Your vision. Our production. Full control. You bring the design, we handle everything from engineering and prototyping to serial production, packaging, and delivery. With dedicated project management and all processes under one roof, we ensure consistent quality, precise timelines, and complete transparency at every stage.",
     "section_7_feature_1_title": "Development",
     "section_7_feature_1_text": "Technical and 3D drawings, engineering support, material consulting, and prototyping.",
     "section_7_feature_2_title": "Production",
@@ -150,6 +150,7 @@
     "section_7_feature_3_text": "Protective, transport-ready packaging adapted to your product and destination.",
     "section_7_feature_4_title": "Logistics",
     "section_7_feature_4_text": "In-house storage, scheduled EU deliveries, and reliable coordination from factory to final destination.",
+    "section_7_delivery": "Delivery and installation across Europe",
     "section_8_label": "For architects, developers, and public tenders",
     "section_8_title": "Project Interiors",
     "section_8_text": "Custom furniture for hotels, residential developments, and commercial spaces. We produce and deliver complete interior furnishing solutions for large-scale commercial projects. Every piece is made to fit your architecture, brand, and operational demands — on time, on budget.",
@@ -159,11 +160,10 @@
     "section_8_feature_2_text": "We manage the complete project — furniture, appliances, décor, and installation.",
     "section_8_feature_3_title": "Public Tender Ready",
     "section_8_feature_3_text": "EU certified, fully documented, and experienced in meeting the compliance requirements of public procurement.",
-    "section_8_delivery": "Delivery and installation across Europe",
-    "section_9_title": "Industries We Serve",
-    "section_9_industries": "Hotels & Hospitality · Furniture Brands · Architectural Studios · Residential Developments · Offices & Corporate · Retail & Commercial · Public Sector",
-    "section_9_cta_1": "see references",
-    "section_9_cta_2": "contact us"
+    "section_8_industries_title": "Industries we serve",
+    "section_8_industries_list": "Hotels & Hospitality · Furniture Brands · Architectural Studios · Residential Developments · Offices & Corporate · Retail & Commercial · Public Sector",
+    "section_8_cta_1": "see references",
+    "section_8_cta_2": "contact us"
   },
   "news": {
     "title": "News"

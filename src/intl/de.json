@@ -141,7 +141,7 @@
     "section_6_option_2": "Projektausstattung",
     "section_7_label": "Für Marken und Hersteller",
     "section_7_title": "OEM-Dienstleistungen",
-    "section_7_text": "Ihre Vision. Unsere Produktion. Volle Kontrolle. Sie bringen das Design. Wir übernehmen alles vom Engineering bis zur Lieferung.",
+    "section_7_text": "Ihre Vision. Unsere Produktion. Volle Kontrolle. Sie bringen das Design, wir übernehmen alles vom Engineering und Prototyping bis zur Serienproduktion, Verpackung und Lieferung. Mit dediziertem Projektmanagement und allen Prozessen unter einem Dach gewährleisten wir gleichbleibende Qualität, präzise Zeitpläne und vollständige Transparenz in jeder Phase.",
     "section_7_feature_1_title": "Entwicklung",
     "section_7_feature_1_text": "Technische und 3D-Zeichnungen, Ingenieursunterstützung, Materialberatung und Prototyping.",
     "section_7_feature_2_title": "Produktion",
@@ -150,6 +150,7 @@
     "section_7_feature_3_text": "Schützende, transportfertige Verpackung, angepasst an Ihr Produkt und Zielort.",
     "section_7_feature_4_title": "Logistik",
     "section_7_feature_4_text": "Eigenes Lager, planmäßige EU-Lieferungen und zuverlässige Koordination von der Fabrik bis zum Zielort.",
+    "section_7_delivery": "Lieferung und Montage in ganz Europa",
     "section_8_label": "Für Architekten, Entwickler und öffentliche Ausschreibungen",
     "section_8_title": "Projektinnenräume",
     "section_8_text": "Maßgefertigte Möbel für Hotels, Wohnbauprojekte und Geschäftsräume. Wir produzieren und liefern komplette Inneneinrichtungslösungen für großflächige kommerzielle Projekte. Jedes Stück wird auf Ihre Architektur, Marke und betrieblichen Anforderungen zugeschnitten — termingerecht und budgetkonform.",
@@ -159,11 +160,10 @@
     "section_8_feature_2_text": "Wir leiten das gesamte Projekt — Möbel, Geräte, Dekoration und Installation.",
     "section_8_feature_3_title": "Ausschreibungsfähig",
     "section_8_feature_3_text": "EU-zertifiziert, vollständig dokumentiert und erfahren in der Erfüllung öffentlicher Vergabeanforderungen.",
-    "section_8_delivery": "Lieferung und Montage in ganz Europa",
-    "section_9_title": "Branchen, die wir bedienen",
-    "section_9_industries": "Hotels & Gastgewerbe · Möbelmarken · Architekturbüros · Wohnbauprojekte · Büros & Unternehmen · Einzelhandel & Gewerbe · Öffentlicher Sektor",
-    "section_9_cta_1": "Referenzen ansehen",
-    "section_9_cta_2": "Kontakt aufnehmen"
+    "section_8_industries_title": "Branchen, die wir bedienen",
+    "section_8_industries_list": "Hotels & Gastgewerbe · Möbelmarken · Architekturbüros · Wohnbauprojekte · Büros & Unternehmen · Einzelhandel & Gewerbe · Öffentlicher Sektor",
+    "section_8_cta_1": "Referenzen ansehen",
+    "section_8_cta_2": "Kontakt aufnehmen"
   },
   "news": {
     "title": "News"

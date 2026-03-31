@@ -141,7 +141,7 @@
     "section_6_option_2": "Projektne notranjosti",
     "section_7_label": "Za znamke in proizvajalce",
     "section_7_title": "OEM storitve",
-    "section_7_text": "Vaša vizija. Naša proizvodnja. Popoln nadzor. Vi prinesete dizajn. Mi poskrbimo za vse od inženiringa do dostave.",
+    "section_7_text": "Vaša vizija. Naša proizvodnja. Popoln nadzor. Vi prinesete dizajn, mi poskrbimo za vse od inženiringa in prototipiranja do serijske proizvodnje, pakiranja in dostave. Z namenskim vodenjem projektov in vsemi procesi pod eno streho zagotavljamo dosledno kakovost, natančne roke in popolno preglednost na vsaki stopnji.",
     "section_7_feature_1_title": "Razvoj",
     "section_7_feature_1_text": "Tehnične in 3D risbe, inženirska podpora, svetovanje o materialih in prototipiranje.",
     "section_7_feature_2_title": "Proizvodnja",
@@ -150,6 +150,7 @@
     "section_7_feature_3_text": "Zaščitna, transportu prilagojena embalaža, prilagojena vašemu izdelku in destinaciji.",
     "section_7_feature_4_title": "Logistika",
     "section_7_feature_4_text": "Lastno skladišče, načrtovane EU dostave in zanesljiva koordinacija od tovarne do končne destinacije.",
+    "section_7_delivery": "Dostava in montaža po celotni Evropi",
     "section_8_label": "Za arhitekte, investitorje in javne razpise",
     "section_8_title": "Projektni interierji",
     "section_8_text": "Pohištvo po meri za hotele, stanovanjske projekte in poslovne prostore. Proizvajamo in dostavljamo celovite rešitve notranjega opremljanja za obsežne komercialne projekte. Vsak kos je prilagojen vaši arhitekturi, blagovni znamki in operativnim zahtevam — pravočasno in v okviru proračuna.",
@@ -159,11 +160,10 @@
     "section_8_feature_2_text": "Vodimo celoten projekt — pohištvo, aparati, dekoracija in montaža.",
     "section_8_feature_3_title": "Pripravljeni za javne razpise",
     "section_8_feature_3_text": "EU certifikati, popolna dokumentacija in izkušnje z izpolnjevanjem zahtev javnih naročil.",
-    "section_8_delivery": "Dostava in montaža po celotni Evropi",
-    "section_9_title": "Panoge, ki jih oskrbujemo",
-    "section_9_industries": "Hoteli & gostinstvo · Pohištvene znamke · Arhitekturni biroji · Stanovanjski projekti · Pisarne & podjetja · Trgovina & komerciala · Javni sektor",
-    "section_9_cta_1": "poglej reference",
-    "section_9_cta_2": "kontaktiraj nas"
+    "section_8_industries_title": "Panoge, ki jih oskrbujemo",
+    "section_8_industries_list": "Hoteli & gostinstvo · Pohištvene znamke · Arhitekturni biroji · Stanovanjski projekti · Pisarne & podjetja · Trgovina & komerciala · Javni sektor",
+    "section_8_cta_1": "poglej reference",
+    "section_8_cta_2": "kontaktiraj nas"
   },
   "news": {
     "title": "Novice"

@@ -758,13 +758,13 @@ const Home = () => {
                 </span>
                 <div className="flex flex-col">
                   <h3
-                    className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
+                    className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%] mb-[1.5%]"
                     data-pillar-title
                   >
                     {t(`section_5_pillar_${n}_title`)}
                   </h3>
                   <p
-                    className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw] pt-[1.5%]"
+                    className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw]"
                     data-pillar-text
                   >
                     {t(`section_5_pillar_${n}_text`)}
