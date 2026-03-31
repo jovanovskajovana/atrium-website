@@ -1,18 +1,19 @@
 import { notFound } from 'next/navigation'
-import { useTranslations } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 
 import { PROJECTS } from '@/constants/projects'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
-const ProjectPage = ({ params }: Props) => {
-  const project = PROJECTS.find((p) => p.slug === params.slug)
+const ProjectPage = async ({ params }: Props) => {
+  const { slug } = await params
+  const project = PROJECTS.find((p) => p.slug === slug)
 
   if (!project) return notFound()
 
-  const t = useTranslations('home')
+  const t = await getTranslations('home')
   const index = PROJECTS.indexOf(project)
 
   return (
