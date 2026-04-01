@@ -14,11 +14,12 @@
     overscroll-behavior: none;
   }
 
-  @media (pointer: fine) {
+  /* Uncomment when CursorTracker is enabled */
+  /* @media (pointer: fine) {
     * {
       cursor: none !important;
     }
-  }
+  } */
 
   ::selection {
     @apply bg-brown-100 text-white-100;
