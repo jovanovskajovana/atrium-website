@@ -13,13 +13,13 @@ const ProjectPage = async ({ params }: Props) => {
 
   if (!project) return notFound()
 
-  const t = await getTranslations('home')
+  const t = await getTranslations()
   const index = PROJECTS.indexOf(project)
 
   return (
     <main>
       <div className="flex flex-col items-center justify-center min-h-screen mx-auto">
-        <h1>{t(`section_4_project_${index + 1}`)}</h1>
+        <h1>{t(`home.section_4_project_${index + 1}`)}</h1>
       </div>
     </main>
   )
