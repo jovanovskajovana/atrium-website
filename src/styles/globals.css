@@ -9,7 +9,15 @@
   html,
   body {
     @apply bg-white-100 font-sans;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     overscroll-behavior: none;
+  }
+
+  @media (pointer: fine) {
+    * {
+      cursor: none !important;
+    }
   }
 
   ::selection {
@@ -50,6 +58,7 @@
  */
 @layer utilities {
   .text-clip-fix {
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
