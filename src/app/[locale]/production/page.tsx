@@ -538,20 +538,20 @@ const ProductionPage = () => {
           ref={videoRef}
           className="absolute inset-0 overflow-hidden origin-top invisible"
         >
-          <Image
+          {/* <Image
             src="/assets/img-20.webp"
             alt="Production facility"
             width={1920}
             height={800}
             className="w-full h-auto object-cover"
             sizes="94vw"
-          />
-          {/* <iframe
+          /> */}
+          <iframe
             src="https://player.vimeo.com/video/1142351975?badge=0&autopause=0&player_id=0&app_id=58479&portrait=0&color=fff&title=0&byline=0&background=1&dnt=1"
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none border-0 w-[177.77vh] min-w-full h-screen min-h-[56.25vw]"
             allow="autoplay; fullscreen; picture-in-picture"
             title={t('section_1_label')}
-          /> */}
+          />
         </div>
       </div>
 
