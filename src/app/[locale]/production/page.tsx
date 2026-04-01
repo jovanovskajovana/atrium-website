@@ -612,8 +612,8 @@ const ProductionPage = () => {
           {[
             { value: '130+', key: 1 },
             { value: '900+', key: 2 },
-            { value: '40+', key: 3 },
-            { value: '7000m²', key: 4 },
+            { value: '7000m²', key: 3 },
+            { value: '40+', key: 4 },
           ].map(({ value, key }) => (
             <div
               key={key}
