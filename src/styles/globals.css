@@ -45,4 +45,8 @@
  * Custom utility styles
  */
 @layer utilities {
+  .text-clip-fix {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }
