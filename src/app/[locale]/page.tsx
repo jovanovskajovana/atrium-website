@@ -687,7 +687,7 @@ const Home = () => {
 
       <section ref={section4Ref} className="relative mb-[10%]">
         <p
-          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[5%]"
+          className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[6%]"
           data-section-label
         >
           {t('home.section_4_label')}
@@ -696,8 +696,6 @@ const Home = () => {
           {FEATURED_PROJECTS.map((project, i) => {
             const isLarge = i % 2 === 0
             const w = isLarge ? '25vw' : '20vw'
-            const num = String(i + 1).padStart(2, '0')
-
             return (
               <Link
                 key={project.slug}
@@ -709,9 +707,6 @@ const Home = () => {
                 style={{ width: w }}
                 data-project-item
               >
-                <p className="text-[0.75vw] text-black-100/40 tracking-[0.15em] mb-[2%]">
-                  {num}
-                </p>
 
                 <div
                   className="relative overflow-hidden aspect-[960/1294]"
@@ -731,7 +726,7 @@ const Home = () => {
                 <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[4%]">
                   {t(`home.section_4_project_${i + 1}`)}
                 </p>
-                <p className="text-[0.75vw] text-black-100/40 uppercase mt-[1%]">
+                <p className="text-[0.75vw] text-black-100/40 uppercase">
                   {t(`references.sector_${project.sector}`)}
                 </p>
               </Link>

@@ -59,7 +59,7 @@ export const PROJECTS = [
   },
   {
     slug: 'private-residence',
-    image: '/assets/img-10.webp',
+    image: '/assets/img-11.webp',
     sector: 'residential',
   },
   {
@@ -72,15 +72,14 @@ export const PROJECTS = [
     image: '/assets/img-12.webp',
     sector: 'office',
   },
-
-  {
-    slug: 'corporate-lounge',
-    image: '/assets/img-3.webp',
-    sector: 'office',
-  },
   {
     slug: 'design-studio',
     image: '/assets/img-10.webp',
+    sector: 'office',
+  },
+  {
+    slug: 'corporate-lounge',
+    image: '/assets/img-3.webp',
     sector: 'office',
   },
   {
