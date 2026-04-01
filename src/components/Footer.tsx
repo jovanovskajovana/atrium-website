@@ -16,7 +16,7 @@ import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 gsap.registerPlugin(ScrollTrigger)
 
 const Footer = () => {
-  const t = useTranslations('footer')
+  const t = useTranslations()
   const footerRef = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
@@ -92,20 +92,20 @@ const Footer = () => {
           className="text-[2.8vw] font-[450] text-white-100 leading-[1.2] uppercase"
           data-footer-cta-item
         >
-          {t('cta_title')}
+          {t('footer.cta_title')}
         </h2>
         <p
           className="text-[1.2vw] font-[350] text-white-100/65 leading-[1.8] max-w-[38vw] mx-auto mt-[2%]"
           data-footer-cta-item
         >
-          {t('cta_text')}
+          {t('footer.cta_text')}
         </p>
         <div
           className="flex justify-center gap-[1.5vw] mt-[4%]"
           data-footer-cta-item
         >
-          <Button variant="light">{t('cta_button_1')}</Button>
-          <Button variant="light">{t('cta_button_2')}</Button>
+          <Button variant="light">{t('footer.cta_button_1')}</Button>
+          <Button variant="light">{t('footer.cta_button_2')}</Button>
         </div>
       </section>
 
@@ -122,7 +122,7 @@ const Footer = () => {
               />
             </Link>
             <p className="text-[0.78vw] text-white-100/45 leading-[1.6] tracking-[0.04em] max-w-[16vw] mt-[4%]">
-              {t('quote')}
+              {t('footer.quote')}
             </p>
           </div>
 
@@ -130,40 +130,40 @@ const Footer = () => {
             <div className="space-y-[2.2vw]" data-footer-item>
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('contact_title')}
+                  {t('footer.contact_title')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('contact_email')}
+                  {t('footer.contact_email')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('contact_phone')}
+                  {t('footer.contact_phone')}
                 </p>
               </div>
 
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('address_title')}
+                  {t('footer.address_title')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('address_line_1')}
+                  {t('footer.address_line_1')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('address_line_2')}
+                  {t('footer.address_line_2')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('address_line_3')}
+                  {t('footer.address_line_3')}
                 </p>
               </div>
 
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('hours_title')}
+                  {t('footer.hours_title')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('hours_days')}
+                  {t('footer.hours_days')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('hours_time')}
+                  {t('footer.hours_time')}
                 </p>
               </div>
             </div>
@@ -171,7 +171,7 @@ const Footer = () => {
             <div className="space-y-[2.2vw]" data-footer-item>
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('navigation_title')}
+                  {t('footer.navigation_title')}
                 </p>
                 <ul>
                   <li>
@@ -179,7 +179,7 @@ const Footer = () => {
                       href="/"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('home_label')}
+                      {t('footer.home_label')}
                     </Link>
                   </li>
                   <li>
@@ -187,7 +187,7 @@ const Footer = () => {
                       href="/references"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_references')}
+                      {t('footer.nav_references')}
                     </Link>
                   </li>
                   <li>
@@ -195,7 +195,7 @@ const Footer = () => {
                       href="/production"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_production')}
+                      {t('footer.nav_production')}
                     </Link>
                   </li>
                   <li>
@@ -203,7 +203,7 @@ const Footer = () => {
                       href="/news"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_news')}
+                      {t('footer.nav_news')}
                     </Link>
                   </li>
                   <li>
@@ -211,7 +211,7 @@ const Footer = () => {
                       href="/careers"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_careers')}
+                      {t('footer.nav_careers')}
                     </Link>
                   </li>
                   <li>
@@ -219,7 +219,7 @@ const Footer = () => {
                       href="/about"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_about')}
+                      {t('footer.nav_about')}
                     </Link>
                   </li>
                   <li>
@@ -227,7 +227,7 @@ const Footer = () => {
                       href="/contact"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('nav_contact')}
+                      {t('footer.nav_contact')}
                     </Link>
                   </li>
                 </ul>
@@ -235,7 +235,7 @@ const Footer = () => {
 
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('legal_title')}
+                  {t('footer.legal_title')}
                 </p>
                 <ul>
                   <li>
@@ -243,7 +243,7 @@ const Footer = () => {
                       href="/privacy-policy"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('privacy_notice_label')}
+                      {t('footer.privacy_notice_label')}
                     </Link>
                   </li>
                   <li>
@@ -251,7 +251,7 @@ const Footer = () => {
                       href="/terms-of-use"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('terms_of_use_label')}
+                      {t('footer.terms_of_use_label')}
                     </Link>
                   </li>
                 </ul>
@@ -261,44 +261,44 @@ const Footer = () => {
             <div className="space-y-[2.2vw]" data-footer-item>
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('language_title')}
+                  {t('footer.language_title')}
                 </p>
                 <LanguageSwitcher variant="list" />
               </div>
 
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('follow_title')}
+                  {t('footer.follow_title')}
                 </p>
                 <ul>
                   <li>
                     <a
-                      href={t('instagram_url')}
+                      href={t('footer.instagram_url')}
                       target="_blank"
                       rel="noreferrer"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('instagram_label')}
+                      {t('footer.instagram_label')}
                     </a>
                   </li>
                   <li>
                     <a
-                      href={t('facebook_url')}
+                      href={t('footer.facebook_url')}
                       target="_blank"
                       rel="noreferrer"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('facebook_label')}
+                      {t('footer.facebook_label')}
                     </a>
                   </li>
                   <li>
                     <a
-                      href={t('linkedin_url')}
+                      href={t('footer.linkedin_url')}
                       target="_blank"
                       rel="noreferrer"
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
-                      {t('linkedin_label')}
+                      {t('footer.linkedin_label')}
                     </a>
                   </li>
                 </ul>
@@ -312,7 +312,7 @@ const Footer = () => {
           data-footer-item
         >
           <p className="text-[0.74vw] text-white-100/45">
-            &copy; {new Date().getFullYear()} Atrium d.o.o. {t('rights')}
+            &copy; {new Date().getFullYear()} Atrium d.o.o. {t('footer.rights')}
           </p>
         </div>
       </div>

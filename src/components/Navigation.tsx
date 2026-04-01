@@ -10,7 +10,7 @@ import { NAV_ITEMS } from '@/constants/navigation'
 import { Link, usePathname } from '@/i18n/navigation'
 
 const Navigation = () => {
-  const t = useTranslations('nav')
+  const t = useTranslations()
   const pathname = usePathname()
 
   const isHome = pathname === '/'
@@ -34,10 +34,10 @@ const Navigation = () => {
             data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
           >
             <span className="block bg-white-100 text-clip-fix transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
-              {t(key)}
+              {t(`nav.${key}`)}
             </span>
             <span className="absolute left-0 top-full bg-white-100 text-clip-fix transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
-              {t(key)}
+              {t(`nav.${key}`)}
             </span>
           </Link>
         ))}

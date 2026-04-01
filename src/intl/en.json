@@ -77,6 +77,7 @@
     "section_4_project_6": "Penthouse Suite",
     "section_4_project_7": "Corporate Lounge",
     "section_4_project_8": "Design Studio",
+    "section_4_project_9": "Luxury Apartment",
     "section_4_cta": "view all references",
     "section_5_label": "Our Approach",
     "section_5_pillar_1_title": "Quality You Can Trust",
@@ -110,7 +111,6 @@
     "title": "About us"
   },
   "references": {
-    "title": "References",
     "sector_residential": "Residential",
     "sector_hospitality": "Hospitality",
     "sector_office": "Office",

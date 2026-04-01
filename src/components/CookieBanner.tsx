@@ -11,7 +11,7 @@ import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 import { Link } from '@/i18n/navigation'
 
 const CookieBanner = () => {
-  const t = useTranslations('cookie_banner')
+  const t = useTranslations()
 
   const bannerRef = useRef<HTMLDivElement>(null)
 
@@ -75,22 +75,22 @@ const CookieBanner = () => {
       className="fixed bottom-0 right-[2.2vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
     >
       <p className="text-[0.8vw] text-white-100 mr-[1vw]">
-        {t('message')}{' '}
+        {t('cookie_banner.message')}{' '}
         <Link
           href="/privacy-policy"
           className="hover:opacity-80 transition-opacity"
         >
-          {t('privacy_link')}
+          {t('cookie_banner.privacy_link')}
         </Link>
       </p>
       <button
         onClick={() => dismiss('denied')}
         className="text-[0.8vw] text-white-100 underline hover:opacity-80 transition-opacity"
       >
-        {t('deny')}
+        {t('cookie_banner.deny')}
       </button>
       <Button variant="light" size="small" onClick={() => dismiss('accepted')}>
-        {t('accept')}
+        {t('cookie_banner.accept')}
       </Button>
     </div>
   )
