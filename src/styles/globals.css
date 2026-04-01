@@ -12,6 +12,10 @@
     overscroll-behavior: none;
   }
 
+  ::selection {
+    @apply bg-brown-100 text-white-100;
+  }
+
   /* Lenis */
   .lenis.lenis-smooth {
     scroll-behavior: auto !important;
