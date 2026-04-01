@@ -8,6 +8,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Button from '@/components/Button'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import AtriumLogoFull from '@/components/icons/atrium-logo-full'
+import AtriumLogoMark from '@/components/icons/atrium-logo-mark'
 
 import { Link } from '@/i18n/navigation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
@@ -81,8 +82,10 @@ const Footer = () => {
       ref={footerRef}
       className="relative w-full bg-black-100 text-white-100 overflow-hidden"
     >
+      <AtriumLogoMark className="pointer-events-none absolute left-[50%] inset-y-[-2%] h-[104%] w-auto z-0" />
+
       <section
-        className="relative text-center py-[10%] px-[2.2vw]"
+        className="relative text-center py-[10%] px-[2.2vw] z-10"
         data-footer-cta
       >
         <h2
@@ -106,7 +109,10 @@ const Footer = () => {
         </div>
       </section>
 
-      <div className="border-t border-white-100/15" data-footer-content>
+      <div
+        className="relative border-t border-white-100/15 z-10"
+        data-footer-content
+      >
         <div className="grid grid-cols-[1.2fr_2fr] gap-[5.5vw] py-[4%] px-[2.2vw]">
           <div data-footer-item>
             <AtriumLogoFull
