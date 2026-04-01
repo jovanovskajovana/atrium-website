@@ -837,7 +837,7 @@ const Home = () => {
             className="grid grid-cols-2 gap-[1.5vw] mt-[5%]"
             data-design-options
           >
-            <div>
+            <Link href="/design-your-space" className="group block">
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-18.webp"
@@ -853,9 +853,9 @@ const Home = () => {
               <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
                 {t('section_7_option_1_text')}
               </p>
-            </div>
+            </Link>
 
-            <div>
+            <Link href="/design-your-space" className="group block">
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-19.webp"
@@ -871,15 +871,19 @@ const Home = () => {
               <p className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[1.5%]">
                 {t('section_7_option_2_text')}
               </p>
-            </div>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-design-btn>
             <div className="flex justify-end">
-              <Button>{t('section_7_cta_1')}</Button>
+              <Link href="/design-your-space">
+                <Button>{t('section_7_cta_1')}</Button>
+              </Link>
             </div>
             <div>
-              <Button>{t('section_7_cta_2')}</Button>
+              <Link href="/design-your-space">
+                <Button>{t('section_7_cta_2')}</Button>
+              </Link>
             </div>
           </div>
         </div>
