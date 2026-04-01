@@ -115,10 +115,12 @@ const Footer = () => {
       >
         <div className="grid grid-cols-[1.2fr_2fr] gap-[5.5vw] py-[4%] px-[2.2vw]">
           <div data-footer-item>
-            <AtriumLogoFull
-              className="w-[13vw] h-auto"
-              fillColor="rgba(255,255,255,0.96)"
-            />
+            <Link href="/">
+              <AtriumLogoFull
+                className="w-[13vw] h-auto"
+                fillColor="rgba(255,255,255,0.96)"
+              />
+            </Link>
             <p className="text-[0.78vw] text-white-100/45 leading-[1.6] tracking-[0.04em] max-w-[16vw] mt-[4%]">
               {t('quote')}
             </p>

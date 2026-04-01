@@ -65,5 +65,10 @@ export const routing = defineRouting({
       de: '/nutzungsbedingungen',
       sl: '/pogoji-uporabe',
     },
+    '/design-your-space': {
+      en: '/design-your-space',
+      de: '/gestalten-sie-ihren-raum',
+      sl: '/oblikujte-svoj-prostor',
+    },
   },
 })
