@@ -13,26 +13,70 @@ import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
 
-type LayoutRow = {
-  type: 'pair' | 'pair-reverse' | 'single-center'
-  items: number[]
+type Slot = { width: string; aspect: string; offsetTop: string }
+
+type RowPattern = {
+  justify: string
+  gap?: string
+  pr?: string
+  pl?: string
+  slots: Slot[]
 }
 
-const buildLayout = (total: number): LayoutRow[] => {
-  const cycle: LayoutRow['type'][] = [
-    'pair',
-    'single-center',
-    'pair-reverse',
-    'single-center',
-  ]
-  const rows: LayoutRow[] = []
+const PATTERNS: RowPattern[] = [
+  {
+    justify: 'flex-start',
+    gap: '2.2vw',
+    slots: [
+      { width: '38vw', aspect: '3/4', offsetTop: '0' },
+      { width: '30vw', aspect: '4/5', offsetTop: '6vw' },
+    ],
+  },
+  {
+    justify: 'flex-end',
+    pr: '10vw',
+    slots: [{ width: '32vw', aspect: '3/4', offsetTop: '0' }],
+  },
+  {
+    justify: 'flex-end',
+    gap: '2.2vw',
+    slots: [
+      { width: '27vw', aspect: '4/5', offsetTop: '0' },
+      { width: '36vw', aspect: '3/4', offsetTop: '7vw' },
+    ],
+  },
+  {
+    justify: 'flex-start',
+    pl: '14vw',
+    slots: [{ width: '34vw', aspect: '4/5', offsetTop: '0' }],
+  },
+  {
+    justify: 'flex-start',
+    gap: '2.2vw',
+    pl: '4vw',
+    slots: [
+      { width: '34vw', aspect: '4/5', offsetTop: '5vw' },
+      { width: '28vw', aspect: '3/4', offsetTop: '0' },
+    ],
+  },
+  {
+    justify: 'flex-end',
+    slots: [{ width: '33vw', aspect: '3/4', offsetTop: '0' }],
+  },
+]
+
+const buildLayout = (total: number) => {
+  const rows: { pattern: RowPattern; indices: number[] }[] = []
   let idx = 0
   let step = 0
 
   while (idx < total) {
-    const type = cycle[step % cycle.length]
-    const count = type.includes('pair') ? Math.min(2, total - idx) : 1
-    rows.push({ type, items: Array.from({ length: count }, (_, i) => idx + i) })
+    const pattern = PATTERNS[step % PATTERNS.length]
+    const count = Math.min(pattern.slots.length, total - idx)
+    rows.push({
+      pattern,
+      indices: Array.from({ length: count }, (_, i) => idx + i),
+    })
     idx += count
     step++
   }
@@ -43,7 +87,6 @@ const buildLayout = (total: number): LayoutRow[] => {
 const ReferencesPage = () => {
   const t = useTranslations()
   const pageRef = useRef<HTMLElement>(null)
-
   const layout = buildLayout(PROJECTS.length)
 
   useIsomorphicLayoutEffect(() => {
@@ -60,13 +103,8 @@ const ReferencesPage = () => {
         cards.forEach((card, i) => {
           tl.to(
             card,
-            {
-              y: 0,
-              opacity: 1,
-              duration: 1.3,
-              ease: 'power3.out',
-            },
-            0
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            i * 0.15
           )
 
           const img = card.querySelector('img')
@@ -75,7 +113,7 @@ const ReferencesPage = () => {
               img,
               { scale: 1.08 },
               { scale: 1, duration: 1.3, ease: 'power3.out' },
-              0
+              i * 0.15
             )
           }
         })
@@ -92,82 +130,63 @@ const ReferencesPage = () => {
     return () => ctx.revert()
   }, [])
 
-  const renderCard = (index: number, width: string, aspect: string) => {
-    const project = PROJECTS[index]
-
-    return (
-      <div key={project.slug} style={{ width }} data-ref-card>
-        <Link
-          href={{
-            pathname: '/references/[slug]',
-            params: { slug: project.slug },
-          }}
-          className="group block"
-        >
-          <div
-            className="relative overflow-hidden w-full"
-            style={{ aspectRatio: aspect }}
-          >
-            <Image
-              src={project.image}
-              alt={t(`home.section_4_project_${index + 1}`)}
-              fill
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-              sizes="35vw"
-            />
-            <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
-          </div>
-          <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
-            {t(`home.section_4_project_${index + 1}`)}
-          </p>
-          <p className="text-[0.75vw] text-black-100/40 uppercase">
-            {t(`references.sector_${project.sector}`)}
-          </p>
-        </Link>
-      </div>
-    )
-  }
-
   return (
     <main ref={pageRef} className="relative overflow-x-hidden">
-      <section className="px-[2.2vw] pt-[18.5vh] pb-[10%] flex flex-col gap-[10vw]">
-        {layout.map((row, rowIdx) => {
-          switch (row.type) {
-            case 'pair':
+      <section className="flex flex-col gap-[8vw] pt-[20.5vh] pb-[10%] px-[2.2vw]">
+        {layout.map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            data-ref-row
+            className="flex items-start"
+            style={{
+              justifyContent: row.pattern.justify,
+              gap: row.pattern.gap,
+              paddingRight: row.pattern.pr,
+              paddingLeft: row.pattern.pl,
+            }}
+          >
+            {row.indices.map((projIdx, slotIdx) => {
+              const slot = row.pattern.slots[slotIdx]
+              const project = PROJECTS[projIdx]
+
               return (
                 <div
-                  key={rowIdx}
-                  data-ref-row
-                  className="flex items-start gap-[2.2vw]"
+                  key={project.slug}
+                  data-ref-card
+                  style={{ width: slot.width, marginTop: slot.offsetTop }}
                 >
-                  {renderCard(row.items[0], '38.5vw', '3/4')}
-                  {row.items[1] !== undefined &&
-                    renderCard(row.items[1], '30vw', '4/5')}
+                  <Link
+                    href={{
+                      pathname: '/references/[slug]',
+                      params: { slug: project.slug },
+                    }}
+                    className="group block"
+                  >
+                    <div
+                      className="relative overflow-hidden w-full"
+                      style={{ aspectRatio: slot.aspect }}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={t(`home.section_4_project_${projIdx + 1}`)}
+                        fill
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                        sizes="50vw"
+                      />
+                      <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
+                    </div>
+                    <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
+                      {t(`home.section_4_project_${projIdx + 1}`)}
+                    </p>
+                    <p className="text-[0.75vw] text-black-100/40 uppercase">
+                      {t(`references.sector_${project.sector}`)}
+                    </p>
+                  </Link>
                 </div>
               )
-
-            case 'pair-reverse':
-              return (
-                <div
-                  key={rowIdx}
-                  data-ref-row
-                  className="flex items-start justify-end gap-[2.2vw]"
-                >
-                  {row.items[0] !== undefined &&
-                    renderCard(row.items[0], '28vw', '4/5')}
-                  {row.items[1] !== undefined &&
-                    renderCard(row.items[1], '38.5vw', '3/4')}
-                </div>
-              )
-
-            case 'single-center':
-              return (
-                <div key={rowIdx} data-ref-row className="flex justify-center">
-                  {renderCard(row.items[0], '35vw', '3/4')}
-                </div>
-              )
-          }
-        })}
+            })}
+          </div>
+        ))}
       </section>
     </main>
   )
