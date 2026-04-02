@@ -707,7 +707,6 @@ const Home = () => {
                 style={{ width: w }}
                 data-project-item
               >
-
                 <div
                   className="relative overflow-hidden aspect-[960/1294]"
                   style={{ width: w }}
