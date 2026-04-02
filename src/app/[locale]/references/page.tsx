@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl'
 
 import { PROJECTS } from '@/constants/projects'
 
+import { useLenis } from '@/components/LenisProvider'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -82,6 +83,9 @@ const GridPreviewFour = ({ active }: { active: boolean }) => (
 
 const ReferencesPage = () => {
   const t = useTranslations()
+  const lenis = useLenis()
+  const lenisRef = useRef(lenis)
+  lenisRef.current = lenis
   const pageRef = useRef<HTMLElement>(null)
   const [gridMode, setGridMode] = useState<GridMode>('two')
 
@@ -128,6 +132,11 @@ const ReferencesPage = () => {
           onEnter: () => tl.play(),
           onLeaveBack: () => tl.reverse(),
         })
+      })
+
+      requestAnimationFrame(() => {
+        lenisRef.current?.resize()
+        ScrollTrigger.refresh()
       })
     }, page)
 
