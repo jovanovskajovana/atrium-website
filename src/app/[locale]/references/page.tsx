@@ -132,12 +132,12 @@ const ReferencesPage = () => {
 
   return (
     <main ref={pageRef} className="relative overflow-x-hidden">
-      <section className="flex flex-col gap-[8vw] pt-[20.5vh] pb-[10%] px-[2.2vw]">
+      <section className="flex flex-col pt-[20.5vh] pb-[10%] px-[2.2vw]">
         {layout.map((row, rowIdx) => (
           <div
             key={rowIdx}
             data-ref-row
-            className="flex items-start"
+            className="flex items-start mb-[8%] last:mb-0"
             style={{
               justifyContent: row.pattern.justify,
               gap: row.pattern.gap,
