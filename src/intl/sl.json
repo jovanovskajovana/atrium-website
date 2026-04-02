@@ -111,6 +111,10 @@
     "title": "O nas"
   },
   "references": {
+    "title_1": "Izbrani",
+    "title_2": "projekti",
+    "label": "Naše reference",
+    "filter_all": "Vse",
     "sector_residential": "Stanovanja",
     "sector_hospitality": "Gostinstvo",
     "sector_office": "Pisarne",

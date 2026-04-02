@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import { Link } from '@/i18n/navigation'
 import { gsap } from 'gsap'
@@ -12,6 +12,9 @@ import { PROJECTS } from '@/constants/projects'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
+
+const SECTORS = ['all', 'residential', 'hospitality', 'office'] as const
+type Sector = (typeof SECTORS)[number]
 
 type Slot = { width: string; aspect: string; offsetTop: string }
 
@@ -87,7 +90,14 @@ const buildLayout = (total: number) => {
 const ReferencesPage = () => {
   const t = useTranslations()
   const pageRef = useRef<HTMLElement>(null)
-  const layout = buildLayout(PROJECTS.length)
+  const [activeSector, setActiveSector] = useState<Sector>('all')
+
+  const filteredProjects = PROJECTS.map((p, i) => ({
+    ...p,
+    originalIndex: i,
+  })).filter((p) => activeSector === 'all' || p.sector === activeSector)
+
+  const layout = buildLayout(filteredProjects.length)
 
   useIsomorphicLayoutEffect(() => {
     const page = pageRef.current
@@ -128,65 +138,103 @@ const ReferencesPage = () => {
     }, page)
 
     return () => ctx.revert()
-  }, [])
+  }, [activeSector])
 
   return (
     <main ref={pageRef} className="relative overflow-x-hidden">
-      <section className="flex flex-col pt-[20.5vh] pb-[10%] px-[2.2vw]">
-        {layout.map((row, rowIdx) => (
-          <div
-            key={rowIdx}
-            data-ref-row
-            className="flex items-start mb-[8%] last:mb-0"
-            style={{
-              justifyContent: row.pattern.justify,
-              gap: row.pattern.gap,
-              paddingRight: row.pattern.pr,
-              paddingLeft: row.pattern.pl,
-            }}
-          >
-            {row.indices.map((projIdx, slotIdx) => {
-              const slot = row.pattern.slots[slotIdx]
-              const project = PROJECTS[projIdx]
+      <div
+        className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center"
+        data-hero-tagline
+      >
+        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase mb-[0.4em]">
+          {t('references.title_1')} {t('references.title_2')}
+        </h1>
+        <div className="flex justify-center items-center">
+          {SECTORS.map((sector, i) => (
+            <div key={sector} className="flex items-center">
+              {i > 0 && (
+                <span className="text-[0.92vw] text-black-100/30 mx-[0.5vw]">
+                  ·
+                </span>
+              )}
+              <button
+                onClick={() => setActiveSector(sector)}
+                className={`text-[0.92vw] uppercase tracking-[0.15em] transition-all duration-300 ${
+                  activeSector === sector
+                    ? 'text-black-100'
+                    : 'text-black-100/40 hover:text-black-100/60'
+                }`}
+              >
+                {sector === 'all'
+                  ? t('references.filter_all')
+                  : t(`references.sector_${sector}`)}
+              </button>
+            </div>
+          ))}
+        </div>
+      </div>
 
-              return (
-                <div
-                  key={project.slug}
-                  data-ref-card
-                  style={{ width: slot.width, marginTop: slot.offsetTop }}
-                >
-                  <Link
-                    href={{
-                      pathname: '/references/[slug]',
-                      params: { slug: project.slug },
-                    }}
-                    className="group block"
+      <section className="flex flex-col pt-[40vh] pb-[10%] px-[2.2vw]">
+        <div className="flex flex-col">
+          {layout.map((row, rowIdx) => (
+            <div
+              key={rowIdx}
+              data-ref-row
+              className="flex items-start mb-[8%] last:mb-0"
+              style={{
+                justifyContent: row.pattern.justify,
+                gap: row.pattern.gap,
+                paddingRight: row.pattern.pr,
+                paddingLeft: row.pattern.pl,
+              }}
+            >
+              {row.indices.map((projIdx, slotIdx) => {
+                const slot = row.pattern.slots[slotIdx]
+                const project = filteredProjects[projIdx]
+
+                return (
+                  <div
+                    key={project.slug}
+                    data-ref-card
+                    style={{ width: slot.width, marginTop: slot.offsetTop }}
                   >
-                    <div
-                      className="relative overflow-hidden w-full"
-                      style={{ aspectRatio: slot.aspect }}
+                    <Link
+                      href={{
+                        pathname: '/references/[slug]',
+                        params: { slug: project.slug },
+                      }}
+                      className="group block"
                     >
-                      <Image
-                        src={project.image}
-                        alt={t(`home.section_4_project_${projIdx + 1}`)}
-                        fill
-                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-                        sizes="50vw"
-                      />
-                      <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
-                    </div>
-                    <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
-                      {t(`home.section_4_project_${projIdx + 1}`)}
-                    </p>
-                    <p className="text-[0.75vw] text-black-100/40 uppercase">
-                      {t(`references.sector_${project.sector}`)}
-                    </p>
-                  </Link>
-                </div>
-              )
-            })}
-          </div>
-        ))}
+                      <div
+                        className="relative overflow-hidden w-full"
+                        style={{ aspectRatio: slot.aspect }}
+                      >
+                        <Image
+                          src={project.image}
+                          alt={t(
+                            `home.section_4_project_${project.originalIndex + 1}`
+                          )}
+                          fill
+                          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                          sizes="50vw"
+                        />
+                        <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
+                      </div>
+                      <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
+                        {t(
+                          `home.section_4_project_${project.originalIndex + 1}`
+                        )}
+                      </p>
+                      <p className="text-[0.75vw] text-black-100/40 uppercase">
+                        {t(`references.sector_${project.sector}`)}
+                      </p>
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
+          ))}
+        </div>
       </section>
     </main>
   )

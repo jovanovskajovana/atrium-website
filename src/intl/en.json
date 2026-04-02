@@ -111,6 +111,10 @@
     "title": "About us"
   },
   "references": {
+    "title_1": "Selected",
+    "title_2": "projects",
+    "label": "Our References",
+    "filter_all": "All",
     "sector_residential": "Residential",
     "sector_hospitality": "Hospitality",
     "sector_office": "Office",

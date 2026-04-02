@@ -111,6 +111,10 @@
     "title": "Über uns"
   },
   "references": {
+    "title_1": "Ausgewählte",
+    "title_2": "Projekte",
+    "label": "Unsere Referenzen",
+    "filter_all": "Alle",
     "sector_residential": "Wohnen",
     "sector_hospitality": "Gastgewerbe",
     "sector_office": "Büro",
