@@ -14,11 +14,13 @@
     overscroll-behavior: none;
   }
 
+  /* Custom cursor: pair with <CursorTracker /> in layout
   @media (pointer: fine) {
     * {
       cursor: none !important;
     }
   }
+  */
 
   ::selection {
     @apply bg-brown-100 text-white-100;
