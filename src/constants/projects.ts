@@ -87,4 +87,19 @@ export const PROJECTS = [
     image: '/assets/img-14.webp',
     sector: 'residential',
   },
+  {
+    slug: 'wellness-center',
+    image: '/assets/img-1.webp',
+    sector: 'hospitality',
+  },
+  {
+    slug: 'urban-loft',
+    image: '/assets/img-9.webp',
+    sector: 'residential',
+  },
+  {
+    slug: 'conference-hall',
+    image: '/assets/img-4.webp',
+    sector: 'office',
+  },
 ]

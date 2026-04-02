@@ -78,6 +78,9 @@
     "section_4_project_7": "Firmenlounge",
     "section_4_project_8": "Designstudio",
     "section_4_project_9": "Luxuswohnung",
+    "section_4_project_10": "Wellnesszentrum",
+    "section_4_project_11": "Stadtloft",
+    "section_4_project_12": "Konferenzsaal",
     "section_4_cta": "Alle Referenzen ansehen",
     "section_5_label": "Unser Ansatz",
     "section_5_pillar_1_title": "Qualität, der Sie vertrauen können",
@@ -111,10 +114,6 @@
     "title": "Über uns"
   },
   "references": {
-    "title_1": "Ausgewählte",
-    "title_2": "Projekte",
-    "label": "Unsere Referenzen",
-    "filter_all": "Alle",
     "sector_residential": "Wohnen",
     "sector_hospitality": "Gastgewerbe",
     "sector_office": "Büro",

@@ -78,6 +78,9 @@
     "section_4_project_7": "Poslovni salon",
     "section_4_project_8": "Oblikovalski studio",
     "section_4_project_9": "Luksuzno stanovanje",
+    "section_4_project_10": "Wellness center",
+    "section_4_project_11": "Mestno podstrešje",
+    "section_4_project_12": "Konferenčna dvorana",
     "section_4_cta": "oglej si vse reference",
     "section_5_label": "Naš pristop",
     "section_5_pillar_1_title": "Kakovost, ki ji zaupate",
@@ -111,10 +114,6 @@
     "title": "O nas"
   },
   "references": {
-    "title_1": "Izbrani",
-    "title_2": "projekti",
-    "label": "Naše reference",
-    "filter_all": "Vse",
     "sector_residential": "Stanovanja",
     "sector_hospitality": "Gostinstvo",
     "sector_office": "Pisarne",

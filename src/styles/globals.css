@@ -48,6 +48,10 @@
     opacity: 1 !important;
   }
 
+  [data-menu-item][data-active] {
+    font-weight: 500;
+  }
+
   body:not([data-animating]) [data-menu-item] {
     transition: opacity 0.3s ease;
   }
