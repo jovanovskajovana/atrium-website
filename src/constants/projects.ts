@@ -1,4 +1,6 @@
-export const FEATURED_PROJECTS = [
+import { Project } from '@/interfaces/project'
+
+export const FEATURED_PROJECTS: Project[] = [
   {
     slug: 'private-residence',
     image: '/assets/img-10.webp',
@@ -41,7 +43,7 @@ export const FEATURED_PROJECTS = [
   },
 ]
 
-export const PROJECTS = [
+export const PROJECTS: Project[] = [
   {
     slug: 'restaurant-interior',
     image: '/assets/img-7.webp',

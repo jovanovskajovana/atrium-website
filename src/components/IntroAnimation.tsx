@@ -324,26 +324,26 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
         xmlns="http://www.w3.org/2000/svg"
         className="absolute w-[15vw] h-auto"
       >
-        <path d={FULL_R} fill="#1d1d1b" opacity="0" data-part="r" />
-        <path d={FULL_I} fill="#1d1d1b" opacity="0" data-part="i" />
-        <path d={FULL_U} fill="#1d1d1b" opacity="0" data-part="u" />
-        <path d={FULL_M} fill="#1d1d1b" opacity="0" data-part="m" />
+        <path d={FULL_R} fill="#26251e" opacity="0" data-part="r" />
+        <path d={FULL_I} fill="#26251e" opacity="0" data-part="i" />
+        <path d={FULL_U} fill="#26251e" opacity="0" data-part="u" />
+        <path d={FULL_M} fill="#26251e" opacity="0" data-part="m" />
 
         <g data-group="a">
-          <path d={FULL_A} fill="#1d1d1b" opacity="0" data-part="full-a" />
+          <path d={FULL_A} fill="#26251e" opacity="0" data-part="full-a" />
           <path
             d={CHEVRON_A}
-            fill="#1d1d1b"
+            fill="#26251e"
             opacity="0"
             data-part="chevron-a"
           />
         </g>
 
         <g data-group="t">
-          <path d={FULL_T} fill="#1d1d1b" opacity="0" data-part="full-t" />
+          <path d={FULL_T} fill="#26251e" opacity="0" data-part="full-t" />
           <path
             d={CROSSBAR_T}
-            fill="#1d1d1b"
+            fill="#26251e"
             opacity="0"
             data-part="crossbar-t"
           />

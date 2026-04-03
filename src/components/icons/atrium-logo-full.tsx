@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { IconProps } from '@/interfaces/ui'
 
 const AtriumLogoFull: FC<IconProps> = ({
-  fillColor = '#1d1d1b',
+  fillColor = '#26251e',
   className,
 }) => (
   <svg

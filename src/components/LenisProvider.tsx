@@ -14,16 +14,17 @@ gsap.registerPlugin(ScrollTrigger)
 
 const LenisContext = createContext<Lenis | null>(null)
 
-export function useLenis(): Lenis | null {
-  return useContext(LenisContext)
-}
+export const useLenis = (): Lenis | null => useContext(LenisContext)
 
 interface LenisProviderProps {
   children: ReactNode
   options?: LenisOptions
 }
 
-export function LenisProvider({ children, options = {} }: LenisProviderProps) {
+export const LenisProvider = ({
+  children,
+  options = {},
+}: LenisProviderProps) => {
   const [lenis, setLenis] = useState<Lenis | null>(null)
 
   useIsomorphicLayoutEffect(() => {
