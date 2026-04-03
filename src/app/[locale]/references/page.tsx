@@ -71,12 +71,12 @@ const gridToggleIconBox =
 
 const GridPreviewTwo = ({ active }: { active: boolean }) => (
   <span className={gridToggleIconBox} aria-hidden>
-    <span className="grid h-full w-full grid-cols-2 gap-[12%]">
+    <span className="grid grid-cols-2 h-full w-full gap-[12%]">
       <span
-        className={`rounded-[0.06vw] ${active ? 'bg-black-100' : 'bg-black-100/30'}`}
+        className={`rounded-[0.06vw] ${active ? 'bg-black-100' : 'bg-black-100/50'}`}
       />
       <span
-        className={`rounded-[0.06vw] ${active ? 'bg-black-100' : 'bg-black-100/30'}`}
+        className={`rounded-[0.06vw] ${active ? 'bg-black-100' : 'bg-black-100/50'}`}
       />
     </span>
   </span>
@@ -84,11 +84,11 @@ const GridPreviewTwo = ({ active }: { active: boolean }) => (
 
 const GridPreviewFour = ({ active }: { active: boolean }) => (
   <span className={gridToggleIconBox} aria-hidden>
-    <span className="grid h-full w-full grid-cols-2 grid-rows-2 gap-[14%]">
+    <span className="grid grid-cols-2 grid-rows-2 gap-[14%] h-full w-full">
       {[0, 1, 2, 3].map((i) => (
         <span
           key={i}
-          className={`rounded-[0.05vw] ${active ? 'bg-black-100' : 'bg-black-100/30'}`}
+          className={`rounded-[0.05vw] ${active ? 'bg-black-100' : 'bg-black-100/50'}`}
         />
       ))}
     </span>
@@ -154,6 +154,15 @@ const ReferencesPage = () => {
           onLeaveBack: () => tl.reverse(),
         })
       })
+
+      const toolbar = page.querySelector('[data-references-toolbar]')
+      if (toolbar) {
+        gsap.fromTo(
+          toolbar,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.8, ease: 'power3.out', delay: 0.3 }
+        )
+      }
 
       requestAnimationFrame(() => {
         lenisRef.current?.resize()
@@ -232,13 +241,13 @@ const ReferencesPage = () => {
   */
 
   const gridToggleGroup = (
-    <div className="flex flex-row items-center gap-[0.35vw] shrink-0">
+    <div className="flex shrink-0 flex-row items-center gap-[0.35vw] bg-beige-100 px-[0.55vw] py-[0.45vw]">
       <button
         type="button"
         aria-pressed={gridMode === 'two'}
         onClick={() => setGridMode('two')}
-        className={`flex h-[1.5vw] w-[1.5vw] min-h-[1.25rem] min-w-[1.25rem] shrink-0 items-center justify-center rounded-[0.1vw] p-0 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-100/40 ${
-          gridMode === 'two' ? 'opacity-100' : 'opacity-35 hover:opacity-55'
+        className={`flex h-[1.5vw] w-[1.5vw] min-h-[1.25rem] min-w-[1.25rem] shrink-0 items-center justify-center p-0 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-100/40 ${
+          gridMode === 'two' ? 'opacity-100' : 'opacity-60 hover:opacity-80'
         }`}
       >
         <GridPreviewTwo active={gridMode === 'two'} />
@@ -247,8 +256,8 @@ const ReferencesPage = () => {
         type="button"
         aria-pressed={gridMode === 'four'}
         onClick={() => setGridMode('four')}
-        className={`flex h-[1.5vw] w-[1.5vw] min-h-[1.25rem] min-w-[1.25rem] shrink-0 items-center justify-center rounded-[0.1vw] p-0 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-100/40 ${
-          gridMode === 'four' ? 'opacity-100' : 'opacity-35 hover:opacity-55'
+        className={`flex h-[1.5vw] w-[1.5vw] min-h-[1.25rem] min-w-[1.25rem] shrink-0 items-center justify-center p-0 transition-opacity duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black-100/40 ${
+          gridMode === 'four' ? 'opacity-100' : 'opacity-60 hover:opacity-80'
         }`}
       >
         <GridPreviewFour active={gridMode === 'four'} />
@@ -257,7 +266,10 @@ const ReferencesPage = () => {
   )
 
   const filtersAndGridToggles = (
-    <div className="flex flex-row flex-wrap items-end justify-end gap-[1.5vw]">
+    <div
+      className="opacity-0 flex flex-row flex-wrap items-end justify-end gap-[1.5vw]"
+      data-references-toolbar
+    >
       {/* {sectorFilters} */}
       {gridToggleGroup}
     </div>
