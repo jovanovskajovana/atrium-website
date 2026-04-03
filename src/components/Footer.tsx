@@ -121,7 +121,7 @@ const Footer = () => {
                 fillColor="rgba(255,255,255,0.96)"
               />
             </Link>
-            <p className="text-[0.78vw] text-white-100/45 leading-[1.6] tracking-[0.04em] max-w-[16vw] mt-[4%]">
+            <p className="text-[0.78vw] text-white-100/45 leading-[1.6] tracking-[0.04em] max-w-[19vw] mt-[4%]">
               {t('footer.quote')}
             </p>
           </div>
@@ -157,13 +157,13 @@ const Footer = () => {
 
               <div>
                 <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
-                  {t('footer.hours_title')}
+                  {t('footer.showroom_title')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('footer.hours_days')}
+                  {t('footer.showroom_line_1')}
                 </p>
                 <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
-                  {t('footer.hours_time')}
+                  {t('footer.showroom_line_2')}
                 </p>
               </div>
             </div>
@@ -279,16 +279,6 @@ const Footer = () => {
                       className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
                     >
                       {t('footer.instagram_label')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href={t('footer.facebook_url')}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
-                    >
-                      {t('footer.facebook_label')}
                     </a>
                   </li>
                   <li>

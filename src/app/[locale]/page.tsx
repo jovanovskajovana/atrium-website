@@ -229,8 +229,7 @@ const Home = () => {
         })
       }
 
-      const btnBlock =
-        section2.querySelector('[data-btn-reveal]')?.parentElement
+      const btnBlock = section2.querySelector('[data-s2-cta-row]')
       if (btnBlock) {
         gsap.set(btnBlock, { y: 60, opacity: 0 })
         ScrollTrigger.create({
@@ -667,10 +666,17 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex justify-center gap-[1.5vw] mt-[8%] mb-[10%]">
-          <Button data-btn-reveal>{t('home.section_2_cta_1')}</Button>
-          <Button data-btn-reveal>{t('home.section_2_cta_2')}</Button>
-          <Button data-btn-reveal>{t('home.section_2_cta_3')}</Button>
+        <div
+          className="flex justify-center gap-[1.5vw] mt-[8%] mb-[10%]"
+          data-s2-cta-row
+        >
+          <Link href="/references">
+            <Button>{t('home.section_2_cta_1')}</Button>
+          </Link>
+          <Button>{t('home.section_2_cta_2')}</Button>
+          <Link href="/production">
+            <Button>{t('home.section_2_cta_3')}</Button>
+          </Link>
         </div>
       </section>
 
