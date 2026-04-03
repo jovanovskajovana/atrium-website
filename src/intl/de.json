@@ -173,7 +173,49 @@
     "section_8_cta_2": "Kontakt aufnehmen"
   },
   "news": {
-    "title": "News"
+    "title": "News",
+    "label": "Atrium-Updates",
+    "read_more": "Weiterlesen",
+    "back_to_list": "Alle News",
+    "list_category": "Atrium Studio",
+    "items": {
+      "showroom-opening-maribor": {
+        "title": "Neues Showroom-Erlebnis in Maribor",
+        "description": "Wir haben unseren Showroom erneuert, um Kollektionen und Maßoberflächen in einer ruhigeren, architektonischeren Umgebung zu zeigen—vereinbaren Sie einen Besuch mit unserem Team."
+      },
+      "eu-production-standards": {
+        "title": "EU-Fertigungsstandards im Fokus",
+        "description": "Unser jüngstes Audit bestätigt rückverfolgbare Materialien, dokumentierte Prozesse und gleichbleibende Toleranzen in Serienfertigung und Einzelstücken."
+      },
+      "sustainable-sourcing-2025": {
+        "title": "Roadmap für verantwortungsvolle Beschaffung 2025",
+        "description": "Partnerschaften mit zertifizierten Lieferanten und strengere Abfallziele sind fest in der Spezifikation von Holz, Oberflächen und Beschlägen für jedes Projekt verankert."
+      },
+      "manufacturing-capacity-expansion": {
+        "title": "Mehr Kapazität in der Produktion",
+        "description": "Neue CNC-Kapazität und Finishing-Linien verkürzen Durchlaufzeiten für große Hospitality- und Wohnprogramme—ohne Verlust handwerklicher Feinarbeit."
+      },
+      "hospitality-partnership": {
+        "title": "Großes Hospitality-Fit-out in Arbeit",
+        "description": "Maßschreinerei, lose Möbel und koordinierte Montage für ein neues europäisches Hotelkonzept—eng abgestimmt mit der Innenarchitektin bzw. dem Innenarchitekten."
+      },
+      "design-week-presence": {
+        "title": "Design Week — Gespräche über Langlebigkeit",
+        "description": "Unser Team lud Architektinnen, Architekten und Designer ein zu Materialwahrheit, Reparierbarkeit und Möbeln, die über Jahrzehnte relevant bleiben."
+      },
+      "craftsmanship-recognition": {
+        "title": "Anerkennung für technisches Handwerk",
+        "description": "Eine jüngste Branchenerwähnung hob unsere Kombination aus automatisierter Bearbeitung und spezialisiertem Handwerk bei komplexen Geometrien und Furnieren hervor."
+      },
+      "engineering-team-growth": {
+        "title": "Wachstum im Engineering-Studio",
+        "description": "Neue technische Designer stärken 3D-Entwicklung, Prototyping und Koordination vor Ort für Projektentwickler und Möbelmarken."
+      },
+      "export-network-update": {
+        "title": "Reibungslosere Lieferung in der EU",
+        "description": "Verfeinerte Logistikpartnerschaften ermöglichen planbare Termine für grenzüberschreitende Projekte—von der Werkverpackung bis zur installationsreifen Übergabe."
+      }
+    }
   },
   "careers": {
     "title": "Karriere"

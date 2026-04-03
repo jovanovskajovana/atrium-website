@@ -173,7 +173,49 @@
     "section_8_cta_2": "kontaktiraj nas"
   },
   "news": {
-    "title": "Novice"
+    "title": "Novice",
+    "label": "Posodobitve Atrium",
+    "read_more": "Preberi več",
+    "back_to_list": "Vse novice",
+    "list_category": "Studio Atrium",
+    "items": {
+      "showroom-opening-maribor": {
+        "title": "Nova izkušnja v showroomu v Mariboru",
+        "description": "Osvežili smo showroom, da zbirke in površine po meri predstavimo v bolj umirjenem, arhitekturnem okolju—rezervirajte obisk z našo ekipo."
+      },
+      "eu-production-standards": {
+        "title": "Poudarek na proizvodnih standardih EU",
+        "description": "Zadnji audit potrjuje sledljive materiale, dokumentirane procese in dosledne tolerance pri serijski proizvodnji in unikatnih kosih."
+      },
+      "sustainable-sourcing-2025": {
+        "title": "Načrt odgovornega nabava za leto 2025",
+        "description": "Partnerstva s certificiranimi dobavitelji in strožji cilji glede odpadkov so zdaj del načina, kako določamo les, površine in okovje za vsak projekt."
+      },
+      "manufacturing-capacity-expansion": {
+        "title": "Večja zmogljivost v proizvodnji",
+        "description": "Nova CNC-zmogljivost in linije za dokončanje skrajšajo dobavne roke za obsežne projekte v gostinstvu in stanovanjih—brez žrtvovanja ročne izdelave."
+      },
+      "hospitality-partnership": {
+        "title": "Velik projekt opremljanja hotelov v teku",
+        "description": "Izdelki mizarstva po meri, prostostoječe kose in usklajena montaža za nov evropski hotelski koncept—v tesnem sodelovanju z notranjim oblikovalcem."
+      },
+      "design-week-presence": {
+        "title": "Design Week — pogovori o trajnosti",
+        "description": "Naša ekipa je gostila arhitekte in oblikovalce o iskrenosti materialov, popravljivosti in pohištvu, zgrajenem za desetletja uporabe."
+      },
+      "craftsmanship-recognition": {
+        "title": "Priznanje za tehnično obdelavo",
+        "description": "Nedavna omemba v panogi je izpostavila našo kombinacijo avtomatizirane obdelave in specializiranega ročnega dela pri zahtevnih geometrijah in furnirjih."
+      },
+      "engineering-team-growth": {
+        "title": "Rast inženirskega studia",
+        "description": "Novi tehnični oblikovalci krepijo 3D razvoj, prototipiranje in koordinacijo na gradbišču za razvijalce projektov in pohištvene znamke."
+      },
+      "export-network-update": {
+        "title": "Bolj zanesljiva dostava po EU",
+        "description": "Izboljšana logistična partnerstva pomenijo predvidljive termine za čezmejne projekte—od tovarniške embalaže do predaje pripravljeni za montažo."
+      }
+    }
   },
   "careers": {
     "title": "Zaposlitev"
