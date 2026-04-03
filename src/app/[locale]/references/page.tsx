@@ -192,6 +192,7 @@ const ReferencesPage = () => {
             params: { slug: project.slug },
           }}
           className="group block"
+          data-project-item
         >
           <div
             className="relative overflow-hidden w-full"
