@@ -114,6 +114,7 @@
     "title": "O nas"
   },
   "references": {
+    "filter_all": "vse",
     "sector_residential": "Stanovanja",
     "sector_hospitality": "Gostinstvo",
     "sector_office": "Pisarne",

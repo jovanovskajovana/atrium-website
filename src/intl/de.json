@@ -114,6 +114,7 @@
     "title": "Über uns"
   },
   "references": {
+    "filter_all": "alle",
     "sector_residential": "Wohnen",
     "sector_hospitality": "Gastgewerbe",
     "sector_office": "Büro",

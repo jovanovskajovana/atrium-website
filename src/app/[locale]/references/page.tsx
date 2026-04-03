@@ -16,6 +16,20 @@ gsap.registerPlugin(ScrollTrigger)
 
 type GridMode = 'two' | 'four'
 
+/* Sector filters — restore with UI below, activeSector state, .filter on list, effect dep, card key
+const SECTORS = [
+  'all',
+  'residential',
+  'hospitality',
+  'health',
+  'public',
+  'office',
+] as const
+type Sector = (typeof SECTORS)[number]
+*/
+
+type ProjectWithIndex = (typeof PROJECTS)[number] & { originalIndex: number }
+
 type LayoutRow = {
   type: 'pair' | 'pair-reverse' | 'single-center'
   items: number[]
@@ -88,9 +102,16 @@ const ReferencesPage = () => {
   lenisRef.current = lenis
   const pageRef = useRef<HTMLElement>(null)
   const [gridMode, setGridMode] = useState<GridMode>('two')
+  // const [activeSector, setActiveSector] = useState<Sector>('all')
 
-  const twoLayout = buildTwoLayout(PROJECTS.length)
-  const fourLayout = buildFourLayout(PROJECTS.length)
+  const filteredProjects: ProjectWithIndex[] = PROJECTS.map((p, i) => ({
+    ...p,
+    originalIndex: i,
+  }))
+  // .filter((p) => activeSector === 'all' || p.sector === activeSector)
+
+  const twoLayout = buildTwoLayout(filteredProjects.length)
+  const fourLayout = buildFourLayout(filteredProjects.length)
 
   useIsomorphicLayoutEffect(() => {
     const page = pageRef.current
@@ -144,10 +165,10 @@ const ReferencesPage = () => {
   }, [gridMode])
 
   const renderCard = (
-    index: number,
+    project: ProjectWithIndex,
     opts: { width?: string; aspect: string; sizes: string }
   ) => {
-    const project = PROJECTS[index]
+    const titleKey = project.originalIndex + 1
 
     return (
       <div
@@ -169,7 +190,7 @@ const ReferencesPage = () => {
           >
             <Image
               src={project.image}
-              alt={t(`home.section_4_project_${index + 1}`)}
+              alt={t(`home.section_4_project_${titleKey}`)}
               fill
               className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
               sizes={opts.sizes}
@@ -177,7 +198,7 @@ const ReferencesPage = () => {
             <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
           </div>
           <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
-            {t(`home.section_4_project_${index + 1}`)}
+            {t(`home.section_4_project_${titleKey}`)}
           </p>
           <p className="text-[0.75vw] text-black-100/40 uppercase">
             {t(`references.sector_${project.sector}`)}
@@ -187,8 +208,31 @@ const ReferencesPage = () => {
     )
   }
 
+  /*
+  const sectorFilters = (
+    <div className="flex flex-row gap-[1vw]">
+      {SECTORS.map((sector) => (
+        <button
+          key={sector}
+          type="button"
+          onClick={() => setActiveSector(sector)}
+          className={`text-[0.75vw] uppercase whitespace-nowrap transition-colors duration-300 ${
+            activeSector === sector
+              ? 'text-black-100 font-[500]'
+              : 'text-black-100/40 hover:text-black-100/60'
+          }`}
+        >
+          {sector === 'all'
+            ? t('references.filter_all')
+            : t(`references.sector_${sector}`)}
+        </button>
+      ))}
+    </div>
+  )
+  */
+
   const gridToggleGroup = (
-    <div className="flex flex-row items-center gap-[0.35vw]">
+    <div className="flex flex-row items-center gap-[0.35vw] shrink-0">
       <button
         type="button"
         aria-pressed={gridMode === 'two'}
@@ -212,6 +256,13 @@ const ReferencesPage = () => {
     </div>
   )
 
+  const filtersAndGridToggles = (
+    <div className="flex flex-row flex-wrap items-end justify-end gap-[1.5vw]">
+      {/* {sectorFilters} */}
+      {gridToggleGroup}
+    </div>
+  )
+
   const twoLayoutContent = twoLayout.map((row, rowIdx) => {
     switch (row.type) {
       case 'pair':
@@ -221,13 +272,13 @@ const ReferencesPage = () => {
             data-ref-row
             className="flex items-center gap-[2.2vw] mb-[6%] last:mb-0"
           >
-            {renderCard(row.items[0], {
+            {renderCard(filteredProjects[row.items[0]], {
               width: '38.5vw',
               aspect: '3/4',
               sizes: '35vw',
             })}
             {row.items[1] !== undefined &&
-              renderCard(row.items[1], {
+              renderCard(filteredProjects[row.items[1]], {
                 width: '30vw',
                 aspect: '4/5',
                 sizes: '35vw',
@@ -243,13 +294,13 @@ const ReferencesPage = () => {
             className="flex items-center justify-end gap-[2.2vw] mb-[6%] last:mb-0"
           >
             {row.items[0] !== undefined &&
-              renderCard(row.items[0], {
+              renderCard(filteredProjects[row.items[0]], {
                 width: '28vw',
                 aspect: '4/5',
                 sizes: '35vw',
               })}
             {row.items[1] !== undefined &&
-              renderCard(row.items[1], {
+              renderCard(filteredProjects[row.items[1]], {
                 width: '38.5vw',
                 aspect: '3/4',
                 sizes: '35vw',
@@ -264,7 +315,7 @@ const ReferencesPage = () => {
             data-ref-row
             className="flex justify-center mb-[6%] last:mb-0"
           >
-            {renderCard(row.items[0], {
+            {renderCard(filteredProjects[row.items[0]], {
               width: '35vw',
               aspect: '3/4',
               sizes: '35vw',
@@ -278,13 +329,19 @@ const ReferencesPage = () => {
     <main ref={pageRef} className="relative overflow-x-hidden">
       <section className="px-[2.2vw] pt-[18.5vh] pb-[10%] flex flex-col">
         {gridMode === 'two' ? (
-          <div className="grid w-full grid-cols-[1fr_auto] items-start gap-x-[2.2vw]">
-            <div className="flex min-w-0 flex-col">{twoLayoutContent}</div>
-            <div className="flex shrink-0 justify-end">{gridToggleGroup}</div>
+          <div className="relative w-full">
+            <div className="pointer-events-none absolute left-0 right-0 top-0 z-20">
+              <div className="pointer-events-auto">{filtersAndGridToggles}</div>
+            </div>
+            <div className="flex min-w-0 w-full flex-col pt-[0.5%]">
+              {twoLayoutContent}
+            </div>
           </div>
         ) : (
           <>
-            <div className="mb-[2%] flex justify-end">{gridToggleGroup}</div>
+            <div className="mb-[2%] flex justify-end">
+              {filtersAndGridToggles}
+            </div>
             {fourLayout.map((indices, rowIdx) => (
               <div
                 key={`four-${rowIdx}`}
@@ -292,7 +349,7 @@ const ReferencesPage = () => {
                 className="grid grid-cols-4 gap-[1.5vw] mb-[4%] last:mb-0"
               >
                 {indices.map((projectIndex) =>
-                  renderCard(projectIndex, {
+                  renderCard(filteredProjects[projectIndex], {
                     aspect: '3/4',
                     sizes: '22vw',
                   })

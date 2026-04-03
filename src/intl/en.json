@@ -114,6 +114,7 @@
     "title": "About us"
   },
   "references": {
+    "filter_all": "all",
     "sector_residential": "Residential",
     "sector_hospitality": "Hospitality",
     "sector_office": "Office",
