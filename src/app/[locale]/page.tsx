@@ -728,7 +728,7 @@ const Home = () => {
                   <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
                 </div>
 
-                <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[4%]">
+                <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
                   {t(`home.section_4_project_${i + 1}`)}
                 </p>
                 <p className="text-[0.75vw] text-black-100/40 uppercase">
