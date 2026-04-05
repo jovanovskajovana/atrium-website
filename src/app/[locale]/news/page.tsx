@@ -1,9 +1,20 @@
+'use client'
+
+import { useRef } from 'react'
 import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
+import { useLocale, useTranslations } from 'next-intl'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import { useLenis } from '@/components/LenisProvider'
+
+import { NEWS_ARTICLES } from '@/constants/news'
 
 import { Link } from '@/i18n/navigation'
 
-import { NEWS_ARTICLES } from '@/constants/news'
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
+
+gsap.registerPlugin(ScrollTrigger)
 
 function dateLocaleForAppLocale(locale: string): string {
   if (locale === 'sl') return 'sl-SI'
@@ -11,13 +22,11 @@ function dateLocaleForAppLocale(locale: string): string {
   return 'en-GB'
 }
 
-const NewsPage = async ({
-  params,
-}: {
-  params: Promise<{ locale: string }>
-}) => {
-  const { locale } = await params
-  const t = await getTranslations()
+const NewsPage = () => {
+  const t = useTranslations()
+  const locale = useLocale()
+  const lenis = useLenis()
+  const pageRef = useRef<HTMLElement>(null)
 
   const dateFormatter = new Intl.DateTimeFormat(
     dateLocaleForAppLocale(locale),
@@ -28,11 +37,81 @@ const NewsPage = async ({
     }
   )
 
+  useIsomorphicLayoutEffect(() => {
+    const page = pageRef.current
+
+    if (!page) return
+
+    const ctx = gsap.context(() => {
+      const label = page.querySelector('[data-news-label]')
+      if (label) {
+        gsap.fromTo(
+          label,
+          { y: 28, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 0.15,
+          }
+        )
+      }
+
+      const rows = page.querySelectorAll('[data-news-row]')
+      rows.forEach((row) => {
+        const link = row.querySelector('a')
+        if (!link) return
+
+        gsap.set(link, { y: 52, opacity: 0 })
+
+        const tl = gsap.timeline({ paused: true })
+        tl.to(
+          link,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+          },
+          0
+        )
+
+        const img = row.querySelector('img')
+        if (img) {
+          tl.fromTo(
+            img,
+            { scale: 1.07 },
+            { scale: 1, duration: 1.2, ease: 'power3.out' },
+            0
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: row,
+          start: 'top 88%',
+          onEnter: () => tl.play(),
+          onLeaveBack: () => tl.reverse(),
+        })
+      })
+
+      requestAnimationFrame(() => {
+        lenis?.resize()
+        ScrollTrigger.refresh()
+      })
+    }, page)
+
+    return () => ctx.revert()
+  }, [lenis])
+
   return (
-    <main className="relative overflow-x-hidden">
+    <main ref={pageRef} className="relative overflow-x-hidden">
       <section className="pt-[18.5vh] pb-[10%] px-[2.2vw]">
         <div className="max-w-[75vw] mx-auto">
-          <p className="text-[2.8vw] xs:text-[2.2vw] sm:text-[0.8rem] md:text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%]">
+          <p
+            data-news-label
+            className="text-[2.8vw] xs:text-[2.2vw] sm:text-[0.8rem] md:text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%] opacity-0"
+          >
             {t('news.label')}
           </p>
 
@@ -46,14 +125,18 @@ const NewsPage = async ({
               const num = String(index + 1).padStart(2, '0')
 
               return (
-                <li key={article.slug} className="border-t border-black-100/10">
+                <li
+                  key={article.slug}
+                  data-news-row
+                  className="border-t border-black-100/10"
+                >
                   <article>
                     <Link
                       href={{
                         pathname: '/news/[slug]',
                         params: { slug: article.slug },
                       }}
-                      className="group/news grid w-full grid-cols-1 gap-y-[4vw] gap-x-[2vw] bg-transparent px-[1.5vw] py-[2vw] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 focus-visible:bg-black-100 sm:grid-cols-[minmax(2rem,4vw)_minmax(0,16vw)_1fr] sm:items-start md:grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] md:gap-x-[2vw] md:px-[2vw] focus-visible:ring-2 focus-visible:ring-black-100/25 focus-visible:ring-offset-2 focus-visible:ring-offset-white-100"
+                      className="group/news grid w-full grid-cols-1 gap-y-[4vw] gap-x-[2vw] bg-transparent py-[2vw] px-[1vw] opacity-0 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 focus-visible:bg-black-100 sm:grid-cols-[minmax(2rem,4vw)_minmax(0,16vw)_1fr] sm:items-start md:grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] md:gap-x-[2vw] focus-visible:ring-2 focus-visible:ring-black-100/25 focus-visible:ring-offset-2 focus-visible:ring-offset-white-100"
                     >
                       <span
                         className="text-[8vw] xs:text-[7vw] sm:text-[2.8vw] md:text-[3.2vw] font-light leading-none tabular-nums text-black-100/15 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/35 group-focus-visible/news:text-white-100/35 sm:pt-[0.15vw]"
