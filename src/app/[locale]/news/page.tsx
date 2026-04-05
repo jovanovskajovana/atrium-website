@@ -53,36 +53,36 @@ const NewsPage = async ({
                         pathname: '/news/[slug]',
                         params: { slug: article.slug },
                       }}
-                      className="group grid grid-cols-1 gap-y-[4vw] gap-x-[2vw] py-[2vw] sm:grid-cols-[minmax(2rem,4vw)_minmax(0,16vw)_1fr] sm:items-start md:grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] md:gap-x-[2vw] outline-none focus-visible:ring-2 focus-visible:ring-black-100/20 focus-visible:ring-offset-2 focus-visible:ring-offset-white-100"
+                      className="group/news grid w-full grid-cols-1 gap-y-[4vw] gap-x-[2vw] bg-transparent px-[1.5vw] py-[2vw] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 focus-visible:bg-black-100 sm:grid-cols-[minmax(2rem,4vw)_minmax(0,16vw)_1fr] sm:items-start md:grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] md:gap-x-[2vw] md:px-[2vw] focus-visible:ring-2 focus-visible:ring-black-100/25 focus-visible:ring-offset-2 focus-visible:ring-offset-white-100"
                     >
                       <span
-                        className="text-[8vw] xs:text-[7vw] sm:text-[2.8vw] md:text-[3.2vw] text-black-100/15 font-light leading-none tabular-nums sm:pt-[0.15vw]"
+                        className="text-[8vw] xs:text-[7vw] sm:text-[2.8vw] md:text-[3.2vw] font-light leading-none tabular-nums text-black-100/15 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/35 group-focus-visible/news:text-white-100/35 sm:pt-[0.15vw]"
                         aria-hidden
                       >
                         {num}
                       </span>
 
-                      <div className="relative aspect-[4/3] w-full max-w-[280px] overflow-hidden bg-beige-100 sm:max-w-none sm:mx-0 mx-auto">
+                      <div className="aspect-[4/3] w-full max-w-[280px] overflow-hidden bg-beige-100 sm:max-w-none sm:mx-0 mx-auto">
                         <Image
                           src={article.image}
                           alt={title}
                           width={720}
                           height={540}
-                          className="h-full w-full object-cover transition-transform duration-[1.1s] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+                          className="h-full w-full object-cover"
                           sizes="(max-width: 640px) 280px, 16vw"
                         />
                       </div>
 
                       <div className="min-w-0 sm:pt-[0.25vw]">
-                        <h2 className="text-[3.8vw] xs:text-[3.4vw] sm:text-[0.95rem] md:text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase transition-opacity duration-300 group-hover:opacity-70">
+                        <h2 className="text-[3.8vw] xs:text-[3.4vw] sm:text-[0.95rem] md:text-[1.1vw] font-[500] uppercase leading-[1.2] text-black-100 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100 group-focus-visible/news:text-white-100">
                           {title}
                         </h2>
-                        <p className="text-[3.1vw] xs:text-[2.85vw] sm:text-[0.88rem] md:text-[0.92vw] text-black-100/60 leading-[1.8] max-w-none md:max-w-[32vw] pt-[2%]">
+                        <p className="pt-[2%] text-[3.1vw] xs:text-[2.85vw] sm:text-[0.88rem] md:text-[0.92vw] leading-[1.8] text-black-100/60 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] max-w-none md:max-w-[32vw] group-hover/news:text-white-100/65 group-focus-visible/news:text-white-100/65">
                           {description}
                         </p>
                         <time
                           dateTime={article.date}
-                          className="mt-[3%] block text-[2.6vw] xs:text-[2.4vw] sm:text-[0.68rem] md:text-[0.75vw] text-black-100/40 tracking-[0.06em] md:hidden"
+                          className="mt-[3%] block text-[2.6vw] xs:text-[2.4vw] sm:text-[0.68rem] md:text-[0.75vw] tracking-[0.06em] text-black-100/40 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] md:hidden group-hover/news:text-white-100/45 group-focus-visible/news:text-white-100/45"
                         >
                           {formattedDate}
                         </time>
@@ -90,7 +90,7 @@ const NewsPage = async ({
 
                       <time
                         dateTime={article.date}
-                        className="hidden md:block text-[0.75vw] text-black-100/40 tracking-[0.1em] text-right pt-[0.35vw] self-start"
+                        className="hidden self-start pt-[0.35vw] text-right text-[0.75vw] tracking-[0.1em] text-black-100/40 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] md:block group-hover/news:text-white-100/45 group-focus-visible/news:text-white-100/45"
                       >
                         {formattedDate}
                       </time>
