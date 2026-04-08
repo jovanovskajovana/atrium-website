@@ -592,7 +592,7 @@ const ProductionPage = () => {
       <section ref={section3Ref} className="mb-[10%]">
         <div className="mx-auto text-center mb-[5%]">
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] mb-[1.5%]"
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[1.5%]"
             data-s3-title
           >
             {t('production.section_3_title')}
@@ -634,7 +634,7 @@ const ProductionPage = () => {
       <section ref={section4Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] text-center mb-[6%]"
+            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase text-center mb-[6%]"
             data-s4-title
           >
             {t('production.section_4_title')}
@@ -689,7 +689,7 @@ const ProductionPage = () => {
       <section ref={section6Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%]"
+            className="text-[0.92vw] text-black-100/40 uppercase mb-[2%]"
             data-s6-label
           >
             {t('production.section_6_label')}
@@ -700,7 +700,7 @@ const ProductionPage = () => {
               className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.75vw] text-black-100/40 tracking-[0.15em] uppercase">
+              <span className="text-[0.75vw] text-black-100/40 uppercase">
                 01
               </span>
               <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">

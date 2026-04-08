@@ -3,6 +3,7 @@ import { getTranslations } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
 import { getJobListingBySlug } from '@/constants/careers'
+import IconLocation from '@/components/icons/icon-location'
 
 interface JobListingPageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -29,16 +30,17 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
             ← {t('careers.listings.back_to_careers')}
           </Link>
 
-          <h1 className="text-[2.8vw] font-[450] text-black-100 leading-[1.08] tracking-[0.02em]">
+          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase">
             {t(`careers.section_4_role_${roleIndex}_title`)}
           </h1>
-          <p className="mt-[1.2vw] text-[0.92vw] text-black-100/55">
-            &#9679; {t(`${prefix}.subtitle`)}
+          <p className="mt-[1.2vw] text-[0.92vw] text-black-100/55 flex items-center gap-[0.4vw]">
+            <IconLocation className="text-[1em] text-black-100/40" />
+            {t(`${prefix}.subtitle`)}
           </p>
         </div>
       </section>
 
-      <section className="pb-[8%]">
+      <section className="pb-[6%]">
         <div className="max-w-[75vw] mx-auto border-t border-black-100/10 pt-[4%] space-y-[4vw]">
           <div>
             <h2 className="text-[0.92vw] font-[500] text-black-100 mb-[1.5vw]">
@@ -102,12 +104,9 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
       <section className="pb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <div className="mb-[4vw]">
-            <h2 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] uppercase tracking-[0.03em]">
+            <h2 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] uppercase">
               {t('careers.listings.apply_title')}
             </h2>
-            <p className="mt-[0.6vw] text-[0.82vw] text-black-100/40 italic">
-              {t('careers.listings.form_label')}
-            </p>
           </div>
 
           <form className="bg-beige-100 px-[4vw] py-[3.5vw]">

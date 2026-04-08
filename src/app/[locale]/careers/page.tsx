@@ -61,42 +61,72 @@ const CareersPage = () => {
 
       const split = section1.querySelector('[data-careers-split]')
       if (split) {
-        gsap.set(split, { y: 30, opacity: 0 })
-        const splitTl = gsap.timeline({ paused: true })
-        splitTl.to(split, {
+        gsap.set(split, { y: 60, opacity: 0 })
+
+        gsap.to(split, {
           y: 0,
           opacity: 1,
-          duration: 1,
+          duration: 1.3,
           ease: 'power3.out',
-        })
-        ScrollTrigger.create({
-          trigger: split,
-          start: 'top 85%',
-          onEnter: () => splitTl.play(),
-          onLeaveBack: () => splitTl.reverse(),
+          delay: 0.2,
         })
       }
 
       const section2 = section2Ref.current
       if (section2) {
-        section2.querySelectorAll('[data-culture-item]').forEach((el) => {
-          gsap.set(el, { y: 30, opacity: 0 })
-          const elTl = gsap.timeline({ paused: true })
-          elTl.to(el, {
+        const s2Label = section2.querySelector('[data-s2-label]')
+        const s2CultureItems = section2.querySelectorAll('[data-culture-item]')
+        const s2RolesHeader = section2.querySelector('[data-s2-roles-header]')
+        const s2Roles = section2.querySelectorAll('[data-careers-role]')
+
+        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
+        gsap.set(s2CultureItems, { y: 28, opacity: 0 })
+
+        const s2CultureTl = gsap.timeline({ paused: true })
+        if (s2Label) {
+          s2CultureTl.to(
+            s2Label,
+            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            0
+          )
+        }
+        s2CultureTl.to(
+          s2CultureItems,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            stagger: 0.1,
+          },
+          0.1
+        )
+
+        ScrollTrigger.create({
+          trigger: section2,
+          start: 'top 80%',
+          onEnter: () => s2CultureTl.play(),
+          onLeaveBack: () => s2CultureTl.reverse(),
+        })
+
+        if (s2RolesHeader) {
+          gsap.set(s2RolesHeader, { y: 28, opacity: 0 })
+          const s2RolesHeaderTl = gsap.timeline({ paused: true })
+          s2RolesHeaderTl.to(s2RolesHeader, {
             y: 0,
             opacity: 1,
             duration: 1,
             ease: 'power3.out',
           })
           ScrollTrigger.create({
-            trigger: el,
-            start: 'top 88%',
-            onEnter: () => elTl.play(),
-            onLeaveBack: () => elTl.reverse(),
+            trigger: s2RolesHeader,
+            start: 'top 85%',
+            onEnter: () => s2RolesHeaderTl.play(),
+            onLeaveBack: () => s2RolesHeaderTl.reverse(),
           })
-        })
+        }
 
-        section2.querySelectorAll('[data-careers-role]').forEach((el) => {
+        s2Roles.forEach((el) => {
           gsap.set(el, { y: 28, opacity: 0 })
           const elTl = gsap.timeline({ paused: true })
           elTl.to(el, {
@@ -167,10 +197,10 @@ const CareersPage = () => {
         </div>
 
         <div
-          className="max-w-[75vw] mx-auto grid grid-cols-[minmax(0,1.15fr)_minmax(0,0.55fr)] gap-x-[6vw] border-t border-black-100/10 pt-[4%] mt-[6%] opacity-0"
+          className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/10 max-w-[75vw] mx-auto pt-[6%] mt-[6%] opacity-0"
           data-careers-split
         >
-          <p className="text-[1.05vw] font-[400] text-black-100/70 leading-[1.85] tracking-[0.01em]">
+          <p className="text-[1.2vw] font-[350] text-black-100/50 leading-[1.6]">
             {t('careers.section_2_text')}
           </p>
           <dl className="space-y-[2.2vw] pt-[0.5vw]">
@@ -190,7 +220,10 @@ const CareersPage = () => {
 
       <section ref={section2Ref} className="pb-[8%]">
         <div className="max-w-[75vw] mx-auto">
-          <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw]">
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            data-s2-label
+          >
             {t('careers.section_3_label')}
           </p>
           <div className="grid grid-cols-3 gap-x-[3vw]">
@@ -215,7 +248,10 @@ const CareersPage = () => {
         </div>
 
         <div className="max-w-[75vw] mx-auto mt-[10%]">
-          <div className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw]">
+          <div
+            className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
+            data-s2-roles-header
+          >
             <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
             </p>
@@ -276,7 +312,10 @@ const CareersPage = () => {
               {t('careers.section_5_title')}
             </h2>
             <p className="text-[0.92vw] text-white-100/55 leading-[1.75]">
-              {t('careers.section_5_text')}
+              {t('careers.section_5_text_1')}
+            </p>
+            <p className="text-[0.92vw] text-white-100/55 leading-[1.75]">
+              {t('careers.section_5_text_2')}
             </p>
           </div>
           <Link
