@@ -35,8 +35,8 @@ export const ProjectsGridFour = ({
       {fourLayout.map((indices, rowIdx) => (
         <div
           key={`four-${rowIdx}`}
-          data-ref-row
           className="grid grid-cols-4 gap-[1.5vw] mb-[4%] last:mb-0"
+          data-ref-row
         >
           {indices.map((projectIndex) => (
             <ProjectCard

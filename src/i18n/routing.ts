@@ -10,11 +10,6 @@ export const routing = defineRouting({
       de: '/',
       sl: '/',
     },
-    '/about': {
-      en: '/about',
-      de: '/ueber-uns',
-      sl: '/o-nas',
-    },
     '/references': {
       en: '/references',
       de: '/referenzen',
@@ -24,6 +19,11 @@ export const routing = defineRouting({
       en: '/references/[slug]',
       de: '/referenzen/[slug]',
       sl: '/reference/[slug]',
+    },
+    '/production': {
+      en: '/production',
+      de: '/produktion',
+      sl: '/proizvodnja',
     },
     '/news': {
       en: '/news',
@@ -35,15 +35,20 @@ export const routing = defineRouting({
       de: '/news/[slug]',
       sl: '/novice/[slug]',
     },
-    '/production': {
-      en: '/production',
-      de: '/produktion',
-      sl: '/proizvodnja',
-    },
     '/careers': {
       en: '/careers',
       de: '/karriere',
       sl: '/zaposlitev',
+    },
+    '/careers/[slug]': {
+      en: '/careers/[slug]',
+      de: '/karriere/[slug]',
+      sl: '/zaposlitev/[slug]',
+    },
+    '/about': {
+      en: '/about',
+      de: '/ueber-uns',
+      sl: '/o-nas',
     },
     '/contact': {
       en: '/contact',

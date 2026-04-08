@@ -5,12 +5,7 @@ import { getTranslations } from 'next-intl/server'
 import { Link } from '@/i18n/navigation'
 
 import { getNewsArticleBySlug } from '@/constants/news'
-
-function dateLocaleForAppLocale(locale: string): string {
-  if (locale === 'sl') return 'sl-SI'
-  if (locale === 'de') return 'de-DE'
-  return 'en-GB'
-}
+import { getDateLocale } from '@/i18n/locale'
 
 interface NewsSlugPageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -28,17 +23,14 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
   const title = t(`news.items.${article.slug}.title`)
   const description = t(`news.items.${article.slug}.description`)
 
-  const dateFormatter = new Intl.DateTimeFormat(
-    dateLocaleForAppLocale(locale),
-    {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    }
-  )
+  const dateFormatter = new Intl.DateTimeFormat(getDateLocale(locale), {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  })
 
   return (
-    <main className="relative overflow-x-hidden">
+    <main className="overflow-x-hidden">
       <article className="pt-[18.5vh] pb-[12%] px-[2.2vw] max-w-[48rem] mx-auto">
         <Link
           href="/news"

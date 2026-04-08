@@ -555,7 +555,7 @@ const ProductionPage = () => {
         </div>
       </div>
 
-      <section ref={section2Ref} className="relative pt-[4%] mb-[10%]">
+      <section ref={section2Ref} className="pt-[4%] mb-[10%]">
         <div className="max-w-[35vw] mx-auto text-center">
           <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
             {t('production.section_2_text')}
@@ -589,7 +589,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative mb-[10%]">
+      <section ref={section3Ref} className="mb-[10%]">
         <div className="mx-auto text-center mb-[5%]">
           <h2
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] mb-[1.5%]"
@@ -598,7 +598,7 @@ const ProductionPage = () => {
             {t('production.section_3_title')}
           </h2>
           <p
-            className="text-[0.92vw] text-black-100/50 leading-[1.8] max-w-[34vw] mx-auto"
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw] mx-auto"
             data-s3-text
           >
             {t('production.section_3_text')}
@@ -631,7 +631,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section4Ref} className="relative mb-[10%]">
+      <section ref={section4Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase tracking-[0.03em] text-center mb-[6%]"
@@ -669,7 +669,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section5Ref} className="relative mb-[10%]">
+      <section ref={section5Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto" data-s5-statement>
           <h2
             className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
@@ -686,7 +686,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section6Ref} className="relative mb-[10%]">
+      <section ref={section6Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
           <p
             className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%]"
@@ -726,7 +726,7 @@ const ProductionPage = () => {
       <section
         ref={section7Ref}
         id="oem-services"
-        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
+        className="bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <h2
@@ -796,11 +796,7 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section
-        ref={section8Ref}
-        id="project-interiors"
-        className="relative mb-[10%]"
-      >
+      <section ref={section8Ref} id="project-interiors" className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] mb-[1.5%]"
@@ -829,7 +825,7 @@ const ProductionPage = () => {
                 <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">
                   {t(`production.section_8_feature_${n}_title`)}
                 </h4>
-                <p className="text-[0.82vw] text-black-100/50 leading-[1.7] max-w-[20vw]">
+                <p className="text-[0.82vw] text-black-100/60 leading-[1.7] max-w-[20vw]">
                   {t(`production.section_8_feature_${n}_text`)}
                 </p>
               </div>
@@ -859,7 +855,7 @@ const ProductionPage = () => {
             <p className="text-[1.2vw] font-[350] text-black-100">
               {t('production.section_8_industries_title')}
             </p>
-            <p className="text-[0.92vw] text-black-100/50 leading-[2] mt-[1.5%]">
+            <p className="text-[0.92vw] text-black-100/60 leading-[2] mt-[1.5%]">
               {t('production.section_8_industries_list')}
             </p>
             <div className="flex gap-[1.5vw] mt-[3%]">

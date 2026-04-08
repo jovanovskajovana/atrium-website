@@ -612,7 +612,7 @@ const Home = () => {
         />
       </section>
 
-      <section ref={section2Ref} className="relative pt-[6%]">
+      <section ref={section2Ref} className="pt-[6%]">
         <div
           ref={img9Ref}
           className="relative flex items-center overflow-hidden opacity-0 z-20"
@@ -660,7 +660,7 @@ const Home = () => {
           </div>
           <div className="text-[0.92vw] text-black-100/60 leading-[1.8] mt-[2%]">
             <p data-s2-text>{t('home.section_2_text_2')}</p>
-            <p data-s2-text className="mt-[2%]">
+            <p className="mt-[2%]" data-s2-text>
               {t('home.section_2_text_3')}
             </p>
           </div>
@@ -680,7 +680,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="relative mb-[10%]">
+      <section ref={section3Ref} className="mb-[10%]">
         <div className="max-w-[55vw] mx-auto text-center" data-tagline-reveal>
           <p className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[2%]">
             {t('home.section_3_title')}
@@ -691,7 +691,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section4Ref} className="relative mb-[10%]">
+      <section ref={section4Ref} className="mb-[10%]">
         <p
           className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[6%]"
           data-section-label
@@ -731,7 +731,7 @@ const Home = () => {
                 <p className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[3%]">
                   {t(`home.section_4_project_${i + 1}`)}
                 </p>
-                <p className="text-[0.75vw] text-black-100/40 uppercase">
+                <p className="text-[0.75vw] text-black-100/40 uppercase mt-[1%]">
                   {t(`references.sector_${project.sector}`)}
                 </p>
               </Link>
@@ -749,7 +749,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section5Ref} className="relative mb-[8%]">
+      <section ref={section5Ref} className="mb-[8%]">
         <p
           className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]"
           data-section-label
@@ -768,13 +768,13 @@ const Home = () => {
                 </span>
                 <div className="flex flex-col">
                   <h3
-                    className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%] mb-[1.5%]"
+                    className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
                     data-pillar-title
                   >
                     {t(`home.section_5_pillar_${n}_title`)}
                   </h3>
                   <p
-                    className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw]"
+                    className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[32vw] mt-[2%]"
                     data-pillar-text
                   >
                     {t(`home.section_5_pillar_${n}_text`)}
@@ -788,7 +788,7 @@ const Home = () => {
 
       <section
         ref={section6Ref}
-        className="relative bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
+        className="bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p
@@ -817,7 +817,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section7Ref} className="relative mb-[12%]">
+      <section ref={section7Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]"
@@ -888,7 +888,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section8Ref} className="relative mb-[12%]">
+      <section ref={section8Ref} className="mb-[12%]">
         <div
           className="max-w-[75vw] mx-auto text-center"
           data-sustainability-reveal
@@ -914,7 +914,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section9Ref} className="relative mb-[12%]">
+      <section ref={section9Ref} className="mb-[12%]">
         <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase text-center mb-[4%]">
           {t('home.section_9_label')}
         </p>

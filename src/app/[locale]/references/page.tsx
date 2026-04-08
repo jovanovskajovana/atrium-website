@@ -188,7 +188,7 @@ const ReferencesPage = () => {
   )
 
   return (
-    <main ref={pageRef} className="relative overflow-x-hidden">
+    <main ref={pageRef} className="overflow-x-hidden">
       <section className="flex flex-col pt-[18.5vh] pb-[10%] px-[2.2vw]">
         {gridMode === 'two' ? (
           <div className="relative w-full">
