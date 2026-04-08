@@ -109,18 +109,19 @@
     "section_10_text": "Ob Architekt, Designer oder Marke — wir freuen uns, von Ihrem Projekt zu hören"
   },
   "about": {
+    "section_1_label": "Unser Handwerk",
     "section_1_title_1": "130 Jahre Tradition",
     "section_1_title_2": "Präzision und Vision",
     "section_1_text": "Die Qualität unserer Arbeit entspringt der Tradition — hingegeben, verfeinert und mit jedem Projekt weiterentwickelt. Was als familiäres Handwerk begann, ist zu moderner Produktion gewachsen, ohne je das Wesentliche aus den Augen zu verlieren: Präzision, Sorgfalt und die Verantwortung, die Jahrzehnte des Vertrauens mit sich bringen.",
-    "section_2_caption": "Familie Knehtl, Ljutomer, 1987",
-    "section_3_label": "Über uns",
-    "section_3_text_1": "Wir sind ein Familienunternehmen mit über 130 Jahren Tradition in der Holzverarbeitung und Innenraumgestaltung — heute in vierter Generation geführt. Unsere Geschichte begann in einer Handwerkstatt und setzt sich heute in moderner Produktion fort, wo Wissen, Hingabe und Gespür für Materialien in jedem Projekt zusammenfließen.",
-    "section_3_heading": "Wir schaffen ganzheitliche Innenräume und Möbel nach Maß",
-    "section_3_text_2": "— für Wohnhäuser, Geschäftsräume, Hotels und anspruchsvolle öffentliche Bauten. Unsere Projekte erstrecken sich über Slowenien und darüber hinaus, vereint durch eine Qualität, die Bestand hat.",
-    "section_4_label": "Verwaltung und Produktion — Ljutomer, Slowenien",
-    "section_4_portrait_1": "Božo Knehtl",
-    "section_4_portrait_2": "Žan Knehtl",
-    "section_5_signature": "Družina Knehtl"
+    "section_1_photo_label": "Familie Knehtl, Ljutomer, 1987",
+    "section_2_label": "Über uns",
+    "section_2_text_1": "Wir sind ein Familienunternehmen mit über 130 Jahren Tradition in der Holzverarbeitung und Innenraumgestaltung — heute in vierter Generation geführt. Unsere Geschichte begann in einer Handwerkstatt; heute setzt sie sich in moderner Produktion fort, in der Wissen, Hingabe und ein Gespür für das Material in jedem Projekt zusammenfließen.",
+    "section_2_title": "Wir schaffen ganzheitliche Innenräume und Möbel nach Maß",
+    "section_2_text_2": "— für Wohnhäuser, Geschäftsräume, Hotels und anspruchsvolle öffentliche Bauten. Unsere Projekte erstrecken sich über Slowenien und darüber hinaus, vereint durch eine Qualität, die Bestand hat.",
+    "section_2_text_3": "Verwaltung und Produktion — Ljutomer, Slowenien",
+    "section_2_photo_label_1": "Božo Knehtl",
+    "section_2_photo_label_2": "Žan Knehtl",
+    "section_3_signature": "Družina Knehtl"
   },
   "references": {
     "filter_all": "alle",
@@ -210,7 +211,7 @@
     "section_1_label": "Arbeiten Sie mit uns",
     "section_1_title_1": "Offen, unterstützend,",
     "section_1_title_2": "und verwurzelt im Handwerk",
-    "section_1_text": "Wir glauben, dass die beste Arbeit in einem offenen, unterstützenden und bodenständigen Umfeld entsteht. Bei Atrium wachsen Menschen durch Zusammenarbeit — ob sie in der Werkstatt Holz bearbeiten, technische Lösungen entwickeln oder Projekte aus dem Büro koordinieren.",
+    "section_1_text": "Wir glauben, dass die beste Arbeit in einem Umfeld entsteht, das sich offen, unterstützend und geerdet anfühlt. Bei Atrium wachsen Menschen durch Zusammenarbeit — ob sie in der Werkstatt handwerken, entwerfen, konstruieren oder das Team aus unseren Büros heraus unterstützen.",
     "section_2_text": "Am wichtigsten sind eine ruhige Denkweise, Respekt vor dem Handwerk und die Bereitschaft zu lernen. Wir suchen Menschen, die aufmerksam kommunizieren, auf jedes Detail achten und Stolz in verlässliche, stetige Arbeit legen — Menschen, die Design und Material schätzen, Teamarbeit leben und einen modernen, zukunftsorientierten Blick mitbringen.",
     "section_2_fact_1_label": "Ort",
     "section_2_fact_1_text": "Ljutomer & Maribor, Slowenien — EU",

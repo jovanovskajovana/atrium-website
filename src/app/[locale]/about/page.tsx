@@ -3,245 +3,312 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { Caveat } from 'next/font/google'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import { useLenis } from '@/components/LenisProvider'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const caveat = Caveat({
-  subsets: ['latin', 'latin-ext'],
-  weight: ['400', '500'],
-  display: 'swap',
-})
-
 const AboutPage = () => {
   const t = useTranslations()
-  const lenis = useLenis()
-  const pageRef = useRef<HTMLElement>(null)
+
+  const section1Ref = useRef<HTMLElement>(null)
+  const section2Ref = useRef<HTMLElement>(null)
+  const section3Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
-    const page = pageRef.current
-    if (!page) return
+    const section1 = section1Ref.current
+    if (!section1) return
 
     const ctx = gsap.context(() => {
-      const heroBits = page.querySelectorAll('[data-about-hero]')
-      heroBits.forEach((el, i) => {
+      const s1Label = section1.querySelector('[data-s1-label]')
+      const s1Titles = section1.querySelectorAll('[data-s1-title]')
+      const s1Text = section1.querySelector('[data-s1-text]')
+      const s1Image = section1.querySelector('[data-s1-image]')
+      if (s1Label) {
         gsap.fromTo(
-          el,
-          { y: 36, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.05,
-            ease: 'power3.out',
-            delay: 0.08 * i,
-          }
-        )
-      })
-
-      page.querySelectorAll('[data-about-image]').forEach((el) => {
-        const img = el.querySelector('img')
-        const tl = gsap.timeline({ paused: true })
-
-        tl.fromTo(
-          el,
-          { y: 40, autoAlpha: 0 },
-          { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
-          0
-        )
-
-        if (img) {
-          tl.fromTo(
-            img,
-            { scale: 1.08 },
-            { scale: 1, duration: 1.3, ease: 'power3.out' },
-            0
-          )
-        }
-
-        ScrollTrigger.create({
-          trigger: el,
-          start: 'top 85%',
-          onEnter: () => tl.play(),
-          onLeaveBack: () => tl.reverse(),
-        })
-      })
-
-      page.querySelectorAll('[data-about-fade]').forEach((el) => {
-        gsap.fromTo(
-          el,
+          s1Label,
           { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.15 }
+        )
+      }
+
+      if (s1Titles.length) {
+        gsap.fromTo(
+          s1Titles,
+          { y: 30, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 1,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            },
+            delay: 0.2,
           }
         )
-      })
+      }
 
-      requestAnimationFrame(() => {
-        lenis?.resize()
-        ScrollTrigger.refresh()
-      })
-    }, page)
+      if (s1Text) {
+        gsap.fromTo(
+          s1Text,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.25 }
+        )
+      }
 
-    return () => {
-      ctx.revert()
-      requestAnimationFrame(() => {
-        lenis?.resize()
-        ScrollTrigger.refresh()
-      })
-    }
-  }, [lenis])
+      if (s1Image) {
+        gsap.set(s1Image, { y: 60, opacity: 0 })
+
+        const s1ImgEl = s1Image.querySelector('img')
+        if (s1ImgEl) gsap.set(s1ImgEl, { scale: 1.08 })
+
+        const s1ImgTl = gsap.timeline({ delay: 0.2 })
+        s1ImgTl.to(
+          s1Image,
+          { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+          0
+        )
+        if (s1ImgEl) {
+          s1ImgTl.to(
+            s1ImgEl,
+            { scale: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+        }
+      }
+
+      const section2 = section2Ref.current
+      if (section2) {
+        const s2Label = section2.querySelector('[data-s2-label]')
+        const s2Texts = section2.querySelectorAll('[data-s2-text]')
+        const s2Portraits = section2.querySelectorAll('[data-s2-portrait]')
+
+        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
+        gsap.set(s2Texts, { y: 28, opacity: 0 })
+
+        const s2TextTl = gsap.timeline({ paused: true })
+        if (s2Label) {
+          s2TextTl.to(
+            s2Label,
+            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            0
+          )
+        }
+        s2TextTl.to(
+          s2Texts,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            stagger: 0.1,
+          },
+          0.1
+        )
+
+        ScrollTrigger.create({
+          trigger: section2,
+          start: 'top 80%',
+          onEnter: () => s2TextTl.play(),
+          onLeaveBack: () => s2TextTl.reverse(),
+        })
+
+        s2Portraits.forEach((portrait) => {
+          gsap.set(portrait, { y: 40, autoAlpha: 0 })
+
+          const img = portrait.querySelector('img')
+          const ptl = gsap.timeline({ paused: true })
+
+          ptl.to(portrait, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+
+          if (img) {
+            ptl.fromTo(
+              img,
+              { scale: 1.08 },
+              { scale: 1, duration: 1.3, ease: 'power3.out' },
+              0
+            )
+          }
+
+          ScrollTrigger.create({
+            trigger: portrait,
+            start: 'top 85%',
+            onEnter: () => ptl.play(),
+            onLeaveBack: () => ptl.reverse(),
+          })
+        })
+      }
+
+      const section3 = section3Ref.current
+      if (section3) {
+        const s3Signature = section3.querySelector('[data-s3-signature]')
+        if (s3Signature) {
+          gsap.set(s3Signature, { y: 30, opacity: 0 })
+          const s3Tl = gsap.timeline({ paused: true })
+          s3Tl.to(s3Signature, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+          })
+          ScrollTrigger.create({
+            trigger: section3,
+            start: 'top 80%',
+            onEnter: () => s3Tl.play(),
+            onLeaveBack: () => s3Tl.reverse(),
+          })
+        }
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <main ref={pageRef} className="overflow-x-hidden">
-      <section className="pt-[18.5vh] pb-[6%]">
+    <main className="overflow-x-hidden">
+      <section ref={section1Ref} className="pt-[18.5vh] pb-[8%]">
         <div className="max-w-[75vw] mx-auto">
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            data-s1-label
+          >
+            {t('about.section_1_label')}
+          </p>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw]"
-            data-about-hero
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            data-s1-title
           >
             {t('about.section_1_title_1')}
           </h1>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw]"
-            data-about-hero
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            data-s1-title
           >
             {t('about.section_1_title_2')}
           </h1>
           <p
-            className="mt-[3vw] max-w-[52vw] text-[0.92vw] text-black-100/60 leading-[1.8]"
-            data-about-hero
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[52vw] mt-[2%] opacity-0"
+            data-s1-text
           >
             {t('about.section_1_text')}
           </p>
         </div>
-      </section>
 
-      <section className="pb-[8%]">
-        <div className="max-w-[75vw] mx-auto flex flex-col items-center">
-          <div
-            className="w-[75%] aspect-[16/10] overflow-hidden invisible"
-            data-about-image
-          >
-            <Image
-              src="/assets/about-img-1.webp"
-              alt={t('about.section_2_caption')}
-              width={1200}
-              height={900}
-              className="h-full w-full object-cover"
-              sizes="(max-width: 768px) 80vw, 42vw"
-            />
+        <div className="flex flex-col items-center max-w-[75vw] mt-[6%] mx-auto">
+          <div className="w-[75%] opacity-0" data-s1-image>
+            <div className="aspect-[16/10] overflow-hidden">
+              <Image
+                src="/assets/about-img-1.webp"
+                alt={t('about.section_1_photo_label')}
+                width={1200}
+                height={900}
+                className="h-full w-full object-cover"
+                sizes="42vw"
+              />
+            </div>
+            <p className="text-[0.78vw] text-black-100/60 mt-[1%]">
+              {t('about.section_1_photo_label')}
+            </p>
           </div>
-          <p
-            className="mt-[1.2vw] text-[0.68vw] text-black-100/35 italic"
-            data-about-fade
-          >
-            {t('about.section_2_caption')}
-          </p>
         </div>
       </section>
 
-      <section className="pb-[8%]">
+      <section ref={section2Ref} className="pb-[8%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[3vw]"
-            data-about-fade
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            data-s2-label
           >
-            {t('about.section_3_label')}
+            {t('about.section_2_label')}
           </p>
           <div className="max-w-[48vw]">
             <p
-              className="text-[0.92vw] text-black-100/60 leading-[1.8] mb-[3vw]"
-              data-about-fade
+              className="text-[0.92vw] text-black-100/60 leading-[1.8] mb-[8%] opacity-0"
+              data-s2-text
             >
-              {t('about.section_3_text_1')}
+              {t('about.section_2_text_1')}
             </p>
             <p
-              className="text-[0.95vw] font-[500] text-black-100 leading-[1.6] mb-[1vw]"
-              data-about-fade
+              className="text-[0.95vw] font-[500] text-black-100 leading-[1.8] mb-[2%] opacity-0"
+              data-s2-text
             >
-              {t('about.section_3_heading')}
+              {t('about.section_2_title')}
             </p>
             <p
-              className="text-[0.92vw] text-black-100/60 leading-[1.8]"
-              data-about-fade
+              className="text-[0.92vw] text-black-100/60 leading-[1.8] opacity-0"
+              data-s2-text
             >
-              {t('about.section_3_text_2')}
+              {t('about.section_2_text_2')}
             </p>
           </div>
-        </div>
-      </section>
-
-      <section className="pb-[8%]">
-        <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.72vw] text-black-100/40 tracking-[0.18em] uppercase mb-[4vw]"
-            data-about-fade
+            className="text-[0.72vw] text-black-100/40 tracking-[0.18em] uppercase mt-[6%] opacity-0"
+            data-s2-text
           >
-            {t('about.section_4_label')}
+            {t('about.section_2_text_3')}
           </p>
+        </div>
 
-          <div className="grid grid-cols-2 gap-x-[1.5vw]">
-            <div className="invisible" data-about-image>
+        <div className="max-w-[75vw] mx-auto mt-[4%]">
+          <div className="grid grid-cols-2 gap-[1.5vw]">
+            <div data-s2-portrait>
               <div className="aspect-[3/4] overflow-hidden">
                 <Image
                   src="/assets/about-img-2.webp"
-                  alt={t('about.section_4_portrait_1')}
+                  alt={t('about.section_2_photo_label_1')}
                   width={720}
                   height={960}
                   className="h-full w-full object-cover"
-                  sizes="(max-width: 768px) 50vw, 38vw"
+                  sizes="38vw"
                 />
               </div>
-              <p className="mt-[0.8vw] text-[0.62vw] text-black-100/30 uppercase tracking-[0.12em]">
-                {t('about.section_4_portrait_1')}
+              <p className="text-[0.78vw] text-black-100/60 mt-[2%]">
+                {t('about.section_2_photo_label_1')}
               </p>
             </div>
 
             <div
-              className="flex flex-col justify-end pt-[6vw] invisible"
-              data-about-image
+              className="flex flex-col justify-end pt-[16%]"
+              data-s2-portrait
             >
               <div className="aspect-[3/4] overflow-hidden">
                 <Image
                   src="/assets/about-img-3.webp"
-                  alt={t('about.section_4_portrait_2')}
+                  alt={t('about.section_2_photo_label_2')}
                   width={600}
                   height={800}
                   className="h-full w-full object-cover"
-                  sizes="(max-width: 768px) 40vw, 30vw"
+                  sizes="38vw"
                 />
               </div>
-              <p className="mt-[0.8vw] text-[0.62vw] text-black-100/30 uppercase tracking-[0.12em]">
-                {t('about.section_4_portrait_2')}
+              <p className="text-[0.78vw] text-black-100/60 mt-[2%]">
+                {t('about.section_2_photo_label_2')}
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="pb-[12%]">
-        <div
-          className="max-w-[75vw] mx-auto flex justify-center"
-          data-about-fade
-        >
-          <p
-            className={`${caveat.className} text-[3.8vw] text-black-100/80 leading-[1.2] text-center max-w-[45vw]`}
+      <section ref={section3Ref} className="pb-[10%]">
+        <div className="flex justify-center max-w-[75vw] mx-auto">
+          <div
+            className="w-[25vw] aspect-[3/1] overflow-hidden"
+            data-s3-signature
           >
-            {t('about.section_5_signature')}
-          </p>
+            <Image
+              src="/assets/about-img-4.webp"
+              alt={t('about.section_3_signature')}
+              width={634}
+              height={194}
+              className="w-full"
+              sizes="30vw"
+            />
+          </div>
         </div>
       </section>
     </main>

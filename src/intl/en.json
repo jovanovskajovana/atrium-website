@@ -109,18 +109,19 @@
     "section_10_text": "Whether you're an architect, designer, or brand — we'd love to hear about your project"
   },
   "about": {
+    "section_1_label": "Our craft",
     "section_1_title_1": "130 years of heritage",
     "section_1_title_2": "Precision and vision",
     "section_1_text": "The quality of our work stems from tradition — dedicated, refined, and built upon with every project. What began as a family craft has grown into modern production, without ever losing sight of what matters most: precision, care, and the responsibility that comes with decades of trust.",
-    "section_2_caption": "Knehtl family, Ljutomer, 1987",
-    "section_3_label": "About us",
-    "section_3_text_1": "We are a family business with over 130 years of tradition in woodworking and interior design — now led by the fourth generation. Our story began in a craft workshop and continues today in modern production, where knowledge, dedication, and a feel for materials come together in every project.",
-    "section_3_heading": "We create complete interiors and bespoke furniture",
-    "section_3_text_2": "— for residential homes, commercial spaces, hotels, and demanding public buildings. Our projects span Slovenia and abroad, united by a quality that endures.",
-    "section_4_label": "Administration and Production — Ljutomer, Slovenia",
-    "section_4_portrait_1": "Božo Knehtl",
-    "section_4_portrait_2": "Žan Knehtl",
-    "section_5_signature": "Družina Knehtl"
+    "section_1_photo_label": "Knehtl family, Ljutomer, 1987",
+    "section_2_label": "About us",
+    "section_2_text_1": "We are a family company with over 130 years of tradition in woodworking and interior design — now led by the fourth generation. Our story began in a craft workshop; today it continues in modern production, where knowledge, dedication, and a feel for the material come together in every project.",
+    "section_2_title": "We create complete interiors and bespoke furniture",
+    "section_2_text_2": "— for residential homes, commercial spaces, hotels, and demanding public buildings. Our projects span Slovenia and abroad, united by a quality that endures.",
+    "section_2_text_3": "Administration and Production — Ljutomer, Slovenia",
+    "section_2_photo_label_1": "Božo Knehtl",
+    "section_2_photo_label_2": "Žan Knehtl",
+    "section_3_signature": "Družina Knehtl"
   },
   "references": {
     "filter_all": "all",
@@ -210,7 +211,7 @@
     "section_1_label": "Work with us",
     "section_1_title_1": "Open, supportive,",
     "section_1_title_2": "and grounded in craft",
-    "section_1_text": "We believe the best work grows in an environment that feels open, supportive, and grounded. At Atrium, people develop through collaboration — whether they are shaping timber in the workshop, engineering solutions, or coordinating projects from the office.",
+    "section_1_text": "We believe the best work happens in an environment that feels open, supportive, and grounded. At Atrium, people grow through collaboration — whether they're crafting in the workshop, designing, engineering, or supporting the team from our offices.",
     "section_2_text": "What matters most is a calm mindset, respect for the craft, and a willingness to learn. We look for people who communicate thoughtfully, pay attention to every detail, and take pride in steady, reliable work — people who appreciate design and materials, value teamwork, and bring a modern, forward-looking perspective to everything they do.",
     "section_2_fact_1_label": "Where",
     "section_2_fact_1_text": "Ljutomer & Maribor, Slovenia — EU",

@@ -5,9 +5,9 @@ import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import { useLenis } from '@/components/LenisProvider'
-import { Link } from '@/i18n/navigation'
 import { JOB_LISTINGS } from '@/constants/careers'
+
+import { Link } from '@/i18n/navigation'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
@@ -15,152 +15,159 @@ gsap.registerPlugin(ScrollTrigger)
 
 const CareersPage = () => {
   const t = useTranslations()
-  const lenis = useLenis()
-  const pageRef = useRef<HTMLElement>(null)
+
+  const section1Ref = useRef<HTMLElement>(null)
+  const section2Ref = useRef<HTMLElement>(null)
+  const section3Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
-    const page = pageRef.current
-    if (!page) return
+    const section1 = section1Ref.current
+    if (!section1) return
 
     const ctx = gsap.context(() => {
-      const heroBits = page.querySelectorAll('[data-careers-hero-bit]')
-      heroBits.forEach((el, i) => {
-        gsap.fromTo(
-          el,
-          { y: 36, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.05,
-            ease: 'power3.out',
-            delay: 0.08 * i,
-          }
-        )
-      })
+      const s1Label = section1.querySelector('[data-s1-label]')
+      const s1Titles = section1.querySelectorAll('[data-s1-title]')
+      const s1Text = section1.querySelector('[data-s1-text]')
 
-      const split = page.querySelector('[data-careers-split]')
-      if (split) {
+      if (s1Label) {
         gsap.fromTo(
-          split,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: split,
-              start: 'top 86%',
-              toggleActions: 'play none none reverse',
-            },
-          }
+          s1Label,
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.15 }
         )
       }
 
-      page.querySelectorAll('[data-culture-item]').forEach((el) => {
+      if (s1Titles.length) {
         gsap.fromTo(
-          el,
-          { y: 32, opacity: 0 },
+          s1Titles,
+          { y: 30, opacity: 0 },
           {
             y: 0,
             opacity: 1,
             duration: 1,
             ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 88%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      })
-
-      page.querySelectorAll('[data-careers-role]').forEach((el) => {
-        gsap.fromTo(
-          el,
-          { y: 28, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.95,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: el,
-              start: 'top 90%',
-              toggleActions: 'play none none reverse',
-            },
-          }
-        )
-      })
-
-      const cta = page.querySelector('[data-careers-cta]')
-      if (cta) {
-        gsap.fromTo(
-          cta,
-          { y: 36, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.05,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: cta,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
-            },
+            delay: 0.2,
           }
         )
       }
 
-      requestAnimationFrame(() => {
-        lenis?.resize()
-        ScrollTrigger.refresh()
-      })
-    }, page)
+      if (s1Text) {
+        gsap.fromTo(
+          s1Text,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.25 }
+        )
+      }
 
-    return () => {
-      ctx.revert()
-      requestAnimationFrame(() => {
-        lenis?.resize()
-        ScrollTrigger.refresh()
-      })
-    }
-  }, [lenis])
+      const split = section1.querySelector('[data-careers-split]')
+      if (split) {
+        gsap.set(split, { y: 30, opacity: 0 })
+        const splitTl = gsap.timeline({ paused: true })
+        splitTl.to(split, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+        })
+        ScrollTrigger.create({
+          trigger: split,
+          start: 'top 85%',
+          onEnter: () => splitTl.play(),
+          onLeaveBack: () => splitTl.reverse(),
+        })
+      }
+
+      const section2 = section2Ref.current
+      if (section2) {
+        section2.querySelectorAll('[data-culture-item]').forEach((el) => {
+          gsap.set(el, { y: 30, opacity: 0 })
+          const elTl = gsap.timeline({ paused: true })
+          elTl.to(el, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+          })
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 88%',
+            onEnter: () => elTl.play(),
+            onLeaveBack: () => elTl.reverse(),
+          })
+        })
+
+        section2.querySelectorAll('[data-careers-role]').forEach((el) => {
+          gsap.set(el, { y: 28, opacity: 0 })
+          const elTl = gsap.timeline({ paused: true })
+          elTl.to(el, {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+          })
+          ScrollTrigger.create({
+            trigger: el,
+            start: 'top 90%',
+            onEnter: () => elTl.play(),
+            onLeaveBack: () => elTl.reverse(),
+          })
+        })
+      }
+
+      const section3 = section3Ref.current
+      if (section3) {
+        gsap.set(section3, { y: 30, opacity: 0 })
+        const s3Tl = gsap.timeline({ paused: true })
+        s3Tl.to(section3, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+        })
+        ScrollTrigger.create({
+          trigger: section3,
+          start: 'top 85%',
+          onEnter: () => s3Tl.play(),
+          onLeaveBack: () => s3Tl.reverse(),
+        })
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <main ref={pageRef} className="overflow-x-hidden">
-      <section className="pt-[18.5vh] pb-[6%]">
+    <main className="overflow-x-hidden">
+      <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%]"
-            data-careers-hero-bit
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            data-s1-label
           >
             {t('careers.section_1_label')}
           </p>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw]"
-            data-careers-hero-bit
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            data-s1-title
           >
             {t('careers.section_1_title_1')}
           </h1>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw]"
-            data-careers-hero-bit
+            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            data-s1-title
           >
             {t('careers.section_1_title_2')}
           </h1>
           <p
-            className="mt-[4vw] max-w-[28vw] text-[0.92vw] text-black-100/60 leading-[1.8]"
-            data-careers-hero-bit
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[52vw] mt-[2%] opacity-0"
+            data-s1-text
           >
             {t('careers.section_1_text')}
           </p>
         </div>
-      </section>
 
-      <section className="pb-[10%]">
         <div
-          className="max-w-[75vw] mx-auto grid grid-cols-[minmax(0,1.15fr)_minmax(0,0.55fr)] gap-x-[6vw] border-t border-black-100/10 pt-[4%]"
+          className="max-w-[75vw] mx-auto grid grid-cols-[minmax(0,1.15fr)_minmax(0,0.55fr)] gap-x-[6vw] border-t border-black-100/10 pt-[4%] mt-[6%] opacity-0"
           data-careers-split
         >
           <p className="text-[1.05vw] font-[400] text-black-100/70 leading-[1.85] tracking-[0.01em]">
@@ -181,7 +188,7 @@ const CareersPage = () => {
         </div>
       </section>
 
-      <section className="pb-[10%]">
+      <section ref={section2Ref} className="pb-[8%]">
         <div className="max-w-[75vw] mx-auto">
           <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw]">
             {t('careers.section_3_label')}
@@ -190,7 +197,7 @@ const CareersPage = () => {
             {[1, 2, 3].map((n) => (
               <div
                 key={n}
-                className="border-l border-black-100/10 pl-[2vw] first:border-l-0 first:pl-0"
+                className="border-l border-black-100/10 pl-[2vw] first:border-l-0 first:pl-0 opacity-0"
                 data-culture-item
               >
                 <span className="block text-[4.5vw] font-[450] text-black-100/[0.07] leading-none mb-[1.2vw] select-none">
@@ -206,10 +213,8 @@ const CareersPage = () => {
             ))}
           </div>
         </div>
-      </section>
 
-      <section className="pb-[8%]">
-        <div className="max-w-[75vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto mt-[10%]">
           <div className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw]">
             <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
@@ -222,7 +227,7 @@ const CareersPage = () => {
             {JOB_LISTINGS.map((listing) => (
               <li
                 key={listing.slug}
-                className="border-b border-black-100/10 group/role"
+                className="border-b border-black-100/10 group/role opacity-0"
                 data-careers-role
               >
                 <Link
@@ -262,8 +267,8 @@ const CareersPage = () => {
       </section>
 
       <section
-        className="bg-black-100 text-white-100 py-[8%] mx-[2.2vw] mb-[10%]"
-        data-careers-cta
+        ref={section3Ref}
+        className="bg-black-100 text-white-100 py-[8%] mb-[10%] mx-[2.2vw]"
       >
         <div className="max-w-[75vw] mx-auto flex flex-row items-end justify-between gap-[3vw]">
           <div className="max-w-[36vw]">

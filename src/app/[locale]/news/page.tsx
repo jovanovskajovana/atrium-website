@@ -6,8 +6,6 @@ import { useLocale, useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import { useLenis } from '@/components/LenisProvider'
-
 import { NEWS_ARTICLES } from '@/constants/news'
 
 import { Link } from '@/i18n/navigation'
@@ -19,9 +17,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const NewsPage = () => {
   const t = useTranslations()
+
   const locale = useLocale()
-  const lenis = useLenis()
-  const pageRef = useRef<HTMLElement>(null)
+
+  const section1Ref = useRef<HTMLElement>(null)
 
   const dateFormatter = new Intl.DateTimeFormat(getDateLocale(locale), {
     day: 'numeric',
@@ -30,12 +29,12 @@ const NewsPage = () => {
   })
 
   useIsomorphicLayoutEffect(() => {
-    const page = pageRef.current
+    const section1 = section1Ref.current
 
-    if (!page) return
+    if (!section1) return
 
     const ctx = gsap.context(() => {
-      const label = page.querySelector('[data-news-label]')
+      const label = section1.querySelector('[data-news-label]')
       if (label) {
         gsap.fromTo(
           label,
@@ -50,7 +49,7 @@ const NewsPage = () => {
         )
       }
 
-      const list = page.querySelector('[data-news-list]')
+      const list = section1.querySelector('[data-news-list]')
       if (list) {
         gsap.fromTo(
           list,
@@ -65,7 +64,7 @@ const NewsPage = () => {
         )
       }
 
-      const rows = page.querySelectorAll('[data-news-row]')
+      const rows = section1.querySelectorAll('[data-news-row]')
       rows.forEach((row) => {
         const link = row.querySelector('a')
         if (!link) return
@@ -101,19 +100,14 @@ const NewsPage = () => {
           onLeaveBack: () => tl.reverse(),
         })
       })
-
-      requestAnimationFrame(() => {
-        lenis?.resize()
-        ScrollTrigger.refresh()
-      })
-    }, page)
+    })
 
     return () => ctx.revert()
-  }, [lenis])
+  }, [])
 
   return (
-    <main ref={pageRef} className="overflow-x-hidden">
-      <section className="pt-[18.5vh] pb-[10%] px-[2.2vw]">
+    <main className="overflow-x-hidden">
+      <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
             className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%] opacity-0"

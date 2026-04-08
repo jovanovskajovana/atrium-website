@@ -788,7 +788,7 @@ const Home = () => {
 
       <section
         ref={section6Ref}
-        className="bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
+        className="bg-black-100 py-[8%] mb-[10%] mx-[2.2vw]"
       >
         <div className="max-w-[75vw] mx-auto">
           <p

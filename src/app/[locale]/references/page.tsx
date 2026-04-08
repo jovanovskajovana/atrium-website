@@ -33,7 +33,8 @@ type Sector = (typeof SECTORS)[number]
 
 const ReferencesPage = () => {
   const lenis = useLenis()
-  const pageRef = useRef<HTMLElement>(null)
+
+  const section1Ref = useRef<HTMLElement>(null)
 
   const [gridMode, setGridMode] = useState<ProjectsGridMode>('two')
   // const [activeSector, setActiveSector] = useState<Sector>('all')
@@ -47,12 +48,12 @@ const ReferencesPage = () => {
   // .filter((p) => activeSector === 'all' || p.sector === activeSector)
 
   useIsomorphicLayoutEffect(() => {
-    const page = pageRef.current
+    const section1 = section1Ref.current
 
-    if (!page) return
+    if (!section1) return
 
     const ctx = gsap.context(() => {
-      const rows = page.querySelectorAll('[data-ref-row]')
+      const rows = section1.querySelectorAll('[data-ref-row]')
 
       rows.forEach((row) => {
         const cards = row.querySelectorAll('[data-ref-card]')
@@ -90,7 +91,7 @@ const ReferencesPage = () => {
         })
       })
 
-      const toolbar = page.querySelector('[data-references-toolbar]')
+      const toolbar = section1.querySelector('[data-references-toolbar]')
 
       if (toolbar) {
         gsap.fromTo(
@@ -104,7 +105,7 @@ const ReferencesPage = () => {
         lenis?.resize()
         ScrollTrigger.refresh()
       })
-    }, page)
+    })
 
     return () => ctx.revert()
   }, [gridMode, lenis])
@@ -188,8 +189,11 @@ const ReferencesPage = () => {
   )
 
   return (
-    <main ref={pageRef} className="overflow-x-hidden">
-      <section className="flex flex-col pt-[18.5vh] pb-[10%] px-[2.2vw]">
+    <main className="overflow-x-hidden">
+      <section
+        ref={section1Ref}
+        className="flex flex-col pt-[18.5vh] pb-[10%] px-[2.2vw]"
+      >
         {gridMode === 'two' ? (
           <div className="relative w-full">
             <div className="absolute left-0 right-0 top-0 pointer-events-none z-20">

@@ -109,18 +109,19 @@
     "section_10_text": "Ste arhitekt, oblikovalec ali blagovna znamka? Z veseljem bi slišali o vašem projektu"
   },
   "about": {
+    "section_1_label": "Naše rokodelstvo",
     "section_1_title_1": "130 let tradicije",
     "section_1_title_2": "Natančnost in vizija",
     "section_1_text": "Kakovost našega dela izvira iz tradicije — predane, izpopolnjene in nadgrajene z vsakim projektom. Kar se je začelo kot družinska obrt, je zraslo v sodobno proizvodnjo, ne da bi kdaj izgubili iz vida tisto, kar je najpomembnejše: natančnost, skrb in odgovornost, ki jo prinašajo desetletja zaupanja.",
-    "section_2_caption": "Družina Knehtl, Ljutomer, 1987",
-    "section_3_label": "O nas",
-    "section_3_text_1": "Smo družinsko podjetje z več kot 130-letno tradicijo obdelave lesa in oblikovanja interierjev — danes ga vodi že četrta generacija. Naša zgodba se je začela v obrtni delavnici, danes se nadaljuje v sodobni proizvodnji, kjer se znanje, predanost in občutek za material prepletajo v vsakem projektu.",
-    "section_3_heading": "Ustvarjamo celovite interierje in opremo po meri",
-    "section_3_text_2": "— za stanovanjske domove, poslovne prostore, hotele in zahtevnejše javne objekte. Naši projekti segajo v Slovenijo in tujino, skupno pa jih druži ena kakovost, ki traja.",
-    "section_4_label": "Uprava in proizvodnja — Ljutomer, Slovenija",
-    "section_4_portrait_1": "Božo Knehtl",
-    "section_4_portrait_2": "Žan Knehtl",
-    "section_5_signature": "Družina Knehtl"
+    "section_1_photo_label": "Družina Knehtl, Ljutomer, 1987",
+    "section_2_label": "O nas",
+    "section_2_text_1": "Smo družinsko podjetje z več kot 130‑letno tradicijo obdelave lesa in oblikovanja interierjev — danes ga vodi že četrta generacija. Naša zgodba se je začela v obrtni delavnici, danes se nadaljuje v sodobni proizvodnji, kjer se znanje, predanost in občutek za material prepletajo v vsakem projektu.",
+    "section_2_title": "Ustvarjamo celovite interierje in opremo po meri",
+    "section_2_text_2": "— za stanovanjske domove, poslovne prostore, hotele in zahtevnejše javne objekte. Naši projekti segajo v Slovenijo in tujino, skupno pa jih druži eno: kakovost, ki traja.",
+    "section_2_text_3": "Uprava in proizvodnja — Ljutomer, Slovenija",
+    "section_2_photo_label_1": "Božo Knehtl",
+    "section_2_photo_label_2": "Žan Knehtl",
+    "section_3_signature": "Družina Knehtl"
   },
   "references": {
     "filter_all": "vse",
@@ -208,9 +209,9 @@
   },
   "careers": {
     "section_1_label": "Delajte z nami",
-    "section_1_title_1": "Odprto, podporno,",
-    "section_1_title_2": "in utemeljeno na obrti",
-    "section_1_text": "Verjamemo, da najboljše delo nastaja v okolju, ki je odprto, podporno in utemeljeno. V Atriumu ljudje rastejo skozi sodelovanje — bodisi v delavnici, pri načrtovanju, inženiringu ali s koordinacijo iz pisarne.",
+    "section_1_title_1": "Odprti, podporni,",
+    "section_1_title_2": "in osredotočeni na kakovost",
+    "section_1_text": "Verjamemo, da najboljše delo nastaja v okolju, ki je odprto, podporno in pristno. V Atriumu ljudje rastejo skozi sodelovanje — bodisi z ustvarjanjem v delavnici, načrtovanjem, inženiringom ali s podporo ekipe iz naših pisarn.",
     "section_2_text": "Najpomembnejši so miren pristop, spoštovanje do obrti in pripravljenost za učenje. Iščemo ljudi, ki komunicirajo premišljeno, so pozorni na vsak detajl in cenijo zanesljivo, dosledno delo — ljudi, ki jim je mar za oblikovanje in materiale, ki so timski igralci s sodobnim, v prihodnost usmerjenim pogledom.",
     "section_2_fact_1_label": "Kje",
     "section_2_fact_1_text": "Ljutomer & Maribor, Slovenija — EU",
