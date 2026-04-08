@@ -1,13 +1,334 @@
+'use client'
+
+import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+import { COMPANY, TEAM_CONTACTS } from '@/constants/contacts'
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const ContactPage = () => {
   const t = useTranslations()
 
+  const section1Ref = useRef<HTMLElement>(null)
+  const section2Ref = useRef<HTMLElement>(null)
+
+  useIsomorphicLayoutEffect(() => {
+    const section1 = section1Ref.current
+    if (!section1) return
+
+    const ctx = gsap.context(() => {
+      const s1Label = section1.querySelector('[data-s1-label]')
+      const s1Text = section1.querySelector('[data-s1-text]')
+      const s1Form = section1.querySelector('[data-s1-form]')
+      const s1InfoItems = section1.querySelectorAll('[data-s1-info]')
+      const s1Ctas = section1.querySelectorAll('[data-s1-cta]')
+
+      if (s1Label) {
+        gsap.fromTo(
+          s1Label,
+          { y: 28, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.15 }
+        )
+      }
+
+      if (s1Text) {
+        gsap.fromTo(
+          s1Text,
+          { y: 30, opacity: 0 },
+          { y: 0, opacity: 1, duration: 1, ease: 'power3.out', delay: 0.2 }
+        )
+      }
+
+      if (s1Form) {
+        gsap.set(s1Form, { y: 40, opacity: 0 })
+        gsap.to(s1Form, {
+          y: 0,
+          opacity: 1,
+          duration: 1.3,
+          ease: 'power3.out',
+          delay: 0.3,
+        })
+      }
+
+      if (s1InfoItems.length) {
+        gsap.set(s1InfoItems, { y: 30, opacity: 0 })
+        gsap.to(s1InfoItems, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          stagger: 0.08,
+          delay: 0.5,
+        })
+      }
+
+      if (s1Ctas.length) {
+        gsap.set(s1Ctas, { y: 20, opacity: 0 })
+        gsap.to(s1Ctas, {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out',
+          stagger: 0.1,
+          delay: 0.7,
+        })
+      }
+
+      const section2 = section2Ref.current
+      if (section2) {
+        const s2Label = section2.querySelector('[data-s2-label]')
+        const s2Items = section2.querySelectorAll('[data-s2-dept]')
+
+        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
+        gsap.set(s2Items, { y: 30, opacity: 0 })
+
+        const s2Tl = gsap.timeline({ paused: true })
+        if (s2Label) {
+          s2Tl.to(
+            s2Label,
+            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            0
+          )
+        }
+        s2Tl.to(
+          s2Items,
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            ease: 'power3.out',
+            stagger: 0.06,
+          },
+          0.1
+        )
+
+        ScrollTrigger.create({
+          trigger: section2,
+          start: 'top 80%',
+          onEnter: () => s2Tl.play(),
+          onLeaveBack: () => s2Tl.reverse(),
+        })
+      }
+    })
+
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <main>
-      <div className="flex flex-col items-center justify-center min-h-screen mx-auto">
-        <h1>{t('contact.title')}</h1>
-      </div>
+    <main className="overflow-x-hidden">
+      <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
+        <div className="max-w-[75vw] mx-auto">
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            data-s1-label
+          >
+            {t('contact.section_1_label')}
+          </p>
+          <p
+            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[52vw] mt-[2%] opacity-0"
+            data-s1-text
+          >
+            {t('contact.section_1_text')}
+          </p>
+
+          <form
+            className="bg-beige-100 px-[4vw] py-[3.5vw] mt-[6%] opacity-0"
+            data-s1-form
+          >
+            <div className="grid grid-cols-2 gap-x-[4vw] gap-y-[3.2vw]">
+              <label className="block">
+                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                  {t('contact.form_name')}
+                </span>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                />
+              </label>
+              <label className="block">
+                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                  {t('contact.form_email')}
+                </span>
+                <input
+                  type="email"
+                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                />
+              </label>
+
+              <label className="block">
+                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                  {t('contact.form_company')}
+                </span>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                />
+              </label>
+              <label className="block">
+                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                  {t('contact.form_subject')}
+                </span>
+                <input
+                  type="text"
+                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                />
+              </label>
+            </div>
+
+            <div className="mt-[3.2vw]">
+              <label className="block">
+                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                  {t('contact.form_message')}
+                </span>
+                <textarea
+                  rows={5}
+                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors resize-none"
+                />
+              </label>
+            </div>
+
+            <div className="mt-[3vw] flex justify-end">
+              <button
+                type="button"
+                className="group relative inline-flex items-center justify-center text-[0.8vw] border border-black-100 h-[3.3vw] px-[2vw] overflow-hidden"
+              >
+                <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
+                <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
+                  {t('contact.form_submit')}
+                </span>
+              </button>
+            </div>
+          </form>
+
+          <div className="grid grid-cols-2 gap-x-[5vw] gap-y-[5vw] mt-[6%]">
+            <div className="opacity-0" data-s1-info>
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+                {t('contact.section_1_phone_label')}
+              </p>
+              <a
+                href={`tel:${COMPANY.phone.replace(/[\s()]/g, '')}`}
+                className="text-[1.1vw] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+              >
+                {COMPANY.phone}
+              </a>
+            </div>
+
+            <div className="opacity-0" data-s1-info>
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+                {t('contact.section_1_email_label')}
+              </p>
+              <a
+                href={`mailto:${t('footer.contact_email')}`}
+                className="text-[1.1vw] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+              >
+                {t('footer.contact_email')}
+              </a>
+            </div>
+
+            <div className="opacity-0" data-s1-info>
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+                {t('contact.section_1_address_label')}
+              </p>
+              <p className="text-[1.1vw] text-black-100 leading-[1.7]">
+                {COMPANY.address}
+                <br />
+                {COMPANY.city}
+                <br />
+                {COMPANY.country}
+              </p>
+            </div>
+
+            <div className="opacity-0" data-s1-info>
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+                {t('contact.section_1_follow_label')}
+              </p>
+              <div className="flex gap-[2vw]">
+                <a
+                  href={t('footer.instagram_url')}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[1.1vw] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                >
+                  {t('footer.instagram_label')}
+                </a>
+                <a
+                  href={t('footer.linkedin_url')}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-[1.1vw] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                >
+                  {t('footer.linkedin_label')}
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex gap-[1.5vw] mt-[6%]">
+            <a
+              href="#"
+              className="group relative inline-flex items-center justify-center text-[0.8vw] border border-black-100 h-[3.3vw] px-[2vw] overflow-hidden opacity-0"
+              data-s1-cta
+            >
+              <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
+              <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
+                {t('contact.book_meeting')}
+              </span>
+            </a>
+            <a
+              href="#"
+              className="group relative inline-flex items-center justify-center text-[0.8vw] border border-black-100 h-[3.3vw] px-[2vw] overflow-hidden opacity-0"
+              data-s1-cta
+            >
+              <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
+              <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
+                {t('contact.visit_showroom')}
+              </span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section ref={section2Ref} className="pb-[12%]">
+        <div className="max-w-[75vw] mx-auto">
+          <p
+            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            data-s2-label
+          >
+            {t('contact.section_2_label')}
+          </p>
+
+          <div className="grid grid-cols-3 gap-x-[3vw] gap-y-[3.5vw]">
+            {TEAM_CONTACTS.map((dept) => (
+              <div
+                key={dept.key}
+                className="border-l border-black-100/10 pl-[1.8vw] opacity-0"
+                data-s2-dept
+              >
+                <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1vw]">
+                  {t(`contact.dept_${dept.key}`)}
+                </p>
+                {dept.members.map((member) => (
+                  <div key={member.email} className="mb-[0.8vw] last:mb-0">
+                    <p className="text-[0.88vw] text-black-100 leading-[1.55]">
+                      {member.name}
+                    </p>
+                    <a
+                      href={`mailto:${member.email}`}
+                      className="text-[0.78vw] text-black-100/50 hover:text-black-100 transition-colors duration-300"
+                    >
+                      {member.email}
+                    </a>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
