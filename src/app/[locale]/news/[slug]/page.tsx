@@ -4,7 +4,7 @@ import { getTranslations } from 'next-intl/server'
 
 import { Link } from '@/i18n/navigation'
 
-import { getNewsArticleBySlug } from '@/constants/news'
+import { NEWS_ARTICLES, getNewsArticleBySlug } from '@/constants/news'
 import { getDateLocale } from '@/i18n/locale'
 
 interface NewsSlugPageProps {
@@ -20,8 +20,11 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
   }
 
   const t = await getTranslations()
-  const title = t(`news.items.${article.slug}.title`)
-  const description = t(`news.items.${article.slug}.description`)
+  const articleIndex = NEWS_ARTICLES.indexOf(article) + 1
+  const title = t(`news.section_1_items.article_${articleIndex}_title`)
+  const description = t(
+    `news.section_1_items.article_${articleIndex}_description`
+  )
 
   const dateFormatter = new Intl.DateTimeFormat(getDateLocale(locale), {
     day: 'numeric',
@@ -31,41 +34,46 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
 
   return (
     <main className="overflow-x-hidden">
-      <article className="pt-[18.5vh] pb-[12%] px-[2.2vw] max-w-[48rem] mx-auto">
-        <Link
-          href="/news"
-          className="inline-block text-[2.8vw] xs:text-[2.2vw] sm:text-[0.72rem] md:text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 transition-colors duration-300 mb-[2.5em]"
-        >
-          ← {t('news.back_to_list')}
-        </Link>
+      <section className="pt-[18.5vh] pb-[8%]">
+        <div className="max-w-[52vw] mx-auto">
+          <Link
+            href="/news"
+            className="inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 transition-colors duration-300 mb-[2.5em]"
+          >
+            ← {t('news.back_to_list')}
+          </Link>
 
-        <time
-          dateTime={article.date}
-          className="block text-[2.8vw] xs:text-[2.2vw] sm:text-[0.72rem] md:text-[0.72vw] uppercase tracking-[0.12em] text-black-100/45 mb-[1em]"
-        >
-          {dateFormatter.format(new Date(`${article.date}T12:00:00`))}
-        </time>
+          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]">
+            {title}
+          </h1>
 
-        <h1 className="text-[7vw] xs:text-[6vw] sm:text-[2rem] md:text-[1.85vw] font-[450] text-black-100 leading-[1.15] uppercase mb-[6%]">
-          {title}
-        </h1>
-
-        <div className="overflow-hidden aspect-[16/10] mb-[6%] bg-beige-100">
-          <Image
-            src={article.image}
-            alt={title}
-            width={1200}
-            height={750}
-            className="h-full w-full object-cover"
-            sizes="(max-width: 768px) 100vw, 48rem"
-            priority
-          />
+          <p className="text-[0.82vw] text-black-100/40 tracking-[0.1em] mt-[1.5%]">
+            <time dateTime={article.date}>
+              {dateFormatter.format(new Date(`${article.date}T12:00:00`))}
+            </time>
+          </p>
         </div>
 
-        <p className="text-[3.4vw] xs:text-[3vw] sm:text-[1rem] md:text-[0.92vw] text-black-100/60 leading-[1.85] max-w-[40rem]">
-          {description}
-        </p>
-      </article>
+        <div className="max-w-[52vw] mx-auto mt-[4%]">
+          <div className="overflow-hidden aspect-[16/10]">
+            <Image
+              src={article.image}
+              alt={title}
+              width={1200}
+              height={750}
+              className="h-full w-full object-cover"
+              sizes="52vw"
+              priority
+            />
+          </div>
+        </div>
+
+        <div className="max-w-[52vw] mx-auto mt-[4%]">
+          <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
+            {description}
+          </p>
+        </div>
+      </section>
     </main>
   )
 }

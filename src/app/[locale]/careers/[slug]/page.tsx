@@ -21,7 +21,7 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
 
   return (
     <main className="overflow-x-hidden">
-      <section className="pt-[18.5vh] pb-[6%]">
+      <section className="pt-[18.5vh] pb-[4%]">
         <div className="max-w-[75vw] mx-auto">
           <Link
             href="/careers"
@@ -33,7 +33,8 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
           <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase">
             {t(`careers.section_4_role_${roleIndex}_title`)}
           </h1>
-          <p className="mt-[1.2vw] text-[0.92vw] text-black-100/55 flex items-center gap-[0.4vw]">
+
+          <p className="text-[0.92vw] text-black-100/60 flex items-center gap-[0.4vw] mt-[1.5%]">
             <IconLocation className="text-[1em] text-black-100/40" />
             {t(`${prefix}.subtitle`)}
           </p>
