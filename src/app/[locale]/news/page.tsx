@@ -112,13 +112,16 @@ const NewsPage = () => {
             data-news-label
             className="text-[2.8vw] xs:text-[2.2vw] sm:text-[0.8rem] md:text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%] opacity-0"
           >
-            {t('news.label')}
+            {t('news.section_1_label')}
           </p>
 
           <ul className="list-none p-0 m-0 border-b border-black-100/10">
             {NEWS_ARTICLES.map((article, index) => {
-              const title = t(`news.items.${article.slug}.title`)
-              const description = t(`news.items.${article.slug}.description`)
+              const n = index + 1
+              const title = t(`news.section_1_items.article_${n}_title`)
+              const description = t(
+                `news.section_1_items.article_${n}_description`
+              )
               const formattedDate = dateFormatter.format(
                 new Date(`${article.date}T12:00:00`)
               )

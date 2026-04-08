@@ -173,52 +173,65 @@
     "section_8_cta_2": "Kontakt aufnehmen"
   },
   "news": {
-    "title": "News",
-    "label": "Atrium-Updates",
-    "read_more": "Weiterlesen",
-    "back_to_list": "Alle News",
-    "list_category": "Atrium Studio",
-    "items": {
-      "showroom-opening-maribor": {
-        "title": "Neues Showroom-Erlebnis in Maribor",
-        "description": "Wir haben unseren Showroom erneuert, um Kollektionen und Maßoberflächen in einer ruhigeren, architektonischeren Umgebung zu zeigen—vereinbaren Sie einen Besuch mit unserem Team."
-      },
-      "eu-production-standards": {
-        "title": "EU-Fertigungsstandards im Fokus",
-        "description": "Unser jüngstes Audit bestätigt rückverfolgbare Materialien, dokumentierte Prozesse und gleichbleibende Toleranzen in Serienfertigung und Einzelstücken."
-      },
-      "sustainable-sourcing-2025": {
-        "title": "Roadmap für verantwortungsvolle Beschaffung 2025",
-        "description": "Partnerschaften mit zertifizierten Lieferanten und strengere Abfallziele sind fest in der Spezifikation von Holz, Oberflächen und Beschlägen für jedes Projekt verankert."
-      },
-      "manufacturing-capacity-expansion": {
-        "title": "Mehr Kapazität in der Produktion",
-        "description": "Neue CNC-Kapazität und Finishing-Linien verkürzen Durchlaufzeiten für große Hospitality- und Wohnprogramme—ohne Verlust handwerklicher Feinarbeit."
-      },
-      "hospitality-partnership": {
-        "title": "Großes Hospitality-Fit-out in Arbeit",
-        "description": "Maßschreinerei, lose Möbel und koordinierte Montage für ein neues europäisches Hotelkonzept—eng abgestimmt mit der Innenarchitektin bzw. dem Innenarchitekten."
-      },
-      "design-week-presence": {
-        "title": "Design Week — Gespräche über Langlebigkeit",
-        "description": "Unser Team lud Architektinnen, Architekten und Designer ein zu Materialwahrheit, Reparierbarkeit und Möbeln, die über Jahrzehnte relevant bleiben."
-      },
-      "craftsmanship-recognition": {
-        "title": "Anerkennung für technisches Handwerk",
-        "description": "Eine jüngste Branchenerwähnung hob unsere Kombination aus automatisierter Bearbeitung und spezialisiertem Handwerk bei komplexen Geometrien und Furnieren hervor."
-      },
-      "engineering-team-growth": {
-        "title": "Wachstum im Engineering-Studio",
-        "description": "Neue technische Designer stärken 3D-Entwicklung, Prototyping und Koordination vor Ort für Projektentwickler und Möbelmarken."
-      },
-      "export-network-update": {
-        "title": "Reibungslosere Lieferung in der EU",
-        "description": "Verfeinerte Logistikpartnerschaften ermöglichen planbare Termine für grenzüberschreitende Projekte—von der Werkverpackung bis zur installationsreifen Übergabe."
-      }
+    "section_1_label": "Atrium-Updates",
+    "section_1_items": {
+      "article_1_title": "Neues Showroom-Erlebnis in Maribor",
+      "article_1_description": "Wir haben unseren Showroom erneuert, um Kollektionen und Maßoberflächen in einer ruhigeren, architektonischeren Umgebung zu zeigen—vereinbaren Sie einen Besuch mit unserem Team.",
+      "article_2_title": "EU-Fertigungsstandards im Fokus",
+      "article_2_description": "Unser jüngstes Audit bestätigt rückverfolgbare Materialien, dokumentierte Prozesse und gleichbleibende Toleranzen in Serienfertigung und Einzelstücken.",
+      "article_3_title": "Roadmap für verantwortungsvolle Beschaffung 2025",
+      "article_3_description": "Partnerschaften mit zertifizierten Lieferanten und strengere Abfallziele sind fest in der Spezifikation von Holz, Oberflächen und Beschlägen für jedes Projekt verankert.",
+      "article_4_title": "Mehr Kapazität in der Produktion",
+      "article_4_description": "Neue CNC-Kapazität und Finishing-Linien verkürzen Durchlaufzeiten für große Hospitality- und Wohnprogramme—ohne Verlust handwerklicher Feinarbeit.",
+      "article_5_title": "Großes Hospitality-Fit-out in Arbeit",
+      "article_5_description": "Maßschreinerei, lose Möbel und koordinierte Montage für ein neues europäisches Hotelkonzept—eng abgestimmt mit der Innenarchitektin bzw. dem Innenarchitekten.",
+      "article_6_title": "Design Week — Gespräche über Langlebigkeit",
+      "article_6_description": "Unser Team lud Architektinnen, Architekten und Designer ein zu Materialwahrheit, Reparierbarkeit und Möbeln, die über Jahrzehnte relevant bleiben.",
+      "article_7_title": "Anerkennung für technisches Handwerk",
+      "article_7_description": "Eine jüngste Branchenerwähnung hob unsere Kombination aus automatisierter Bearbeitung und spezialisiertem Handwerk bei komplexen Geometrien und Furnieren hervor.",
+      "article_8_title": "Wachstum im Engineering-Studio",
+      "article_8_description": "Neue technische Designer stärken 3D-Entwicklung, Prototyping und Koordination vor Ort für Projektentwickler und Möbelmarken.",
+      "article_9_title": "Reibungslosere Lieferung in der EU",
+      "article_9_description": "Verfeinerte Logistikpartnerschaften ermöglichen planbare Termine für grenzüberschreitende Projekte—von der Werkverpackung bis zur installationsreifen Übergabe."
     }
   },
   "careers": {
-    "title": "Karriere"
+    "section_1_label": "Join Atrium",
+    "section_1_title_1": "Arbeiten Sie dort, wo Design,",
+    "section_1_title_2": "Engineering und Handwerk zusammenkommen",
+    "section_1_text": "Wir fertigen Möbel und Innenausbau für Architekturbüros und Marken, die Präzision erwarten. Wenn Sie Materialien, Toleranzen und langfristige Qualität ernst nehmen, finden Sie bei uns Raum zu wachsen.",
+    "section_2_text": "Atrium ist ein vertikal integriertes Team—Designentwicklung, Prototyping, Serienfertigung und Montage liegen unter einem Dach. Wir stellen neugierige Handwerker ein: Menschen, die Zeichnungen sorgfältig lesen, die Werkstatt respektieren und Projekte vom Konzept bis zur Übergabe begleiten wollen.",
+    "section_2_fact_1_label": "Ort",
+    "section_2_fact_1_text": "Maribor, Slowenien — EU",
+    "section_2_fact_2_label": "Ablauf",
+    "section_2_fact_2_text": "Studio, Produktionshalle und Baustellenbesuche",
+    "section_2_fact_3_label": "Teams",
+    "section_2_fact_3_text": "Design · Engineering · Produktion · Projektbüro",
+    "section_3_label": "Was uns wichtig ist",
+    "section_3_value_1_title": "Materialwahrheit",
+    "section_3_value_1_text": "Wir spezifizieren, wofür wir einstehen—Holz, Furniere, Oberflächen und Beschläge nach Leistung und Erscheinung.",
+    "section_3_value_2_title": "Gemeinsame Standards",
+    "section_3_value_2_text": "Designer, CNC-Programmierer und Oberflächenfachkräfte nutzen dieselbe Dokumentation. Abstimmung schlägt Übergaben.",
+    "section_3_value_3_title": "Besonnene Ambition",
+    "section_3_value_3_text": "Wir setzen auf langlebige Lösungen und stetige Verbesserung statt auf Trends. Anerkennung kommt von Stammkunden und einwandfreien Montagen.",
+    "section_4_label": "Offene Stellen",
+    "section_4_note": "Nichts Passendes? Schicken Sie trotzdem eine kurze Nachricht und ein Portfolio—wir lernen oft Menschen kennen, bevor eine Stelle ausgeschrieben ist.",
+    "section_4_apply": "Bewerben",
+    "section_4_role_1_title": "Senior Möbeldesigner:in",
+    "section_4_role_1_type": "Vollzeit",
+    "section_4_role_1_team": "Design",
+    "section_4_role_2_title": "CNC-Programmierungsspezialist:in",
+    "section_4_role_2_type": "Vollzeit",
+    "section_4_role_2_team": "Produktion",
+    "section_4_role_3_title": "Projektingenieur:in — Hospitality",
+    "section_4_role_3_type": "Vollzeit",
+    "section_4_role_3_team": "Projektbüro",
+    "section_4_role_4_title": "Oberflächenfachkraft (Senior)",
+    "section_4_role_4_type": "Vollzeit",
+    "section_4_role_4_team": "Werkstatt",
+    "section_5_title": "Erzählen Sie uns, was Sie bauen",
+    "section_5_text": "Senden Sie Lebenslauf, Portfolio oder ein paar Zeilen zu Arbeit, auf die Sie stolz sind. Wir lesen jede Nachricht.",
+    "section_5_cta": "Kontakt"
   },
   "contact": {
     "title": "Kontakt"

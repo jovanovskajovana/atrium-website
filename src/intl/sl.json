@@ -173,52 +173,65 @@
     "section_8_cta_2": "kontaktiraj nas"
   },
   "news": {
-    "title": "Novice",
-    "label": "Posodobitve Atrium",
-    "read_more": "Preberi več",
-    "back_to_list": "Vse novice",
-    "list_category": "Studio Atrium",
-    "items": {
-      "showroom-opening-maribor": {
-        "title": "Nova izkušnja v showroomu v Mariboru",
-        "description": "Osvežili smo showroom, da zbirke in površine po meri predstavimo v bolj umirjenem, arhitekturnem okolju—rezervirajte obisk z našo ekipo."
-      },
-      "eu-production-standards": {
-        "title": "Poudarek na proizvodnih standardih EU",
-        "description": "Zadnji audit potrjuje sledljive materiale, dokumentirane procese in dosledne tolerance pri serijski proizvodnji in unikatnih kosih."
-      },
-      "sustainable-sourcing-2025": {
-        "title": "Načrt odgovornega nabava za leto 2025",
-        "description": "Partnerstva s certificiranimi dobavitelji in strožji cilji glede odpadkov so zdaj del načina, kako določamo les, površine in okovje za vsak projekt."
-      },
-      "manufacturing-capacity-expansion": {
-        "title": "Večja zmogljivost v proizvodnji",
-        "description": "Nova CNC-zmogljivost in linije za dokončanje skrajšajo dobavne roke za obsežne projekte v gostinstvu in stanovanjih—brez žrtvovanja ročne izdelave."
-      },
-      "hospitality-partnership": {
-        "title": "Velik projekt opremljanja hotelov v teku",
-        "description": "Izdelki mizarstva po meri, prostostoječe kose in usklajena montaža za nov evropski hotelski koncept—v tesnem sodelovanju z notranjim oblikovalcem."
-      },
-      "design-week-presence": {
-        "title": "Design Week — pogovori o trajnosti",
-        "description": "Naša ekipa je gostila arhitekte in oblikovalce o iskrenosti materialov, popravljivosti in pohištvu, zgrajenem za desetletja uporabe."
-      },
-      "craftsmanship-recognition": {
-        "title": "Priznanje za tehnično obdelavo",
-        "description": "Nedavna omemba v panogi je izpostavila našo kombinacijo avtomatizirane obdelave in specializiranega ročnega dela pri zahtevnih geometrijah in furnirjih."
-      },
-      "engineering-team-growth": {
-        "title": "Rast inženirskega studia",
-        "description": "Novi tehnični oblikovalci krepijo 3D razvoj, prototipiranje in koordinacijo na gradbišču za razvijalce projektov in pohištvene znamke."
-      },
-      "export-network-update": {
-        "title": "Bolj zanesljiva dostava po EU",
-        "description": "Izboljšana logistična partnerstva pomenijo predvidljive termine za čezmejne projekte—od tovarniške embalaže do predaje pripravljeni za montažo."
-      }
+    "section_1_label": "Posodobitve Atrium",
+    "section_1_items": {
+      "article_1_title": "Nova izkušnja v showroomu v Mariboru",
+      "article_1_description": "Osvežili smo showroom, da zbirke in površine po meri predstavimo v bolj umirjenem, arhitekturnem okolju—rezervirajte obisk z našo ekipo.",
+      "article_2_title": "Poudarek na proizvodnih standardih EU",
+      "article_2_description": "Zadnji audit potrjuje sledljive materiale, dokumentirane procese in dosledne tolerance pri serijski proizvodnji in unikatnih kosih.",
+      "article_3_title": "Načrt odgovornega nabava za leto 2025",
+      "article_3_description": "Partnerstva s certificiranimi dobavitelji in strožji cilji glede odpadkov so zdaj del načina, kako določamo les, površine in okovje za vsak projekt.",
+      "article_4_title": "Večja zmogljivost v proizvodnji",
+      "article_4_description": "Nova CNC-zmogljivost in linije za dokončanje skrajšajo dobavne roke za obsežne projekte v gostinstvu in stanovanjih—brez žrtvovanja ročne izdelave.",
+      "article_5_title": "Velik projekt opremljanja hotelov v teku",
+      "article_5_description": "Izdelki mizarstva po meri, prostostoječe kose in usklajena montaža za nov evropski hotelski koncept—v tesnem sodelovanju z notranjim oblikovalcem.",
+      "article_6_title": "Design Week — pogovori o trajnosti",
+      "article_6_description": "Naša ekipa je gostila arhitekte in oblikovalce o iskrenosti materialov, popravljivosti in pohištvu, zgrajenem za desetletja uporabe.",
+      "article_7_title": "Priznanje za tehnično obdelavo",
+      "article_7_description": "Nedavna omemba v panogi je izpostavila našo kombinacijo avtomatizirane obdelave in specializiranega ročnega dela pri zahtevnih geometrijah in furnirjih.",
+      "article_8_title": "Rast inženirskega studia",
+      "article_8_description": "Novi tehnični oblikovalci krepijo 3D razvoj, prototipiranje in koordinacijo na gradbišču za razvijalce projektov in pohištvene znamke.",
+      "article_9_title": "Bolj zanesljiva dostava po EU",
+      "article_9_description": "Izboljšana logistična partnerstva pomenijo predvidljive termine za čezmejne projekte—od tovarniške embalaže do predaje pripravljeni za montažo."
     }
   },
   "careers": {
-    "title": "Zaposlitev"
+    "section_1_label": "Join Atrium",
+    "section_1_title_1": "Delajte tam, kjer se srečujejo",
+    "section_1_title_2": "oblikovanje, inženiring in izdelava",
+    "section_1_text": "Izdelujemo pohištvo in notranje opreme za arhitekte in blagovne znamke, ki pričakujejo natančnost. Če vam mar za materiale, tolerance in dolgoročno kakovost, boste tukaj našli prostor za rast.",
+    "section_2_text": "Atrium je vertikalno integrirana ekipa—razvoj oblikovanja, prototipiranje, serijska proizvodnja in montaža so pod eno streho. Zaposlujemo radovedne obrtnike: ljudi, ki natančno berejo risbe, spoštujejo delavnico in želijo projekte spremljati od koncepta do predaje.",
+    "section_2_fact_1_label": "Kje",
+    "section_2_fact_1_text": "Maribor, Slovenija — EU",
+    "section_2_fact_2_label": "Ritem",
+    "section_2_fact_2_text": "Studio, proizvodnja in obiski gradbišč",
+    "section_2_fact_3_label": "Ekipe",
+    "section_2_fact_3_text": "Oblikovanje · Inženiring · Proizvodnja · Projektna pisarna",
+    "section_3_label": "Kaj cenimo",
+    "section_3_value_1_title": "Iskrenost materialov",
+    "section_3_value_1_text": "Specificiramo tisto, za kar stojimo—les, furnirje, površine in okovje glede na zmogljivost in videz.",
+    "section_3_value_2_title": "Skupni standardi",
+    "section_3_value_2_text": "Oblikovalci, CNC programerji in finisherji uporabljajo isto dokumentacijo. Usklajenost premaga predaje med oddelki.",
+    "section_3_value_3_title": "Zmerna ambicija",
+    "section_3_value_3_text": "Dajemo prednost trajnim rešitvitem in nenehnemu izboljševanju pred trendi. Prepoznavnost prihaja od ponavljajočih se strank in brezhibnih montaž.",
+    "section_4_label": "Prosta delovna mesta",
+    "section_4_note": "Ni ustrezne vloge? Pošljite kratko sporočilo in portfelj vseeno—ljudi pogosto spoznamo, preden je položaj formalno objavljen.",
+    "section_4_apply": "Prijavi se",
+    "section_4_role_1_title": "Višji oblikovalec pohištva",
+    "section_4_role_1_type": "Polni delovni čas",
+    "section_4_role_1_team": "Oblikovanje",
+    "section_4_role_2_title": "Specialist za CNC programiranje",
+    "section_4_role_2_type": "Polni delovni čas",
+    "section_4_role_2_team": "Proizvodnja",
+    "section_4_role_3_title": "Projektni inženir — gostinstvo",
+    "section_4_role_3_type": "Polni delovni čas",
+    "section_4_role_3_team": "Projektna pisarna",
+    "section_4_role_4_title": "Višji finisher — površine",
+    "section_4_role_4_type": "Polni delovni čas",
+    "section_4_role_4_team": "Delavnica",
+    "section_5_title": "Povejte nam, kaj gradite",
+    "section_5_text": "Pošljite življenjepis, portfelj ali nekaj vrstic o delu, na katerega ste ponosni. Vsako sporočilo preberemo.",
+    "section_5_cta": "Kontakt"
   },
   "contact": {
     "title": "Kontakt"

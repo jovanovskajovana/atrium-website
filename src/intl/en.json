@@ -173,52 +173,65 @@
     "section_8_cta_2": "contact us"
   },
   "news": {
-    "title": "News",
-    "label": "Atrium updates",
-    "read_more": "Read more",
-    "back_to_list": "All news",
-    "list_category": "Atrium studio",
-    "items": {
-      "showroom-opening-maribor": {
-        "title": "New showroom experience in Maribor",
-        "description": "We have refreshed our showroom to present collections and bespoke finishes in a calmer, more architectural setting—book a visit with our team."
-      },
-      "eu-production-standards": {
-        "title": "EU manufacturing standards in focus",
-        "description": "Our latest audit reaffirms traceable materials, documented processes, and consistent tolerances across serial production and one-off pieces."
-      },
-      "sustainable-sourcing-2025": {
-        "title": "Responsible sourcing roadmap for 2025",
-        "description": "Partnerships with certified suppliers and tighter waste targets are now embedded in how we specify timber, surfaces, and hardware for every project."
-      },
-      "manufacturing-capacity-expansion": {
-        "title": "Added capacity on the production floor",
-        "description": "New CNC capacity and finishing lines shorten lead times for large hospitality and residential programmes without compromising hand-finished detail."
-      },
-      "hospitality-partnership": {
-        "title": "Major hospitality fit-out underway",
-        "description": "Custom joinery, loose furniture, and coordinated installation for a new European hotel concept—developed closely with the interior architect."
-      },
-      "design-week-presence": {
-        "title": "Design Week — conversations on longevity",
-        "description": "Our team hosted architects and designers around material honesty, repairability, and furniture that is built to stay relevant for decades."
-      },
-      "craftsmanship-recognition": {
-        "title": "Recognition for technical craftsmanship",
-        "description": "A recent industry mention highlighted our blend of automated machining and specialist hand work on complex geometries and veneers."
-      },
-      "engineering-team-growth": {
-        "title": "Growing the engineering studio",
-        "description": "New technical designers strengthen 3D development, prototyping, and on-site coordination for developers and furniture brands."
-      },
-      "export-network-update": {
-        "title": "Smoother delivery across the EU",
-        "description": "Refined logistics partnerships mean predictable scheduling for cross-border projects, from factory packing to installation-ready handover."
-      }
+    "section_1_label": "Atrium updates",
+    "section_1_items": {
+      "article_1_title": "New showroom experience in Maribor",
+      "article_1_description": "We have refreshed our showroom to present collections and bespoke finishes in a calmer, more architectural setting—book a visit with our team.",
+      "article_2_title": "EU manufacturing standards in focus",
+      "article_2_description": "Our latest audit reaffirms traceable materials, documented processes, and consistent tolerances across serial production and one-off pieces.",
+      "article_3_title": "Responsible sourcing roadmap for 2025",
+      "article_3_description": "Partnerships with certified suppliers and tighter waste targets are now embedded in how we specify timber, surfaces, and hardware for every project.",
+      "article_4_title": "Added capacity on the production floor",
+      "article_4_description": "New CNC capacity and finishing lines shorten lead times for large hospitality and residential programmes without compromising hand-finished detail.",
+      "article_5_title": "Major hospitality fit-out underway",
+      "article_5_description": "Custom joinery, loose furniture, and coordinated installation for a new European hotel concept—developed closely with the interior architect.",
+      "article_6_title": "Design Week — conversations on longevity",
+      "article_6_description": "Our team hosted architects and designers around material honesty, repairability, and furniture that is built to stay relevant for decades.",
+      "article_7_title": "Recognition for technical craftsmanship",
+      "article_7_description": "A recent industry mention highlighted our blend of automated machining and specialist hand work on complex geometries and veneers.",
+      "article_8_title": "Growing the engineering studio",
+      "article_8_description": "New technical designers strengthen 3D development, prototyping, and on-site coordination for developers and furniture brands.",
+      "article_9_title": "Smoother delivery across the EU",
+      "article_9_description": "Refined logistics partnerships mean predictable scheduling for cross-border projects, from factory packing to installation-ready handover."
     }
   },
   "careers": {
-    "title": "Careers"
+    "section_1_label": "Join Atrium",
+    "section_1_title_1": "Work where design,",
+    "section_1_title_2": "engineering, and making meet",
+    "section_1_text": "We build furniture and interiors for architects and brands who expect precision. If you care about materials, tolerances, and long-term quality, you will find room to grow here.",
+    "section_2_text": "Atrium is a vertically integrated team—design development, prototyping, serial production, and installation sit under one roof. We hire for curiosity and craft: people who read drawings carefully, respect the workshop, and want to see projects through from concept to handover.",
+    "section_2_fact_1_label": "Where",
+    "section_2_fact_1_text": "Maribor, Slovenia — EU",
+    "section_2_fact_2_label": "Rhythm",
+    "section_2_fact_2_text": "Studio, factory floor, and site visits",
+    "section_2_fact_3_label": "Teams",
+    "section_2_fact_3_text": "Design · Engineering · Production · Project office",
+    "section_3_label": "What we value",
+    "section_3_value_1_title": "Material honesty",
+    "section_3_value_1_text": "We specify what we can stand behind—timber, veneers, finishes, and hardware chosen for performance as well as appearance.",
+    "section_3_value_2_title": "Shared standards",
+    "section_3_value_2_text": "Designers, CNC programmers, and finishers use the same documentation. Alignment beats hand-offs.",
+    "section_3_value_3_title": "Quiet ambition",
+    "section_3_value_3_text": "We prefer durable solutions and steady improvement over trends. Recognition comes from repeat clients and flawless installs.",
+    "section_4_label": "Open roles",
+    "section_4_note": "No exact match? Send a short note and portfolio either way—we regularly meet people before a role is formalised.",
+    "section_4_apply": "Apply",
+    "section_4_role_1_title": "Senior furniture designer",
+    "section_4_role_1_type": "Full-time",
+    "section_4_role_1_team": "Design",
+    "section_4_role_2_title": "CNC programming specialist",
+    "section_4_role_2_type": "Full-time",
+    "section_4_role_2_team": "Production",
+    "section_4_role_3_title": "Project engineer — hospitality",
+    "section_4_role_3_type": "Full-time",
+    "section_4_role_3_team": "Project office",
+    "section_4_role_4_title": "Senior finishing craftsperson",
+    "section_4_role_4_type": "Full-time",
+    "section_4_role_4_team": "Workshop",
+    "section_5_title": "Tell us what you build",
+    "section_5_text": "Share a CV, portfolio, or a few lines on the work you are proud of. We read every message.",
+    "section_5_cta": "Contact"
   },
   "contact": {
     "title": "Contact"
