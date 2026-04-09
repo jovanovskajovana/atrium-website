@@ -523,12 +523,12 @@ const ProductionPage = () => {
         className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-0 z-10"
         data-hero-tagline
       >
-        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase mb-[0.4em]">
+        <h1 className="text-[3vw] font-[500] text-black-100 leading-[1.12] uppercase mb-[0.4em]">
           {t('production.section_1_title_1')}
           <br />
           {t('production.section_1_title_2')}
         </h1>
-        <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
+        <p className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase">
           {t('production.section_1_label')}
         </p>
       </div>
@@ -555,21 +555,13 @@ const ProductionPage = () => {
         </div>
       </div>
 
-      <section ref={section2Ref} className="pt-[4%] mb-[10%]">
-        <div className="max-w-[35vw] mx-auto text-center">
-          <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
+      <section ref={section2Ref} className="pt-[5%] mb-[12%]">
+        <div className="max-w-[38vw] mx-auto text-center">
+          <p className="text-[1.1vw] text-black-100/75 leading-[1.85]">
             {t('production.section_2_text')}
           </p>
         </div>
-        {/* <div className="max-w-[45vw] mx-auto text-center">
-          <h2
-            className="text-[1.1vw] font-[400] text-black-100/60 leading-[1.7] tracking-[0.02em]"
-            data-s2-title
-          >
-            {t('production.section_2_text')}
-          </h2>
-        </div> */}
-        <div className="flex justify-center gap-[1.5vw] mt-[8%]" data-s2-btns>
+        <div className="flex justify-center gap-[1.8vw] mt-[8%]" data-s2-btns>
           <Button>{t('production.section_2_cta_1')}</Button>
           <Button>{t('production.section_2_cta_2')}</Button>
         </div>
@@ -589,16 +581,16 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="mb-[10%]">
+      <section ref={section3Ref} className="bg-beige-100 py-[7%] mb-[12%]">
         <div className="mx-auto text-center mb-[5%]">
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase mb-[1.5%]"
+            className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase mb-[1.8%]"
             data-s3-title
           >
             {t('production.section_3_title')}
           </h2>
           <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[34vw] mx-auto"
+            className="text-[1.1vw] text-black-100/70 leading-[1.85] max-w-[40vw] mx-auto"
             data-s3-text
           >
             {t('production.section_3_text')}
@@ -606,7 +598,7 @@ const ProductionPage = () => {
         </div>
 
         <div
-          className="grid grid-cols-4 gap-[1vw] max-w-[75vw] mx-auto"
+          className="grid grid-cols-4 gap-[1.2vw] max-w-[72vw] mx-auto"
           data-s3-grid
         >
           {[
@@ -617,13 +609,13 @@ const ProductionPage = () => {
           ].map(({ value, key }) => (
             <div
               key={key}
-              className="bg-beige-100 aspect-square flex flex-col justify-end py-[10%] px-[1.8vw]"
+              className="bg-beige-200 aspect-square flex flex-col justify-end py-[10%] px-[1.8vw]"
               data-s3-item
             >
-              <p className="text-[3.2vw] font-[400] text-black-100 leading-[1.2] tracking-[-0.02em]">
+              <p className="text-[3.4vw] font-[500] text-black-100 leading-[1.2] tracking-[-0.02em]">
                 {value}
               </p>
-              <p className="text-[0.8vw] text-black-100/40 tracking-[0.1em] uppercase mt-[0.3vw]">
+              <p className="text-[0.88vw] font-[500] text-black-100/50 tracking-[0.1em] uppercase mt-[0.5vw]">
                 {t(`production.section_3_stat_${key}_label`)}
               </p>
             </div>
@@ -631,10 +623,10 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section4Ref} className="mb-[10%]">
-        <div className="max-w-[75vw] mx-auto">
+      <section ref={section4Ref} className="mb-[12%]">
+        <div className="max-w-[72vw] mx-auto">
           <h2
-            className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase text-center mb-[6%]"
+            className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase text-center mb-[6%]"
             data-s4-title
           >
             {t('production.section_4_title')}
@@ -653,13 +645,13 @@ const ProductionPage = () => {
               {[1, 2, 3, 4].map((n) => (
                 <div
                   key={n}
-                  className="border-t border-black-100/10 py-[2vw]"
+                  className="border-t border-black-100/10 py-[2.2vw]"
                   data-s4-feature
                 >
-                  <h3 className="text-[1.1vw] font-[500] text-black-100 leading-[1.2] uppercase">
+                  <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase">
                     {t(`production.section_4_feature_${n}_title`)}
                   </h3>
-                  <p className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[28vw] pt-[2%]">
+                  <p className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[28vw] pt-[2%]">
                     {t(`production.section_4_feature_${n}_text`)}
                   </p>
                 </div>
@@ -669,16 +661,16 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section5Ref} className="mb-[10%]">
-        <div className="max-w-[75vw] mx-auto" data-s5-statement>
+      <section ref={section5Ref} className="mb-[12%]">
+        <div className="max-w-[72vw] mx-auto" data-s5-statement>
           <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
             data-s5-title
           >
             {t('production.section_5_title_1')}
           </h2>
           <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase whitespace-nowrap ml-[-0.2vw]"
+            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
             data-s5-title
           >
             {t('production.section_5_title_2')}
@@ -686,36 +678,36 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section6Ref} className="mb-[10%]">
-        <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
+      <section ref={section6Ref} className="mb-[12%]">
+        <div className="max-w-[72vw] mx-auto invisible" data-s6-wrap>
           <p
-            className="text-[0.92vw] text-black-100/40 uppercase mb-[2%]"
+            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[2.5%]"
             data-s6-label
           >
             {t('production.section_6_label')}
           </p>
-          <div className="grid grid-cols-2 gap-[1.5vw]">
+          <div className="grid grid-cols-2 gap-[2vw]">
             <a
               href="#oem-services"
-              className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
+              className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.75vw] text-black-100/40 uppercase">
+              <span className="text-[0.82vw] font-[500] text-brown-100/50 uppercase">
                 01
               </span>
-              <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_1')}
               </h3>
             </a>
             <a
               href="#project-interiors"
-              className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
+              className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-right
             >
-              <span className="text-[0.75vw] text-black-100/40 tracking-[0.15em] uppercase">
+              <span className="text-[0.82vw] font-[500] text-brown-100/50 tracking-[0.15em] uppercase">
                 02
               </span>
-              <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_2')}
               </h3>
             </a>
@@ -726,41 +718,41 @@ const ProductionPage = () => {
       <section
         ref={section7Ref}
         id="oem-services"
-        className="bg-black-100 py-[8%] mx-[2.2vw] mb-[10%]"
+        className="bg-black-100 py-[10%] mx-[2.2vw] mb-[12%]"
       >
-        <div className="max-w-[75vw] mx-auto">
+        <div className="max-w-[72vw] mx-auto">
           <h2
-            className="text-[3.7vw] font-[450] text-white-100 leading-[1.15] uppercase ml-[-0.2vw] mb-[1.5%]"
+            className="text-[4vw] font-[500] text-white-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
             data-oem-title
           >
             {t('production.section_7_title')}
           </h2>
           <p
-            className="text-[1vw] font-[350] text-white-100/40 tracking-[0.05em] mb-[2%]"
+            className="text-[0.95vw] font-[500] text-white-100 tracking-[0.18em] uppercase mb-[2.5%]"
             data-oem-label
           >
             {t('production.section_7_label')}
           </p>
           <p
-            className="text-[0.92vw] text-white-100/60 leading-[1.8]"
+            className="text-[1.05vw] text-white-100/70 leading-[1.85]"
             data-oem-text
           >
             {t('production.section_7_text')}
           </p>
-          <div className="grid grid-cols-[1.2fr_1fr] gap-[6vw] mt-[6%]">
+          <div className="grid grid-cols-[1.2fr_1fr] gap-[6vw] mt-[7%]">
             <div className="flex flex-col justify-between">
               <div>
                 {[1, 2, 3, 4].map((n) => (
                   <div
                     key={n}
-                    className="border-t border-white-100/10 py-[2vw]"
+                    className="border-t border-white-100/15 py-[2.2vw]"
                     data-oem-feature
                   >
                     <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
-                      <h4 className="text-[0.92vw] font-[500] text-white-100 leading-[1.3] uppercase">
+                      <h4 className="text-[1vw] font-[500] text-white-100 leading-[1.3] uppercase">
                         {t(`production.section_7_feature_${n}_title`)}
                       </h4>
-                      <p className="text-[0.85vw] text-white-100/50 leading-[1.7]">
+                      <p className="text-[0.95vw] text-white-100/60 leading-[1.75]">
                         {t(`production.section_7_feature_${n}_text`)}
                       </p>
                     </div>
@@ -768,10 +760,10 @@ const ProductionPage = () => {
                 ))}
               </div>
               <div data-oem-delivery>
-                <p className="text-[1.2vw] font-[350] text-white-100/40">
+                <p className="text-[1.3vw] font-[400] text-white-100/50">
                   {t('production.section_7_delivery')}
                 </p>
-                <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
+                <div className="flex gap-[1.8vw] mt-[6%] mb-[2%]">
                   <Link href="/references">
                     <Button variant="light">
                       {t('production.section_8_cta_1')}
@@ -796,42 +788,42 @@ const ProductionPage = () => {
         </div>
       </section>
 
-      <section ref={section8Ref} id="project-interiors" className="mb-[10%]">
-        <div className="max-w-[75vw] mx-auto">
+      <section ref={section8Ref} id="project-interiors" className="mb-[12%]">
+        <div className="max-w-[72vw] mx-auto">
           <h2
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] mb-[1.5%]"
+            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
             data-int-title
           >
             {t('production.section_8_title')}
           </h2>
           <p
-            className="text-[1vw] font-[350] text-black-100/40 tracking-[0.05em] mb-[2%]"
+            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[2.5%]"
             data-int-label
           >
             {t('production.section_8_label')}
           </p>
           <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8]"
+            className="text-[1.05vw] text-black-100/75 leading-[1.85]"
             data-int-text
           >
             {t('production.section_8_text')}
           </p>
-          <div className="grid grid-cols-3 gap-[3vw] mt-[6%]">
+          <div className="grid grid-cols-3 gap-[3.5vw] mt-[7%]">
             {[1, 2, 3].map((n) => (
               <div key={n} data-int-feature>
-                <p className="text-[2.4vw] text-black-100/10 font-light leading-none mb-[6%]">
+                <p className="text-[2.6vw] text-brown-100/20 font-[300] leading-none mb-[6%]">
                   {String(n).padStart(2, '0')}
                 </p>
-                <h4 className="text-[0.92vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">
+                <h4 className="text-[1.05vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">
                   {t(`production.section_8_feature_${n}_title`)}
                 </h4>
-                <p className="text-[0.82vw] text-black-100/60 leading-[1.7] max-w-[20vw]">
+                <p className="text-[0.95vw] text-black-100/70 leading-[1.75] max-w-[20vw]">
                   {t(`production.section_8_feature_${n}_text`)}
                 </p>
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-int-images>
+          <div className="grid grid-cols-2 gap-[2vw] mt-[7%]" data-int-images>
             <div className="overflow-hidden aspect-[3/4]">
               <Image
                 src="/assets/img-23.webp"
@@ -851,14 +843,14 @@ const ProductionPage = () => {
               />
             </div>
           </div>
-          <div className="mt-[6%]" data-int-cta>
-            <p className="text-[1.2vw] font-[350] text-black-100">
+          <div className="mt-[7%]" data-int-cta>
+            <p className="text-[1.3vw] font-[500] text-black-100">
               {t('production.section_8_industries_title')}
             </p>
-            <p className="text-[0.92vw] text-black-100/60 leading-[2] mt-[1.5%]">
+            <p className="text-[1.05vw] text-black-100/70 leading-[2] mt-[1.8%]">
               {t('production.section_8_industries_list')}
             </p>
-            <div className="flex gap-[1.5vw] mt-[3%]">
+            <div className="flex gap-[1.8vw] mt-[4%]">
               <Link href="/references">
                 <Button>{t('production.section_8_cta_1')}</Button>
               </Link>

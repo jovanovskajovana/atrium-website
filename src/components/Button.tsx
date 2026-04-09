@@ -20,7 +20,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <button
-      className={`group relative text-[0.8vw] border ${style.border} ${height} px-[1.1vw] overflow-hidden ${className}`}
+      className={`group relative text-[0.88vw] font-[500] tracking-[0.04em] border ${style.border} ${height} px-[1.6vw] overflow-hidden ${className}`}
       {...rest}
     >
       <span

@@ -9,9 +9,14 @@ export const BUTTON_STYLES = {
     fill: 'bg-white-100',
     text: 'text-white-100 group-hover:text-black-100',
   },
+  accent: {
+    border: 'border-brown-100',
+    fill: 'bg-brown-100',
+    text: 'text-brown-100 group-hover:text-white-100',
+  },
 }
 
 export const BUTTON_SIZES = {
-  default: 'h-[3.3vw]',
-  small: 'h-[2vw]',
+  default: 'h-[3.6vw]',
+  small: 'h-[2.4vw]',
 }

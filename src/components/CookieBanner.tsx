@@ -74,7 +74,7 @@ const CookieBanner = () => {
       ref={bannerRef}
       className="fixed bottom-0 right-[2.2vw] flex items-center gap-[1.5vw] bg-black-100 py-[1%] px-[1.5vw] z-50"
     >
-      <p className="text-[0.8vw] text-white-100 mr-[1vw]">
+      <p className="text-[0.88vw] font-[450] text-white-100 mr-[1vw]">
         {t('cookie_banner.message')}{' '}
         <Link
           href="/privacy-policy"
@@ -85,7 +85,7 @@ const CookieBanner = () => {
       </p>
       <button
         onClick={() => dismiss('denied')}
-        className="text-[0.8vw] text-white-100 underline hover:opacity-80 transition-opacity"
+        className="text-[0.88vw] font-[450] text-white-100 underline hover:opacity-80 transition-opacity"
       >
         {t('cookie_banner.deny')}
       </button>
