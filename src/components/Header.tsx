@@ -36,12 +36,12 @@ const Header = () => {
     <>
       <div className="fixed top-0 left-0 w-full h-[3px] z-[60]">
         <div
-          className="bg-black-100 h-full origin-left"
+          className="bg-brown-100 h-full origin-left"
           style={{ transform: `scaleX(${progress})` }}
         />
       </div>
       <header
-        className={`fixed top-0 left-0 backdrop-blur-[4px] bg-beige-50/40 w-full z-50 transition-transform duration-500 ease-in-out ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+        className={`fixed top-0 left-0 bg-beige-50/40 backdrop-blur-[4px] w-full z-50 transition-transform duration-500 ease-in-out ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
         data-header
       >
         <Navigation />
