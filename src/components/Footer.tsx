@@ -80,9 +80,9 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="relative w-full bg-black-100 text-white-100 overflow-hidden"
+      className="relative w-full bg-brown-100 text-white-100 overflow-hidden"
     >
-      <AtriumLogoMark className="pointer-events-none absolute left-[50%] inset-y-[-2%] h-[104%] w-auto z-0" />
+      <AtriumLogoMark fillColor="rgba(189, 120, 90, 0.35)" className="pointer-events-none absolute left-[50%] inset-y-[-2%] h-[104%] w-auto z-0" />
 
       <section
         className="relative text-center py-[12%] px-[2.2vw] z-10"
