@@ -33,8 +33,12 @@ const Navigation = () => {
             data-menu-item
             data-active={
               href === '/'
-                ? isHome ? '' : undefined
-                : !isHome && pathname.startsWith(href) ? '' : undefined
+                ? isHome
+                  ? ''
+                  : undefined
+                : !isHome && pathname.startsWith(href)
+                  ? ''
+                  : undefined
             }
           >
             <span className="block transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
