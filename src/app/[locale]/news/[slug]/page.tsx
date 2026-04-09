@@ -47,7 +47,7 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
             {title}
           </h1>
 
-          <p className="text-[0.82vw] text-black-100/40 tracking-[0.1em] mt-[1.5%]">
+          <p className="text-[0.82vw] text-black-100/60 tracking-[0.1em] mt-[1.5%]">
             <time dateTime={article.date}>
               {dateFormatter.format(new Date(`${article.date}T12:00:00`))}
             </time>

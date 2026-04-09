@@ -35,7 +35,7 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
           </h1>
 
           <p className="text-[0.92vw] text-black-100/60 flex items-center gap-[0.4vw] mt-[1.5%]">
-            <IconLocation className="text-[1em] text-black-100/40" />
+            <IconLocation className="text-[1em] text-black-100/60" />
             {t(`${prefix}.subtitle`)}
           </p>
         </div>

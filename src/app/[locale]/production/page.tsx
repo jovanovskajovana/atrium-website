@@ -520,15 +520,15 @@ const ProductionPage = () => {
   return (
     <main className="relative overflow-x-hidden">
       <div
-        className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-0 z-10"
+        className="absolute top-[15.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-0 z-10"
         data-hero-tagline
       >
-        <h1 className="text-[2.6vw] font-[450] text-black-100 leading-[1.15] uppercase mb-[0.4em]">
+        <h1 className="text-[3vw] font-[450] text-black-100 leading-[1.15] uppercase mb-[0.4em]">
           {t('production.section_1_title_1')}
           <br />
           {t('production.section_1_title_2')}
         </h1>
-        <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
+        <p className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase">
           {t('production.section_1_label')}
         </p>
       </div>
@@ -623,7 +623,7 @@ const ProductionPage = () => {
               <p className="text-[3.2vw] font-[400] text-black-100 leading-[1.2] tracking-[-0.02em]">
                 {value}
               </p>
-              <p className="text-[0.8vw] text-black-100/40 tracking-[0.1em] uppercase mt-[0.3vw]">
+              <p className="text-[0.8vw] text-black-100/40 font-[500] tracking-[0.1em] uppercase mt-[0.3vw]">
                 {t(`production.section_3_stat_${key}_label`)}
               </p>
             </div>
@@ -689,7 +689,7 @@ const ProductionPage = () => {
       <section ref={section6Ref} className="mb-[10%]">
         <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
           <p
-            className="text-[0.92vw] text-black-100/40 uppercase mb-[2%]"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[2%]"
             data-s6-label
           >
             {t('production.section_6_label')}
@@ -700,7 +700,7 @@ const ProductionPage = () => {
               className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.75vw] text-black-100/40 uppercase">
+              <span className="text-[0.75vw] text-black-100/40 font-[500] uppercase">
                 01
               </span>
               <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
@@ -712,7 +712,7 @@ const ProductionPage = () => {
               className="group border-t border-black-100/10 pt-[2vw] pb-[3vw]"
               data-s6-right
             >
-              <span className="text-[0.75vw] text-black-100/40 tracking-[0.15em] uppercase">
+              <span className="text-[0.75vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase">
                 02
               </span>
               <h3 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
@@ -736,7 +736,7 @@ const ProductionPage = () => {
             {t('production.section_7_title')}
           </h2>
           <p
-            className="text-[1vw] font-[350] text-white-100/40 tracking-[0.05em] mb-[2%]"
+            className="text-[1vw] font-[400] text-white-100/60 tracking-[0.05em] mb-[2%]"
             data-oem-label
           >
             {t('production.section_7_label')}
@@ -768,7 +768,7 @@ const ProductionPage = () => {
                 ))}
               </div>
               <div data-oem-delivery>
-                <p className="text-[1.2vw] font-[350] text-white-100/40">
+                <p className="text-[1.2vw] font-[400] text-white-100/60">
                   {t('production.section_7_delivery')}
                 </p>
                 <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
@@ -805,7 +805,7 @@ const ProductionPage = () => {
             {t('production.section_8_title')}
           </h2>
           <p
-            className="text-[1vw] font-[350] text-black-100/40 tracking-[0.05em] mb-[2%]"
+            className="text-[1vw] font-[400] text-black-100/60 tracking-[0.05em] mb-[2%]"
             data-int-label
           >
             {t('production.section_8_label')}
@@ -852,7 +852,7 @@ const ProductionPage = () => {
             </div>
           </div>
           <div className="mt-[6%]" data-int-cta>
-            <p className="text-[1.2vw] font-[350] text-black-100">
+            <p className="text-[1.2vw] font-[400] text-black-100">
               {t('production.section_8_industries_title')}
             </p>
             <p className="text-[0.92vw] text-black-100/60 leading-[2] mt-[1.5%]">

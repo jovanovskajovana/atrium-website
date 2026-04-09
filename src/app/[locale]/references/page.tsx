@@ -118,10 +118,10 @@ const ReferencesPage = () => {
           key={sector}
           type="button"
           onClick={() => setActiveSector(sector)}
-          className={`text-[0.75vw] uppercase whitespace-nowrap transition-colors duration-300 ${
+          className={`text-[0.75vw] font-[500] uppercase whitespace-nowrap transition-colors duration-300 ${
             activeSector === sector
               ? 'text-black-100 font-[500]'
-              : 'text-black-100/40 hover:text-black-100/60'
+              : 'text-black-100/80 hover:text-black-100'
           }`}
         >
           {sector === 'all'

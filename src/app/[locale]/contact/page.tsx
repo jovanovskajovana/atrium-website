@@ -123,7 +123,7 @@ const ContactPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
             data-s1-label
           >
             {t('contact.section_1_label')}
@@ -206,7 +206,7 @@ const ContactPage = () => {
 
           <div className="grid grid-cols-2 gap-x-[5vw] gap-y-[5vw] mt-[6%]">
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[1.2vw]">
                 {t('contact.section_1_phone_label')}
               </p>
               <a
@@ -218,7 +218,7 @@ const ContactPage = () => {
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[1.2vw]">
                 {t('contact.section_1_email_label')}
               </p>
               <a
@@ -230,7 +230,7 @@ const ContactPage = () => {
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[1.2vw]">
                 {t('contact.section_1_address_label')}
               </p>
               <p className="text-[1.1vw] text-black-100 leading-[1.7]">
@@ -243,7 +243,7 @@ const ContactPage = () => {
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1.2vw]">
+              <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[1.2vw]">
                 {t('contact.section_1_follow_label')}
               </p>
               <div className="flex gap-[2vw]">
@@ -295,7 +295,7 @@ const ContactPage = () => {
       <section ref={section2Ref} className="pb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('contact.section_2_label')}
@@ -308,7 +308,7 @@ const ContactPage = () => {
                 className="border-l border-black-100/10 pl-[1.8vw] opacity-0"
                 data-s2-dept
               >
-                <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[1vw]">
+                <p className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[1vw]">
                   {t(`contact.dept_${dept.key}`)}
                 </p>
                 {dept.members.map((member) => (

@@ -110,7 +110,7 @@ const NewsPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[2%] opacity-0"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[2%] opacity-0"
             data-news-label
           >
             {t('news.section_1_label')}
@@ -174,7 +174,7 @@ const NewsPage = () => {
 
                       <time
                         dateTime={article.date}
-                        className="text-[0.75vw] text-black-100/40 tracking-[0.1em] pt-[4%] text-right transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/45"
+                        className="text-[0.75vw] text-black-100/60 tracking-[0.1em] pt-[4%] text-right transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/45"
                       >
                         {formattedDate}
                       </time>

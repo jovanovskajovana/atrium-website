@@ -89,13 +89,13 @@ const Footer = () => {
         data-footer-cta
       >
         <h2
-          className="text-[2.8vw] font-[450] text-white-100 leading-[1.2] uppercase"
+          className="text-[3vw] font-[450] text-white-100 leading-[1.2] uppercase"
           data-footer-cta-item
         >
           {t('footer.cta_title')}
         </h2>
         <p
-          className="text-[1.2vw] font-[350] text-white-100/65 leading-[1.8] max-w-[38vw] mx-auto mt-[2%]"
+          className="text-[1.2vw] font-[400] text-white-100/65 leading-[1.8] max-w-[38vw] mx-auto mt-[2%]"
           data-footer-cta-item
         >
           {t('footer.cta_text')}

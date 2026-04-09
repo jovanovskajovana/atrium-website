@@ -14,14 +14,6 @@
     overscroll-behavior: none;
   }
 
-  /* Custom cursor: pair with <CursorTracker /> in layout
-  @media (pointer: fine) {
-    * {
-      cursor: none !important;
-    }
-  }
-  */
-
   ::selection {
     @apply bg-brown-100 text-white-100;
   }
@@ -36,36 +28,22 @@
  * Custom component styles
  */
 @layer components {
-  /* Navigation hover effect */
+  /* Navigation hover effect — uses color alpha instead of opacity to avoid anti-aliasing weight shifts */
   [data-nav]:has([data-active]) [data-menu-item]:not([data-active]) {
-    opacity: 0.4;
+    color: rgba(38, 37, 30, 0.4);
   }
 
   [data-nav]:hover [data-menu-item]:not([data-active]):not(:hover) {
-    opacity: 0.4 !important;
+    color: rgba(38, 37, 30, 0.4) !important;
   }
 
   [data-nav]:hover [data-menu-item]:hover,
   [data-menu-item][data-active] {
-    opacity: 1 !important;
-  }
-
-  [data-menu-item][data-active] {
-    font-weight: 500;
+    color: rgba(38, 37, 30, 1) !important;
   }
 
   body:not([data-animating]) [data-menu-item] {
-    transition: opacity 0.3s ease;
+    transition: color 0.3s ease;
   }
 }
 
-/**
- * Custom utility styles
- */
-@layer utilities {
-  .text-clip-fix {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-}

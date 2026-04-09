@@ -171,7 +171,7 @@ const CareersPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
             data-s1-label
           >
             {t('careers.section_1_label')}
@@ -200,13 +200,13 @@ const CareersPage = () => {
           className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/10 max-w-[75vw] mx-auto pt-[6%] mt-[6%] opacity-0"
           data-careers-split
         >
-          <p className="text-[1.2vw] font-[350] text-black-100/50 leading-[1.6]">
+          <p className="text-[1.2vw] font-[400] text-black-100/50 leading-[1.6]">
             {t('careers.section_2_text')}
           </p>
           <dl className="space-y-[2.2vw] pt-[0.5vw]">
             {[1, 2, 3].map((n) => (
               <div key={n} className="border-l border-black-100/15 pl-[1.4vw]">
-                <dt className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 mb-[0.5vw]">
+                <dt className="text-[0.65vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] mb-[0.5vw]">
                   {t(`careers.section_2_fact_${n}_label`)}
                 </dt>
                 <dd className="text-[0.88vw] text-black-100/75 leading-[1.55]">
@@ -221,7 +221,7 @@ const CareersPage = () => {
       <section ref={section2Ref} className="pb-[8%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('careers.section_3_label')}
@@ -252,7 +252,7 @@ const CareersPage = () => {
             className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
             data-s2-roles-header
           >
-            <p className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase">
+            <p className="text-[0.92vw] text-black-100/40 font-[500] tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
             </p>
             <p className="text-[0.78vw] text-black-100/45 max-w-[28vw] leading-[1.6] text-right">
@@ -277,7 +277,7 @@ const CareersPage = () => {
                     <span className="text-[1.25vw] font-[450] text-black-100 uppercase tracking-[0.03em] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
                       {t(`careers.section_4_role_${listing.roleIndex}_title`)}
                     </span>
-                    <span className="text-[0.65vw] uppercase tracking-[0.18em] text-black-100/40 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/55">
+                    <span className="text-[0.65vw] uppercase tracking-[0.18em] text-black-100/40 font-[500] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/55">
                       {t(`careers.section_4_role_${listing.roleIndex}_team`)}
                     </span>
                   </div>
@@ -285,7 +285,7 @@ const CareersPage = () => {
                     <span className="text-[0.78vw] text-black-100/50 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/60">
                       {t(`careers.section_4_role_${listing.roleIndex}_type`)}
                     </span>
-                    <span className="text-[0.72vw] uppercase tracking-[0.2em] text-black-100 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
+                    <span className="text-[0.72vw] uppercase tracking-[0.2em] text-black-100/40 font-[500] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
                       {t('careers.section_4_apply')}
                       <span
                         aria-hidden
