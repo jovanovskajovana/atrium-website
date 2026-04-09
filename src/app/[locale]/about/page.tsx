@@ -218,7 +218,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section ref={section2Ref} className="bg-beige-100 py-[8%] mb-[2%]">
+      <section ref={section2Ref} className="bg-beige-100 py-[8%]">
         <div className="max-w-[72vw] mx-auto">
           <p
             className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
@@ -294,7 +294,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="pb-[10%]">
+      <section ref={section3Ref} className="bg-beige-100 pb-[10%]">
         <div className="flex justify-center max-w-[75vw] mx-auto">
           <div className="w-[25vw]" data-s3-signature>
             {/* <Image
