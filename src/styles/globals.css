@@ -2,41 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/**
- * Custom base styles
- */
 @layer base {
   html,
   body {
-    @apply bg-white-100 font-sans;
+    @apply bg-beige-50 font-sans text-black-100;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     overscroll-behavior: none;
   }
-
-  /* Custom cursor: pair with <CursorTracker /> in layout
-  @media (pointer: fine) {
-    * {
-      cursor: none !important;
-    }
-  }
-  */
 
   ::selection {
     @apply bg-brown-100 text-white-100;
   }
 
-  /* Lenis */
   .lenis.lenis-smooth {
     scroll-behavior: auto !important;
   }
 }
 
-/**
- * Custom component styles
- */
 @layer components {
-  /* Navigation hover effect */
   [data-nav]:has([data-active]) [data-menu-item]:not([data-active]) {
     opacity: 0.4;
   }
@@ -59,9 +44,6 @@
   }
 }
 
-/**
- * Custom utility styles
- */
 @layer utilities {
   .text-clip-fix {
     background-clip: text;

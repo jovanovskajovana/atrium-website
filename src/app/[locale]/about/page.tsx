@@ -171,35 +171,35 @@ const AboutPage = () => {
 
   return (
     <main className="overflow-x-hidden">
-      <section ref={section1Ref} className="pt-[18.5vh] pb-[8%]">
-        <div className="max-w-[75vw] mx-auto">
+      <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
+        <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('about.section_1_label')}
           </p>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
             data-s1-title
           >
             {t('about.section_1_title_1')}
           </h1>
           <h1
-            className="text-[3.7vw] font-[450] text-black-100 leading-[1.15] uppercase ml-[-0.2vw] opacity-0"
+            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
             data-s1-title
           >
             {t('about.section_1_title_2')}
           </h1>
           <p
-            className="text-[0.92vw] text-black-100/60 leading-[1.8] max-w-[52vw] mt-[2%] opacity-0"
+            className="text-[1.1vw] text-black-100/75 leading-[1.85] max-w-[52vw] mt-[2.5%] opacity-0"
             data-s1-text
           >
             {t('about.section_1_text')}
           </p>
         </div>
 
-        <div className="flex flex-col items-center max-w-[75vw] mt-[6%] mx-auto">
+        <div className="flex flex-col items-center max-w-[72vw] mt-[6%] mx-auto">
           <div className="w-[75%] opacity-0" data-s1-image>
             <div className="aspect-[16/10] overflow-hidden">
               <Image
@@ -211,51 +211,51 @@ const AboutPage = () => {
                 sizes="42vw"
               />
             </div>
-            <p className="text-[0.78vw] text-black-100/60 mt-[1%]">
+            <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[1.5%]">
               {t('about.section_1_photo_label')}
             </p>
           </div>
         </div>
       </section>
 
-      <section ref={section2Ref} className="pb-[8%]">
-        <div className="max-w-[75vw] mx-auto">
+      <section ref={section2Ref} className="bg-beige-100 py-[8%] mb-[2%]">
+        <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.92vw] text-black-100/40 tracking-[0.15em] uppercase mb-[1.5%] opacity-0"
+            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
             data-s2-label
           >
             {t('about.section_2_label')}
           </p>
           <div className="max-w-[48vw]">
             <p
-              className="text-[0.92vw] text-black-100/60 leading-[1.8] mb-[8%] opacity-0"
+              className="text-[1.05vw] text-black-100/75 leading-[1.85] mb-[8%] opacity-0"
               data-s2-text
             >
               {t('about.section_2_text_1')}
             </p>
             <p
-              className="text-[0.95vw] font-[500] text-black-100 leading-[1.8] mb-[2%] opacity-0"
+              className="text-[1.1vw] font-[500] text-black-100 leading-[1.8] mb-[2%] opacity-0"
               data-s2-text
             >
               {t('about.section_2_title')}
             </p>
             <p
-              className="text-[0.92vw] text-black-100/60 leading-[1.8] opacity-0"
+              className="text-[1.05vw] text-black-100/75 leading-[1.85] opacity-0"
               data-s2-text
             >
               {t('about.section_2_text_2')}
             </p>
           </div>
           <p
-            className="text-[0.72vw] text-black-100/40 tracking-[0.18em] uppercase mt-[6%] opacity-0"
+            className="text-[0.82vw] font-[500] text-black-100/60 tracking-[0.18em] uppercase mt-[6%] opacity-0"
             data-s2-text
           >
             {t('about.section_2_text_3')}
           </p>
         </div>
 
-        <div className="max-w-[75vw] mx-auto mt-[4%]">
-          <div className="grid grid-cols-2 gap-[1.5vw]">
+        <div className="max-w-[72vw] mx-auto mt-[5%]">
+          <div className="grid grid-cols-2 gap-[2vw]">
             <div data-s2-portrait>
               <div className="aspect-[3/4] overflow-hidden">
                 <Image
@@ -267,7 +267,7 @@ const AboutPage = () => {
                   sizes="38vw"
                 />
               </div>
-              <p className="text-[0.78vw] text-black-100/60 mt-[2%]">
+              <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[2%]">
                 {t('about.section_2_photo_label_1')}
               </p>
             </div>
@@ -286,7 +286,7 @@ const AboutPage = () => {
                   sizes="38vw"
                 />
               </div>
-              <p className="text-[0.78vw] text-black-100/60 mt-[2%]">
+              <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[2%]">
                 {t('about.section_2_photo_label_2')}
               </p>
             </div>

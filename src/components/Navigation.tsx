@@ -13,25 +13,28 @@ const Navigation = () => {
   const t = useTranslations()
   const pathname = usePathname()
 
-  const isHome = pathname === '/'
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   return (
-    <div className="relative flex items-center justify-between py-[1.6%] px-[2.2vw]">
-      <Link href="/" className="w-[2vw]" data-logo>
+    <div className="relative flex items-center justify-between py-[1.4vw] px-[2.2vw]">
+      <Link href="/" className="w-[2.2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>
 
       <nav
-        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-[2vw]"
+        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-[1.8vw]"
         data-nav
       >
         {NAV_ITEMS.map(({ href, key }) => (
           <Link
             key={key}
             href={href}
-            className="group relative overflow-hidden inline-block text-[0.86vw] leading-[1.6] text-white-100"
+            className="group relative overflow-hidden inline-block text-[0.92vw] font-[450] leading-[1.6] text-white-100 tracking-[0.03em]"
             data-menu-item
-            data-active={!isHome && pathname.startsWith(href) ? '' : undefined}
+            data-active={isActive(href) ? '' : undefined}
           >
             <span className="block bg-white-100 text-clip-fix transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
               {t(`nav.${key}`)}

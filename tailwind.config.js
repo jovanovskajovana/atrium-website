@@ -19,6 +19,8 @@ module.exports = {
       xxl: '1900px',
     },
     colors: {
+      transparent: 'transparent',
+      current: 'currentColor',
       white: {
         100: '#ffffff',
       },
@@ -26,14 +28,19 @@ module.exports = {
         100: '#26251e',
       },
       beige: {
-        // 100: '#ebeee9',
-        100: '#f7f7f4',
+        50: '#fafaf7',
+        100: '#f1efe9',
+        200: '#e8e4db',
       },
       brown: {
+        50: '#f5ebe6',
         100: '#914528',
+        200: '#7a3a22',
       },
       sand: {
+        50: '#e8dfd4',
         100: '#c3b6a3',
+        200: '#a89a86',
       },
     },
     extend: {},

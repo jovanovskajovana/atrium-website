@@ -85,23 +85,23 @@ const Footer = () => {
       <AtriumLogoMark className="pointer-events-none absolute left-[50%] inset-y-[-2%] h-[104%] w-auto z-0" />
 
       <section
-        className="relative text-center py-[10%] px-[2.2vw] z-10"
+        className="relative text-center py-[12%] px-[2.2vw] z-10"
         data-footer-cta
       >
         <h2
-          className="text-[2.8vw] font-[450] text-white-100 leading-[1.2] uppercase"
+          className="text-[3.2vw] font-[500] text-white-100 leading-[1.15] uppercase"
           data-footer-cta-item
         >
           {t('footer.cta_title')}
         </h2>
         <p
-          className="text-[1.2vw] font-[350] text-white-100/65 leading-[1.8] max-w-[38vw] mx-auto mt-[2%]"
+          className="text-[1.3vw] font-[400] text-white-100/70 leading-[1.8] max-w-[42vw] mx-auto mt-[2.5%]"
           data-footer-cta-item
         >
           {t('footer.cta_text')}
         </p>
         <div
-          className="flex justify-center gap-[1.5vw] mt-[4%]"
+          className="flex justify-center gap-[1.8vw] mt-[5%]"
           data-footer-cta-item
         >
           <Button variant="light">{t('footer.cta_button_1')}</Button>
@@ -117,67 +117,67 @@ const Footer = () => {
           <div data-footer-item>
             <Link href="/">
               <AtriumLogoFull
-                className="w-[13vw] h-auto"
+                className="w-[14vw] h-auto"
                 fillColor="rgba(255,255,255,0.96)"
               />
             </Link>
-            <p className="text-[0.78vw] text-white-100/45 leading-[1.6] tracking-[0.04em] max-w-[19vw] mt-[4%]">
+            <p className="text-[0.85vw] text-white-100/55 leading-[1.7] tracking-[0.04em] max-w-[20vw] mt-[4%]">
               {t('footer.quote')}
             </p>
           </div>
 
           <div className="grid grid-cols-[1.2fr_0.8fr_0.8fr] gap-[5.5vw]">
-            <div className="space-y-[2.2vw]" data-footer-item>
+            <div className="space-y-[2.4vw]" data-footer-item>
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.contact_title')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.contact_email')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.contact_phone')}
                 </p>
               </div>
 
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.address_title')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.address_line_1')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.address_line_2')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.address_line_3')}
                 </p>
               </div>
 
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.showroom_title')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.showroom_line_1')}
                 </p>
-                <p className="text-[0.84vw] leading-[1.75] text-white-100/65">
+                <p className="text-[0.92vw] leading-[1.75] text-white-100/70">
                   {t('footer.showroom_line_2')}
                 </p>
               </div>
             </div>
 
-            <div className="space-y-[2.2vw]" data-footer-item>
+            <div className="space-y-[2.4vw]" data-footer-item>
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.navigation_title')}
                 </p>
-                <ul>
+                <ul className="space-y-[0.2vw]">
                   <li>
                     <Link
                       href="/"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.home_label')}
                     </Link>
@@ -185,7 +185,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/references"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_references')}
                     </Link>
@@ -193,7 +193,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/production"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_production')}
                     </Link>
@@ -201,7 +201,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/news"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_news')}
                     </Link>
@@ -209,7 +209,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/careers"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_careers')}
                     </Link>
@@ -217,7 +217,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/about"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_about')}
                     </Link>
@@ -225,7 +225,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/contact"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.nav_contact')}
                     </Link>
@@ -234,14 +234,14 @@ const Footer = () => {
               </div>
 
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.legal_title')}
                 </p>
-                <ul>
+                <ul className="space-y-[0.2vw]">
                   <li>
                     <Link
                       href="/privacy-policy"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.privacy_notice_label')}
                     </Link>
@@ -249,7 +249,7 @@ const Footer = () => {
                   <li>
                     <Link
                       href="/terms-of-use"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.terms_of_use_label')}
                     </Link>
@@ -258,25 +258,25 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="space-y-[2.2vw]" data-footer-item>
+            <div className="space-y-[2.4vw]" data-footer-item>
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.language_title')}
                 </p>
                 <LanguageSwitcher variant="list" />
               </div>
 
               <div>
-                <p className="text-[0.72vw] lowercase tracking-[0.13em] text-white-100/35 mb-[0.8vw]">
+                <p className="text-[0.78vw] font-[500] lowercase tracking-[0.13em] text-white-100/60 mb-[0.8vw]">
                   {t('footer.follow_title')}
                 </p>
-                <ul>
+                <ul className="space-y-[0.2vw]">
                   <li>
                     <a
                       href={t('footer.instagram_url')}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.instagram_label')}
                     </a>
@@ -286,7 +286,7 @@ const Footer = () => {
                       href={t('footer.linkedin_url')}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-[0.84vw] lowercase text-white-100/65 hover:text-white-100 transition-colors"
+                      className="text-[0.92vw] lowercase text-white-100/70 hover:text-white-100 transition-colors"
                     >
                       {t('footer.linkedin_label')}
                     </a>
@@ -298,10 +298,10 @@ const Footer = () => {
         </div>
 
         <div
-          className="border-t border-white-100/10 py-[1.5%] px-[2.2vw]"
+          className="border-t border-white-100/10 py-[1.8%] px-[2.2vw]"
           data-footer-item
         >
-          <p className="text-[0.74vw] text-white-100/45">
+          <p className="text-[0.82vw] text-white-100/50">
             &copy; {new Date().getFullYear()} Atrium d.o.o. {t('footer.rights')}
           </p>
         </div>

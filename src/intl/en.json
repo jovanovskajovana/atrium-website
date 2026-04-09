@@ -1,5 +1,6 @@
 {
   "nav": {
+    "home": "home",
     "references": "references",
     "production": "production",
     "news": "news",
