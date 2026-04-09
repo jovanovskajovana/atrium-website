@@ -271,7 +271,7 @@ const CareersPage = () => {
                     pathname: '/careers/[slug]',
                     params: { slug: listing.slug },
                   }}
-                  className="flex flex-row items-baseline justify-between gap-[1.2vw] py-[2.4vw] px-[1vw] transition-[background-color] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-black-100"
+                  className="flex flex-row items-baseline justify-between gap-[1.2vw] py-[2.4vw] px-0 transition-[background-color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-black-100 hover:px-[1vw]"
                 >
                   <div className="flex flex-wrap items-baseline gap-x-[1.2vw] gap-y-[0.4vw]">
                     <span className="text-[1.25vw] font-[450] text-black-100 uppercase tracking-[0.03em] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
