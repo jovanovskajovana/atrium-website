@@ -32,14 +32,14 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="group relative overflow-hidden inline-block text-[0.92vw] font-[450] leading-[1.6] text-white-100 tracking-[0.03em]"
+            className="group relative overflow-hidden inline-block text-[0.92vw] font-[450] leading-[1.6] text-black-100 tracking-[0.03em]"
             data-menu-item
             data-active={isActive(href) ? '' : undefined}
           >
-            <span className="block bg-white-100 text-clip-fix transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+            <span className="block transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
               {t(`nav.${key}`)}
             </span>
-            <span className="absolute left-0 top-full bg-white-100 text-clip-fix transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
+            <span className="absolute left-0 top-full transition-transform duration-500 ease-in-out group-hover:-translate-y-full">
               {t(`nav.${key}`)}
             </span>
           </Link>
