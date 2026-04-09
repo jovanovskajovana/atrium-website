@@ -555,7 +555,7 @@ const Home = () => {
   return (
     <main className="relative overflow-x-hidden">
       <div
-        className="absolute top-[16.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
+        className="absolute top-[15.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none"
         data-hero-tagline
       >
         <h1 className="text-[3vw] font-[500] text-black-100 leading-[1.12] uppercase mb-[0.4em]">
