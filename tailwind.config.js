@@ -8,6 +8,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['var(--font-montserrat)', 'system-ui', 'sans-serif'],
+      signature: ['var(--font-signature)', 'cursive'],
     },
     screens: {
       xs: '360px',

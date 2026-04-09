@@ -296,18 +296,18 @@ const AboutPage = () => {
 
       <section ref={section3Ref} className="pb-[10%]">
         <div className="flex justify-center max-w-[75vw] mx-auto">
-          <div
-            className="w-[25vw] aspect-[3/1] overflow-hidden"
-            data-s3-signature
-          >
-            <Image
+          <div className="w-[25vw]" data-s3-signature>
+            {/* <Image
               src="/assets/about-img-4.webp"
               alt={t('about.section_3_signature')}
               width={634}
               height={194}
               className="w-full"
               sizes="30vw"
-            />
+            /> */}
+            <p className="font-signature text-[4vw] text-black-100 leading-[1.15] text-center">
+              {t('about.section_3_signature_text')}
+            </p>
           </div>
         </div>
       </section>

@@ -1,5 +1,5 @@
 import { FC, ReactNode } from 'react'
-import { Montserrat } from 'next/font/google'
+import { Montserrat, Caveat } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { getMessages } from 'next-intl/server'
@@ -17,6 +17,12 @@ import '@/styles/globals.css'
 const montserrat = Montserrat({
   subsets: ['latin', 'latin-ext'],
   variable: '--font-montserrat',
+  display: 'swap',
+})
+
+const caveat = Caveat({
+  subsets: ['latin', 'latin-ext'],
+  variable: '--font-signature',
   display: 'swap',
 })
 
@@ -47,7 +53,7 @@ const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`lenis ${montserrat.variable}`}>
+    <html lang={locale} className={`lenis ${montserrat.variable} ${caveat.variable}`}>
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LenisProvider>
