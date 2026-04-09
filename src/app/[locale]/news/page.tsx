@@ -143,7 +143,7 @@ const NewsPage = () => {
                         pathname: '/news/[slug]',
                         params: { slug: article.slug },
                       }}
-                      className="group/news grid grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] gap-[2vw] items-start w-full py-[2vw] opacity-0 px-[1vw] transition-[background-color] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100"
+                      className="group/news grid grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] gap-[2vw] items-start w-full py-[2vw] opacity-0 px-0 transition-[background-color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 hover:px-[1vw]"
                     >
                       <span
                         className="text-[3.4vw] text-brown-100/20 font-[300] leading-none mt-[-2%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/35"
