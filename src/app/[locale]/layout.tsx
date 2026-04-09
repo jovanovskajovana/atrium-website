@@ -53,7 +53,10 @@ const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`lenis ${montserrat.variable} ${caveat.variable}`}>
+    <html
+      lang={locale}
+      className={`lenis ${montserrat.variable} ${caveat.variable}`}
+    >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <LenisProvider>
