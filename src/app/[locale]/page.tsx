@@ -2,10 +2,11 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { Link } from '@/i18n/navigation'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTranslations } from 'next-intl'
+
+import { Link } from '@/i18n/navigation'
 
 import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'

@@ -29,7 +29,7 @@
  * Custom component styles
  */
 @layer components {
-  /* Navigation hover effect — uses color alpha instead of opacity to avoid anti-aliasing weight shifts */
+  /* Navigation hover effect */
   [data-nav]:has([data-active]) [data-menu-item]:not([data-active]) {
     color: rgba(38, 37, 30, 0.4);
   }

@@ -6,7 +6,7 @@ const NotFound = () => {
   return (
     <main>
       <h1>404</h1>
-      <p>{t('not_found.not_found')}</p>
+      <p>{t('not_found.title')}</p>
     </main>
   )
 }
