@@ -174,7 +174,7 @@ const NewsPage = () => {
 
                       <time
                         dateTime={article.date}
-                        className="text-[0.82vw] font-[450] text-black-100/50 tracking-[0.1em] pt-[4%] text-right transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/50"
+                        className="text-[0.82vw] font-[450] text-black-100/50 tracking-[0.1em] pt-[4%] text-right whitespace-nowrap transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/50"
                       >
                         {formattedDate}
                       </time>

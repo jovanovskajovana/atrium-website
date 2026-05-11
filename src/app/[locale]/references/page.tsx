@@ -192,7 +192,7 @@ const ReferencesPage = () => {
     <main className="overflow-x-hidden">
       <section
         ref={section1Ref}
-        className="flex flex-col pt-[18.5vh] pb-[10%] px-[2.2vw]"
+        className="flex flex-col pt-[18.5vh] pb-[10%] px-[1.5vw]"
       >
         {gridMode === 'two' ? (
           <div className="relative w-full">

@@ -19,7 +19,7 @@ const Navigation = () => {
   }
 
   return (
-    <div className="relative flex items-center justify-between py-[1.4vw] px-[2.2vw]">
+    <div className="relative flex items-center justify-between py-[1.3%] px-[1.5vw]">
       <Link href="/" className="w-[2.2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>

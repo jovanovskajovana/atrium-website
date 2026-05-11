@@ -255,7 +255,7 @@ const AboutPage = () => {
         </div>
 
         <div className="max-w-[72vw] mx-auto mt-[5%]">
-          <div className="grid grid-cols-2 gap-[2vw]">
+          <div className="grid grid-cols-2 gap-[1.5vw]">
             <div data-s2-portrait>
               <div className="aspect-[3/4] overflow-hidden">
                 <Image

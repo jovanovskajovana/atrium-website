@@ -85,7 +85,7 @@ const Footer = () => {
       <AtriumLogoMark className="pointer-events-none absolute left-[50%] inset-y-[-2%] h-[104%] w-auto z-0" />
 
       <section
-        className="relative text-center py-[12%] px-[2.2vw] z-10"
+        className="relative text-center py-[12%] px-[1.5vw] z-10"
         data-footer-cta
       >
         <h2
@@ -101,7 +101,7 @@ const Footer = () => {
           {t('footer.cta_text')}
         </p>
         <div
-          className="flex justify-center gap-[1.8vw] mt-[5%]"
+          className="flex justify-center gap-[1.5vw] mt-[5%]"
           data-footer-cta-item
         >
           <Button variant="light">{t('footer.cta_button_1')}</Button>
@@ -113,7 +113,7 @@ const Footer = () => {
         className="relative border-t border-white-100/15 z-10"
         data-footer-content
       >
-        <div className="grid grid-cols-[1.2fr_2fr] gap-[5.5vw] py-[4%] px-[2.2vw]">
+        <div className="grid grid-cols-[1.2fr_2fr] gap-[5.5vw] py-[4%] px-[1.5vw]">
           <div data-footer-item>
             <Link href="/">
               <AtriumLogoFull
@@ -298,7 +298,7 @@ const Footer = () => {
         </div>
 
         <div
-          className="border-t border-white-100/10 py-[1.8%] px-[2.2vw]"
+          className="border-t border-white-100/10 py-[1.8%] px-[1.5vw]"
           data-footer-item
         >
           <p className="text-[0.82vw] text-white-100/50">

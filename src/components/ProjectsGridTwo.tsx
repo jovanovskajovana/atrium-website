@@ -56,7 +56,7 @@ export const ProjectsGridTwo = ({
             return (
               <div
                 key={`two-${rowIdx}`}
-                className="flex items-center gap-[2.2vw] mb-[6%] last:mb-0"
+                className="flex items-center gap-[1.7vw] mb-[6%] last:mb-0"
                 data-ref-row
               >
                 <ProjectCard
@@ -82,7 +82,7 @@ export const ProjectsGridTwo = ({
             return (
               <div
                 key={`two-${rowIdx}`}
-                className="flex items-center justify-end gap-[2.2vw] mb-[6%] last:mb-0"
+                className="flex items-center justify-end gap-[1.7vw] mb-[6%] last:mb-0"
                 data-ref-row
               >
                 {row.items[0] !== undefined && (

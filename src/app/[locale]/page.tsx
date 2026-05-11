@@ -574,7 +574,7 @@ const Home = () => {
         className={`relative h-screen w-full ${showIntro ? 'invisible' : 'visible'}`}
       >
         <div
-          className="absolute bottom-0 left-[34.57vw] w-[30.87vw] aspect-square overflow-hidden"
+          className="absolute bottom-0 left-[34.333vw] w-[31.333vw] aspect-square overflow-hidden"
           data-collage-bg
         >
           <Image
@@ -662,7 +662,7 @@ const Home = () => {
         </div>
 
         <div
-          className="flex justify-center gap-[1.8vw] mt-[8%] mb-[12%]"
+          className="flex justify-center gap-[1.5vw] mt-[8%] mb-[12%]"
           data-s2-cta-row
         >
           <Link href="/references">
@@ -693,7 +693,7 @@ const Home = () => {
         >
           {t('home.section_4_label')}
         </p>
-        <div className="flex items-center justify-center gap-[1.8vw]">
+        <div className="flex items-center justify-center gap-[1.5vw]">
           {FEATURED_PROJECTS.map((project, i) => {
             const isLarge = i % 2 === 0
             const w = isLarge ? '25vw' : '20vw'
@@ -783,7 +783,7 @@ const Home = () => {
 
       <section
         ref={section6Ref}
-        className="bg-black-100 py-[10%] mb-[12%] mx-[2.2vw]"
+        className="bg-black-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
         <div className="max-w-[72vw] mx-auto">
           <p
@@ -828,7 +828,7 @@ const Home = () => {
           </p>
 
           <div
-            className="grid grid-cols-2 gap-[2vw] mt-[5%]"
+            className="grid grid-cols-2 gap-[1.5vw] mt-[5%]"
             data-design-options
           >
             <Link href="/design-your-space" className="group block">
@@ -868,7 +868,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 gap-[2vw] mt-[6%]" data-design-btn>
+          <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-design-btn>
             <div className="flex justify-end">
               <Link href="/design-your-space">
                 <Button>{t('home.section_7_cta_1')}</Button>

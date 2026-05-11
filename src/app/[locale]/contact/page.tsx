@@ -267,7 +267,7 @@ const ContactPage = () => {
             </div>
           </div>
 
-          <div className="flex gap-[1.8vw] mt-[7%]">
+          <div className="flex gap-[1.5vw] mt-[7%]">
             <a
               href="#"
               className="group relative inline-flex items-center justify-center text-[0.88vw] font-[500] tracking-[0.04em] border border-black-100 h-[3.6vw] px-[2vw] overflow-hidden opacity-0"

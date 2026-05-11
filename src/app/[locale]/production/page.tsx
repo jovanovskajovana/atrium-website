@@ -38,7 +38,7 @@ const ProductionPage = () => {
       }
 
       if (video) {
-        gsap.set(video, { scale: 0.956, y: 30, autoAlpha: 0 })
+        gsap.set(video, { scale: 0.97, y: 30, autoAlpha: 0 })
 
         gsap.to(video, {
           y: 0,
@@ -561,7 +561,7 @@ const ProductionPage = () => {
             {t('production.section_2_text')}
           </p>
         </div>
-        <div className="flex justify-center gap-[1.8vw] mt-[8%]" data-s2-btns>
+        <div className="flex justify-center gap-[1.5vw] mt-[8%]" data-s2-btns>
           <Button>{t('production.section_2_cta_1')}</Button>
           <Button>{t('production.section_2_cta_2')}</Button>
         </div>
@@ -598,7 +598,7 @@ const ProductionPage = () => {
         </div>
 
         <div
-          className="grid grid-cols-4 gap-[1.2vw] max-w-[72vw] mx-auto"
+          className="grid grid-cols-4 gap-[1.5vw] max-w-[72vw] mx-auto"
           data-s3-grid
         >
           {[
@@ -718,7 +718,7 @@ const ProductionPage = () => {
       <section
         ref={section7Ref}
         id="oem-services"
-        className="bg-black-100 py-[10%] mx-[2.2vw] mb-[12%]"
+        className="bg-black-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
         <div className="max-w-[72vw] mx-auto">
           <h2
@@ -763,7 +763,7 @@ const ProductionPage = () => {
                 <p className="text-[1.3vw] font-[400] text-white-100/50">
                   {t('production.section_7_delivery')}
                 </p>
-                <div className="flex gap-[1.8vw] mt-[6%] mb-[2%]">
+                <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
                   <Link href="/references">
                     <Button variant="light">
                       {t('production.section_8_cta_1')}
@@ -823,7 +823,7 @@ const ProductionPage = () => {
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-2 gap-[2vw] mt-[7%]" data-int-images>
+          <div className="grid grid-cols-2 gap-[1.5vw] mt-[7%]" data-int-images>
             <div className="overflow-hidden aspect-[3/4]">
               <Image
                 src="/assets/img-23.webp"
@@ -850,7 +850,7 @@ const ProductionPage = () => {
             <p className="text-[1.05vw] text-black-100/70 leading-[2] mt-[1.8%]">
               {t('production.section_8_industries_list')}
             </p>
-            <div className="flex gap-[1.8vw] mt-[4%]">
+            <div className="flex gap-[1.5vw] mt-[4%]">
               <Link href="/references">
                 <Button>{t('production.section_8_cta_1')}</Button>
               </Link>
