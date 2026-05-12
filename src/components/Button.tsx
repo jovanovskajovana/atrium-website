@@ -2,14 +2,18 @@ import React, { FC } from 'react'
 
 import { BUTTON_STYLES, BUTTON_SIZES } from '@/constants/button'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   children: React.ReactNode
+  as?: React.ElementType
   variant?: keyof typeof BUTTON_STYLES
   size?: keyof typeof BUTTON_SIZES
+  className?: string
+  [key: string]: any
 }
 
 const Button: FC<ButtonProps> = ({
   children,
+  as: Component = 'button',
   variant = 'dark',
   size = 'default',
   className = '',
@@ -19,8 +23,8 @@ const Button: FC<ButtonProps> = ({
   const height = BUTTON_SIZES[size]
 
   return (
-    <button
-      className={`group relative text-[0.86vw] font-[500] tracking-[0.04em] border ${style.border} ${height} px-[1.6vw] overflow-hidden ${className}`}
+    <Component
+      className={`group relative inline-flex items-center justify-center text-[0.92vw] font-[500] tracking-[0.04em] border ${style.border} ${height} px-[1.6vw] overflow-hidden ${className}`}
       {...rest}
     >
       <span
@@ -31,7 +35,7 @@ const Button: FC<ButtonProps> = ({
       >
         {children}
       </span>
-    </button>
+    </Component>
   )
 }
 

@@ -5,7 +5,10 @@ import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import Button from '@/components/Button'
+
 import { COMPANY, TEAM_CONTACTS } from '@/constants/contacts'
+
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -192,15 +195,7 @@ const ContactPage = () => {
             </div>
 
             <div className="mt-[3vw] flex justify-end">
-              <button
-                type="button"
-                className="group relative inline-flex items-center justify-center text-[0.86vw] font-[500] tracking-[0.04em] border border-black-100 h-[3.6vw] px-[2vw] overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
-                <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
-                  {t('contact.form_submit')}
-                </span>
-              </button>
+              <Button type="button">{t('contact.form_submit')}</Button>
             </div>
           </form>
 
@@ -268,26 +263,12 @@ const ContactPage = () => {
           </div>
 
           <div className="flex gap-[1.5vw] mt-[7%]">
-            <a
-              href="#"
-              className="group relative inline-flex items-center justify-center text-[0.86vw] font-[500] tracking-[0.04em] border border-black-100 h-[3.6vw] px-[2vw] overflow-hidden opacity-0"
-              data-s1-cta
-            >
-              <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
-              <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
-                {t('contact.book_meeting')}
-              </span>
-            </a>
-            <a
-              href="#"
-              className="group relative inline-flex items-center justify-center text-[0.86vw] font-[500] tracking-[0.04em] border border-black-100 h-[3.6vw] px-[2vw] overflow-hidden opacity-0"
-              data-s1-cta
-            >
-              <span className="absolute inset-0 bg-black-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
-              <span className="relative text-black-100 transition-colors duration-500 ease-in-out group-hover:text-white-100">
-                {t('contact.visit_showroom')}
-              </span>
-            </a>
+            <Button as="a" href="#" data-s1-cta>
+              {t('contact.book_meeting')}
+            </Button>
+            <Button as="a" href="#" data-s1-cta>
+              {t('contact.visit_showroom')}
+            </Button>
           </div>
         </div>
       </section>

@@ -85,7 +85,7 @@ const CookieBanner = () => {
       </p>
       <button
         onClick={() => dismiss('denied')}
-        className="text-[0.86vw] font-[450] text-white-100 underline hover:opacity-80 transition-opacity"
+        className="text-[0.86vw] font-[450] text-white-100 underline underline-offset-2 hover:opacity-80 transition-opacity"
       >
         {t('cookie_banner.deny')}
       </button>

@@ -253,7 +253,7 @@
     "section_5_title": "Pripravljeni za pridružitev ekipi",
     "section_5_text_1": "Pošljite življenjepis, portfelj ali nekaj vrstic o delu, na katerega ste ponosni.",
     "section_5_text_2": "Vsako prijavo natančno pregledamo.",
-    "section_5_cta": "Kontaktirajte nas",
+    "section_5_cta": "kontaktirajte nas",
     "listings": {
       "back_to_careers": "Nazaj na zaposlitev",
       "apply_title": "Prijavi se na delovno mesto",
@@ -420,8 +420,8 @@
     "section_1_email_label": "Povpraševanja",
     "section_1_address_label": "Naslov",
     "section_1_follow_label": "Spremljajte nas",
-    "book_meeting": "Rezervirajte sestanek",
-    "visit_showroom": "Obiščite razstavni prostor",
+    "book_meeting": "rezervirajte sestanek",
+    "visit_showroom": "obiščite razstavni prostor",
     "section_2_label": "Naša ekipa",
     "dept_director": "Direktor",
     "dept_ceo": "Izvršni direktor / CEO",
@@ -438,7 +438,7 @@
     "form_company": "Podjetje (neobvezno)",
     "form_subject": "Zadeva",
     "form_message": "Sporočilo",
-    "form_submit": "Pošlji sporočilo"
+    "form_submit": "pošlji sporočilo"
   },
   "privacy_policy": {
     "title": "Politika zasebnosti"

@@ -665,13 +665,13 @@ const Home = () => {
           className="flex justify-center gap-[1.5vw] mt-[8%] mb-[12%]"
           data-s2-cta-row
         >
-          <Link href="/references">
-            <Button>{t('home.section_2_cta_1')}</Button>
-          </Link>
+          <Button as={Link} href="/references">
+            {t('home.section_2_cta_1')}
+          </Button>
           <Button>{t('home.section_2_cta_2')}</Button>
-          <Link href="/production">
-            <Button>{t('home.section_2_cta_3')}</Button>
-          </Link>
+          <Button as={Link} href="/production">
+            {t('home.section_2_cta_3')}
+          </Button>
         </div>
       </section>
 
@@ -737,7 +737,7 @@ const Home = () => {
         <div className="flex justify-center mt-[6%]" data-project-link>
           <Link
             href="/references"
-            className="text-[1vw] font-[500] text-black-100 underline hover:opacity-80 transition-opacity"
+            className="text-[1vw] font-[500] text-black-100 underline underline-offset-2 hover:opacity-80 transition-opacity"
           >
             {t('home.section_4_cta')}
           </Link>
@@ -805,9 +805,9 @@ const Home = () => {
             {t('home.section_6_text')}
           </p>
           <div className="mt-[5%]" data-production-btn>
-            <Link href="/production">
-              <Button variant="light">{t('home.section_6_cta')}</Button>
-            </Link>
+            <Button as={Link} href="/production" variant="light">
+              {t('home.section_6_cta')}
+            </Button>
           </div>
         </div>
       </section>
@@ -870,14 +870,14 @@ const Home = () => {
 
           <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-design-btn>
             <div className="flex justify-end">
-              <Link href="/design-your-space">
-                <Button>{t('home.section_7_cta_1')}</Button>
-              </Link>
+              <Button as={Link} href="/design-your-space">
+                {t('home.section_7_cta_1')}
+              </Button>
             </div>
             <div>
-              <Link href="/design-your-space">
-                <Button>{t('home.section_7_cta_2')}</Button>
-              </Link>
+              <Button as={Link} href="/design-your-space">
+                {t('home.section_7_cta_2')}
+              </Button>
             </div>
           </div>
         </div>

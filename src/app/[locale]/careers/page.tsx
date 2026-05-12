@@ -5,6 +5,8 @@ import { useTranslations } from 'next-intl'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+import Button from '@/components/Button'
+
 import { JOB_LISTINGS } from '@/constants/careers'
 
 import { Link } from '@/i18n/navigation'
@@ -321,15 +323,9 @@ const CareersPage = () => {
               {t('careers.section_5_text_2')}
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="group relative inline-flex items-center justify-center text-[0.86vw] font-[500] tracking-[0.04em] border border-white-100 h-[3.6vw] px-[1.6vw] overflow-hidden shrink-0"
-          >
-            <span className="absolute inset-0 bg-white-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
-            <span className="relative text-white-100 transition-colors duration-500 ease-in-out group-hover:text-black-100">
-              {t('careers.section_5_cta')}
-            </span>
-          </Link>
+          <Button as={Link} href="/contact" variant="light">
+            {t('careers.section_5_cta')}
+          </Button>
         </div>
       </section>
     </main>

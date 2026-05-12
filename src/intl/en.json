@@ -253,7 +253,7 @@
     "section_5_title": "Ready to join the team",
     "section_5_text_1": "Send your CV, portfolio, or a few lines about the work you are proud of.",
     "section_5_text_2": "We review every application.",
-    "section_5_cta": "Contact us",
+    "section_5_cta": "contact us",
     "listings": {
       "back_to_careers": "Back to careers",
       "apply_title": "Apply for this position",
@@ -420,8 +420,8 @@
     "section_1_email_label": "Enquiries",
     "section_1_address_label": "Address",
     "section_1_follow_label": "Follow us",
-    "book_meeting": "Book a meeting",
-    "visit_showroom": "Visit showroom",
+    "book_meeting": "book a meeting",
+    "visit_showroom": "visit showroom",
     "section_2_label": "Our team",
     "dept_director": "Director",
     "dept_ceo": "CEO",
@@ -438,7 +438,7 @@
     "form_company": "Company (optional)",
     "form_subject": "Subject",
     "form_message": "Message",
-    "form_submit": "Send message"
+    "form_submit": "send message"
   },
   "privacy_policy": {
     "title": "Privacy Notice"

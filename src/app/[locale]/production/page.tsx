@@ -764,11 +764,9 @@ const ProductionPage = () => {
                   {t('production.section_7_delivery')}
                 </p>
                 <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
-                  <Link href="/references">
-                    <Button variant="light">
-                      {t('production.section_8_cta_1')}
-                    </Button>
-                  </Link>
+                  <Button as={Link} href="/references" variant="light">
+                    {t('production.section_8_cta_1')}
+                  </Button>
                   <Button variant="light">
                     {t('production.section_8_cta_2')}
                   </Button>
@@ -851,9 +849,7 @@ const ProductionPage = () => {
               {t('production.section_8_industries_list')}
             </p>
             <div className="flex gap-[1.5vw] mt-[4%]">
-              <Link href="/references">
-                <Button>{t('production.section_8_cta_1')}</Button>
-              </Link>
+              <Button as={Link} href="/references">{t('production.section_8_cta_1')}</Button>
               <Button>{t('production.section_8_cta_2')}</Button>
             </div>
           </div>
