@@ -174,7 +174,7 @@ const AboutPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('about.section_1_label')}
@@ -211,7 +211,7 @@ const AboutPage = () => {
                 sizes="42vw"
               />
             </div>
-            <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[1.5%]">
+            <p className="text-[0.86vw] font-[450] text-black-100/60 mt-[1.5%]">
               {t('about.section_1_photo_label')}
             </p>
           </div>
@@ -221,7 +221,7 @@ const AboutPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[8%]">
         <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s2-label
           >
             {t('about.section_2_label')}
@@ -267,7 +267,7 @@ const AboutPage = () => {
                   sizes="38vw"
                 />
               </div>
-              <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[2%]">
+              <p className="text-[0.86vw] font-[450] text-black-100/60 mt-[2%]">
                 {t('about.section_2_photo_label_1')}
               </p>
             </div>
@@ -286,7 +286,7 @@ const AboutPage = () => {
                   sizes="38vw"
                 />
               </div>
-              <p className="text-[0.88vw] font-[450] text-black-100/60 mt-[2%]">
+              <p className="text-[0.86vw] font-[450] text-black-100/60 mt-[2%]">
                 {t('about.section_2_photo_label_2')}
               </p>
             </div>

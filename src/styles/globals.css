@@ -31,11 +31,11 @@
 @layer components {
   /* Navigation hover effect */
   [data-nav]:has([data-active]) [data-menu-item]:not([data-active]) {
-    color: rgba(38, 37, 30, 0.4);
+    color: rgba(38, 37, 30, 0.6);
   }
 
   [data-nav]:hover [data-menu-item]:not([data-active]):not(:hover) {
-    color: rgba(38, 37, 30, 0.4) !important;
+    color: rgba(38, 37, 30, 0.6) !important;
   }
 
   [data-nav]:hover [data-menu-item]:hover,
@@ -44,7 +44,7 @@
   }
 
   [data-menu-item][data-active] {
-    font-weight: 500;
+    font-weight: 550;
   }
 
   body:not([data-animating]) [data-menu-item] {

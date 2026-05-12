@@ -528,7 +528,7 @@ const ProductionPage = () => {
           <br />
           {t('production.section_1_title_2')}
         </h1>
-        <p className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase">
+        <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase">
           {t('production.section_1_label')}
         </p>
       </div>
@@ -615,7 +615,7 @@ const ProductionPage = () => {
               <p className="text-[3.4vw] font-[500] text-black-100 leading-[1.2] tracking-[-0.02em]">
                 {value}
               </p>
-              <p className="text-[0.88vw] font-[500] text-black-100/50 tracking-[0.1em] uppercase mt-[0.5vw]">
+              <p className="text-[0.86vw] font-[500] text-black-100/50 tracking-[0.1em] uppercase mt-[0.5vw]">
                 {t(`production.section_3_stat_${key}_label`)}
               </p>
             </div>
@@ -681,7 +681,7 @@ const ProductionPage = () => {
       <section ref={section6Ref} className="mb-[12%]">
         <div className="max-w-[72vw] mx-auto invisible" data-s6-wrap>
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-s6-label
           >
             {t('production.section_6_label')}
@@ -692,10 +692,10 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.82vw] font-[500] text-brown-100/50 uppercase">
+              <span className="text-[0.92vw] font-[500] text-black-100/30 uppercase">
                 01
               </span>
-              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_1')}
               </h3>
             </a>
@@ -704,10 +704,10 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-right
             >
-              <span className="text-[0.82vw] font-[500] text-brown-100/50 tracking-[0.15em] uppercase">
+              <span className="text-[0.92vw] font-[500] text-black-100/30 tracking-[0.15em] uppercase">
                 02
               </span>
-              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_2')}
               </h3>
             </a>
@@ -728,7 +728,7 @@ const ProductionPage = () => {
             {t('production.section_7_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[500] text-white-100 tracking-[0.18em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[550] text-white-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-oem-label
           >
             {t('production.section_7_label')}
@@ -797,7 +797,7 @@ const ProductionPage = () => {
             {t('production.section_8_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-int-label
           >
             {t('production.section_8_label')}
@@ -811,7 +811,7 @@ const ProductionPage = () => {
           <div className="grid grid-cols-3 gap-[3.5vw] mt-[7%]">
             {[1, 2, 3].map((n) => (
               <div key={n} data-int-feature>
-                <p className="text-[2.6vw] text-brown-100/20 font-[300] leading-none mb-[6%]">
+                <p className="text-[2.6vw] text-black-100/10 font-[500] leading-none mb-[6%]">
                   {String(n).padStart(2, '0')}
                 </p>
                 <h4 className="text-[1.05vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">

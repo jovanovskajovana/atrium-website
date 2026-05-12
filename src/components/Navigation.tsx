@@ -25,7 +25,7 @@ const Navigation = () => {
       </Link>
 
       <nav
-        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-[1.8vw]"
+        className="absolute left-1/2 -translate-x-1/2 flex items-center gap-[1.5vw]"
         data-nav
       >
         {NAV_ITEMS.map(({ href, key }) => (

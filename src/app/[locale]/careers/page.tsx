@@ -171,7 +171,7 @@ const CareersPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('careers.section_1_label')}
@@ -207,7 +207,7 @@ const CareersPage = () => {
             {[1, 2, 3].map((n) => (
               <div
                 key={n}
-                className="border-l-2 border-brown-100/20 pl-[1.4vw]"
+                className="border-l-2 border-black-100/10 pl-[1.4vw]"
               >
                 <dt className="text-[0.75vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[0.5vw]">
                   {t(`careers.section_2_fact_${n}_label`)}
@@ -224,7 +224,7 @@ const CareersPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[7%] mb-[2%]">
         <div className="max-w-[72vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('careers.section_3_label')}
@@ -236,7 +236,7 @@ const CareersPage = () => {
                 className="border-l border-black-100/10 pl-[2vw] first:border-l-0 first:pl-0 opacity-0"
                 data-culture-item
               >
-                <span className="block text-[4.5vw] font-[500] text-brown-100/10 leading-none mb-[1.2vw] select-none">
+                <span className="block text-[4.5vw] font-[500] text-black-100/10 leading-none mb-[1.2vw] select-none">
                   {String(n).padStart(2, '0')}
                 </span>
                 <h3 className="text-[1.25vw] font-[500] text-black-100 uppercase tracking-[0.04em] mb-[1vw]">
@@ -255,7 +255,7 @@ const CareersPage = () => {
             className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
             data-s2-roles-header
           >
-            <p className="text-[0.95vw] font-[500] text-black-100 tracking-[0.18em] uppercase">
+            <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
             </p>
             <p className="text-[0.85vw] font-[450] text-black-100/50 max-w-[28vw] leading-[1.6] text-right">
@@ -323,7 +323,7 @@ const CareersPage = () => {
           </div>
           <Link
             href="/contact"
-            className="group relative inline-flex items-center justify-center text-[0.88vw] font-[500] tracking-[0.04em] border border-white-100 h-[3.6vw] px-[1.6vw] overflow-hidden shrink-0"
+            className="group relative inline-flex items-center justify-center text-[0.86vw] font-[500] tracking-[0.04em] border border-white-100 h-[3.6vw] px-[1.6vw] overflow-hidden shrink-0"
           >
             <span className="absolute inset-0 bg-white-100 translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0" />
             <span className="relative text-white-100 transition-colors duration-500 ease-in-out group-hover:text-black-100">
