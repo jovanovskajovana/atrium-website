@@ -528,7 +528,7 @@ const ProductionPage = () => {
           <br />
           {t('production.section_1_title_2')}
         </h1>
-        <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase">
+        <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase">
           {t('production.section_1_label')}
         </p>
       </div>
@@ -681,7 +681,7 @@ const ProductionPage = () => {
       <section ref={section6Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-s6-label
           >
             {t('production.section_6_label')}
@@ -728,7 +728,7 @@ const ProductionPage = () => {
             {t('production.section_7_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[550] text-white-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[600] text-white-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-oem-label
           >
             {t('production.section_7_label')}
@@ -795,7 +795,7 @@ const ProductionPage = () => {
             {t('production.section_8_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-int-label
           >
             {t('production.section_8_label')}

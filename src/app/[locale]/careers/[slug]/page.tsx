@@ -1,9 +1,12 @@
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
-import { Link } from '@/i18n/navigation'
-import { getJobListingBySlug } from '@/constants/careers'
+import IconArrow from '@/components/icons/icon-arrow'
 import IconLocation from '@/components/icons/icon-location'
+
+import { getJobListingBySlug } from '@/constants/careers'
+
+import { Link } from '@/i18n/navigation'
 
 interface JobListingPageProps {
   params: Promise<{ locale: string; slug: string }>
@@ -25,9 +28,10 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
         <div className="max-w-[75vw] mx-auto">
           <Link
             href="/careers"
-            className="inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 transition-colors duration-300 mb-[2.5em]"
+            className="group inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 pl-0 hover:pl-[0.75vw] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] mb-[2.5em]"
           >
-            ← {t('careers.listings.back_to_careers')}
+            <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] mr-[0.35em] rotate-[225deg] transition-transform duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-x-[0.25vw]" />
+            {t('careers.listings.back_to_careers')}
           </Link>
 
           <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase">

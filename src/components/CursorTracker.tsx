@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react'
 
-import IconArrow from '@/components/icons/icon-arrow'
+import IconArrowCursor from '@/components/icons/icon-arrow-cursor'
 
 import {
   CURSOR_TRACKER,
@@ -130,7 +130,7 @@ const CursorTracker = () => {
           className="absolute inset-0 flex items-center justify-center text-brown-100 opacity-0 scale-[0.88] pointer-events-none"
           aria-hidden="true"
         >
-          <IconArrow className="text-current" />
+          <IconArrowCursor className="text-current" />
         </span>
       </div>
     </div>

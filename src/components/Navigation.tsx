@@ -19,7 +19,7 @@ const Navigation = () => {
   }
 
   return (
-    <div className="relative flex items-center justify-between py-[1.3%] px-[1.5vw]">
+    <div className="relative flex items-center justify-between py-[1.2%] px-[1.5vw]">
       <Link href="/" className="w-[2.2vw]" data-logo>
         <AtriumLogo className="w-full h-auto" />
       </Link>
@@ -32,7 +32,7 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="group relative overflow-hidden inline-block text-[0.92vw] font-[450] leading-[1.6] text-black-100 tracking-[0.03em]"
+            className="group relative overflow-hidden inline-block text-[0.92vw] font-[500] leading-[1.6] text-black-100 tracking-[0.03em]"
             data-menu-item
             data-active={isActive(href) ? '' : undefined}
           >

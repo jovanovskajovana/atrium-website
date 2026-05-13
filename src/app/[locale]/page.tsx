@@ -564,7 +564,7 @@ const Home = () => {
           <br />
           {t('home.section_1_title_2')}
         </h1>
-        <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase">
+        <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase">
           {t('home.section_1_label')}
         </p>
       </div>
@@ -632,7 +632,7 @@ const Home = () => {
 
         <div className="max-w-[75vw] mx-auto mt-[5%]" data-text-reveal>
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%]"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%]"
             data-section-label
           >
             {t('home.section_2_label')}
@@ -649,20 +649,23 @@ const Home = () => {
           >
             {t('home.section_2_title_2')}
           </h2>
-          <div className="grid grid-cols-2 gap-[3.5vw] text-[1.05vw] text-black-100/75 leading-[1.85] mt-[4%]">
-            <p data-s2-text>{t('home.section_2_text_1')}</p>
-            <p data-s2-text>{t('home.section_2_text_2')}</p>
-          </div>
           <p
-            className="text-[1.05vw] text-black-100/75 leading-[1.85] mt-[2.5%]"
+            className="text-[2vw] text-black-100 leading-[1.5] mt-[5%]"
             data-s2-text
           >
-            {t('home.section_2_text_3')}
+            {t('home.section_2_text_1')}
           </p>
+
+          <div className="max-w-[56vw] mt-[6%] ml-[16.5vw]">
+            <div className="grid grid-cols-2 gap-[2vw] text-[1.1vw] text-black-100/70 leading-[1.85]">
+              <p data-s2-text>{t('home.section_2_text_2')}</p>
+              <p data-s2-text>{t('home.section_2_text_3')}</p>
+            </div>
+          </div>
         </div>
 
         <div
-          className="flex justify-center gap-[1.5vw] mt-[8%] mb-[12%]"
+          className="flex justify-center gap-[1.5vw] mt-[6%] mb-[12%]"
           data-s2-cta-row
         >
           <Button as={Link} href="/references">
@@ -688,7 +691,7 @@ const Home = () => {
 
       <section ref={section4Ref} className="mb-[12%]">
         <p
-          className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase text-center mb-[6%]"
+          className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase text-center mb-[6%]"
           data-section-label
         >
           {t('home.section_4_label')}
@@ -726,7 +729,7 @@ const Home = () => {
                 <p className="text-[1vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[1em]">
                   {t(`home.section_4_project_${i + 1}`)}
                 </p>
-                <p className="text-[0.82vw] font-[450] text-black-100/60 uppercase mt-[1%]">
+                <p className="text-[0.82vw] font-[500] text-black-100/60 uppercase mt-[1%]">
                   {t(`references.sector_${project.sector}`)}
                 </p>
               </Link>
@@ -746,7 +749,7 @@ const Home = () => {
 
       <section ref={section5Ref} className="bg-beige-100 py-[7%] mb-[12%]">
         <p
-          className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]"
+          className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase text-center mb-[3.5%]"
           data-section-label
         >
           {t('home.section_5_label')}
@@ -787,7 +790,7 @@ const Home = () => {
       >
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[550] text-white-100 tracking-[0.15em] uppercase mb-[1.8%]"
+            className="text-[0.95vw] font-[600] text-white-100 tracking-[0.15em] uppercase mb-[1.8%]"
             data-production-label
           >
             {t('home.section_6_label')}
@@ -910,7 +913,7 @@ const Home = () => {
       </section>
 
       <section ref={section9Ref} className="mb-[14%]">
-        <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]">
+        <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]">
           {t('home.section_9_label')}
         </p>
         <div className="max-w-[75vw] mx-auto grid grid-cols-6 gap-y-[4.5vw] gap-x-[3.5vw]">

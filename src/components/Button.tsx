@@ -1,5 +1,7 @@
 import React, { FC } from 'react'
 
+import IconArrow from '@/components/icons/icon-arrow'
+
 import { BUTTON_STYLES, BUTTON_SIZES } from '@/constants/button'
 
 interface ButtonProps {
@@ -19,22 +21,27 @@ const Button: FC<ButtonProps> = ({
   className = '',
   ...rest
 }) => {
-  const style = BUTTON_STYLES[variant]
-  const height = BUTTON_SIZES[size]
+  const variantStyle = BUTTON_STYLES[variant]
+  const sizeStyle = BUTTON_SIZES[size]
 
   return (
     <Component
-      className={`group relative inline-flex items-center justify-center text-[0.92vw] font-[500] tracking-[0.04em] border ${style.border} ${height} px-[1.6vw] overflow-hidden ${className}`}
+      className={`group relative inline-flex items-center gap-[0.6vw] ${sizeStyle.text} font-[500] tracking-[0.04em] border ${variantStyle.border} ${sizeStyle.height} ${sizeStyle.px} overflow-hidden ${className}`}
       {...rest}
     >
       <span
-        className={`absolute inset-0 ${style.fill} translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0`}
+        className={`absolute inset-[-1px] ${variantStyle.fill} translate-y-[101%] transition-transform duration-500 ease-in-out group-hover:translate-y-0`}
       />
       <span
-        className={`relative ${style.text} transition-colors duration-500 ease-in-out`}
+        className={`relative ${variantStyle.text} transition-colors duration-500`}
       >
         {children}
       </span>
+      {size !== 'small' && (
+        <IconArrow
+          className={`relative w-[0.8vw] h-[0.8vw] ${variantStyle.text} mt-[1px] transition-all duration-500 group-hover:translate-x-[4px]`}
+        />
+      )}
     </Component>
   )
 }

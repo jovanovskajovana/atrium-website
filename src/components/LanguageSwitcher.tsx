@@ -39,16 +39,18 @@ const LanguageSwitcher = ({ variant = 'inline' }: LanguageSwitcherProps) => {
   }
 
   return (
-    <div className="flex items-center gap-[0.3vw] text-[0.86vw] font-[450] leading-[1]">
+    <div className="flex items-center gap-[0.3vw]">
       {routing.locales.map((loc, i) => (
         <span key={loc} className="flex items-center gap-[0.3vw]">
-          {i > 0 && <span className="text-black-100/60">|</span>}
+          {i > 0 && <span className="text-[0.86vw] text-black-100/60">|</span>}
           <button
             type="button"
             onClick={() => handleChange(loc)}
-            className={`font-[450] transition-colors duration-300 ${
-              locale === loc ? 'text-black-100 font-[550]' : 'text-black-100/60'
-            } hover:text-black-100 hover:font-[550]`}
+            className={`text-[0.86vw] leading-[1] transition-colors duration-300 hover:text-black-100 hover:font-[600] ${
+              locale === loc
+                ? 'text-black-100 font-[600]'
+                : 'text-black-100/60 font-[500]'
+            }`}
           >
             {loc}
           </button>

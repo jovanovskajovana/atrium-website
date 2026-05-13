@@ -2,9 +2,11 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
-import { Link } from '@/i18n/navigation'
+import IconArrow from '@/components/icons/icon-arrow'
 
 import { NEWS_ARTICLES, getNewsArticleBySlug } from '@/constants/news'
+
+import { Link } from '@/i18n/navigation'
 import { getDateLocale } from '@/i18n/locale'
 
 interface NewsSlugPageProps {
@@ -38,9 +40,10 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
         <div className="max-w-[52vw] mx-auto">
           <Link
             href="/news"
-            className="inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 transition-colors duration-300 mb-[2.5em]"
+            className="group inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 pl-0 hover:pl-[1vw] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] mb-[2.5em]"
           >
-            ← {t('news.back_to_list')}
+            <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] mr-[0.35em] rotate-[225deg] transition-transform duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-x-[0.25vw]" />
+            {t('news.back_to_list')}
           </Link>
 
           <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]">

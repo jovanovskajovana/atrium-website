@@ -174,7 +174,7 @@ const AboutPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('about.section_1_label')}
@@ -221,7 +221,7 @@ const AboutPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[8%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s2-label
           >
             {t('about.section_2_label')}

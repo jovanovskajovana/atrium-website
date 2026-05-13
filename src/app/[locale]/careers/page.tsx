@@ -6,6 +6,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Button from '@/components/Button'
+import IconArrow from '@/components/icons/icon-arrow'
 
 import { JOB_LISTINGS } from '@/constants/careers'
 
@@ -173,7 +174,7 @@ const CareersPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('careers.section_1_label')}
@@ -226,7 +227,7 @@ const CareersPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[7%] mb-[2%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('careers.section_3_label')}
@@ -257,7 +258,7 @@ const CareersPage = () => {
             className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
             data-s2-roles-header
           >
-            <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase">
+            <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
             </p>
             <p className="text-[0.85vw] font-[450] text-black-100/50 max-w-[28vw] leading-[1.6] text-right">
@@ -292,12 +293,7 @@ const CareersPage = () => {
                     </span>
                     <span className="text-[0.8vw] font-[500] uppercase tracking-[0.2em] text-black-100 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
                       {t('careers.section_4_apply')}
-                      <span
-                        aria-hidden
-                        className="inline-block ml-[0.35em] transition-transform duration-500 ease-out group-hover/role:translate-x-[0.25vw]"
-                      >
-                        →
-                      </span>
+                      <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] ml-[0.35em] rotate-45 transition-transform duration-500 ease-out group-hover/role:translate-x-[0.25vw]" />
                     </span>
                   </div>
                 </Link>
