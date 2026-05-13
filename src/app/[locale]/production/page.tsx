@@ -556,8 +556,8 @@ const ProductionPage = () => {
       </div>
 
       <section ref={section2Ref} className="pt-[5%] mb-[12%]">
-        <div className="max-w-[38vw] mx-auto text-center">
-          <p className="text-[1.1vw] text-black-100/75 leading-[1.85]">
+        <div className="max-w-[55vw] mx-auto text-center">
+          <p className="text-[2vw] text-black-100 leading-[1.5]">
             {t('production.section_2_text')}
           </p>
         </div>
@@ -849,7 +849,9 @@ const ProductionPage = () => {
               {t('production.section_8_industries_list')}
             </p>
             <div className="flex gap-[1.5vw] mt-[4%]">
-              <Button as={Link} href="/references">{t('production.section_8_cta_1')}</Button>
+              <Button as={Link} href="/references">
+                {t('production.section_8_cta_1')}
+              </Button>
               <Button>{t('production.section_8_cta_2')}</Button>
             </div>
           </div>
