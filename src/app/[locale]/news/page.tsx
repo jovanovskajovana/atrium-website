@@ -17,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger)
 
 const NewsPage = () => {
   const t = useTranslations()
-
   const locale = useLocale()
 
   const section1Ref = useRef<HTMLElement>(null)

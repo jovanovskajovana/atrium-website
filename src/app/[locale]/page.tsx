@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
 
@@ -21,6 +21,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Home = () => {
   const t = useTranslations()
+  const locale = useLocale()
 
   const { showIntro, completeIntro } = useIntroAnimation()
 
@@ -656,10 +657,16 @@ const Home = () => {
             {t('home.section_2_text_1')}
           </p>
 
-          <div className="max-w-[56vw] mt-[6%] ml-[16.5vw]">
-            <div className="grid grid-cols-2 gap-[2vw] text-[1.1vw] text-black-100/70 leading-[1.85]">
-              <p data-s2-text>{t('home.section_2_text_2')}</p>
-              <p data-s2-text>{t('home.section_2_text_3')}</p>
+          <div
+            className={`max-w-[56vw] mt-[6%] ${locale === 'sl' ? 'ml-[14vw]' : locale === 'de' ? 'ml-[14.5vw]' : 'ml-[16.5vw]'}`}
+          >
+            <div className="grid grid-cols-2 gap-[2vw] text-[1.1vw] text-black-100 font-[450] leading-[1.85]">
+              <p data-s2-text>
+                {t.rich('home.section_2_text_2', { br: () => <br /> })}
+              </p>
+              <p data-s2-text>
+                {t.rich('home.section_2_text_3', { br: () => <br /> })}
+              </p>
             </div>
           </div>
         </div>
