@@ -630,7 +630,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="max-w-[72vw] mx-auto mt-[5%]" data-text-reveal>
+        <div className="max-w-[75vw] mx-auto mt-[5%]" data-text-reveal>
           <p
             className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%]"
             data-section-label
@@ -785,7 +785,7 @@ const Home = () => {
         ref={section6Ref}
         className="bg-black-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <p
             className="text-[0.95vw] font-[550] text-white-100 tracking-[0.15em] uppercase mb-[1.8%]"
             data-production-label
@@ -813,7 +813,7 @@ const Home = () => {
       </section>
 
       <section ref={section7Ref} className="mb-[14%]">
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.8vw] font-[500] text-black-100 leading-[1.2] uppercase ml-[-0.2vw]"
             data-design-title
@@ -913,7 +913,7 @@ const Home = () => {
         <p className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]">
           {t('home.section_9_label')}
         </p>
-        <div className="max-w-[72vw] mx-auto grid grid-cols-6 gap-y-[4.5vw] gap-x-[3.5vw]">
+        <div className="max-w-[75vw] mx-auto grid grid-cols-6 gap-y-[4.5vw] gap-x-[3.5vw]">
           {Array.from({ length: 12 }, (_, i) => (
             <div
               key={i}

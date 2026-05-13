@@ -598,7 +598,7 @@ const ProductionPage = () => {
         </div>
 
         <div
-          className="grid grid-cols-4 gap-[1.5vw] max-w-[72vw] mx-auto"
+          className="grid grid-cols-4 gap-[1.5vw] max-w-[75vw] mx-auto"
           data-s3-grid
         >
           {[
@@ -624,7 +624,7 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section4Ref} className="mb-[12%]">
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase text-center mb-[6%]"
             data-s4-title
@@ -662,7 +662,7 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section5Ref} className="mb-[12%]">
-        <div className="max-w-[72vw] mx-auto" data-s5-statement>
+        <div className="max-w-[75vw] mx-auto" data-s5-statement>
           <h2
             className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
             data-s5-title
@@ -679,7 +679,7 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section6Ref} className="mb-[12%]">
-        <div className="max-w-[72vw] mx-auto invisible" data-s6-wrap>
+        <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
           <p
             className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
             data-s6-label
@@ -720,7 +720,7 @@ const ProductionPage = () => {
         id="oem-services"
         className="bg-black-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[4vw] font-[500] text-white-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
             data-oem-title
@@ -763,7 +763,7 @@ const ProductionPage = () => {
                 <p className="text-[1.3vw] font-[400] text-white-100/50">
                   {t('production.section_7_delivery')}
                 </p>
-                <div className="flex gap-[1.5vw] mt-[6%] mb-[2%]">
+                <div className="flex gap-[1.5vw] mt-[6%]">
                   <Button as={Link} href="/references" variant="light">
                     {t('production.section_8_cta_1')}
                   </Button>
@@ -787,7 +787,7 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section8Ref} id="project-interiors" className="mb-[12%]">
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
             data-int-title

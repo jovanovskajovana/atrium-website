@@ -171,7 +171,7 @@ const CareersPage = () => {
   return (
     <main className="overflow-x-hidden">
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <p
             className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
@@ -199,7 +199,7 @@ const CareersPage = () => {
         </div>
 
         <div
-          className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/15 max-w-[72vw] mx-auto pt-[6%] mt-[6%] opacity-0"
+          className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/15 max-w-[75vw] mx-auto pt-[6%] mt-[6%] opacity-0"
           data-careers-split
         >
           <p className="text-[1.3vw] font-[400] text-black-100/60 leading-[1.65]">
@@ -224,7 +224,7 @@ const CareersPage = () => {
       </section>
 
       <section ref={section2Ref} className="bg-beige-100 py-[7%] mb-[2%]">
-        <div className="max-w-[72vw] mx-auto">
+        <div className="max-w-[75vw] mx-auto">
           <p
             className="text-[0.95vw] font-[550] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
@@ -252,7 +252,7 @@ const CareersPage = () => {
           </div>
         </div>
 
-        <div className="max-w-[72vw] mx-auto mt-[10%]">
+        <div className="max-w-[75vw] mx-auto mt-[10%]">
           <div
             className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
             data-s2-roles-header
@@ -311,7 +311,7 @@ const CareersPage = () => {
         ref={section3Ref}
         className="bg-black-100 text-white-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
-        <div className="max-w-[72vw] mx-auto flex flex-row items-end justify-between gap-[3vw]">
+        <div className="max-w-[75vw] mx-auto flex flex-row items-end justify-between gap-[3vw]">
           <div className="max-w-[38vw]">
             <h2 className="text-[2.6vw] font-[500] leading-[1.15] uppercase tracking-[0.03em] mb-[1.8vw]">
               {t('careers.section_5_title')}
