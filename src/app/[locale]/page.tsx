@@ -257,7 +257,7 @@ const Home = () => {
           onEnter: () =>
             gsap.to(s2Texts, {
               opacity: 1,
-              duration: 1.5,
+              duration: 1.8,
               ease: 'power2.out',
             }),
           onLeaveBack: () =>
