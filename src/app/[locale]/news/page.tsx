@@ -166,7 +166,7 @@ const NewsPage = () => {
                         <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[1%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100">
                           {title}
                         </h3>
-                        <p className="text-[1.05vw] text-black-100/70 leading-[1.8] max-w-[32vw] pt-[2%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/70">
+                        <p className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[32vw] pt-[2%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/70">
                           {description}
                         </p>
                       </div>

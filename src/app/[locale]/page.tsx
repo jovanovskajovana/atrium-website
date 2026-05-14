@@ -690,7 +690,7 @@ const Home = () => {
           <p className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase mb-[2.5%]">
             {t('home.section_3_title')}
           </p>
-          <p className="text-[1.3vw] font-[400] text-black-100/65">
+          <p className="text-[1.3vw] text-black-100/70 font-[450]">
             {t('home.section_3_text')}
           </p>
         </div>
@@ -733,10 +733,10 @@ const Home = () => {
                   <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
                 </div>
 
-                <p className="text-[1vw] font-[500] text-black-100 leading-[1.3] uppercase mt-[1em]">
+                <p className="text-[1vw] font-[550] text-black-100 leading-[1.3] uppercase mt-[1em]">
                   {t(`home.section_4_project_${i + 1}`)}
                 </p>
-                <p className="text-[0.82vw] font-[500] text-black-100/60 uppercase mt-[1%]">
+                <p className="text-[0.82vw] font-[450] text-black-100/60 uppercase mt-[1%]">
                   {t(`references.sector_${project.sector}`)}
                 </p>
               </Link>
@@ -747,7 +747,7 @@ const Home = () => {
         <div className="flex justify-center mt-[6%]" data-project-link>
           <Link
             href="/references"
-            className="text-[1vw] font-[500] text-black-100 underline underline-offset-2 hover:opacity-80 transition-opacity"
+            className="relative text-[1vw] font-[550] text-black-100 after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-black-100 after:origin-left after:scale-x-100 after:transition-transform after:duration-500 after:ease-in-out hover:after:origin-right hover:after:scale-x-0"
           >
             {t('home.section_4_cta')}
           </Link>
@@ -762,7 +762,7 @@ const Home = () => {
           {t('home.section_5_label')}
         </p>
         <div data-pillars-track>
-          {[1, 2, 3, 4].map((n) => (
+          {[1, 2, 3, 4, 5].map((n) => (
             <div key={n} data-pillar>
               <div className="grid grid-cols-[6vw_1fr] gap-[2.5vw] items-start py-[2.5%] pl-[23.25vw] pr-[12vw] border-t border-black-100/8 first:border-t-0">
                 <span
@@ -773,13 +773,13 @@ const Home = () => {
                 </span>
                 <div className="flex flex-col">
                   <h3
-                    className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
+                    className="text-[1.2vw] font-[550] text-black-100 leading-[1.2] uppercase pt-[0.5%]"
                     data-pillar-title
                   >
                     {t(`home.section_5_pillar_${n}_title`)}
                   </h3>
                   <p
-                    className="text-[1.05vw] text-black-100/70 leading-[1.8] max-w-[38vw] mt-[2%]"
+                    className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[38vw] mt-[2%]"
                     data-pillar-text
                   >
                     {t(`home.section_5_pillar_${n}_text`)}
@@ -809,7 +809,7 @@ const Home = () => {
             {t('home.section_6_title')}
           </h2>
           <p
-            className="text-[1.1vw] text-white-100/70 leading-[1.8] max-w-[46vw] mt-[2.5%]"
+            className="text-[1.1vw] text-white-100/70 font-[450] leading-[1.85] max-w-[56vw] mt-[2.5%]"
             data-production-text
           >
             {t('home.section_6_text')}
@@ -831,7 +831,7 @@ const Home = () => {
             {t('home.section_7_title')}
           </h2>
           <p
-            className="text-[1.1vw] text-black-100/70 leading-[1.8] mt-[1.8%]"
+            className="text-[1.1vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.8%]"
             data-design-text
           >
             {t('home.section_7_text')}
@@ -851,10 +851,10 @@ const Home = () => {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
-              <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
+              <h3 className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase mt-[4%]">
                 {t('home.section_7_option_1')}
               </h3>
-              <p className="text-[1.05vw] text-black-100/70 leading-[1.8] mt-[1.5%]">
+              <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.5%]">
                 {t('home.section_7_option_1_text')}
               </p>
             </Link>
@@ -869,10 +869,10 @@ const Home = () => {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
-              <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase mt-[4%]">
+              <h3 className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase mt-[4%]">
                 {t('home.section_7_option_2')}
               </h3>
-              <p className="text-[1.05vw] text-black-100/70 leading-[1.8] mt-[1.5%]">
+              <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.5%]">
                 {t('home.section_7_option_2_text')}
               </p>
             </Link>
@@ -905,16 +905,16 @@ const Home = () => {
             {t('home.section_8_title_1')}
           </h2>
           <p
-            className="text-[1.3vw] font-[400] text-black-100/60 mb-[2.5%]"
+            className="text-[1.3vw] text-black-100/70 font-[450] mb-[2.5%]"
             data-sus-item
           >
             {t('home.section_8_text_1')}
           </p>
           <p
-            className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[40vw] mx-auto"
+            className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[43vw] mx-auto"
             data-sus-item
           >
-            {t('home.section_8_text_2')}
+            {t.rich('home.section_8_text_2', { br: () => <br /> })}
           </p>
         </div>
       </section>

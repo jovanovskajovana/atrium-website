@@ -26,7 +26,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <Component
-      className={`group relative inline-flex items-center gap-[0.6vw] ${sizeStyle.text} font-[500] tracking-[0.04em] border ${variantStyle.border} ${sizeStyle.height} ${sizeStyle.px} overflow-hidden ${className}`}
+      className={`group relative inline-flex items-center gap-[0.6vw] ${sizeStyle.text} font-[550] tracking-[0.04em] border ${variantStyle.border} ${sizeStyle.height} ${sizeStyle.px} overflow-hidden ${className}`}
       {...rest}
     >
       <span

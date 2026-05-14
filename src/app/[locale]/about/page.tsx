@@ -234,7 +234,7 @@ const AboutPage = () => {
               {t('about.section_2_text_1')}
             </p>
             <p
-              className="text-[1.1vw] font-[500] text-black-100 leading-[1.8] mb-[2%] opacity-0"
+              className="text-[1.1vw] font-[500] text-black-100 leading-[1.85] mb-[2%] opacity-0"
               data-s2-text
             >
               {t('about.section_2_title')}

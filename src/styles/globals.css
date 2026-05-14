@@ -41,11 +41,10 @@
   [data-nav]:hover [data-menu-item]:hover,
   [data-menu-item][data-active] {
     color: rgba(38, 37, 30, 1) !important;
-    font-weight: 550;
   }
 
   [data-menu-item][data-active] {
-    font-weight: 600;
+    font-weight: 550;
   }
 
   body:not([data-animating]) [data-menu-item] {

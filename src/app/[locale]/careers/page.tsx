@@ -245,7 +245,7 @@ const CareersPage = () => {
                 <h3 className="text-[1.25vw] font-[500] text-black-100 uppercase tracking-[0.04em] mb-[1vw]">
                   {t(`careers.section_3_value_${n}_title`)}
                 </h3>
-                <p className="text-[0.95vw] text-black-100/65 leading-[1.8] max-w-[22vw]">
+                <p className="text-[0.95vw] text-black-100/70 font-[450] leading-[1.8] max-w-[22vw]">
                   {t(`careers.section_3_value_${n}_text`)}
                 </p>
               </div>
@@ -312,10 +312,10 @@ const CareersPage = () => {
             <h2 className="text-[2.6vw] font-[500] leading-[1.15] uppercase tracking-[0.03em] mb-[1.8vw]">
               {t('careers.section_5_title')}
             </h2>
-            <p className="text-[1.05vw] text-white-100/65 leading-[1.8]">
+            <p className="text-[1.05vw] text-white-100/70 font-[450] leading-[1.85]">
               {t('careers.section_5_text_1')}
             </p>
-            <p className="text-[1.05vw] text-white-100/65 leading-[1.8]">
+            <p className="text-[1.05vw] text-white-100/70 font-[450] leading-[1.85]">
               {t('careers.section_5_text_2')}
             </p>
           </div>
