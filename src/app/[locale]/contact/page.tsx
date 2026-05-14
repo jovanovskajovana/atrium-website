@@ -86,14 +86,14 @@ const ContactPage = () => {
         const s2Label = section2.querySelector('[data-s2-label]')
         const s2Items = section2.querySelectorAll('[data-s2-dept]')
 
-        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
-        gsap.set(s2Items, { y: 30, opacity: 0 })
+        if (s2Label) gsap.set(s2Label, { y: 20, opacity: 0 })
+        gsap.set(s2Items, { y: 20, opacity: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
         if (s2Label) {
           s2Tl.to(
             s2Label,
-            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
             0
           )
         }
@@ -102,8 +102,8 @@ const ContactPage = () => {
           {
             y: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'power2.out',
             stagger: 0.06,
           },
           0.1
@@ -111,7 +111,7 @@ const ContactPage = () => {
 
         ScrollTrigger.create({
           trigger: section2,
-          start: 'top 80%',
+          start: 'top 85%',
           onEnter: () => s2Tl.play(),
           onLeaveBack: () => s2Tl.reverse(),
         })

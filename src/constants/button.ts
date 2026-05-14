@@ -5,9 +5,9 @@ export const BUTTON_STYLES = {
     text: 'text-black-100 group-hover:text-white-100',
   },
   light: {
-    border: 'border-white-100',
-    fill: 'bg-white-100',
-    text: 'text-white-100 group-hover:text-black-100',
+    border: 'border-beige-50',
+    fill: 'bg-beige-50',
+    text: 'text-beige-50 group-hover:text-black-100',
   },
 }
 

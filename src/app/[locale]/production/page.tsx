@@ -264,7 +264,7 @@ const ProductionPage = () => {
           const s6Right = s6Wrap.querySelector('[data-s6-right]')
 
           gsap.set(s6Wrap, { visibility: 'visible' })
-          if (s6Label) gsap.set(s6Label, { y: 40, opacity: 0 })
+          if (s6Label) gsap.set(s6Label, { y: 20, opacity: 0 })
           if (s6Left) {
             gsap.set(s6Left, { y: 40, visibility: 'hidden' })
           }
@@ -291,8 +291,8 @@ const ProductionPage = () => {
             s6Tl.to(s6Label, {
               y: 0,
               opacity: 1,
-              duration: 1.3,
-              ease: 'power3.out',
+              duration: 1.2,
+              ease: 'power2.out',
             })
           }
           if (s6Left) {
@@ -321,7 +321,7 @@ const ProductionPage = () => {
           }
           ScrollTrigger.create({
             trigger: s6Wrap,
-            start: 'top 80%',
+            start: 'top 85%',
             onEnter: () => s6Tl.play(),
             onLeaveBack: () => s6Tl.reverse(),
           })

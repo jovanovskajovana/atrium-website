@@ -82,14 +82,14 @@ const CareersPage = () => {
         const s2RolesHeader = section2.querySelector('[data-s2-roles-header]')
         const s2Roles = section2.querySelectorAll('[data-careers-role]')
 
-        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
-        gsap.set(s2CultureItems, { y: 28, opacity: 0 })
+        if (s2Label) gsap.set(s2Label, { y: 20, opacity: 0 })
+        gsap.set(s2CultureItems, { y: 20, opacity: 0 })
 
         const s2CultureTl = gsap.timeline({ paused: true })
         if (s2Label) {
           s2CultureTl.to(
             s2Label,
-            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
             0
           )
         }
@@ -98,8 +98,8 @@ const CareersPage = () => {
           {
             y: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'power2.out',
             stagger: 0.1,
           },
           0.1
@@ -107,19 +107,19 @@ const CareersPage = () => {
 
         ScrollTrigger.create({
           trigger: section2,
-          start: 'top 80%',
+          start: 'top 85%',
           onEnter: () => s2CultureTl.play(),
           onLeaveBack: () => s2CultureTl.reverse(),
         })
 
         if (s2RolesHeader) {
-          gsap.set(s2RolesHeader, { y: 28, opacity: 0 })
+          gsap.set(s2RolesHeader, { y: 20, opacity: 0 })
           const s2RolesHeaderTl = gsap.timeline({ paused: true })
           s2RolesHeaderTl.to(s2RolesHeader, {
             y: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'power2.out',
           })
           ScrollTrigger.create({
             trigger: s2RolesHeader,
@@ -130,13 +130,13 @@ const CareersPage = () => {
         }
 
         s2Roles.forEach((el) => {
-          gsap.set(el, { y: 28, opacity: 0 })
+          gsap.set(el, { y: 20, opacity: 0 })
           const elTl = gsap.timeline({ paused: true })
           elTl.to(el, {
             y: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'power2.out',
           })
           ScrollTrigger.create({
             trigger: el,

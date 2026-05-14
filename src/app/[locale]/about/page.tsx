@@ -83,14 +83,14 @@ const AboutPage = () => {
         const s2Texts = section2.querySelectorAll('[data-s2-text]')
         const s2Portraits = section2.querySelectorAll('[data-s2-portrait]')
 
-        if (s2Label) gsap.set(s2Label, { y: 28, opacity: 0 })
-        gsap.set(s2Texts, { y: 28, opacity: 0 })
+        if (s2Label) gsap.set(s2Label, { y: 20, opacity: 0 })
+        gsap.set(s2Texts, { y: 20, opacity: 0 })
 
         const s2TextTl = gsap.timeline({ paused: true })
         if (s2Label) {
           s2TextTl.to(
             s2Label,
-            { y: 0, opacity: 1, duration: 1, ease: 'power3.out' },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
             0
           )
         }
@@ -99,8 +99,8 @@ const AboutPage = () => {
           {
             y: 0,
             opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
+            duration: 1.2,
+            ease: 'power2.out',
             stagger: 0.1,
           },
           0.1
@@ -108,7 +108,7 @@ const AboutPage = () => {
 
         ScrollTrigger.create({
           trigger: section2,
-          start: 'top 80%',
+          start: 'top 85%',
           onEnter: () => s2TextTl.play(),
           onLeaveBack: () => s2TextTl.reverse(),
         })

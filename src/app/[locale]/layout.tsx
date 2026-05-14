@@ -30,7 +30,7 @@ export const metadata = {
   title: 'Atrium',
   description: '',
   icons: {
-    icon: '/assets/favicon.ico',
+    icon: '/assets/favicon.png',
   },
 }
 

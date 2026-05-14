@@ -108,7 +108,12 @@ const Home = () => {
 
       const imgEl = img9.querySelector('img')
 
-      const img9Tl = gsap.timeline({
+      const scatterDirs = [
+        { x: -300, y: -200, rotation: -12, scale: 1.5 },
+        { x: 300, y: -200, rotation: 12, scale: 1.5 },
+      ]
+
+      const s1Tl = gsap.timeline({
         scrollTrigger: {
           trigger: section1,
           start: 'top top',
@@ -117,7 +122,7 @@ const Home = () => {
         },
       })
 
-      img9Tl.to(
+      s1Tl.to(
         img9,
         {
           x: 0,
@@ -131,7 +136,7 @@ const Home = () => {
       )
 
       if (imgEl) {
-        img9Tl.fromTo(
+        s1Tl.fromTo(
           imgEl,
           { scale: 1 },
           { scale: 1.15, duration: 1, ease: 'none' },
@@ -139,27 +144,13 @@ const Home = () => {
         )
       }
 
-      const scatterDirs = [
-        { x: -300, y: -200, rotation: -12, scale: 1.5 },
-        { x: 300, y: -200, rotation: 12, scale: 1.5 },
-      ]
-
-      const scatterTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section1,
-          start: 'top top',
-          end: '+=50%',
-          scrub: 0.5,
-        },
-      })
-
       collageItems.forEach((item, i) => {
         const dir = scatterDirs[i % scatterDirs.length]
-        scatterTl.to(item, { ...dir, opacity: 0, duration: 1 }, 0)
+        s1Tl.to(item, { ...dir, opacity: 0, duration: 1 }, 0)
       })
 
       if (collageBg) {
-        scatterTl.to(
+        s1Tl.to(
           collageBg,
           {
             y: -250,
@@ -173,7 +164,7 @@ const Home = () => {
       }
 
       if (heroTagline) {
-        scatterTl.to(
+        s1Tl.to(
           heroTagline,
           { y: -60, opacity: 0, duration: 0.6, ease: 'power2.inOut' },
           0
@@ -187,15 +178,14 @@ const Home = () => {
 
       if (textBlock && s2Titles.length) {
         if (s2Label) gsap.set(s2Label, { y: 20, opacity: 0 })
-        gsap.set(s2Titles, { y: 40, opacity: 0 })
-        gsap.set(s2Texts, { y: 20, opacity: 0 })
+        gsap.set(s2Titles, { y: 20, opacity: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
 
         if (s2Label) {
           s2Tl.to(
             s2Label,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
             0
           )
         }
@@ -205,54 +195,175 @@ const Home = () => {
           {
             y: 0,
             opacity: 1,
-            duration: 1.3,
+            duration: 1.6,
             ease: 'power3.out',
           },
           0
         )
 
-        s2Tl.to(
-          s2Texts,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power2.out',
-            stagger: 0.15,
-          },
-          0.3
-        )
-
         ScrollTrigger.create({
           trigger: textBlock,
-          start: 'top bottom',
+          start: 'top 85%',
           onEnter: () => s2Tl.play(),
           onLeaveBack: () => s2Tl.reverse(),
         })
       }
 
+      const heroText = section2.querySelector(
+        '[data-s2-hero-text]'
+      ) as HTMLElement | null
+      if (heroText) {
+        const raw = heroText.textContent || ''
+        heroText.innerHTML = ''
+        const words = raw.split(/(\s+)/)
+        words.forEach((segment) => {
+          if (/^\s+$/.test(segment)) {
+            heroText.appendChild(document.createTextNode(segment))
+            return
+          }
+          const wordWrap = document.createElement('span')
+          wordWrap.style.display = 'inline'
+          for (const char of segment) {
+            const s = document.createElement('span')
+            s.textContent = char
+            s.style.willChange = 'opacity'
+            wordWrap.appendChild(s)
+          }
+          heroText.appendChild(wordWrap)
+        })
+        const chars = heroText.querySelectorAll('span > span')
+        gsap.set(chars, { opacity: 0.12 })
+        gsap.to(chars, {
+          opacity: 1,
+          duration: 2,
+          stagger: 0.04,
+          scrollTrigger: {
+            trigger: heroText,
+            start: 'top 95%',
+            end: 'bottom 15%',
+            scrub: 1,
+            fastScrollEnd: true,
+          },
+        })
+      }
+
       const btnBlock = section2.querySelector('[data-s2-cta-row]')
+
+      if (s2Texts.length) {
+        gsap.set(s2Texts, { opacity: 0.12 })
+        ScrollTrigger.create({
+          trigger: btnBlock || s2Texts[0],
+          start: 'top 85%',
+          onEnter: () =>
+            gsap.to(s2Texts, {
+              opacity: 1,
+              duration: 1.5,
+              ease: 'power2.out',
+            }),
+          onLeaveBack: () =>
+            gsap.to(s2Texts, {
+              opacity: 0.12,
+              duration: 1.5,
+              ease: 'power2.out',
+            }),
+        })
+      }
       if (btnBlock) {
-        gsap.set(btnBlock, { y: 60, opacity: 0 })
+        gsap.set(btnBlock, { y: 40, opacity: 0 })
         ScrollTrigger.create({
           trigger: btnBlock,
-          start: 'top 120%',
-          onEnter: () => {
-            gsap.to(btnBlock, { opacity: 1, duration: 0.3, ease: 'none' })
+          start: 'top 95%',
+          onEnter: () =>
             gsap.to(btnBlock, {
               y: 0,
+              opacity: 1,
               duration: 1,
-              ease: 'power3.out',
-            })
-          },
-          onLeaveBack: () => {
-            gsap.to(btnBlock, { opacity: 0, duration: 0.3, ease: 'none' })
+              ease: 'power2.out',
+            }),
+          onLeaveBack: () =>
             gsap.to(btnBlock, {
-              y: 60,
-              duration: 1,
-              ease: 'power3.out',
-            })
-          },
+              y: 40,
+              opacity: 0,
+              duration: 0.8,
+              ease: 'power2.out',
+            }),
+        })
+      }
+
+      const section3 = section3Ref.current
+      if (section3) {
+        const taglineReveal = section3.querySelector('[data-tagline-reveal]')
+        if (taglineReveal) {
+          gsap.set(taglineReveal, { y: 40, opacity: 0 })
+          const taglineTl = gsap.timeline({ paused: true })
+          taglineTl.to(
+            taglineReveal,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0
+          )
+          ScrollTrigger.create({
+            trigger: section3,
+            start: 'top 80%',
+            onEnter: () => taglineTl.play(),
+            onLeaveBack: () => taglineTl.reverse(),
+          })
+        }
+      }
+
+      const section4 = section4Ref.current
+      if (section4) {
+        const projectItems = section4.querySelectorAll('[data-project-item]')
+        const projectLink = section4.querySelector('[data-project-link]')
+        const projectLabel = section4.querySelector('[data-section-label]')
+
+        const vw = window.innerWidth
+        const s4Tl = gsap.timeline({ paused: true })
+
+        if (projectLabel) {
+          gsap.set(projectLabel, { y: 20, opacity: 0 })
+          s4Tl.to(
+            projectLabel,
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
+            0
+          )
+        }
+
+        projectItems.forEach((item, i) => {
+          gsap.set(item, { x: vw, opacity: 0 })
+          s4Tl.to(
+            item,
+            { x: 0, opacity: 1, duration: 2, ease: 'power2.inOut' },
+            i * 0.08
+          )
+        })
+
+        if (projectLink) {
+          gsap.set(projectLink, { y: 20, opacity: 0 })
+          ScrollTrigger.create({
+            trigger: projectLink,
+            start: 'top 90%',
+            onEnter: () =>
+              gsap.to(projectLink, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+              }),
+            onLeaveBack: () =>
+              gsap.to(projectLink, {
+                y: 20,
+                opacity: 0,
+                duration: 0.5,
+                ease: 'power2.in',
+              }),
+          })
+        }
+
+        ScrollTrigger.create({
+          trigger: section4,
+          start: 'top 85%',
+          onEnter: () => s4Tl.play(),
+          onLeaveBack: () => s4Tl.reverse(),
         })
       }
 
@@ -273,7 +384,7 @@ const Home = () => {
         if (pillarLabel) {
           tl.to(
             pillarLabel,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
             0
           )
         }
@@ -316,87 +427,68 @@ const Home = () => {
 
         ScrollTrigger.create({
           trigger: section5,
-          start: 'top bottom',
+          start: 'top 85%',
           onEnter: () => tl.play(),
           onLeaveBack: () => tl.reverse(),
         })
       }
 
-      const section4 = section4Ref.current
-      if (section4) {
-        const projectItems = section4.querySelectorAll('[data-project-item]')
-        const projectLink = section4.querySelector('[data-project-link]')
-        const projectLabel = section4.querySelector('[data-section-label]')
+      const section6 = section6Ref.current
+      if (section6) {
+        const prodLabel = section6.querySelector('[data-production-label]')
+        const prodTitle = section6.querySelector('[data-production-title]')
+        const prodText = section6.querySelector('[data-production-text]')
+        const prodBtn = section6.querySelector('[data-production-btn]')
 
-        const vw = window.innerWidth
-        const s4Tl = gsap.timeline({ paused: true })
+        gsap.set(section6, { y: 60, autoAlpha: 0 })
+        if (prodLabel) gsap.set(prodLabel, { y: 20, opacity: 0 })
+        if (prodTitle) gsap.set(prodTitle, { y: 40, opacity: 0 })
+        if (prodText) gsap.set(prodText, { y: 20, opacity: 0 })
+        if (prodBtn) gsap.set(prodBtn, { y: 20, opacity: 0 })
 
-        if (projectLabel) {
-          gsap.set(projectLabel, { y: 20, opacity: 0 })
-          s4Tl.to(
-            projectLabel,
+        const prodTl = gsap.timeline({ paused: true })
+
+        prodTl.to(
+          section6,
+          { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
+          0
+        )
+
+        if (prodLabel) {
+          prodTl.to(
+            prodLabel,
             { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0
+            0.3
           )
         }
-
-        projectItems.forEach((item, i) => {
-          gsap.set(item, { x: vw, opacity: 0 })
-          s4Tl.to(
-            item,
-            { x: 0, opacity: 1, duration: 2, ease: 'power2.inOut' },
-            i * 0.08
+        if (prodTitle) {
+          prodTl.to(
+            prodTitle,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0.4
           )
-        })
-
-        if (projectLink) {
-          gsap.set(projectLink, { y: 20, opacity: 0 })
-          ScrollTrigger.create({
-            trigger: projectLink,
-            start: 'top 90%',
-            onEnter: () =>
-              gsap.to(projectLink, {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power2.out',
-              }),
-            onLeaveBack: () =>
-              gsap.to(projectLink, {
-                y: 20,
-                opacity: 0,
-                duration: 0.5,
-                ease: 'power2.in',
-              }),
-          })
+        }
+        if (prodText) {
+          prodTl.to(
+            prodText,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.6
+          )
+        }
+        if (prodBtn) {
+          prodTl.to(
+            prodBtn,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.8
+          )
         }
 
         ScrollTrigger.create({
-          trigger: section4,
-          start: 'top-=100 bottom',
-          onEnter: () => s4Tl.play(),
-          onLeaveBack: () => s4Tl.reverse(),
+          trigger: section6,
+          start: 'top 80%',
+          onEnter: () => prodTl.play(),
+          onLeaveBack: () => prodTl.reverse(),
         })
-      }
-
-      const section3 = section3Ref.current
-      if (section3) {
-        const taglineReveal = section3.querySelector('[data-tagline-reveal]')
-        if (taglineReveal) {
-          gsap.set(taglineReveal, { y: 40, opacity: 0 })
-          const taglineTl = gsap.timeline({ paused: true })
-          taglineTl.to(
-            taglineReveal,
-            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
-            0
-          )
-          ScrollTrigger.create({
-            trigger: section3,
-            start: 'top 80%',
-            onEnter: () => taglineTl.play(),
-            onLeaveBack: () => taglineTl.reverse(),
-          })
-        }
       }
 
       const section7 = section7Ref.current
@@ -463,66 +555,31 @@ const Home = () => {
         }
       }
 
-      const section6 = section6Ref.current
-      if (section6) {
-        const prodLabel = section6.querySelector('[data-production-label]')
-        const prodTitle = section6.querySelector('[data-production-title]')
-        const prodText = section6.querySelector('[data-production-text]')
-        const prodBtn = section6.querySelector('[data-production-btn]')
-
-        gsap.set(section6, { y: 60, autoAlpha: 0 })
-        if (prodLabel) gsap.set(prodLabel, { y: 20, opacity: 0 })
-        if (prodTitle) gsap.set(prodTitle, { y: 40, opacity: 0 })
-        if (prodText) gsap.set(prodText, { y: 20, opacity: 0 })
-        if (prodBtn) gsap.set(prodBtn, { y: 20, opacity: 0 })
-
-        const prodTl = gsap.timeline({ paused: true })
-
-        prodTl.to(
-          section6,
-          { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
-          0
-        )
-
-        if (prodLabel) {
-          prodTl.to(
-            prodLabel,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.3
-          )
-        }
-        if (prodTitle) {
-          prodTl.to(
-            prodTitle,
-            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
-            0.4
-          )
-        }
-        if (prodText) {
-          prodTl.to(
-            prodText,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.6
-          )
-        }
-        if (prodBtn) {
-          prodTl.to(
-            prodBtn,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.8
-          )
-        }
-
-        ScrollTrigger.create({
-          trigger: section6,
-          start: 'top 80%',
-          onEnter: () => prodTl.play(),
-          onLeaveBack: () => prodTl.reverse(),
-        })
-      }
-
       const section9 = section9Ref.current
       if (section9) {
+        const s9Label = section9.querySelector('[data-section-label]')
+        if (s9Label) {
+          gsap.set(s9Label, { y: 20, opacity: 0 })
+          ScrollTrigger.create({
+            trigger: section9,
+            start: 'top 85%',
+            onEnter: () =>
+              gsap.to(s9Label, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: 'power2.out',
+              }),
+            onLeaveBack: () =>
+              gsap.to(s9Label, {
+                y: 20,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+              }),
+          })
+        }
+
         const partnerLogos = section9.querySelectorAll('[data-partner-logo]')
         gsap.set(partnerLogos, { autoAlpha: 0, y: 50, x: 25, rotation: 6 })
 
@@ -652,7 +709,7 @@ const Home = () => {
           </h2>
           <p
             className="text-[2vw] text-black-100 leading-[1.5] mt-[5%]"
-            data-s2-text
+            data-s2-hero-text
           >
             {t('home.section_2_text_1')}
           </p>
@@ -761,9 +818,9 @@ const Home = () => {
         >
           {t('home.section_5_label')}
         </p>
-        <div data-pillars-track>
+        <div>
           {[1, 2, 3, 4, 5].map((n) => (
-            <div key={n} data-pillar>
+            <div key={n}>
               <div className="grid grid-cols-[6vw_1fr] gap-[2.5vw] items-start py-[2.5%] pl-[23.25vw] pr-[12vw] border-t border-black-100/8 first:border-t-0">
                 <span
                   className="text-[3.4vw] text-black-100/10 font-[500] leading-none"
@@ -894,10 +951,7 @@ const Home = () => {
       </section>
 
       <section ref={section8Ref} className="bg-beige-100 py-[8%] mb-[14%]">
-        <div
-          className="max-w-[60vw] mx-auto text-center"
-          data-sustainability-reveal
-        >
+        <div className="max-w-[60vw] mx-auto text-center">
           <h2
             className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase mb-[2%]"
             data-sus-item
@@ -920,7 +974,10 @@ const Home = () => {
       </section>
 
       <section ref={section9Ref} className="mb-[14%]">
-        <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]">
+        <p
+          className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase text-center mb-[5%]"
+          data-section-label
+        >
           {t('home.section_9_label')}
         </p>
         <div className="max-w-[75vw] mx-auto grid grid-cols-6 gap-y-[4.5vw] gap-x-[3.5vw]">
