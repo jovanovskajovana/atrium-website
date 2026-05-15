@@ -128,12 +128,14 @@
     "section_3_signature_text": "weil es uns wichtig ist, Knehtl"
   },
   "references": {
+    "sectors": "Sektoren",
     "filter_all": "alle",
-    "sector_residential": "Wohnen",
-    "sector_hospitality": "Gastgewerbe",
-    "sector_office": "Büro",
-    "sector_health": "Gesundheit",
-    "sector_public": "Öffentlich"
+    "sector_hospitality": "Hotels und Gastgewerbe",
+    "sector_residential": "Wohnbauprojekte",
+    "sector_office": "Büro und Unternehmen",
+    "sector_retail": "Einzelhandel und Gewerbe",
+    "sector_public": "Öffentlicher Sektor",
+    "sector_health": "Gesundheitswesen"
   },
   "production": {
     "section_1_title_1": "Erfahrung als Fundament",

@@ -909,7 +909,7 @@ const ProductionPage = () => {
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <span
                   key={i}
-                  className="bg-black-100/[0.08] rounded-full text-[0.78vw] text-black-100 font-semibold tracking-[0.03em] uppercase py-[0.5vw] px-[1.3vw]"
+                  className="bg-grey-100 rounded-full text-[0.78vw] text-black-100 font-semibold tracking-[0.03em] uppercase py-[0.5vw] px-[1.3vw]"
                 >
                   {t(`production.section_8_industry_${i}`)}
                 </span>

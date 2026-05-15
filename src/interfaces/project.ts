@@ -1,9 +1,10 @@
 export type ProjectSector =
-  | 'residential'
   | 'hospitality'
-  | 'health'
-  | 'public'
+  | 'residential'
   | 'office'
+  | 'retail'
+  | 'public'
+  | 'health'
 
 export interface Project {
   slug: string

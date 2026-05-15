@@ -1,8 +1,9 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useTranslations } from 'next-intl'
 
 import { ProjectsGridFour } from '@/components/ProjectsGridFour'
 import { ProjectsGridTwo } from '@/components/ProjectsGridTwo'
@@ -19,33 +20,61 @@ import type {
 
 gsap.registerPlugin(ScrollTrigger)
 
-/* Sector filters — restore with UI below, activeSector state, .filter on list, effect dep, card key
 const SECTORS = [
   'all',
-  'residential',
   'hospitality',
-  'health',
-  'public',
+  'residential',
   'office',
+  'retail',
+  'public',
+  'health',
 ] as const
 type Sector = (typeof SECTORS)[number]
-*/
 
 const ReferencesPage = () => {
+  const t = useTranslations()
   const lenis = useLenis()
 
   const section1Ref = useRef<HTMLElement>(null)
 
   const [gridMode, setGridMode] = useState<ProjectsGridMode>('two')
-  // const [activeSector, setActiveSector] = useState<Sector>('all')
+  const [filterOpen, setFilterOpen] = useState(false)
+  const [activeSector, setActiveSector] = useState<Sector>('all')
+
+  const filterListRef = useRef<HTMLDivElement>(null)
+
+  const handleSectorClick = useCallback((sector: Sector) => {
+    setActiveSector(sector)
+    setFilterOpen(false)
+  }, [])
+
+  useEffect(() => {
+    const pills = filterListRef.current?.querySelectorAll('[data-sector-pill]')
+    if (!pills) return
+
+    if (filterOpen) {
+      gsap.fromTo(
+        pills,
+        { opacity: 0, y: 8 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.4,
+          ease: 'power2.out',
+          stagger: 0.08,
+        }
+      )
+    } else {
+      gsap.to(pills, { opacity: 0, y: 8, duration: 0.35, ease: 'power2.in' })
+    }
+  }, [filterOpen])
 
   const projectsWithIndex: ProjectWithOriginalIndex[] = PROJECTS.map(
     (p, i) => ({
       ...p,
       originalIndex: i,
     })
-  )
-  // .filter((p) => activeSector === 'all' || p.sector === activeSector)
+  ).filter((p) => activeSector === 'all' || p.sector === activeSector)
 
   useIsomorphicLayoutEffect(() => {
     const section1 = section1Ref.current
@@ -108,20 +137,23 @@ const ReferencesPage = () => {
     })
 
     return () => ctx.revert()
-  }, [gridMode, lenis])
+  }, [gridMode, activeSector, lenis])
 
-  /*
-  const sectorFilters = (
-    <div className="flex flex-row gap-[1vw]">
+  const sectorPills = (
+    <div
+      ref={filterListRef}
+      className={`absolute right-0 top-full flex flex-col items-end gap-[0.4vw] mt-[0.5vw] z-30 ${filterOpen ? '' : 'pointer-events-none'}`}
+    >
       {SECTORS.map((sector) => (
         <button
           key={sector}
           type="button"
-          onClick={() => setActiveSector(sector)}
-          className={`text-[0.75vw] uppercase whitespace-nowrap transition-colors duration-300 ${
+          data-sector-pill
+          onClick={() => handleSectorClick(sector)}
+          className={`rounded-full text-[0.78vw] font-semibold tracking-[0.03em] uppercase whitespace-nowrap transition-colors duration-200 py-[0.5vw] px-[1.3vw] opacity-0 ${
             activeSector === sector
-              ? 'text-black-100 font-[500]'
-              : 'text-black-100/40 hover:text-black-100/60'
+              ? 'bg-black-100 text-white-100'
+              : 'bg-grey-100 text-black-100 hover:bg-beige-200'
           }`}
         >
           {sector === 'all'
@@ -131,15 +163,30 @@ const ReferencesPage = () => {
       ))}
     </div>
   )
-  */
 
   const filtersAndGridToggles = (
     <div
-      className="flex flex-row flex-wrap items-end justify-end gap-[1.5vw] opacity-0"
+      className="flex flex-row items-start justify-end gap-[1.5vw] opacity-0"
       data-references-toolbar
     >
-      {/* {sectorFilters} */}
-      <div className="flex flex-row shrink-0 items-center gap-[0.35vw] bg-beige-100 py-[0.45vw] px-[0.55vw]">
+      <div className="relative flex flex-col items-end">
+        <button
+          type="button"
+          onClick={() => setFilterOpen((v) => !v)}
+          className="flex items-center gap-[0.4vw] bg-grey-100 rounded-full text-[0.78vw] text-black-100 font-semibold tracking-[0.03em] uppercase transition-all duration-300 py-[0.5vw] pl-[1.3vw] pr-[1vw] hover:bg-beige-200"
+        >
+          {t('references.sectors')}
+          <span
+            className={`inline-block text-[0.9vw] leading-none transition-transform duration-300 ${
+              filterOpen ? 'rotate-45' : 'rotate-0'
+            }`}
+          >
+            +
+          </span>
+        </button>
+        {sectorPills}
+      </div>
+      <div className="flex flex-row shrink-0 items-center gap-[0.35vw] bg-grey-100 py-[0.45vw] px-[0.55vw]">
         <button
           type="button"
           aria-pressed={gridMode === 'two'}

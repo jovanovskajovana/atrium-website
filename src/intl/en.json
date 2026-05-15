@@ -128,12 +128,14 @@
     "section_3_signature_text": "because we care, Knehtl"
   },
   "references": {
+    "sectors": "Sectors",
     "filter_all": "all",
+    "sector_hospitality": "Hotels & Hospitality",
     "sector_residential": "Residential",
-    "sector_hospitality": "Hospitality",
-    "sector_office": "Office",
-    "sector_health": "Health",
-    "sector_public": "Public"
+    "sector_office": "Office & Corporate",
+    "sector_retail": "Retail & Commercial",
+    "sector_public": "Public Sector",
+    "sector_health": "Healthcare"
   },
   "production": {
     "section_1_title_1": "Built on experience",

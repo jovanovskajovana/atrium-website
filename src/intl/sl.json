@@ -128,12 +128,14 @@
     "section_3_signature_text": "ker nam je mar, Knehtl"
   },
   "references": {
+    "sectors": "Sektorji",
     "filter_all": "vse",
-    "sector_residential": "Stanovanja",
-    "sector_hospitality": "Gostinstvo",
-    "sector_office": "Pisarne",
-    "sector_health": "Zdravstvo",
-    "sector_public": "Javni sektor"
+    "sector_hospitality": "Hoteli in gostinstvo",
+    "sector_residential": "Stanovanjski projekti",
+    "sector_office": "Pisarne in podjetja",
+    "sector_retail": "Trgovina in komerciala",
+    "sector_public": "Javni sektor",
+    "sector_health": "Zdravstvo"
   },
   "production": {
     "section_1_title_1": "Temeljimo na izkušnjah",
