@@ -905,11 +905,11 @@ const ProductionPage = () => {
             <p className="text-[1.05vw] text-black-100/70 leading-[2] mt-[1.8%]">
               {t('production.section_8_industries_text')}
             </p>
-            <div className="flex flex-wrap gap-[0.5vw] mt-[3%]">
+            <div className="flex flex-wrap gap-[0.6vw] max-w-[65vw] mt-[3%]">
               {[1, 2, 3, 4, 5, 6].map((i) => (
                 <span
                   key={i}
-                  className="bg-beige-100 rounded-full text-[0.75vw] text-black-100/80 font-medium tracking-[0.04em] uppercase py-[0.4vw] px-[1vw]"
+                  className="bg-black-100/[0.08] rounded-full text-[0.78vw] text-black-100 font-semibold tracking-[0.03em] uppercase py-[0.5vw] px-[1.3vw]"
                 >
                   {t(`production.section_8_industry_${i}`)}
                 </span>
