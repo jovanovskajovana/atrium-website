@@ -216,7 +216,9 @@ const CareersPage = () => {
                   {t(`careers.section_2_fact_${n}_label`)}
                 </dt>
                 <dd className="text-[0.95vw] text-black-100/75 leading-[1.6]">
-                  {t(`careers.section_2_fact_${n}_text`)}
+                  {t.rich(`careers.section_2_fact_${n}_text`, {
+                    br: () => <br />,
+                  })}
                 </dd>
               </div>
             ))}
