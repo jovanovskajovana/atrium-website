@@ -32,7 +32,7 @@ const Navigation = () => {
           <Link
             key={key}
             href={href}
-            className="group relative inline-block text-[0.92vw] font-[450] leading-[1.6] text-black-100 tracking-[0.03em] overflow-hidden"
+            className="group relative inline-block text-[0.92vw] text-black-100 font-[450] leading-[1.6] tracking-[0.03em] overflow-hidden"
             data-menu-item
             data-active={isActive(href) ? '' : undefined}
           >

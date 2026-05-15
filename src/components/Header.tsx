@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 bg-beige-50 w-full z-50 transition-transform duration-500 ease-in-out ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
+      className={`fixed top-0 left-0 bg-beige-50 w-full transition-transform duration-500 ease-in-out z-50 ${hidden ? '-translate-y-full' : 'translate-y-0'}`}
       data-header
     >
       <Navigation />

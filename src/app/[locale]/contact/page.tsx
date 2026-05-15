@@ -126,7 +126,7 @@ const ContactPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('contact.section_1_label')}
@@ -139,96 +139,96 @@ const ContactPage = () => {
           </p>
 
           <form
-            className="bg-beige-100 px-[4vw] py-[4vw] mt-[6%] opacity-0"
+            className="bg-beige-100 py-[4vw] px-[4vw] mt-[6%] opacity-0"
             data-s1-form
           >
             <div className="grid grid-cols-2 gap-x-[4vw] gap-y-[3.2vw]">
               <label className="block">
-                <span className="block text-[0.86vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.86vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('contact.form_name')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/20 px-[1vw] py-[0.75vw] text-[0.86vw] text-black-100 outline-none focus:border-black-100/50 transition-colors"
+                  className="bg-transparent border border-black-100/20 text-[0.86vw] text-black-100 w-full py-[0.75vw] px-[1vw] outline-none focus:border-black-100/50 transition-colors"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.86vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.86vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('contact.form_email')}
                 </span>
                 <input
                   type="email"
-                  className="w-full bg-transparent border border-black-100/20 px-[1vw] py-[0.75vw] text-[0.86vw] text-black-100 outline-none focus:border-black-100/50 transition-colors"
+                  className="bg-transparent border border-black-100/20 text-[0.86vw] text-black-100 w-full py-[0.75vw] px-[1vw] outline-none focus:border-black-100/50 transition-colors"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-[0.86vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.86vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('contact.form_company')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/20 px-[1vw] py-[0.75vw] text-[0.86vw] text-black-100 outline-none focus:border-black-100/50 transition-colors"
+                  className="bg-transparent border border-black-100/20 text-[0.86vw] text-black-100 w-full py-[0.75vw] px-[1vw] outline-none focus:border-black-100/50 transition-colors"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.86vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.86vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('contact.form_subject')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/20 px-[1vw] py-[0.75vw] text-[0.86vw] text-black-100 outline-none focus:border-black-100/50 transition-colors"
+                  className="bg-transparent border border-black-100/20 text-[0.86vw] text-black-100 w-full py-[0.75vw] px-[1vw] outline-none focus:border-black-100/50 transition-colors"
                 />
               </label>
             </div>
 
             <div className="mt-[3.2vw]">
               <label className="block">
-                <span className="block text-[0.86vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.86vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('contact.form_message')}
                 </span>
                 <textarea
                   rows={5}
-                  className="w-full bg-transparent border border-black-100/20 px-[1vw] py-[0.75vw] text-[0.86vw] text-black-100 outline-none focus:border-black-100/50 transition-colors resize-none"
+                  className="bg-transparent border border-black-100/20 text-[0.86vw] text-black-100 w-full py-[0.75vw] px-[1vw] outline-none focus:border-black-100/50 transition-colors resize-none"
                 />
               </label>
             </div>
 
-            <div className="mt-[3vw] flex justify-end">
+            <div className="flex justify-end mt-[3vw]">
               <Button type="button">{t('contact.form_submit')}</Button>
             </div>
           </form>
 
           <div className="grid grid-cols-2 gap-x-[5vw] gap-y-[5vw] mt-[7%]">
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.78vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[1.2vw]">
+              <p className="text-[0.78vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[1.2vw]">
                 {t('contact.section_1_phone_label')}
               </p>
               <a
                 href={`tel:${COMPANY.phone.replace(/[\s()]/g, '')}`}
-                className="text-[1.2vw] font-[500] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                className="text-[1.2vw] text-black-100 font-[500] hover:text-black-100/60 transition-colors duration-300"
               >
                 {COMPANY.phone}
               </a>
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.78vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[1.2vw]">
+              <p className="text-[0.78vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[1.2vw]">
                 {t('contact.section_1_email_label')}
               </p>
               <a
                 href={`mailto:${t('footer.contact_email')}`}
-                className="text-[1.2vw] font-[500] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                className="text-[1.2vw] text-black-100 font-[500] hover:text-black-100/60 transition-colors duration-300"
               >
                 {t('footer.contact_email')}
               </a>
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.78vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[1.2vw]">
+              <p className="text-[0.78vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[1.2vw]">
                 {t('contact.section_1_address_label')}
               </p>
-              <p className="text-[1.2vw] font-[500] text-black-100 leading-[1.7]">
+              <p className="text-[1.2vw] text-black-100 font-[500] leading-[1.7]">
                 {COMPANY.address}
                 <br />
                 {COMPANY.city}
@@ -238,7 +238,7 @@ const ContactPage = () => {
             </div>
 
             <div className="opacity-0" data-s1-info>
-              <p className="text-[0.78vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[1.2vw]">
+              <p className="text-[0.78vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[1.2vw]">
                 {t('contact.section_1_follow_label')}
               </p>
               <div className="flex gap-[2vw]">
@@ -246,7 +246,7 @@ const ContactPage = () => {
                   href={t('footer.instagram_url')}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[1.2vw] font-[500] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                  className="text-[1.2vw] text-black-100 font-[500] hover:text-black-100/60 transition-colors duration-300"
                 >
                   {t('footer.instagram_label')}
                 </a>
@@ -254,7 +254,7 @@ const ContactPage = () => {
                   href={t('footer.linkedin_url')}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-[1.2vw] font-[500] text-black-100 hover:text-black-100/60 transition-colors duration-300"
+                  className="text-[1.2vw] text-black-100 font-[500] hover:text-black-100/60 transition-colors duration-300"
                 >
                   {t('footer.linkedin_label')}
                 </a>
@@ -276,7 +276,7 @@ const ContactPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[7%] mb-[6%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('contact.section_2_label')}
@@ -289,12 +289,12 @@ const ContactPage = () => {
                 className="border-l-2 border-black-100/10 pl-[1.8vw] opacity-0"
                 data-s2-dept
               >
-                <p className="text-[0.78vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[1vw]">
+                <p className="text-[0.78vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[1vw]">
                   {t(`contact.dept_${dept.key}`)}
                 </p>
                 {dept.members.map((member) => (
                   <div key={member.email} className="mb-[1vw] last:mb-0">
-                    <p className="text-[0.95vw] font-[500] text-black-100 leading-[1.55]">
+                    <p className="text-[0.95vw] text-black-100 font-[500] leading-[1.55]">
                       {member.name}
                     </p>
                     <a

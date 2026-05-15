@@ -40,13 +40,13 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
         <div className="max-w-[52vw] mx-auto">
           <Link
             href="/news"
-            className="group inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 pl-0 hover:pl-[1vw] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] mb-[2.5em]"
+            className="group inline-block text-[0.72vw] text-black-100/45 tracking-[0.14em] uppercase pl-0 mb-[2.5em] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:text-black-100 hover:pl-[1vw]"
           >
             <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] mr-[0.35em] rotate-[225deg] transition-transform duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-x-[0.25vw]" />
             {t('news.back_to_list')}
           </Link>
 
-          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase ml-[-0.2vw]">
+          <h1 className="text-[2.4vw] text-black-100 font-[450] leading-[1.3] uppercase ml-[-0.2vw]">
             {title}
           </h1>
 
@@ -57,21 +57,21 @@ const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {
           </p>
         </div>
 
-        <div className="max-w-[52vw] mx-auto mt-[4%]">
+        <div className="max-w-[52vw] mt-[4%] mx-auto">
           <div className="overflow-hidden aspect-[16/10]">
             <Image
               src={article.image}
               alt={title}
               width={1200}
               height={750}
-              className="h-full w-full object-cover"
+              className="w-full h-full object-cover"
               sizes="52vw"
               priority
             />
           </div>
         </div>
 
-        <div className="max-w-[52vw] mx-auto mt-[4%]">
+        <div className="max-w-[52vw] mt-[4%] mx-auto">
           <p className="text-[0.92vw] text-black-100/60 leading-[1.8]">
             {description}
           </p>

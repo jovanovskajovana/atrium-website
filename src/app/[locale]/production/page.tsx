@@ -61,12 +61,49 @@ const ProductionPage = () => {
 
       const section2 = section2Ref.current
       if (section2) {
+        const s2HeroText = section2.querySelector(
+          '[data-s2-hero-text]'
+        ) as HTMLElement | null
+        if (s2HeroText) {
+          const raw = s2HeroText.textContent || ''
+          s2HeroText.innerHTML = ''
+          const words = raw.split(/(\s+)/)
+          words.forEach((segment) => {
+            if (/^\s+$/.test(segment)) {
+              s2HeroText.appendChild(document.createTextNode(segment))
+              return
+            }
+            const wordWrap = document.createElement('span')
+            wordWrap.style.display = 'inline'
+            for (const char of segment) {
+              const s = document.createElement('span')
+              s.textContent = char
+              s.style.willChange = 'opacity'
+              wordWrap.appendChild(s)
+            }
+            s2HeroText.appendChild(wordWrap)
+          })
+          const chars = s2HeroText.querySelectorAll('span > span')
+          gsap.set(chars, { opacity: 0.12 })
+          gsap.to(chars, {
+            opacity: 1,
+            duration: 2,
+            stagger: 0.04,
+            scrollTrigger: {
+              trigger: s2HeroText,
+              start: 'top 95%',
+              end: 'bottom 15%',
+              scrub: 1,
+              fastScrollEnd: true,
+            },
+          })
+        }
+
         const s2Title = section2.querySelector('[data-s2-title]')
         const s2Btns = section2.querySelector('[data-s2-btns]')
         const s2Image = section2.querySelector('[data-s2-image]')
 
         if (s2Title) gsap.set(s2Title, { y: 40, opacity: 0 })
-        if (s2Btns) gsap.set(s2Btns, { y: 40, opacity: 0 })
         if (s2Image) gsap.set(s2Image, { y: 40, autoAlpha: 0 })
 
         const s2Tl = gsap.timeline({ paused: true })
@@ -78,13 +115,6 @@ const ProductionPage = () => {
             0
           )
         }
-        if (s2Btns) {
-          s2Tl.to(
-            s2Btns,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0.3
-          )
-        }
 
         ScrollTrigger.create({
           trigger: section2,
@@ -92,6 +122,28 @@ const ProductionPage = () => {
           onEnter: () => s2Tl.play(),
           onLeaveBack: () => s2Tl.reverse(),
         })
+
+        if (s2Btns) {
+          gsap.set(s2Btns, { y: 40, opacity: 0 })
+          ScrollTrigger.create({
+            trigger: s2Btns,
+            start: 'top 95%',
+            onEnter: () =>
+              gsap.to(s2Btns, {
+                y: 0,
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+              }),
+            onLeaveBack: () =>
+              gsap.to(s2Btns, {
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+              }),
+          })
+        }
 
         if (s2Image) {
           const s2ImgEl = s2Image.querySelector('img')
@@ -523,17 +575,17 @@ const ProductionPage = () => {
         className="absolute top-[15.5vh] left-1/2 -translate-x-1/2 text-center pointer-events-none opacity-0 z-10"
         data-hero-tagline
       >
-        <h1 className="text-[3vw] font-[500] text-black-100 leading-[1.12] uppercase mb-[0.4em]">
+        <h1 className="text-[3vw] text-black-100 font-[500] leading-[1.12] uppercase mb-[0.4em]">
           {t('production.section_1_title_1')}
           <br />
           {t('production.section_1_title_2')}
         </h1>
-        <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase">
+        <p className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase">
           {t('production.section_1_label')}
         </p>
       </div>
 
-      <div className="relative mt-[calc(100vh-30.87vw)] h-[52vw]">
+      <div className="relative h-[52vw] mt-[calc(100vh-30.87vw)]">
         <div
           ref={videoRef}
           className="absolute inset-0 overflow-hidden origin-top invisible"
@@ -556,13 +608,18 @@ const ProductionPage = () => {
       </div>
 
       <section ref={section2Ref} className="pt-[5%] mb-[12%]">
-        <div className="max-w-[55vw] mx-auto text-center">
-          <p className="text-[2vw] text-black-100 leading-[1.5]">
+        <div className="text-center max-w-[55vw] mx-auto">
+          <p
+            className="text-[2vw] text-black-100 leading-[1.5]"
+            data-s2-hero-text
+          >
             {t('production.section_2_text')}
           </p>
         </div>
         <div className="flex justify-center gap-[1.5vw] mt-[8%]" data-s2-btns>
-          <Button>{t('production.section_2_cta_1')}</Button>
+          <Button as={Link} href="/references">
+            {t('production.section_2_cta_1')}
+          </Button>
           <Button>{t('production.section_2_cta_2')}</Button>
         </div>
 
@@ -582,15 +639,15 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section3Ref} className="bg-beige-100 py-[7%] mb-[12%]">
-        <div className="mx-auto text-center mb-[5%]">
+        <div className="text-center mb-[5%] mx-auto">
           <h2
-            className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase mb-[1.8%]"
+            className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase mb-[1.8%]"
             data-s3-title
           >
             {t('production.section_3_title')}
           </h2>
           <p
-            className="text-[1.1vw] text-black-100/70 leading-[1.85] max-w-[40vw] mx-auto"
+            className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85]  max-w-[40vw] mx-auto"
             data-s3-text
           >
             {t('production.section_3_text')}
@@ -609,13 +666,13 @@ const ProductionPage = () => {
           ].map(({ value, key }) => (
             <div
               key={key}
-              className="bg-beige-200 aspect-square flex flex-col justify-end py-[10%] px-[1.8vw]"
+              className="flex flex-col justify-end bg-beige-200 aspect-square py-[10%] px-[1.8vw]"
               data-s3-item
             >
-              <p className="text-[3.4vw] font-[500] text-black-100 leading-[1.2] tracking-[-0.02em]">
+              <p className="text-[3.4vw] text-black-100 font-[500] leading-[1.2] tracking-[-0.02em]">
                 {value}
               </p>
-              <p className="text-[0.86vw] font-[500] text-black-100/50 tracking-[0.1em] uppercase mt-[0.5vw]">
+              <p className="text-[0.86vw] text-black-100/50 font-[500] tracking-[0.1em] uppercase mt-[0.5vw]">
                 {t(`production.section_3_stat_${key}_label`)}
               </p>
             </div>
@@ -626,12 +683,12 @@ const ProductionPage = () => {
       <section ref={section4Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[2.8vw] font-[500] text-black-100 leading-[1.25] uppercase text-center mb-[6%]"
+            className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase text-center mb-[6%]"
             data-s4-title
           >
             {t('production.section_4_title')}
           </h2>
-          <div className="grid grid-cols-[1fr_1.2fr] gap-[6vw] items-start">
+          <div className="grid grid-cols-[1fr_1.2fr] items-start gap-[6vw]">
             <div className="overflow-hidden" data-s4-image>
               <Image
                 src="/assets/img-21.webp"
@@ -648,7 +705,7 @@ const ProductionPage = () => {
                   className="border-t border-black-100/10 py-[2.2vw]"
                   data-s4-feature
                 >
-                  <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase">
+                  <h3 className="text-[1.2vw] text-black-100 font-[500] leading-[1.2] uppercase">
                     {t(`production.section_4_feature_${n}_title`)}
                   </h3>
                   <p className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[28vw] pt-[2%]">
@@ -664,13 +721,13 @@ const ProductionPage = () => {
       <section ref={section5Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto" data-s5-statement>
           <h2
-            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
+            className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
             data-s5-title
           >
             {t('production.section_5_title_1')}
           </h2>
           <h2
-            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
+            className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase whitespace-nowrap ml-[-0.2vw]"
             data-s5-title
           >
             {t('production.section_5_title_2')}
@@ -679,9 +736,9 @@ const ProductionPage = () => {
       </section>
 
       <section ref={section6Ref} className="mb-[12%]">
-        <div className="max-w-[75vw] mx-auto invisible" data-s6-wrap>
+        <div className="invisible max-w-[75vw] mx-auto" data-s6-wrap>
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[2.5%]"
             data-s6-label
           >
             {t('production.section_6_label')}
@@ -692,10 +749,10 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.92vw] font-[500] text-black-100/30 uppercase">
+              <span className="text-[0.92vw] text-black-100/30 font-[500] uppercase">
                 01
               </span>
-              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] text-black-100 font-[500] leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_1')}
               </h3>
             </a>
@@ -704,10 +761,10 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-right
             >
-              <span className="text-[0.92vw] font-[500] text-black-100/30 tracking-[0.15em] uppercase">
+              <span className="text-[0.92vw] text-black-100/30 font-[500] tracking-[0.15em] uppercase">
                 02
               </span>
-              <h3 className="text-[2.4vw] font-[500] text-black-100 leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
+              <h3 className="text-[2.4vw] text-black-100 font-[500] leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
                 {t('production.section_6_option_2')}
               </h3>
             </a>
@@ -722,13 +779,13 @@ const ProductionPage = () => {
       >
         <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[4vw] font-[500] text-white-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
+            className="text-[4vw] text-white-100 font-[500] leading-[1.1] uppercase mb-[1.8%] ml-[-0.2vw]"
             data-oem-title
           >
             {t('production.section_7_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[600] text-white-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] text-white-100/90 font-[600] tracking-[0.15em] uppercase mb-[2.5%]"
             data-oem-label
           >
             {t('production.section_7_label')}
@@ -748,8 +805,8 @@ const ProductionPage = () => {
                     className="border-t border-white-100/15 py-[2.2vw]"
                     data-oem-feature
                   >
-                    <div className="grid grid-cols-[1fr_2fr] gap-[2vw] items-start">
-                      <h4 className="text-[1vw] font-[500] text-white-100 leading-[1.3] uppercase">
+                    <div className="grid grid-cols-[1fr_2fr] items-start gap-[2vw]">
+                      <h4 className="text-[1vw] text-white-100 font-[500] leading-[1.3] uppercase">
                         {t(`production.section_7_feature_${n}_title`)}
                       </h4>
                       <p className="text-[0.95vw] text-white-100/60 leading-[1.75]">
@@ -760,7 +817,7 @@ const ProductionPage = () => {
                 ))}
               </div>
               <div data-oem-delivery>
-                <p className="text-[1.3vw] font-[400] text-white-100/50">
+                <p className="text-[1.3vw] text-white-100/50 font-[400]">
                   {t('production.section_7_delivery')}
                 </p>
                 <div className="flex gap-[1.5vw] mt-[6%]">
@@ -789,13 +846,13 @@ const ProductionPage = () => {
       <section ref={section8Ref} id="project-interiors" className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
-            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] mb-[1.8%]"
+            className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase mb-[1.8%] ml-[-0.2vw]"
             data-int-title
           >
             {t('production.section_8_title')}
           </h2>
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[2.5%]"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[2.5%]"
             data-int-label
           >
             {t('production.section_8_label')}
@@ -812,7 +869,7 @@ const ProductionPage = () => {
                 <p className="text-[2.6vw] text-black-100/10 font-[500] leading-none mb-[6%]">
                   {String(n).padStart(2, '0')}
                 </p>
-                <h4 className="text-[1.05vw] font-[500] text-black-100 leading-[1.3] uppercase mb-[4%]">
+                <h4 className="text-[1.05vw] text-black-100 font-[500] leading-[1.3] uppercase mb-[4%]">
                   {t(`production.section_8_feature_${n}_title`)}
                 </h4>
                 <p className="text-[0.95vw] text-black-100/70 leading-[1.75] max-w-[20vw]">
@@ -842,17 +899,29 @@ const ProductionPage = () => {
             </div>
           </div>
           <div className="mt-[7%]" data-int-cta>
-            <p className="text-[1.3vw] font-[500] text-black-100">
+            <p className="text-[1.3vw] text-black-100 font-[500]">
               {t('production.section_8_industries_title')}
             </p>
             <p className="text-[1.05vw] text-black-100/70 leading-[2] mt-[1.8%]">
-              {t('production.section_8_industries_list')}
+              {t('production.section_8_industries_text')}
             </p>
+            <div className="flex flex-wrap gap-[0.5vw] mt-[3%]">
+              {[1, 2, 3, 4, 5, 6].map((i) => (
+                <span
+                  key={i}
+                  className="bg-beige-100 rounded-full text-[0.75vw] text-black-100/80 font-medium tracking-[0.04em] uppercase py-[0.4vw] px-[1vw]"
+                >
+                  {t(`production.section_8_industry_${i}`)}
+                </span>
+              ))}
+            </div>
             <div className="flex gap-[1.5vw] mt-[4%]">
               <Button as={Link} href="/references">
                 {t('production.section_8_cta_1')}
               </Button>
-              <Button>{t('production.section_8_cta_2')}</Button>
+              <Button as={Link} href="/contact">
+                {t('production.section_8_cta_2')}
+              </Button>
             </div>
           </div>
         </div>

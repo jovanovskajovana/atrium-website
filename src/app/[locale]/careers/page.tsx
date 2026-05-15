@@ -174,19 +174,19 @@ const CareersPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[1.8%] opacity-0"
             data-s1-label
           >
             {t('careers.section_1_label')}
           </p>
           <h1
-            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
+            className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
             data-s1-title
           >
             {t('careers.section_1_title_1')}
           </h1>
           <h1
-            className="text-[4vw] font-[500] text-black-100 leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
+            className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase ml-[-0.2vw] opacity-0"
             data-s1-title
           >
             {t('careers.section_1_title_2')}
@@ -200,10 +200,10 @@ const CareersPage = () => {
         </div>
 
         <div
-          className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/15 max-w-[75vw] mx-auto pt-[6%] mt-[6%] opacity-0"
+          className="grid grid-cols-[52vw_1fr] gap-x-[6vw] border-t border-black-100/15 max-w-[75vw] pt-[6%] mt-[6%] mx-auto opacity-0"
           data-careers-split
         >
-          <p className="text-[1.3vw] font-[400] text-black-100/60 leading-[1.65]">
+          <p className="text-[1.3vw] text-black-100/60 font-[400] leading-[1.65]">
             {t('careers.section_2_text')}
           </p>
           <dl className="space-y-[2.4vw] pt-[0.5vw]">
@@ -212,7 +212,7 @@ const CareersPage = () => {
                 key={n}
                 className="border-l-2 border-black-100/10 pl-[1.4vw]"
               >
-                <dt className="text-[0.75vw] font-[500] uppercase tracking-[0.2em] text-black-100/50 mb-[0.5vw]">
+                <dt className="text-[0.75vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[0.5vw]">
                   {t(`careers.section_2_fact_${n}_label`)}
                 </dt>
                 <dd className="text-[0.95vw] text-black-100/75 leading-[1.6]">
@@ -227,7 +227,7 @@ const CareersPage = () => {
       <section ref={section2Ref} className="bg-beige-100 py-[7%] mb-[2%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[4vw] opacity-0"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[4vw] opacity-0"
             data-s2-label
           >
             {t('careers.section_3_label')}
@@ -239,10 +239,10 @@ const CareersPage = () => {
                 className="border-l border-black-100/10 pl-[2vw] first:border-l-0 first:pl-0 opacity-0"
                 data-culture-item
               >
-                <span className="block text-[4.5vw] font-[500] text-black-100/10 leading-none mb-[1.2vw] select-none">
+                <span className="block text-[4.5vw] text-black-100/10 font-[500] leading-none mb-[1.2vw] select-none">
                   {String(n).padStart(2, '0')}
                 </span>
-                <h3 className="text-[1.25vw] font-[500] text-black-100 uppercase tracking-[0.04em] mb-[1vw]">
+                <h3 className="text-[1.25vw] text-black-100 font-[500] tracking-[0.04em] uppercase mb-[1vw]">
                   {t(`careers.section_3_value_${n}_title`)}
                 </h3>
                 <p className="text-[0.95vw] text-black-100/70 font-[450] leading-[1.8] max-w-[22vw]">
@@ -253,15 +253,15 @@ const CareersPage = () => {
           </div>
         </div>
 
-        <div className="max-w-[75vw] mx-auto mt-[10%]">
+        <div className="max-w-[75vw] mt-[10%] mx-auto">
           <div
             className="flex flex-row items-end justify-between gap-[2vw] mb-[3vw] opacity-0"
             data-s2-roles-header
           >
-            <p className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase">
+            <p className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase">
               {t('careers.section_4_label')}
             </p>
-            <p className="text-[0.85vw] font-[450] text-black-100/50 max-w-[28vw] leading-[1.6] text-right">
+            <p className="text-[0.85vw] text-black-100/50 font-[450] leading-[1.6] text-right max-w-[28vw]">
               {t('careers.section_4_note')}
             </p>
           </div>
@@ -280,18 +280,18 @@ const CareersPage = () => {
                   className="flex flex-row items-baseline justify-between gap-[1.2vw] py-[2.4vw] px-0 transition-[background-color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-black-100 hover:px-[1.5vw]"
                 >
                   <div className="flex flex-wrap items-baseline gap-x-[1.2vw] gap-y-[0.4vw]">
-                    <span className="text-[1.3vw] font-[500] text-black-100 uppercase tracking-[0.03em] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
+                    <span className="text-[1.3vw] text-black-100 font-[500] tracking-[0.03em] uppercase transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
                       {t(`careers.section_4_role_${listing.roleIndex}_title`)}
                     </span>
-                    <span className="text-[0.75vw] font-[500] uppercase tracking-[0.18em] text-black-100/50 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/55">
+                    <span className="text-[0.75vw] text-black-100/50 font-[500] tracking-[0.18em] uppercase transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/55">
                       {t(`careers.section_4_role_${listing.roleIndex}_team`)}
                     </span>
                   </div>
                   <div className="flex items-baseline gap-[2vw] shrink-0">
-                    <span className="text-[0.85vw] font-[450] text-black-100/55 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/60">
+                    <span className="text-[0.85vw] text-black-100/55 font-[450] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100/60">
                       {t(`careers.section_4_role_${listing.roleIndex}_type`)}
                     </span>
-                    <span className="text-[0.8vw] font-[500] uppercase tracking-[0.2em] text-black-100 transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
+                    <span className="text-[0.8vw] text-black-100 font-[500] tracking-[0.2em] uppercase transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/role:text-white-100">
                       {t('careers.section_4_apply')}
                       <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] ml-[0.35em] rotate-45 transition-transform duration-500 ease-out group-hover/role:translate-x-[0.25vw]" />
                     </span>
@@ -307,9 +307,9 @@ const CareersPage = () => {
         ref={section3Ref}
         className="bg-black-100 text-white-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
-        <div className="max-w-[75vw] mx-auto flex flex-row items-end justify-between gap-[3vw]">
+        <div className="flex flex-row items-end justify-between gap-[3vw] max-w-[75vw] mx-auto">
           <div className="max-w-[38vw]">
-            <h2 className="text-[2.6vw] font-[500] leading-[1.15] uppercase tracking-[0.03em] mb-[1.8vw]">
+            <h2 className="text-[2.6vw] font-[500] leading-[1.15] tracking-[0.03em] uppercase mb-[1.8vw]">
               {t('careers.section_5_title')}
             </h2>
             <p className="text-[1.05vw] text-white-100/70 font-[450] leading-[1.85]">

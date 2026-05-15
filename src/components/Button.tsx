@@ -26,7 +26,7 @@ const Button: FC<ButtonProps> = ({
 
   return (
     <Component
-      className={`group relative inline-flex items-center gap-[0.6vw] ${sizeStyle.text} font-[550] tracking-[0.04em] border ${variantStyle.border} ${sizeStyle.height} ${sizeStyle.px} overflow-hidden ${className}`}
+      className={`group relative inline-flex items-center gap-[0.6vw] border ${variantStyle.border} ${sizeStyle.text} font-[550] tracking-[0.04em] ${sizeStyle.height} ${sizeStyle.px} overflow-hidden ${className}`}
       {...rest}
     >
       <span
@@ -39,7 +39,7 @@ const Button: FC<ButtonProps> = ({
       </span>
       {size !== 'small' && (
         <IconArrow
-          className={`relative w-[0.8vw] h-[0.8vw] ${variantStyle.text} mt-[1px] transition-all duration-500 group-hover:translate-x-[4px]`}
+          className={`relative ${variantStyle.text} w-[0.8vw] h-[0.8vw] mt-[1px] transition-all duration-500 group-hover:translate-x-[4px]`}
         />
       )}
     </Component>

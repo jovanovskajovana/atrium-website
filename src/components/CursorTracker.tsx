@@ -122,7 +122,7 @@ const CursorTracker = () => {
     >
       <div
         ref={innerRef}
-        className="relative flex shrink-0 items-center justify-center rounded-full border border-brown-100 bg-transparent box-border"
+        className="relative flex shrink-0 items-center justify-center bg-transparent border border-brown-100 rounded-full box-border"
         style={{ width: `${baseVw}vw`, height: `${baseVw}vw` }}
       >
         <span

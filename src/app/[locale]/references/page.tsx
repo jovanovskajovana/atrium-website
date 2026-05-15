@@ -139,25 +139,25 @@ const ReferencesPage = () => {
       data-references-toolbar
     >
       {/* {sectorFilters} */}
-      <div className="flex shrink-0 flex-row items-center gap-[0.35vw] bg-beige-100 px-[0.55vw] py-[0.45vw]">
+      <div className="flex flex-row shrink-0 items-center gap-[0.35vw] bg-beige-100 py-[0.45vw] px-[0.55vw]">
         <button
           type="button"
           aria-pressed={gridMode === 'two'}
           onClick={() => setGridMode('two')}
-          className={`flex h-[1.5vw] w-[1.5vw] shrink-0 items-center justify-center p-0 transition-opacity duration-300 ${
+          className={`flex shrink-0 items-center justify-center w-[1.5vw] h-[1.5vw] p-0 transition-opacity duration-300 ${
             gridMode === 'two' ? 'opacity-100' : 'opacity-60 hover:opacity-80'
           }`}
         >
           <span
-            className="flex h-[65%] w-[65%] items-center justify-center pointer-events-none"
+            className="flex items-center justify-center w-[65%] h-[65%] pointer-events-none"
             aria-hidden
           >
-            <span className="grid grid-cols-2 h-full w-full gap-[12%]">
+            <span className="grid grid-cols-2 gap-[12%] w-full h-full">
               <span
-                className={`rounded-[0.06vw] ${gridMode === 'two' ? 'bg-black-100' : 'bg-black-100/50'}`}
+                className={`${gridMode === 'two' ? 'bg-black-100' : 'bg-black-100/50'} rounded-[0.06vw]`}
               />
               <span
-                className={`rounded-[0.06vw] ${gridMode === 'two' ? 'bg-black-100' : 'bg-black-100/50'}`}
+                className={`${gridMode === 'two' ? 'bg-black-100' : 'bg-black-100/50'} rounded-[0.06vw]`}
               />
             </span>
           </span>
@@ -166,19 +166,19 @@ const ReferencesPage = () => {
           type="button"
           aria-pressed={gridMode === 'four'}
           onClick={() => setGridMode('four')}
-          className={`flex h-[1.5vw] w-[1.5vw] min-h-[1.25rem] min-w-[1.25rem] shrink-0 items-center justify-center p-0 transition-opacity duration-300 ${
+          className={`flex shrink-0 items-center justify-center w-[1.5vw] min-w-[1.25rem] h-[1.5vw] min-h-[1.25rem] p-0 transition-opacity duration-300 ${
             gridMode === 'four' ? 'opacity-100' : 'opacity-60 hover:opacity-80'
           }`}
         >
           <span
-            className="flex items-center justify-center h-[65%] w-[65%] pointer-events-none"
+            className="flex items-center justify-center w-[65%] h-[65%] pointer-events-none"
             aria-hidden
           >
-            <span className="grid grid-cols-2 grid-rows-2 gap-[14%] h-full w-full">
+            <span className="grid grid-cols-2 grid-rows-2 gap-[14%] w-full h-full">
               {[0, 1, 2, 3].map((i) => (
                 <span
                   key={i}
-                  className={`rounded-[0.05vw] ${gridMode === 'four' ? 'bg-black-100' : 'bg-black-100/50'}`}
+                  className={`${gridMode === 'four' ? 'bg-black-100' : 'bg-black-100/50'} rounded-[0.05vw]`}
                 />
               ))}
             </span>

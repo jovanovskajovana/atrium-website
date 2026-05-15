@@ -28,7 +28,7 @@ const LanguageSwitcher = ({ variant = 'inline' }: LanguageSwitcherProps) => {
             <button
               type="button"
               onClick={() => handleChange(loc)}
-              className="text-[0.92vw] font-[450] text-white-100/70 lowercase hover:text-white-100 transition-colors"
+              className="text-[0.92vw] text-white-100/70 font-[450] lowercase hover:text-white-100 transition-colors"
             >
               {LOCALE_LABELS[loc] ?? loc}
             </button>

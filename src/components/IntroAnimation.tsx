@@ -352,7 +352,7 @@ const IntroAnimation = ({ onComplete }: IntroAnimationProps) => {
 
       <div
         ref={imageRef}
-        className="absolute inset-0 opacity-0 w-[60vw] m-auto h-fit"
+        className="absolute inset-0 opacity-0 w-[60vw] h-fit m-auto"
       >
         <Image
           src="/assets/img-1.webp"

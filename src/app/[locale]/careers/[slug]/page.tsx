@@ -28,17 +28,17 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
         <div className="max-w-[75vw] mx-auto">
           <Link
             href="/careers"
-            className="group inline-block text-[0.72vw] uppercase tracking-[0.14em] text-black-100/45 hover:text-black-100 pl-0 hover:pl-[0.75vw] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] mb-[2.5em]"
+            className="group inline-block text-[0.72vw] text-black-100/45 tracking-[0.14em] uppercase hover:text-black-100 pl-0 hover:pl-[0.75vw] transition-[color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] mb-[2.5em]"
           >
             <IconArrow className="inline-block w-[0.7vw] h-[0.7vw] mr-[0.35em] rotate-[225deg] transition-transform duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover:-translate-x-[0.25vw]" />
             {t('careers.listings.back_to_careers')}
           </Link>
 
-          <h1 className="text-[2.4vw] font-[450] text-black-100 leading-[1.3] uppercase">
+          <h1 className="text-[2.4vw] text-black-100 font-[450] leading-[1.3] uppercase">
             {t(`careers.section_4_role_${roleIndex}_title`)}
           </h1>
 
-          <p className="text-[0.92vw] text-black-100/60 flex items-center gap-[0.4vw] mt-[1.5%]">
+          <p className="flex items-center gap-[0.4vw] text-[0.92vw] text-black-100/60 mt-[1.5%]">
             <IconLocation className="text-[1em] text-black-100/40" />
             {t(`${prefix}.subtitle`)}
           </p>
@@ -46,16 +46,16 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
       </section>
 
       <section className="pb-[6%]">
-        <div className="max-w-[75vw] mx-auto border-t border-black-100/10 pt-[4%] space-y-[4vw]">
+        <div className="border-t border-black-100/10 max-w-[75vw] pt-[4%] mx-auto space-y-[4vw]">
           <div>
-            <h2 className="text-[0.92vw] font-[500] text-black-100 mb-[1.5vw]">
+            <h2 className="text-[0.92vw] text-black-100 font-[500] mb-[1.5vw]">
               {t(`${prefix}.description_title`)}
             </h2>
             <ul className="space-y-[0.6vw]">
               {Array.from({ length: sections.description }, (_, i) => (
                 <li
                   key={i}
-                  className="text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] relative before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
+                  className="relative text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
                 >
                   {t(`${prefix}.description_${i + 1}`)}
                 </li>
@@ -64,14 +64,14 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
           </div>
 
           <div>
-            <h2 className="text-[0.92vw] font-[500] text-black-100 mb-[1.5vw]">
+            <h2 className="text-[0.92vw] text-black-100 font-[500] mb-[1.5vw]">
               {t(`${prefix}.requirements_title`)}
             </h2>
             <ul className="space-y-[0.6vw]">
               {Array.from({ length: sections.requirements }, (_, i) => (
                 <li
                   key={i}
-                  className="text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] relative before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
+                  className="relative text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
                 >
                   {t(`${prefix}.requirements_${i + 1}`)}
                 </li>
@@ -80,14 +80,14 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
           </div>
 
           <div>
-            <h2 className="text-[0.92vw] font-[500] text-black-100 mb-[1.5vw]">
+            <h2 className="text-[0.92vw] text-black-100 font-[500] mb-[1.5vw]">
               {t(`${prefix}.offer_title`)}
             </h2>
             <ul className="space-y-[0.6vw]">
               {Array.from({ length: sections.offer }, (_, i) => (
                 <li
                   key={i}
-                  className="text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] relative before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
+                  className="relative text-[0.82vw] text-black-100/70 leading-[1.75] pl-[1.4vw] before:content-['•'] before:absolute before:left-0 before:text-black-100/30"
                 >
                   {t(`${prefix}.offer_${i + 1}`)}
                 </li>
@@ -96,7 +96,7 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
           </div>
 
           <div>
-            <h2 className="text-[0.92vw] font-[500] text-black-100 mb-[1vw]">
+            <h2 className="text-[0.92vw] text-black-100 font-[500] mb-[1vw]">
               {t(`${prefix}.location_title`)}
             </h2>
             <p className="text-[0.82vw] text-black-100/70 leading-[1.75]">
@@ -109,103 +109,103 @@ const JobListingPage = async ({ params }: JobListingPageProps) => {
       <section className="pb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <div className="mb-[4vw]">
-            <h2 className="text-[2.2vw] font-[450] text-black-100 leading-[1.2] uppercase">
+            <h2 className="text-[2.2vw] text-black-100 font-[450] leading-[1.2] uppercase">
               {t('careers.listings.apply_title')}
             </h2>
           </div>
 
-          <form className="bg-beige-100 px-[4vw] py-[3.5vw]">
+          <form className="bg-beige-100 py-[3.5vw] px-[4vw]">
             <div className="grid grid-cols-2 gap-x-[4vw] gap-y-[3.2vw]">
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_firstname')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_lastname')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_email')}
                 </span>
                 <input
                   type="email"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_phone')}
                 </span>
                 <input
                   type="tel"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_dob')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_location')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
 
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_education')}
                 </span>
                 <input
                   type="text"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40"
                 />
               </label>
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_attachment')}
                 </span>
                 <input
                   type="file"
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100/50 outline-none focus:border-black-100/40 transition-colors file:mr-[1vw] file:border-0 file:bg-transparent file:text-black-100/60 file:text-[0.72vw] file:cursor-pointer file:font-[500]"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100/50 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40 file:bg-transparent file:border-0 file:text-[0.72vw] file:text-black-100/60 file:font-[500] file:mr-[1vw] file:cursor-pointer"
                 />
               </label>
             </div>
 
             <div className="mt-[3.2vw]">
               <label className="block">
-                <span className="block text-[0.78vw] font-[500] text-black-100 mb-[0.8vw]">
+                <span className="block text-[0.78vw] text-black-100 font-[500] mb-[0.8vw]">
                   {t('careers.listings.form_message')}
                 </span>
                 <textarea
                   rows={5}
-                  className="w-full bg-transparent border border-black-100/15 px-[1vw] py-[0.65vw] text-[0.78vw] text-black-100 outline-none focus:border-black-100/40 transition-colors resize-none"
+                  className="bg-transparent border border-black-100/15 text-[0.78vw] text-black-100 w-full py-[0.65vw] px-[1vw] outline-none transition-colors focus:border-black-100/40 resize-none"
                 />
               </label>
             </div>
 
-            <div className="mt-[3vw] flex justify-end">
+            <div className="flex justify-end mt-[3vw]">
               <button
                 type="button"
                 className="group relative inline-flex items-center justify-center text-[0.8vw] border border-black-100 h-[3.3vw] px-[2vw] overflow-hidden"

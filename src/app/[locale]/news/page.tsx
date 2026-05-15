@@ -109,7 +109,7 @@ const NewsPage = () => {
       <section ref={section1Ref} className="pt-[18.5vh] pb-[10%]">
         <div className="max-w-[75vw] mx-auto">
           <p
-            className="text-[0.95vw] font-[600] text-black-100 tracking-[0.15em] uppercase mb-[2.5%] opacity-0"
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[2.5%] opacity-0"
             data-news-label
           >
             {t('news.section_1_label')}
@@ -142,7 +142,7 @@ const NewsPage = () => {
                         pathname: '/news/[slug]',
                         params: { slug: article.slug },
                       }}
-                      className="group/news grid grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] gap-[2vw] items-start w-full py-[2vw] opacity-0 px-0 transition-[background-color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 hover:px-[1.5vw]"
+                      className="group/news grid grid-cols-[minmax(2.5rem,5vw)_minmax(0,16vw)_1fr_minmax(5rem,9vw)] items-start gap-[2vw] w-full py-[2vw] px-0 opacity-0 transition-[background-color,padding] duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] outline-none hover:bg-black-100 hover:px-[1.5vw]"
                     >
                       <span
                         className="text-[3.4vw] text-black-100/10 font-[500] leading-none mt-[-2%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/35"
@@ -151,19 +151,19 @@ const NewsPage = () => {
                         {num}
                       </span>
 
-                      <div className="aspect-[4/3] w-full overflow-hidden">
+                      <div className="w-full aspect-[4/3] overflow-hidden">
                         <Image
                           src={article.image}
                           alt={title}
                           width={720}
                           height={540}
-                          className="h-full w-full object-cover"
+                          className="w-full h-full object-cover"
                           sizes="16vw"
                         />
                       </div>
 
                       <div className="min-w-0">
-                        <h3 className="text-[1.2vw] font-[500] text-black-100 leading-[1.2] uppercase pt-[1%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100">
+                        <h3 className="text-[1.2vw] text-black-100 font-[500] leading-[1.2] uppercase pt-[1%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100">
                           {title}
                         </h3>
                         <p className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[32vw] pt-[2%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/70">
@@ -173,7 +173,7 @@ const NewsPage = () => {
 
                       <time
                         dateTime={article.date}
-                        className="text-[0.82vw] font-[450] text-black-100/50 tracking-[0.1em] pt-[4%] text-right whitespace-nowrap transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/50"
+                        className="text-[0.82vw] text-black-100/50 font-[450] tracking-[0.1em] text-right whitespace-nowrap pt-[4%] transition-colors duration-[650ms] ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/news:text-white-100/50"
                       >
                         {formattedDate}
                       </time>
