@@ -461,5 +461,9 @@
   },
   "design_your_space": {
     "title": "Gestalten Sie Ihren Raum"
+  },
+  "coming_soon": {
+    "title": "Demnächst verfügbar",
+    "subtitle": "Wir arbeiten an etwas Neuem. Bleiben Sie dran."
   }
 }

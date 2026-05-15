@@ -461,5 +461,9 @@
   },
   "design_your_space": {
     "title": "Design Your Space"
+  },
+  "coming_soon": {
+    "title": "Coming Soon",
+    "subtitle": "We're crafting something new. Stay tuned."
   }
 }
