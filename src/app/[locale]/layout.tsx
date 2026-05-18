@@ -55,9 +55,7 @@ const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
     >
       <body>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <LenisProvider>
-            {children}
-          </LenisProvider>
+          <LenisProvider>{children}</LenisProvider>
         </NextIntlClientProvider>
       </body>
     </html>
