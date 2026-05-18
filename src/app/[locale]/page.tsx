@@ -135,7 +135,7 @@ const ComingSoonPage = () => {
         .to(
           svg,
           {
-            top: '20%',
+            top: window.innerWidth < 672 ? '18%' : '20%',
             duration: 1,
             ease: 'power2.inOut',
           },
@@ -192,7 +192,7 @@ const ComingSoonPage = () => {
         viewBox="0 0 613 94"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[15vw] h-auto"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] sm:w-[25vw] lg:w-[15vw] h-auto"
       >
         <path d={FULL_R} fill="#26251e" opacity="0" data-part="r" />
         <path d={FULL_I} fill="#26251e" opacity="0" data-part="i" />
@@ -218,43 +218,43 @@ const ComingSoonPage = () => {
         </g>
       </svg>
 
-      <div className="absolute inset-0 flex flex-col items-center justify-center pt-[12vh]">
+      <div className="absolute inset-0 flex flex-col items-center justify-center pt-[16vh] sm:pt-[14vh] lg:pt-[12vh] px-[6vw] sm:px-0">
         <h1
-          className="text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase opacity-0"
+          className="text-[9vw] sm:text-[6vw] lg:text-[4vw] text-black-100 font-[500] leading-[1.1] uppercase opacity-0"
           data-coming-soon
         >
           {t('coming_soon.title')}
         </h1>
 
         <p
-          className="text-[1vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.5vw] opacity-0"
+          className="text-[3.5vw] sm:text-[2vw] lg:text-[1vw] text-black-100/70 font-[450] leading-[1.85] text-center mt-[3vw] sm:mt-[2vw] lg:mt-[1.5vw] opacity-0"
           data-subtitle
         >
           {t('coming_soon.subtitle')}
         </p>
 
         <div
-          className="bg-black-100/15 w-[3vw] h-px mt-[3vw] origin-center"
+          className="bg-black-100/15 w-[8vw] sm:w-[5vw] lg:w-[3vw] h-px mt-[6vw] sm:mt-[4vw] lg:mt-[3vw] origin-center"
           data-divider
         />
 
         <div
-          className="flex flex-col items-center text-center mt-[3vw] opacity-0"
+          className="flex flex-col items-center text-center mt-[6vw] sm:mt-[4vw] lg:mt-[3vw] opacity-0"
           data-contact-block
         >
           <a
             href={`mailto:${t('footer.contact_email')}`}
-            className="text-[1.1vw] text-black-100 font-[500] transition-colors duration-300 hover:text-black-100/60"
+            className="text-[3.8vw] sm:text-[2.2vw] lg:text-[1.1vw] text-black-100 font-[500] transition-colors duration-300 hover:text-black-100/60"
           >
             {t('footer.contact_email')}
           </a>
           <a
             href={`tel:${COMPANY.phone.replace(/[\s()]/g, '')}`}
-            className="text-[1.1vw] text-black-100/70 font-[450] mt-[0.6vw] transition-colors duration-300 hover:text-black-100"
+            className="text-[3.8vw] sm:text-[2.2vw] lg:text-[1.1vw] text-black-100/70 font-[450] mt-[2vw] sm:mt-[1vw] lg:mt-[0.6vw] transition-colors duration-300 hover:text-black-100"
           >
             {COMPANY.phone}
           </a>
-          <p className="text-[0.82vw] text-black-100/55 font-[450] leading-[1.7] mt-[1.2vw]">
+          <p className="text-[3vw] sm:text-[1.6vw] lg:text-[0.82vw] text-black-100/55 font-[450] leading-[1.7] mt-[3vw] sm:mt-[2vw] lg:mt-[1.2vw]">
             {COMPANY.address}, {COMPANY.city}, {COMPANY.country}
           </p>
         </div>
