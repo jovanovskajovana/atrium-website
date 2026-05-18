@@ -1,7 +1,6 @@
 'use client'
 
 import { useRef } from 'react'
-import Image from 'next/image'
 import { gsap } from 'gsap'
 import { useTranslations } from 'next-intl'
 
@@ -58,7 +57,6 @@ const ComingSoonPage = () => {
       const allLetters = [fullA, fullT, letterR, letterI, letterU, letterM]
       const dissolving = [letterM, letterU, letterI, letterR]
 
-      const bgImage = container.querySelector('[data-bg-image]')
       const comingSoon = container.querySelector('[data-coming-soon]')
       const subtitle = container.querySelector('[data-subtitle]')
       const divider = container.querySelector('[data-divider]')
@@ -152,15 +150,6 @@ const ComingSoonPage = () => {
           '+=0.6'
         )
 
-      if (bgImage) {
-        tl.fromTo(
-          bgImage,
-          { opacity: 0, scale: 1.05 },
-          { opacity: 1, scale: 1, duration: 2, ease: 'power2.out' },
-          '-=0.8'
-        )
-      }
-
       if (comingSoon) {
         tl.fromTo(
           comingSoon,
@@ -209,17 +198,7 @@ const ComingSoonPage = () => {
   }, [])
 
   return (
-    <div ref={containerRef} className="fixed inset-0 bg-beige-50 z-[100]">
-      <div className="absolute inset-0 opacity-0" data-bg-image>
-        <Image
-          src="/assets/img-1.webp"
-          alt=""
-          fill
-          className="object-cover opacity-[0.1]"
-          priority
-        />
-      </div>
-
+    <div ref={containerRef} className="fixed inset-0 bg-beige-100 z-[100]">
       <svg
         ref={svgRef}
         viewBox="0 0 613 94"
