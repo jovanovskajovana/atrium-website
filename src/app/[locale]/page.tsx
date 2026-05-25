@@ -203,7 +203,7 @@ const ComingSoonPage = () => {
           src="/assets/coming-soon.webp"
           alt=""
           fill
-          className="object-cover object-[center_16%] opacity-[0.2]"
+          className="object-cover object-[center_18%] opacity-[0.2]"
           priority
         />
       </div>
