@@ -213,7 +213,7 @@ const ComingSoonPage = () => {
         viewBox="0 0 613 94"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40vw] sm:w-[25vw] lg:w-[15vw] h-auto"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[55vw] sm:w-[35vw] lg:w-[15vw] h-auto"
       >
         <path d={FULL_R} fill="#26251e" opacity="0" data-part="r" />
         <path d={FULL_I} fill="#26251e" opacity="0" data-part="i" />
