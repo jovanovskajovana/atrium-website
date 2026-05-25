@@ -200,10 +200,10 @@ const ComingSoonPage = () => {
     <div ref={containerRef} className="fixed inset-0 bg-beige-100">
       <div className="absolute inset-0 opacity-0" data-bg-image>
         <Image
-          src="/assets/img-1.webp"
+          src="/assets/coming-soon.webp"
           alt=""
           fill
-          className="object-cover opacity-[0.2]"
+          className="object-cover object-[center_16%] opacity-[0.2]"
           priority
         />
       </div>
