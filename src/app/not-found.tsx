@@ -1,13 +1,20 @@
 'use client'
 
-import Error from 'next/error'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 
-const NotFound = () => (
-  <html lang="en">
-    <body>
-      <Error statusCode={404} />
-    </body>
-  </html>
-)
+const NotFound = () => {
+  const router = useRouter()
+
+  useEffect(() => {
+    router.replace('/')
+  }, [router])
+
+  return (
+    <html lang="en">
+      <body />
+    </html>
+  )
+}
 
 export default NotFound

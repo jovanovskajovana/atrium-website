@@ -50,7 +50,9 @@
     "language_title": "Sprache"
   },
   "not_found": {
-    "title": "Oops! Seite nicht gefunden."
+    "title": "Seite nicht gefunden",
+    "description": "Die Seite, die Sie suchen, existiert nicht oder wurde verschoben.",
+    "back_home": "Zurück zur Startseite"
   },
   "home": {
     "section_1_title_1": "130 Jahre",
