@@ -988,7 +988,7 @@ const Home = () => {
               data-partner-logo
             >
               <Image
-                src={`/assets/logo-${i + 1}.png`}
+                src={`/assets/logo-${i + 1}.webp`}
                 alt={`Partner ${i + 1}`}
                 width={160}
                 height={60}

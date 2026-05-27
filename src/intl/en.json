@@ -50,7 +50,9 @@
     "language_title": "Language"
   },
   "not_found": {
-    "title": "Oops! Page not found."
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "back_home": "Back to homepage"
   },
   "home": {
     "section_1_title_1": "130 years",
