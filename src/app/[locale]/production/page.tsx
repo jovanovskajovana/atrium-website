@@ -708,7 +708,7 @@ const ProductionPage = () => {
                   <h3 className="text-[1.2vw] text-black-100 font-[500] leading-[1.2] uppercase">
                     {t(`production.section_4_feature_${n}_title`)}
                   </h3>
-                  <p className="text-[1.05vw] text-black-100/70 leading-[1.85] max-w-[28vw] pt-[2%]">
+                  <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[32vw] pt-[2%]">
                     {t(`production.section_4_feature_${n}_text`)}
                   </p>
                 </div>
