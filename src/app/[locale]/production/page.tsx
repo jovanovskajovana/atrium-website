@@ -688,7 +688,7 @@ const ProductionPage = () => {
           >
             {t('production.section_4_title')}
           </h2>
-          <div className="grid grid-cols-[1fr_1.2fr] items-start gap-[6vw]">
+          <div className="grid grid-cols-[1fr_1fr] items-start gap-[5.5vw]">
             <div className="overflow-hidden" data-s4-image>
               <Image
                 src="/assets/img-21.webp"
@@ -705,7 +705,7 @@ const ProductionPage = () => {
                   className="border-t border-black-100/10 py-[2.2vw]"
                   data-s4-feature
                 >
-                  <h3 className="text-[1.2vw] text-black-100 font-[500] leading-[1.2] uppercase">
+                  <h3 className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase">
                     {t(`production.section_4_feature_${n}_title`)}
                   </h3>
                   <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[32vw] pt-[2%]">
@@ -796,7 +796,7 @@ const ProductionPage = () => {
           >
             {t('production.section_7_text')}
           </p>
-          <div className="grid grid-cols-[1.2fr_1fr] gap-[6vw] mt-[7%]">
+          <div className="grid grid-cols-[1fr_1fr] gap-[5.5vw] mt-[7%]">
             <div className="flex flex-col justify-between">
               <div>
                 {[1, 2, 3, 4].map((n) => (
