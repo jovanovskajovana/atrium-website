@@ -173,7 +173,6 @@ const Home = () => {
 
       const s2Label = section2.querySelector('[data-section-label]')
       const s2Titles = section2.querySelectorAll('[data-s2-title]')
-      const s2Texts = section2.querySelectorAll('[data-s2-text]')
       const textBlock = section2.querySelector('[data-text-reveal]')
 
       if (textBlock && s2Titles.length) {
@@ -249,25 +248,6 @@ const Home = () => {
 
       const btnBlock = section2.querySelector('[data-s2-cta-row]')
 
-      if (s2Texts.length) {
-        gsap.set(s2Texts, { opacity: 0.12 })
-        ScrollTrigger.create({
-          trigger: btnBlock || s2Texts[0],
-          start: 'top 85%',
-          onEnter: () =>
-            gsap.to(s2Texts, {
-              opacity: 1,
-              duration: 1.8,
-              ease: 'power2.out',
-            }),
-          onLeaveBack: () =>
-            gsap.to(s2Texts, {
-              opacity: 0.12,
-              duration: 1.5,
-              ease: 'power2.out',
-            }),
-        })
-      }
       if (btnBlock) {
         gsap.set(btnBlock, { y: 40, opacity: 0 })
         ScrollTrigger.create({
@@ -292,20 +272,94 @@ const Home = () => {
 
       const section3 = section3Ref.current
       if (section3) {
-        const taglineReveal = section3.querySelector('[data-tagline-reveal]')
-        if (taglineReveal) {
-          gsap.set(taglineReveal, { y: 40, opacity: 0 })
-          const taglineTl = gsap.timeline({ paused: true })
-          taglineTl.to(
-            taglineReveal,
-            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+        const s3Image = section3.querySelector('[data-s3-image]')
+        const s3ImgEl = s3Image?.querySelector('img')
+        const s3Label = section3.querySelector('[data-s3-label]')
+        const s3Title = section3.querySelector('[data-s3-title]')
+        const s3Subtitle = section3.querySelector('[data-s3-subtitle]')
+
+        if (s3Image) gsap.set(s3Image, { y: 40, autoAlpha: 0 })
+        if (s3Label) gsap.set(s3Label, { y: 20, opacity: 0 })
+        if (s3Title) gsap.set(s3Title, { y: 40, opacity: 0 })
+        if (s3Subtitle) gsap.set(s3Subtitle, { y: 20, opacity: 0 })
+
+        const s3ImgTl = gsap.timeline({ paused: true })
+
+        if (s3Image) {
+          s3ImgTl.to(s3Image, {
+            y: 0,
+            autoAlpha: 1,
+            duration: 1.3,
+            ease: 'power3.out',
+          })
+        }
+        if (s3ImgEl) {
+          s3ImgTl.fromTo(
+            s3ImgEl,
+            { scale: 1.08 },
+            { scale: 1, duration: 1.3, ease: 'power3.out' },
             0
           )
+        }
+
+        const s3TextTl = gsap.timeline({ paused: true })
+
+        if (s3Label) {
+          s3TextTl.to(
+            s3Label,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0
+          )
+        }
+        if (s3Title) {
+          s3TextTl.to(
+            s3Title,
+            { y: 0, opacity: 1, duration: 1.3, ease: 'power3.out' },
+            0.1
+          )
+        }
+        if (s3Subtitle) {
+          s3TextTl.to(
+            s3Subtitle,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0.25
+          )
+        }
+
+        ScrollTrigger.create({
+          trigger: s3Label || s3Title,
+          start: 'top 90%',
+          onEnter: () => s3TextTl.play(),
+          onLeaveBack: () => s3TextTl.reverse(),
+        })
+
+        ScrollTrigger.create({
+          trigger: s3Image,
+          start: 'top 85%',
+          onEnter: () => s3ImgTl.play(),
+          onLeaveBack: () => s3ImgTl.reverse(),
+        })
+
+        const s3Body = section3.querySelector('[data-s3-body]')
+        if (s3Body) {
+          gsap.set(s3Body, { y: 30, opacity: 0 })
           ScrollTrigger.create({
-            trigger: section3,
-            start: 'top 80%',
-            onEnter: () => taglineTl.play(),
-            onLeaveBack: () => taglineTl.reverse(),
+            trigger: s3Body,
+            start: 'top 90%',
+            onEnter: () =>
+              gsap.to(s3Body, {
+                y: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: 'power2.out',
+              }),
+            onLeaveBack: () =>
+              gsap.to(s3Body, {
+                y: 30,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power2.out',
+              }),
           })
         }
       }
@@ -314,19 +368,9 @@ const Home = () => {
       if (section4) {
         const projectItems = section4.querySelectorAll('[data-project-item]')
         const projectLink = section4.querySelector('[data-project-link]')
-        const projectLabel = section4.querySelector('[data-section-label]')
 
         const vw = window.innerWidth
         const s4Tl = gsap.timeline({ paused: true })
-
-        if (projectLabel) {
-          gsap.set(projectLabel, { y: 20, opacity: 0 })
-          s4Tl.to(
-            projectLabel,
-            { y: 0, opacity: 1, duration: 1.2, ease: 'power2.out' },
-            0
-          )
-        }
 
         projectItems.forEach((item, i) => {
           gsap.set(item, { x: vw, opacity: 0 })
@@ -713,19 +757,6 @@ const Home = () => {
           >
             {t('home.section_2_text_1')}
           </p>
-
-          <div
-            className={`max-w-[56vw] mt-[6%] ${locale === 'sl' ? 'ml-[13vw]' : locale === 'de' ? 'ml-[14.5vw]' : 'ml-[16.5vw]'}`}
-          >
-            <div className="grid grid-cols-2 gap-[2vw] text-[1.1vw] text-black-100 font-[450] leading-[1.85]">
-              <p data-s2-text>
-                {t.rich('home.section_2_text_2', { br: () => <br /> })}
-              </p>
-              <p data-s2-text>
-                {t.rich('home.section_2_text_3', { br: () => <br /> })}
-              </p>
-            </div>
-          </div>
         </div>
 
         <div
@@ -742,25 +773,52 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="bg-beige-100 py-[8%] mb-[12%]">
-        <div className="text-center max-w-[60vw] mx-auto" data-tagline-reveal>
-          <p className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase mb-[2.5%]">
-            {t('home.section_3_title')}
+      <section ref={section3Ref} className="mb-[12%]">
+        <div className="flex flex-col items-center text-center">
+          <p
+            className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[1.8%]"
+            data-s3-label
+          >
+            {t('home.section_4_label')}
           </p>
-          <p className="text-[1.3vw] text-black-100/70 font-[450]">
+          <h2
+            className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase max-w-[60vw] mb-[2%]"
+            data-s3-title
+          >
+            {t('home.section_3_title')}
+          </h2>
+          <p
+            className="text-[1.3vw] text-black-100/70 font-[450] mb-[5%]"
+            data-s3-subtitle
+          >
             {t('home.section_3_text')}
           </p>
+          <div
+            className="relative overflow-hidden w-[35vw] aspect-[4/5]"
+            data-s3-image
+          >
+            <Image
+              src="/assets/img-11.webp"
+              alt={t('home.section_3_title')}
+              width={960}
+              height={1200}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div
+            className="text-[1.1vw] text-black-100 font-[450] leading-[1.85] text-left w-[35vw] mt-[5%]"
+            data-s3-body
+          >
+            <p>{t.rich('home.section_2_text_2', { br: () => <br /> })}</p>
+            <p className="mt-[1.5em]">
+              {t.rich('home.section_2_text_3', { br: () => <br /> })}
+            </p>
+          </div>
         </div>
       </section>
 
       <section ref={section4Ref} className="mb-[12%]">
-        <p
-          className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[6%]"
-          data-section-label
-        >
-          {t('home.section_4_label')}
-        </p>
-        <div className="flex items-center justify-center gap-[1.5vw]">
+        <div className="flex justify-center gap-[1.5vw]">
           {FEATURED_PROJECTS.map((project, i) => {
             const isLarge = i % 2 === 0
             const w = isLarge ? '25vw' : '20vw'
@@ -801,17 +859,17 @@ const Home = () => {
           })}
         </div>
 
-        <div className="flex justify-center mt-[6%]" data-project-link>
+        {/* <div className="flex justify-center mt-[6%]" data-project-link>
           <Link
             href="/references"
             className="relative text-[1vw] text-black-100 font-[550] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-black-100 after:origin-left after:scale-x-100 after:transition-transform after:duration-500 after:ease-in-out hover:after:origin-right hover:after:scale-x-0"
           >
             {t('home.section_4_cta')}
           </Link>
-        </div>
+        </div> */}
       </section>
 
-      <section ref={section5Ref} className="bg-beige-100 py-[7%] mb-[12%]">
+      <section ref={section5Ref} className="mb-[12%]">
         <p
           className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[3.5%]"
           data-section-label
