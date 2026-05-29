@@ -19,6 +19,22 @@ import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
 
+// Staggered layout for the featured projects row. The pattern repeats every 4
+// items: a large card at the top, a small card at the top, a small card pushed
+// down, then a large card pushed down with its label above the image.
+const PROJECT_ASPECT = 1294 / 960
+const PROJECT_LARGE_W = 22.5 // vw
+const PROJECT_SMALL_W = 11.25 // vw
+// A middle card starts where a small card's image ends (half of a large card).
+const PROJECT_OFFSET = `${(PROJECT_SMALL_W * PROJECT_ASPECT).toFixed(2)}vw`
+
+const PROJECT_LAYOUT = [
+  { size: 'lg', offset: false, labelAbove: false },
+  { size: 'sm', offset: false, labelAbove: false },
+  { size: 'sm', offset: true, labelAbove: false },
+  { size: 'lg', offset: true, labelAbove: true },
+] as const
+
 const Home = () => {
   const t = useTranslations()
   const locale = useLocale()
@@ -383,24 +399,11 @@ const Home = () => {
 
         if (projectLink) {
           gsap.set(projectLink, { y: 20, opacity: 0 })
-          ScrollTrigger.create({
-            trigger: projectLink,
-            start: 'top 90%',
-            onEnter: () =>
-              gsap.to(projectLink, {
-                y: 0,
-                opacity: 1,
-                duration: 1,
-                ease: 'power2.out',
-              }),
-            onLeaveBack: () =>
-              gsap.to(projectLink, {
-                y: 20,
-                opacity: 0,
-                duration: 0.5,
-                ease: 'power2.in',
-              }),
-          })
+          s4Tl.to(
+            projectLink,
+            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
+            0
+          )
         }
 
         ScrollTrigger.create({
@@ -773,7 +776,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section3Ref} className="mb-[12%]">
+      <section ref={section3Ref} className="mb-[10%]">
         <div className="flex flex-col items-center text-center">
           <p
             className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[1.8%]"
@@ -818,10 +821,24 @@ const Home = () => {
       </section>
 
       <section ref={section4Ref} className="mb-[12%]">
-        <div className="flex justify-center gap-[1.5vw]">
+        <div className="flex justify-end pr-[1.5vw] mb-[3%]" data-project-link>
+          <Link
+            href="/references"
+            className="flex items-center gap-[0.4vw] text-[1vw] text-black-100 font-[550] transition-opacity duration-300 hover:opacity-60"
+          >
+            {t('home.section_4_cta')}
+            <span className="inline-block mt-[1px]">+</span>
+          </Link>
+        </div>
+
+        <div className="flex items-start gap-[1.5vw] pl-[1.5vw]">
           {FEATURED_PROJECTS.map((project, i) => {
-            const isLarge = i % 2 === 0
-            const w = isLarge ? '25vw' : '20vw'
+            const cfg = PROJECT_LAYOUT[i % PROJECT_LAYOUT.length]
+            const w =
+              cfg.size === 'lg'
+                ? `${PROJECT_LARGE_W}vw`
+                : `${PROJECT_SMALL_W}vw`
+            const offset = cfg.offset ? PROJECT_OFFSET : '0vw'
             return (
               <Link
                 key={project.slug}
@@ -829,13 +846,27 @@ const Home = () => {
                   pathname: '/references/[slug]',
                   params: { slug: project.slug },
                 }}
-                className="group shrink-0"
+                className="group relative shrink-0"
                 style={{ width: w }}
                 data-project-item
               >
+                {cfg.labelAbove && (
+                  <div
+                    className="absolute left-0 top-0 flex flex-col justify-end pb-[1em]"
+                    style={{ width: w, height: offset }}
+                  >
+                    <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase">
+                      {t(`home.section_4_project_${i + 1}`)}
+                    </p>
+                    <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
+                      {t(`references.sector_${project.sector}`)}
+                    </p>
+                  </div>
+                )}
+
                 <div
                   className="relative overflow-hidden aspect-[960/1294]"
-                  style={{ width: w }}
+                  style={{ width: w, marginTop: offset }}
                 >
                   <Image
                     src={project.image}
@@ -848,58 +879,54 @@ const Home = () => {
                   <div className="absolute inset-0 bg-black-100/0 transition-colors duration-500 group-hover:bg-black-100/20" />
                 </div>
 
-                <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase mt-[1em]">
-                  {t(`home.section_4_project_${i + 1}`)}
-                </p>
-                <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
-                  {t(`references.sector_${project.sector}`)}
-                </p>
+                {!cfg.labelAbove && (
+                  <>
+                    <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase mt-[1em]">
+                      {t(`home.section_4_project_${i + 1}`)}
+                    </p>
+                    <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
+                      {t(`references.sector_${project.sector}`)}
+                    </p>
+                  </>
+                )}
               </Link>
             )
           })}
         </div>
-
-        {/* <div className="flex justify-center mt-[6%]" data-project-link>
-          <Link
-            href="/references"
-            className="relative text-[1vw] text-black-100 font-[550] after:absolute after:left-0 after:bottom-0 after:h-[1px] after:w-full after:bg-black-100 after:origin-left after:scale-x-100 after:transition-transform after:duration-500 after:ease-in-out hover:after:origin-right hover:after:scale-x-0"
-          >
-            {t('home.section_4_cta')}
-          </Link>
-        </div> */}
       </section>
 
       <section ref={section5Ref} className="mb-[12%]">
         <p
-          className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[3.5%]"
+          className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
         >
           {t('home.section_5_label')}
         </p>
         <div>
           {[1, 2, 3, 4, 5].map((n) => (
-            <div key={n}>
-              <div className="grid grid-cols-[6vw_1fr] items-start gap-[2.5vw] border-t border-black-100/8 first:border-t-0 py-[2.5%] pl-[23.25vw] pr-[12vw]">
-                <span
-                  className="text-[3.4vw] text-black-100/10 font-[500] leading-none"
-                  data-pillar-num
+            <div
+              className="grid grid-cols-[6vw_1fr] items-start gap-[2.5vw] py-[2.5%] pl-[23.25vw] pr-[12vw] first:pt-0 last:pb-0"
+              key={n}
+            >
+              <span
+                className="text-[3.4vw] text-black-100/10 font-[500] leading-none"
+                data-pillar-num
+              >
+                {String(n).padStart(2, '0')}
+              </span>
+              <div className="flex flex-col">
+                <h3
+                  className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase pt-[0.5%]"
+                  data-pillar-title
                 >
-                  {String(n).padStart(2, '0')}
-                </span>
-                <div className="flex flex-col">
-                  <h3
-                    className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase pt-[0.5%]"
-                    data-pillar-title
-                  >
-                    {t(`home.section_5_pillar_${n}_title`)}
-                  </h3>
-                  <p
-                    className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[38vw] mt-[2%]"
-                    data-pillar-text
-                  >
-                    {t(`home.section_5_pillar_${n}_text`)}
-                  </p>
-                </div>
+                  {t(`home.section_5_pillar_${n}_title`)}
+                </h3>
+                <p
+                  className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[38vw] mt-[2%]"
+                  data-pillar-text
+                >
+                  {t(`home.section_5_pillar_${n}_text`)}
+                </p>
               </div>
             </div>
           ))}
