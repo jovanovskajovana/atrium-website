@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { useLocale, useTranslations } from 'next-intl'
+import { useTranslations } from 'next-intl'
 
 import { Link } from '@/i18n/navigation'
 
@@ -12,32 +12,21 @@ import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
 
 import { COLLAGE_REST, IMG9 } from '@/constants/intro-animation'
-import { FEATURED_PROJECTS } from '@/constants/projects'
+import {
+  FEATURED_PROJECTS,
+  PROJECT_LARGE_W,
+  PROJECT_SMALL_W,
+  PROJECT_OFFSET,
+  PROJECT_LAYOUT,
+} from '@/constants/projects'
 
 import useIntroAnimation from '@/hooks/useIntroAnimation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 gsap.registerPlugin(ScrollTrigger)
 
-// Staggered layout for the featured projects row. The pattern repeats every 4
-// items: a large card at the top, a small card at the top, a small card pushed
-// down, then a large card pushed down with its label above the image.
-const PROJECT_ASPECT = 1294 / 960
-const PROJECT_LARGE_W = 22.5 // vw
-const PROJECT_SMALL_W = 11.25 // vw
-// A middle card starts where a small card's image ends (half of a large card).
-const PROJECT_OFFSET = `${(PROJECT_SMALL_W * PROJECT_ASPECT).toFixed(2)}vw`
-
-const PROJECT_LAYOUT = [
-  { size: 'lg', offset: false, labelAbove: false },
-  { size: 'sm', offset: false, labelAbove: false },
-  { size: 'sm', offset: true, labelAbove: false },
-  { size: 'lg', offset: true, labelAbove: true },
-] as const
-
 const Home = () => {
   const t = useTranslations()
-  const locale = useLocale()
 
   const { showIntro, completeIntro } = useIntroAnimation()
 
@@ -52,6 +41,7 @@ const Home = () => {
   const section7Ref = useRef<HTMLElement>(null)
   const section8Ref = useRef<HTMLElement>(null)
   const section9Ref = useRef<HTMLElement>(null)
+  const section10Ref = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
     if (showIntro) {
@@ -480,14 +470,14 @@ const Home = () => {
         })
       }
 
-      const section6 = section6Ref.current
-      if (section6) {
-        const prodLabel = section6.querySelector('[data-production-label]')
-        const prodTitle = section6.querySelector('[data-production-title]')
-        const prodText = section6.querySelector('[data-production-text]')
-        const prodBtn = section6.querySelector('[data-production-btn]')
+      const section7 = section7Ref.current
+      if (section7) {
+        const prodLabel = section7.querySelector('[data-production-label]')
+        const prodTitle = section7.querySelector('[data-production-title]')
+        const prodText = section7.querySelector('[data-production-text]')
+        const prodBtn = section7.querySelector('[data-production-btn]')
 
-        gsap.set(section6, { y: 60, autoAlpha: 0 })
+        gsap.set(section7, { y: 60, autoAlpha: 0 })
         if (prodLabel) gsap.set(prodLabel, { y: 20, opacity: 0 })
         if (prodTitle) gsap.set(prodTitle, { y: 40, opacity: 0 })
         if (prodText) gsap.set(prodText, { y: 20, opacity: 0 })
@@ -496,7 +486,7 @@ const Home = () => {
         const prodTl = gsap.timeline({ paused: true })
 
         prodTl.to(
-          section6,
+          section7,
           { y: 0, autoAlpha: 1, duration: 1.3, ease: 'power3.out' },
           0
         )
@@ -531,18 +521,18 @@ const Home = () => {
         }
 
         ScrollTrigger.create({
-          trigger: section6,
+          trigger: section7,
           start: 'top 80%',
           onEnter: () => prodTl.play(),
           onLeaveBack: () => prodTl.reverse(),
         })
       }
 
-      const section7 = section7Ref.current
-      if (section7) {
-        const designTitle = section7.querySelector('[data-design-title]')
-        const designText = section7.querySelector('[data-design-text]')
-        const designOptions = section7.querySelector('[data-design-options]')
+      const section8 = section8Ref.current
+      if (section8) {
+        const designTitle = section8.querySelector('[data-design-title]')
+        const designText = section8.querySelector('[data-design-text]')
+        const designOptions = section8.querySelector('[data-design-options]')
 
         if (designTitle) gsap.set(designTitle, { y: 40, opacity: 0 })
         if (designText) gsap.set(designText, { y: 20, opacity: 0 })
@@ -573,16 +563,16 @@ const Home = () => {
         }
 
         ScrollTrigger.create({
-          trigger: section7,
+          trigger: section8,
           start: 'top 80%',
           onEnter: () => designTl.play(),
           onLeaveBack: () => designTl.reverse(),
         })
       }
 
-      const section8 = section8Ref.current
-      if (section8) {
-        const susItems = section8.querySelectorAll('[data-sus-item]')
+      const section9 = section9Ref.current
+      if (section9) {
+        const susItems = section9.querySelectorAll('[data-sus-item]')
         if (susItems.length) {
           gsap.set(susItems, { y: 50, opacity: 0 })
           const susTl = gsap.timeline({ paused: true })
@@ -594,7 +584,7 @@ const Home = () => {
             stagger: 0.2,
           })
           ScrollTrigger.create({
-            trigger: section8,
+            trigger: section9,
             start: 'top 80%',
             onEnter: () => susTl.play(),
             onLeaveBack: () => susTl.reverse(),
@@ -602,13 +592,13 @@ const Home = () => {
         }
       }
 
-      const section9 = section9Ref.current
-      if (section9) {
-        const s9Label = section9.querySelector('[data-section-label]')
+      const section10 = section10Ref.current
+      if (section10) {
+        const s9Label = section10.querySelector('[data-section-label]')
         if (s9Label) {
           gsap.set(s9Label, { y: 20, opacity: 0 })
           ScrollTrigger.create({
-            trigger: section9,
+            trigger: section10,
             start: 'top 85%',
             onEnter: () =>
               gsap.to(s9Label, {
@@ -627,7 +617,7 @@ const Home = () => {
           })
         }
 
-        const partnerLogos = section9.querySelectorAll('[data-partner-logo]')
+        const partnerLogos = section10.querySelectorAll('[data-partner-logo]')
         gsap.set(partnerLogos, { autoAlpha: 0, y: 50, x: 25, rotation: 6 })
 
         const partnersTl = gsap.timeline({ paused: true })
@@ -647,7 +637,7 @@ const Home = () => {
         })
 
         ScrollTrigger.create({
-          trigger: section9,
+          trigger: section10,
           start: 'top 50%',
           onEnter: () => partnersTl.play(),
           onLeaveBack: () => partnersTl.reverse(),
@@ -933,8 +923,10 @@ const Home = () => {
         </div>
       </section>
 
+      <section ref={section6Ref} className="mb-[12%]" />
+
       <section
-        ref={section6Ref}
+        ref={section7Ref}
         className="bg-black-100 py-[10%] mb-[12%] mx-[1.5vw]"
       >
         <div className="max-w-[75vw] mx-auto">
@@ -942,41 +934,41 @@ const Home = () => {
             className="text-[0.95vw] text-white-100/90 font-[600] tracking-[0.15em] uppercase mb-[1.8%]"
             data-production-label
           >
-            {t('home.section_6_label')}
+            {t('home.section_7_label')}
           </p>
           <h2
             className="text-[4vw] text-white-100 font-[500] leading-[1.1] uppercase"
             data-production-title
           >
-            {t('home.section_6_title')}
+            {t('home.section_7_title')}
           </h2>
           <p
             className="text-[1.1vw] text-white-100/70 font-[450] leading-[1.85] max-w-[56vw] mt-[2.5%]"
             data-production-text
           >
-            {t('home.section_6_text')}
+            {t('home.section_7_text')}
           </p>
           <div className="mt-[5%]" data-production-btn>
             <Button as={Link} href="/production" variant="light">
-              {t('home.section_6_cta')}
+              {t('home.section_7_cta')}
             </Button>
           </div>
         </div>
       </section>
 
-      <section ref={section7Ref} className="mb-[12%]">
+      <section ref={section8Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.8vw] text-black-100 font-[500] leading-[1.2] uppercase ml-[-0.2vw]"
             data-design-title
           >
-            {t('home.section_7_title')}
+            {t('home.section_8_title')}
           </h2>
           <p
             className="text-[1.1vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.8%]"
             data-design-text
           >
-            {t('home.section_7_text')}
+            {t('home.section_8_text')}
           </p>
 
           <div
@@ -987,17 +979,17 @@ const Home = () => {
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-18.webp"
-                  alt={t('home.section_7_option_1')}
+                  alt={t('home.section_8_option_1')}
                   width={960}
                   height={720}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
               <h3 className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase mt-[4%]">
-                {t('home.section_7_option_1')}
+                {t('home.section_8_option_1')}
               </h3>
               <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.5%]">
-                {t('home.section_7_option_1_text')}
+                {t('home.section_8_option_1_text')}
               </p>
             </Link>
 
@@ -1005,17 +997,17 @@ const Home = () => {
               <div className="overflow-hidden aspect-[4/3]">
                 <Image
                   src="/assets/img-19.webp"
-                  alt={t('home.section_7_option_2')}
+                  alt={t('home.section_8_option_2')}
                   width={960}
                   height={720}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
               </div>
               <h3 className="text-[1.2vw] text-black-100 font-[550] leading-[1.2] uppercase mt-[4%]">
-                {t('home.section_7_option_2')}
+                {t('home.section_8_option_2')}
               </h3>
               <p className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] mt-[1.5%]">
-                {t('home.section_7_option_2_text')}
+                {t('home.section_8_option_2_text')}
               </p>
             </Link>
           </div>
@@ -1023,47 +1015,47 @@ const Home = () => {
           <div className="grid grid-cols-2 gap-[1.5vw] mt-[6%]" data-design-btn>
             <div className="flex justify-end">
               <Button as={Link} href="/design-your-space">
-                {t('home.section_7_cta_1')}
+                {t('home.section_8_cta_1')}
               </Button>
             </div>
             <div>
               <Button as={Link} href="/design-your-space">
-                {t('home.section_7_cta_2')}
+                {t('home.section_8_cta_2')}
               </Button>
             </div>
           </div>
         </div>
       </section>
 
-      <section ref={section8Ref} className="bg-beige-100 py-[8%] mb-[12%]">
+      <section ref={section9Ref} className="bg-beige-100 py-[8%] mb-[12%]">
         <div className="text-center max-w-[60vw] mx-auto">
           <h2
             className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase mb-[2%]"
             data-sus-item
           >
-            {t('home.section_8_title_1')}
+            {t('home.section_9_title_1')}
           </h2>
           <p
             className="text-[1.3vw] text-black-100/70 font-[450] mb-[2.5%]"
             data-sus-item
           >
-            {t('home.section_8_text_1')}
+            {t('home.section_9_text_1')}
           </p>
           <p
             className="text-[1.05vw] text-black-100/70 font-[450] leading-[1.85] max-w-[43vw] mx-auto"
             data-sus-item
           >
-            {t.rich('home.section_8_text_2', { br: () => <br /> })}
+            {t.rich('home.section_9_text_2', { br: () => <br /> })}
           </p>
         </div>
       </section>
 
-      <section ref={section9Ref} className="mb-[12%]">
+      <section ref={section10Ref} className="mb-[12%]">
         <p
           className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
         >
-          {t('home.section_9_label')}
+          {t('home.section_10_label')}
         </p>
         <div className="grid grid-cols-6 gap-y-[4.5vw] gap-x-[3.5vw] max-w-[75vw] mx-auto">
           {Array.from({ length: 12 }, (_, i) => (

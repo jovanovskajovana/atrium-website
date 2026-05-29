@@ -1,5 +1,17 @@
 import { Project } from '@/interfaces/project'
 
+export const PROJECT_ASPECT = 1294 / 960
+export const PROJECT_LARGE_W = 22.5
+export const PROJECT_SMALL_W = 11.25
+export const PROJECT_OFFSET = `${(PROJECT_SMALL_W * PROJECT_ASPECT).toFixed(2)}vw`
+
+export const PROJECT_LAYOUT = [
+  { size: 'lg', offset: false, labelAbove: false },
+  { size: 'sm', offset: false, labelAbove: false },
+  { size: 'sm', offset: true, labelAbove: false },
+  { size: 'lg', offset: true, labelAbove: true },
+] as const
+
 export const FEATURED_PROJECTS: Project[] = [
   {
     slug: 'boutique-hotel',
