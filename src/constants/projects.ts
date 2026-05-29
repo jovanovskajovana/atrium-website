@@ -2,7 +2,7 @@ import { Project } from '@/interfaces/project'
 
 export const FEATURED_PROJECTS: Project[] = [
   {
-    slug: 'private-residence',
+    slug: 'boutique-hotel',
     image: '/assets/img-5.webp',
     sector: 'residential',
   },
@@ -22,7 +22,7 @@ export const FEATURED_PROJECTS: Project[] = [
     sector: 'hospitality',
   },
   {
-    slug: 'boutique-hotel',
+    slug: 'wellness-center',
     image: '/assets/img-25.webp',
     sector: 'hospitality',
   },
@@ -41,6 +41,26 @@ export const FEATURED_PROJECTS: Project[] = [
     image: '/assets/img-10.webp',
     sector: 'office',
   },
+  {
+    slug: 'private-residence',
+    image: '/assets/img-11.webp',
+    sector: 'residential',
+  },
+  {
+    slug: 'luxury-apartment',
+    image: '/assets/img-14.webp',
+    sector: 'residential',
+  },
+  {
+    slug: 'urban-loft',
+    image: '/assets/img-26.webp',
+    sector: 'residential',
+  },
+  {
+    slug: 'conference-hall',
+    image: '/assets/img-4.webp',
+    sector: 'office',
+  },
 ]
 
 export const PROJECTS: Project[] = [
@@ -52,7 +72,7 @@ export const PROJECTS: Project[] = [
   {
     slug: 'boutique-hotel',
     image: '/assets/img-5.webp',
-    sector: 'hospitality',
+    sector: 'residential',
   },
   {
     slug: 'penthouse-suite',
