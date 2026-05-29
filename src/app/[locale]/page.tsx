@@ -735,7 +735,7 @@ const Home = () => {
           />
         </div>
 
-        <div className="max-w-[75vw] mt-[5%] mx-auto" data-text-reveal>
+        <div className="max-w-[75vw] mt-[6%] mx-auto" data-text-reveal>
           <p
             className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[1.8%]"
             data-section-label
@@ -763,7 +763,7 @@ const Home = () => {
         </div>
 
         <div
-          className="flex justify-center gap-[1.5vw] mt-[6%] mb-[12%]"
+          className="flex justify-center gap-[1.5vw] mt-[8%] mb-[12%]"
           data-s2-cta-row
         >
           <Button as={Link} href="/references">
@@ -856,7 +856,7 @@ const Home = () => {
                     style={{ width: w, height: offset }}
                   >
                     <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase">
-                      {t(`home.section_4_project_${i + 1}`)}
+                      {t(`references.project_${project.slug}`)}
                     </p>
                     <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
                       {t(`references.sector_${project.sector}`)}
@@ -870,7 +870,7 @@ const Home = () => {
                 >
                   <Image
                     src={project.image}
-                    alt={t(`home.section_4_project_${i + 1}`)}
+                    alt={t(`references.project_${project.slug}`)}
                     width={960}
                     height={1294}
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
@@ -882,7 +882,7 @@ const Home = () => {
                 {!cfg.labelAbove && (
                   <>
                     <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase mt-[1em]">
-                      {t(`home.section_4_project_${i + 1}`)}
+                      {t(`references.project_${project.slug}`)}
                     </p>
                     <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
                       {t(`references.sector_${project.sector}`)}
@@ -964,7 +964,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section7Ref} className="mb-[14%]">
+      <section ref={section7Ref} className="mb-[12%]">
         <div className="max-w-[75vw] mx-auto">
           <h2
             className="text-[2.8vw] text-black-100 font-[500] leading-[1.2] uppercase ml-[-0.2vw]"
@@ -1035,7 +1035,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section8Ref} className="bg-beige-100 py-[8%] mb-[14%]">
+      <section ref={section8Ref} className="bg-beige-100 py-[8%] mb-[12%]">
         <div className="text-center max-w-[60vw] mx-auto">
           <h2
             className="text-[2.8vw] text-black-100 font-[500] leading-[1.25] uppercase mb-[2%]"
@@ -1058,7 +1058,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section9Ref} className="mb-[14%]">
+      <section ref={section9Ref} className="mb-[12%]">
         <p
           className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
