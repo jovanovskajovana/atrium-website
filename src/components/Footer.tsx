@@ -95,7 +95,7 @@ const Footer = () => {
           {t('footer.cta_title')}
         </h2>
         <p
-          className="text-[1.3vw] text-white-100/70 font-[450] leading-[1.8] max-w-[42vw] mt-[2.5%] mx-auto"
+          className="text-[1.3vw] text-white-100/70 font-[450] leading-[1.8] max-w-[45vw] mt-[2.5%] mx-auto"
           data-footer-cta-item
         >
           {t('footer.cta_text')}
