@@ -22,8 +22,7 @@ export const ProjectCard = ({
 }: ProjectCardProps) => {
   const t = useTranslations()
 
-  const titleKey = project.originalIndex + 1
-  const projectTitle = t(`home.section_4_project_${titleKey}`)
+  const projectTitle = t(`references.project_${project.slug}`)
 
   return (
     <div
