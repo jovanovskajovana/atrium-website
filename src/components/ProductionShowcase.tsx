@@ -117,34 +117,46 @@ const ProductionShowcase = () => {
           })
 
           states
-            .to({}, { duration: 0.4 })
-            .to(img1, { autoAlpha: 0, duration: 1 })
-            .to(img2, { autoAlpha: 1, duration: 1 }, '<')
-            .to(text1, { autoAlpha: 0, y: -26, duration: 0.8 }, '<')
+            .to({}, { duration: 0.3 })
+            .to(img1, { autoAlpha: 0, duration: 0.7 })
+            .to(img2, { autoAlpha: 1, duration: 0.7 }, '<')
+            .to(text1, { autoAlpha: 0, y: -26, duration: 0.6 }, '<')
             .fromTo(
               text2,
-              { autoAlpha: 0, y: 26 },
-              { autoAlpha: 1, y: 0, duration: 0.8, immediateRender: false },
-              '<+=0.25'
+              { autoAlpha: 0, y: 32 },
+              {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out',
+                immediateRender: false,
+              },
+              '<'
             )
-            .to({}, { duration: 0.6 })
-            .to(img2, { autoAlpha: 0, duration: 1 })
-            .to(img3, { autoAlpha: 1, duration: 1 }, '<')
-            .to(text2, { autoAlpha: 0, y: -26, duration: 0.8 }, '<')
+            .to({}, { duration: 0.4 })
+            .to(img2, { autoAlpha: 0, duration: 0.7 })
+            .to(img3, { autoAlpha: 1, duration: 0.7 }, '<')
+            .to(text2, { autoAlpha: 0, y: -26, duration: 0.6 }, '<')
             .fromTo(
               text3,
-              { autoAlpha: 0, y: 26 },
-              { autoAlpha: 1, y: 0, duration: 0.8, immediateRender: false },
-              '<+=0.25'
+              { autoAlpha: 0, y: 32 },
+              {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1,
+                ease: 'power2.out',
+                immediateRender: false,
+              },
+              '<'
             )
-            .to({}, { duration: 0.6 })
+            .to({}, { duration: 0.4 })
 
           ScrollTrigger.create({
             trigger: section,
             start: 'top top',
-            end: '+=300%',
+            end: '+=170%',
             pin: true,
-            anticipatePin: 1,
+            pinSpacing: true,
             scrub: 1,
             animation: states,
           })
@@ -162,9 +174,9 @@ const ProductionShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative mb-[12%] flex h-screen w-full items-center justify-center overflow-hidden bg-beige-50"
+      className="relative mb-[6%] flex h-screen w-full items-center justify-center overflow-hidden bg-beige-50"
     >
-      <div className="relative h-full w-full px-[5vw] py-[7vh]">
+      <div className="relative h-[84vh] w-full -translate-x-[3vw] px-[2vw]">
         {active && (
           <>
             {STATES.map((src, index) => (
@@ -196,11 +208,11 @@ const ProductionShowcase = () => {
             ref={(el) => {
               textRefs.current[index] = el
             }}
-            className={`col-start-1 row-start-1 max-w-[30vw] text-center text-[1.7vw] font-[500] uppercase leading-[1.35] tracking-[0.04em] text-black-100 ${
+            className={`col-start-1 row-start-1 text-center text-[2.1vw] font-[600] uppercase leading-[1.3] tracking-[0.05em] text-black-100/85 ${
               index === 0 ? '' : 'invisible opacity-0'
             }`}
           >
-            {t(key)}
+            {t.rich(key, { br: () => <br /> })}
           </p>
         ))}
       </div>

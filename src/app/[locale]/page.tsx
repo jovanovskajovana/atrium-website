@@ -885,7 +885,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section5Ref} className="mb-[12%]">
+      <section ref={section5Ref} className="mb-[6%]">
         <p
           className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
