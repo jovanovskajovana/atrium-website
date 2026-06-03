@@ -10,6 +10,7 @@ import { Link } from '@/i18n/navigation'
 
 import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
+import ProductionShowcase from '@/components/ProductionShowcase'
 
 import { COLLAGE_REST, IMG9 } from '@/constants/intro-animation'
 import {
@@ -37,7 +38,6 @@ const Home = () => {
   const section3Ref = useRef<HTMLElement>(null)
   const section4Ref = useRef<HTMLElement>(null)
   const section5Ref = useRef<HTMLElement>(null)
-  const section6Ref = useRef<HTMLElement>(null)
   const section7Ref = useRef<HTMLElement>(null)
   const section8Ref = useRef<HTMLElement>(null)
   const section9Ref = useRef<HTMLElement>(null)
@@ -885,7 +885,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section5Ref} className="mb-[12%]">
+      <section ref={section5Ref} className="mb-[6%]">
         <p
           className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase text-center mb-[5%]"
           data-section-label
@@ -923,7 +923,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={section6Ref} className="mb-[12%]" />
+      <ProductionShowcase />
 
       <section
         ref={section7Ref}
