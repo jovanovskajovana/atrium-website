@@ -176,7 +176,7 @@ const ProductionShowcase = () => {
       ref={sectionRef}
       className="relative mb-[6%] flex h-screen w-full items-center justify-center overflow-hidden bg-beige-50"
     >
-      <div className="relative h-[84vh] w-full -translate-x-[3vw] px-[2vw]">
+      <div className="relative h-[84vh] w-full -translate-x-[1.5vw] px-[2vw]">
         {active && (
           <>
             {STATES.map((src, index) => (
