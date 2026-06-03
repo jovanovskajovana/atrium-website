@@ -208,7 +208,7 @@ const ProductionShowcase = () => {
             ref={(el) => {
               textRefs.current[index] = el
             }}
-            className={`col-start-1 row-start-1 text-center text-[2.1vw] font-[600] uppercase leading-[1.3] tracking-[0.05em] text-black-100/85 ${
+            className={`col-start-1 row-start-1 text-center text-[2.1vw] font-[500] uppercase leading-[1.3] tracking-[0.05em] text-black-100/85 ${
               index === 0 ? '' : 'invisible opacity-0'
             }`}
           >
