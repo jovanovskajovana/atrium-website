@@ -21,7 +21,6 @@ const STEPS = [
   'home.section_6_step_2',
   'home.section_6_step_3',
 ] as const
-
 const ProductionShowcase = () => {
   const t = useTranslations()
 
@@ -89,11 +88,26 @@ const ProductionShowcase = () => {
           const ACTIVE = '#26251e'
           const INACTIVE = 'rgba(38, 37, 30, 0.3)'
 
+          const fade = (p: number, a: number, b: number) =>
+            Math.min(Math.max((p - a) / (b - a), 0), 1)
+
           const syncProgress = (p: number) => {
             if (railFill) railFill.style.transform = `scaleX(${p})`
+
             const activeIdx = p < 0.26 ? 0 : p < 0.7 ? 1 : 2
             indexEls.forEach((el, i) => {
               if (el) el.style.color = i === activeIdx ? ACTIVE : INACTIVE
+            })
+
+            const opacities = [
+              fade(p, 0, 0.05) * (1 - fade(p, 0.12, 0.3)),
+              fade(p, 0.12, 0.4) * (1 - fade(p, 0.55, 0.75)),
+              fade(p, 0.58, 0.85),
+            ]
+            captions.forEach((el, i) => {
+              const o = opacities[i]
+              el.style.opacity = String(o)
+              el.style.visibility = o < 0.01 ? 'hidden' : 'visible'
             })
           }
 
@@ -105,19 +119,12 @@ const ProductionShowcase = () => {
 
           if (prefersReduced) {
             gsap.set(drawWrap, { autoAlpha: 0 })
-            gsap.set(text1, { autoAlpha: 1 })
           } else {
             const reveal = gsap.timeline({ defaults: { ease: 'none' } })
 
             reveal
               .to(drawWrap, { '--draw': 0, duration: 1 })
               .to(drawWrap, { autoAlpha: 0, duration: 0.22 }, '>-0.02')
-              .fromTo(
-                text1,
-                { autoAlpha: 0, y: 26 },
-                { autoAlpha: 1, y: 0, duration: 0.32 },
-                '>-0.08'
-              )
 
             ScrollTrigger.create({
               trigger: section,
@@ -131,6 +138,7 @@ const ProductionShowcase = () => {
           const states = gsap.timeline({
             paused: true,
             defaults: { ease: 'none' },
+            onUpdate: () => syncProgress(states.progress()),
           })
 
           states
@@ -176,7 +184,7 @@ const ProductionShowcase = () => {
             pinSpacing: true,
             scrub: 1,
             animation: states,
-            onUpdate: (self) => syncProgress(self.progress),
+            onRefresh: () => syncProgress(states.progress()),
           })
 
           ScrollTrigger.refresh()
@@ -194,7 +202,7 @@ const ProductionShowcase = () => {
       ref={sectionRef}
       className="relative mb-[6%] flex h-screen w-full items-center overflow-hidden bg-beige-50"
     >
-      <div className="relative order-2 flex flex-col justify-center w-[34vw] pl-[3vw] pr-[6vw] z-10">
+      <div className="relative order-2 flex flex-col justify-center w-[34vw] pl-[2vw] pr-[6vw] z-10">
         <p className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[5vh]">
           {t('home.section_6_label')}
         </p>
@@ -206,7 +214,7 @@ const ProductionShowcase = () => {
               ref={(el) => {
                 textRefs.current[index] = el
               }}
-              className={`col-start-1 row-start-1 text-[1.9vw] text-black-100 font-[500] leading-[1.3] uppercase ${
+              className={`col-start-1 row-start-1 text-[2.2vw] text-black-100 font-[500] leading-[1.3] uppercase ${
                 index === 0 ? '' : 'invisible opacity-0'
               }`}
             >
@@ -216,7 +224,7 @@ const ProductionShowcase = () => {
         </div>
 
         <div className="mt-[7vh]">
-          <div className="flex justify-between text-[1vw] font-[500] tracking-[0.15em] w-[14vw]">
+          <div className="flex justify-between text-[1vw] font-[500] tracking-[0.15em] w-[17vw]">
             {['01', '02', '03'].map((n, i) => (
               <span
                 key={n}
@@ -229,13 +237,17 @@ const ProductionShowcase = () => {
               </span>
             ))}
           </div>
-          <div className="relative bg-black-100/15 w-[14vw] h-px mt-[1.4vh]">
+          <div className="relative bg-black-100/15 w-[17vw] h-px mt-[1.4vh]">
             <div
               ref={railFillRef}
               className="absolute left-0 top-0 origin-left bg-black-100 w-full h-px"
               style={{ transform: 'scaleX(0)' }}
             />
           </div>
+
+          <p className="text-[0.95vw] text-black-100/70 leading-[1.75] w-[20vw] mt-[6vh]">
+            {t('home.section_6_audience')}
+          </p>
         </div>
       </div>
 
