@@ -387,21 +387,32 @@ const Home = () => {
           )
         })
 
-        if (projectLink) {
-          gsap.set(projectLink, { y: 20, opacity: 0 })
-          s4Tl.to(
-            projectLink,
-            { y: 0, opacity: 1, duration: 1, ease: 'power2.out' },
-            0
-          )
-        }
-
         ScrollTrigger.create({
           trigger: section4,
           start: 'top 85%',
           onEnter: () => s4Tl.play(),
           onLeaveBack: () => s4Tl.reverse(),
         })
+
+        if (projectLink) {
+          gsap.set(projectLink, { opacity: 0 })
+          ScrollTrigger.create({
+            trigger: section4,
+            start: 'top 55%',
+            onEnter: () =>
+              gsap.to(projectLink, {
+                opacity: 1,
+                duration: 1,
+                ease: 'power2.out',
+              }),
+            onLeaveBack: () =>
+              gsap.to(projectLink, {
+                opacity: 0,
+                duration: 0.6,
+                ease: 'power2.out',
+              }),
+          })
+        }
       }
 
       const section5 = section5Ref.current
