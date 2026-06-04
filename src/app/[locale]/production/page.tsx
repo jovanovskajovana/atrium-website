@@ -749,7 +749,7 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-left
             >
-              <span className="text-[0.92vw] text-black-100/30 font-[500] uppercase">
+              <span className="text-[1vw] text-black-100/30 font-[500] tracking-[0.15em] uppercase">
                 01
               </span>
               <h3 className="text-[2.4vw] text-black-100 font-[500] leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">
@@ -761,7 +761,7 @@ const ProductionPage = () => {
               className="group border-t border-black-100/15 pt-[2vw] pb-[3vw]"
               data-s6-right
             >
-              <span className="text-[0.92vw] text-black-100/30 font-[500] tracking-[0.15em] uppercase">
+              <span className="text-[1vw] text-black-100/30 font-[500] tracking-[0.15em] uppercase">
                 02
               </span>
               <h3 className="text-[2.4vw] text-black-100 font-[500] leading-[1.2] tracking-[0.03em] uppercase mt-[0.8vw] ml-[-0.2vw] transition-opacity duration-300 group-hover:opacity-50">

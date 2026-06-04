@@ -29,6 +29,8 @@ const ProductionShowcase = () => {
   const drawRef = useRef<HTMLDivElement>(null)
   const imgRefs = useRef<Array<HTMLImageElement | null>>([])
   const textRefs = useRef<Array<HTMLParagraphElement | null>>([])
+  const indexRefs = useRef<Array<HTMLSpanElement | null>>([])
+  const railFillRef = useRef<HTMLDivElement>(null)
 
   const [active, setActive] = useState(false)
 
@@ -81,6 +83,21 @@ const ProductionShowcase = () => {
           gsap.set([drawWrap, img1, img2, img3, ...captions], {
             willChange: 'opacity',
           })
+
+          const indexEls = indexRefs.current
+          const railFill = railFillRef.current
+          const ACTIVE = '#26251e'
+          const INACTIVE = 'rgba(38, 37, 30, 0.3)'
+
+          const syncProgress = (p: number) => {
+            if (railFill) railFill.style.transform = `scaleX(${p})`
+            const activeIdx = p < 0.26 ? 0 : p < 0.7 ? 1 : 2
+            indexEls.forEach((el, i) => {
+              if (el) el.style.color = i === activeIdx ? ACTIVE : INACTIVE
+            })
+          }
+
+          syncProgress(0)
 
           const prefersReduced = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
@@ -159,6 +176,7 @@ const ProductionShowcase = () => {
             pinSpacing: true,
             scrub: 1,
             animation: states,
+            onUpdate: (self) => syncProgress(self.progress),
           })
 
           ScrollTrigger.refresh()
@@ -174,9 +192,54 @@ const ProductionShowcase = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative mb-[6%] flex h-screen w-full items-center justify-center overflow-hidden bg-beige-50"
+      className="relative mb-[6%] flex h-screen w-full items-center overflow-hidden bg-beige-50"
     >
-      <div className="relative h-[84vh] w-full -translate-x-[1.5vw] px-[2vw]">
+      <div className="relative order-2 flex flex-col justify-center w-[34vw] pl-[3vw] pr-[6vw] z-10">
+        <p className="text-[0.95vw] text-black-100 font-[600] tracking-[0.15em] uppercase mb-[5vh]">
+          {t('home.section_6_label')}
+        </p>
+
+        <div className="relative grid">
+          {STEPS.map((key, index) => (
+            <p
+              key={key}
+              ref={(el) => {
+                textRefs.current[index] = el
+              }}
+              className={`col-start-1 row-start-1 text-[1.9vw] text-black-100 font-[500] leading-[1.3] uppercase ${
+                index === 0 ? '' : 'invisible opacity-0'
+              }`}
+            >
+              {t.rich(key, { br: () => <br /> })}
+            </p>
+          ))}
+        </div>
+
+        <div className="mt-[7vh]">
+          <div className="flex justify-between text-[1vw] font-[500] tracking-[0.15em] w-[14vw]">
+            {['01', '02', '03'].map((n, i) => (
+              <span
+                key={n}
+                ref={(el) => {
+                  indexRefs.current[i] = el
+                }}
+                style={{ color: i === 0 ? '#26251e' : 'rgba(38, 37, 30, 0.3)' }}
+              >
+                {n}
+              </span>
+            ))}
+          </div>
+          <div className="relative bg-black-100/15 w-[14vw] h-px mt-[1.4vh]">
+            <div
+              ref={railFillRef}
+              className="absolute left-0 top-0 origin-left bg-black-100 w-full h-px"
+              style={{ transform: 'scaleX(0)' }}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="relative order-1 h-[78vh] flex-1 pl-[5vw]">
         {active && (
           <>
             {STATES.map((src, index) => (
@@ -199,22 +262,6 @@ const ProductionShowcase = () => {
             />
           </>
         )}
-      </div>
-
-      <div className="pointer-events-none absolute inset-0 grid place-items-center px-[5vw]">
-        {STEPS.map((key, index) => (
-          <p
-            key={key}
-            ref={(el) => {
-              textRefs.current[index] = el
-            }}
-            className={`col-start-1 row-start-1 text-center text-[2.1vw] font-[500] uppercase leading-[1.3] tracking-[0.05em] text-black-100/85 ${
-              index === 0 ? '' : 'invisible opacity-0'
-            }`}
-          >
-            {t.rich(key, { br: () => <br /> })}
-          </p>
-        ))}
       </div>
     </section>
   )
