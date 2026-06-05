@@ -28,6 +28,7 @@ const SECTORS = [
   'retail',
   'public',
   'health',
+  'education',
 ] as const
 type Sector = (typeof SECTORS)[number]
 
