@@ -3,12 +3,10 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const AboutPage = () => {
   const t = useTranslations()

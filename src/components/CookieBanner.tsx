@@ -2,13 +2,14 @@
 
 import { useRef, useState, useEffect } from 'react'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
 
 import Button from '@/components/Button'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 import { Link } from '@/i18n/navigation'
+
+import { gsap } from '@/lib/gsap'
 
 const CookieBanner = () => {
   const t = useTranslations()
@@ -47,7 +48,7 @@ const CookieBanner = () => {
         duration: 0.6,
         ease: 'power2.out',
       })
-    }, bannerRef)
+    })
 
     return () => ctx.revert()
   }, [shouldRender])

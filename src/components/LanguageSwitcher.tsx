@@ -17,7 +17,9 @@ const LanguageSwitcher = ({ variant = 'inline' }: LanguageSwitcherProps) => {
   const pathname = usePathname()
 
   const handleChange = (newLocale: string) => {
-    router.replace({ pathname } as any, { locale: newLocale })
+    router.replace({ pathname } as Parameters<typeof router.replace>[0], {
+      locale: newLocale,
+    })
   }
 
   if (variant === 'list') {

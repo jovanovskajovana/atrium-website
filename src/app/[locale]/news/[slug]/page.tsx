@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
@@ -6,11 +7,39 @@ import IconArrow from '@/components/icons/icon-arrow'
 
 import { NEWS_ARTICLES, getNewsArticleBySlug } from '@/constants/news'
 
-import { Link } from '@/i18n/navigation'
 import { getDateLocale } from '@/i18n/locale'
+import { Link } from '@/i18n/navigation'
+
+import { buildPageMetadata, withSiteName } from '@/lib/metadata'
 
 interface NewsSlugPageProps {
   params: Promise<{ locale: string; slug: string }>
+}
+
+export async function generateMetadata({
+  params,
+}: NewsSlugPageProps): Promise<Metadata> {
+  const { locale, slug } = await params
+  const article = getNewsArticleBySlug(slug)
+
+  if (!article) {
+    return {}
+  }
+
+  const t = await getTranslations({ locale })
+  const articleIndex = NEWS_ARTICLES.indexOf(article) + 1
+  const title = t(`news.section_1_items.article_${articleIndex}_title`)
+  const description = t(
+    `news.section_1_items.article_${articleIndex}_description`
+  )
+
+  return buildPageMetadata({
+    locale,
+    title: withSiteName(title),
+    description,
+    href: { pathname: '/news/[slug]', params: { slug } },
+    image: article.image,
+  })
 }
 
 const NewsSlugPage = async ({ params }: NewsSlugPageProps) => {

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 
@@ -7,9 +8,32 @@ import IconLocation from '@/components/icons/icon-location'
 import { getJobListingBySlug } from '@/constants/careers'
 
 import { Link } from '@/i18n/navigation'
+import { buildPageMetadata, withSiteName } from '@/lib/metadata'
 
 interface JobListingPageProps {
   params: Promise<{ locale: string; slug: string }>
+}
+
+export async function generateMetadata({
+  params,
+}: JobListingPageProps): Promise<Metadata> {
+  const { locale, slug } = await params
+  const listing = getJobListingBySlug(slug)
+
+  if (!listing) {
+    return {}
+  }
+
+  const t = await getTranslations({ locale })
+  const title = t(`careers.section_4_role_${listing.roleIndex}_title`)
+  const description = t(`careers.listings.${listing.key}.description_1`)
+
+  return buildPageMetadata({
+    locale,
+    title: withSiteName(title),
+    description,
+    href: { pathname: '/careers/[slug]', params: { slug } },
+  })
 }
 
 const JobListingPage = async ({ params }: JobListingPageProps) => {

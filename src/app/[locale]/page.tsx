@@ -2,11 +2,7 @@
 
 import { useRef } from 'react'
 import Image from 'next/image'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTranslations } from 'next-intl'
-
-import { Link } from '@/i18n/navigation'
 
 import Button from '@/components/Button'
 import IntroAnimation from '@/components/IntroAnimation'
@@ -24,7 +20,9 @@ import {
 import useIntroAnimation from '@/hooks/useIntroAnimation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { Link } from '@/i18n/navigation'
+
+import { gsap, ScrollTrigger, SplitText } from '@/lib/gsap'
 
 const Home = () => {
   const t = useTranslations()
@@ -218,27 +216,9 @@ const Home = () => {
         '[data-s2-hero-text]'
       ) as HTMLElement | null
       if (heroText) {
-        const raw = heroText.textContent || ''
-        heroText.innerHTML = ''
-        const words = raw.split(/(\s+)/)
-        words.forEach((segment) => {
-          if (/^\s+$/.test(segment)) {
-            heroText.appendChild(document.createTextNode(segment))
-            return
-          }
-          const wordWrap = document.createElement('span')
-          wordWrap.style.display = 'inline'
-          for (const char of segment) {
-            const s = document.createElement('span')
-            s.textContent = char
-            s.style.willChange = 'opacity'
-            wordWrap.appendChild(s)
-          }
-          heroText.appendChild(wordWrap)
-        })
-        const chars = heroText.querySelectorAll('span > span')
-        gsap.set(chars, { opacity: 0.12 })
-        gsap.to(chars, {
+        const split = new SplitText(heroText, { type: 'words,chars' })
+        gsap.set(split.chars, { opacity: 0.12, willChange: 'opacity' })
+        gsap.to(split.chars, {
           opacity: 1,
           duration: 2,
           stagger: 0.04,

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ElementType, FC } from 'react'
 
 import IconArrow from '@/components/icons/icon-arrow'
 
@@ -6,11 +6,11 @@ import { BUTTON_STYLES, BUTTON_SIZES } from '@/constants/button'
 
 interface ButtonProps {
   children: React.ReactNode
-  as?: React.ElementType
+  as?: ElementType
   variant?: keyof typeof BUTTON_STYLES
   size?: keyof typeof BUTTON_SIZES
   className?: string
-  [key: string]: any
+  [key: string]: unknown
 }
 
 const Button: FC<ButtonProps> = ({

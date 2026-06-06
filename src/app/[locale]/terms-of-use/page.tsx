@@ -1,4 +1,20 @@
+import type { Metadata } from 'next'
 import { useTranslations } from 'next-intl'
+
+import { buildPageMetadataFromNamespace } from '@/lib/metadata'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  return buildPageMetadataFromNamespace({
+    locale,
+    page: 'terms_of_use',
+    href: '/terms-of-use',
+  })
+}
 
 const TermsOfUsePage = () => {
   const t = useTranslations()

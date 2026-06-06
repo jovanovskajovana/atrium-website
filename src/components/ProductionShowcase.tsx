@@ -1,14 +1,14 @@
 'use client'
 
 import { useRef, useState } from 'react'
+import Image from 'next/image'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 import { OUTLINE, STATES, STEPS } from '@/constants/production-showcase'
 
-gsap.registerPlugin(ScrollTrigger)
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
+
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const ProductionShowcase = () => {
   const t = useTranslations()
@@ -164,12 +164,13 @@ const ProductionShowcase = () => {
             pin: true,
             pinSpacing: true,
             scrub: 1,
+            refreshPriority: 1,
             animation: states,
             onRefresh: () => syncProgress(states.progress()),
           })
 
           ScrollTrigger.refresh()
-        }, section)
+        })
       })
 
     return () => {
@@ -201,7 +202,7 @@ const ProductionShowcase = () => {
         onEnter: () => intro.play(),
         onLeaveBack: () => intro.reverse(),
       })
-    }, content)
+    })
 
     return () => ctx.revert()
   }, [])
@@ -277,7 +278,7 @@ const ProductionShowcase = () => {
         {active && (
           <>
             {STATES.map((src, index) => (
-              <img
+              <Image
                 key={src}
                 ref={(el) => {
                   imgRefs.current[index] = el
@@ -285,7 +286,10 @@ const ProductionShowcase = () => {
                 src={src}
                 alt=""
                 aria-hidden="true"
-                className={`pointer-events-none absolute inset-0 h-full w-full object-contain ${
+                fill
+                sizes="60vw"
+                unoptimized
+                className={`pointer-events-none object-contain ${
                   index === 0 ? '' : 'invisible opacity-0'
                 }`}
               />

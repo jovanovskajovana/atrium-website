@@ -1,13 +1,11 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useTranslations } from 'next-intl'
 
+import { useLenis } from '@/components/LenisProvider'
 import { ProjectsGridFour } from '@/components/ProjectsGridFour'
 import { ProjectsGridTwo } from '@/components/ProjectsGridTwo'
-import { useLenis } from '@/components/LenisProvider'
 
 import { PROJECTS } from '@/constants/projects'
 
@@ -18,7 +16,7 @@ import type {
   ProjectsGridMode,
 } from '@/interfaces/ui'
 
-gsap.registerPlugin(ScrollTrigger)
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const SECTORS = [
   'all',

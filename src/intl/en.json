@@ -1,4 +1,57 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Atrium — Bespoke Interiors & Custom Furniture",
+      "description": "A family business with 130 years of heritage, crafting bespoke interiors and custom furniture with industrial precision and lasting value. EU production for architects, investors, and hospitality, residential, and commercial projects."
+    },
+    "about": {
+      "title": "About Us | Atrium",
+      "description": "A fourth-generation family company with over 130 years of woodworking heritage, specialising in complete interiors and bespoke furniture from Ljutomer, Slovenia."
+    },
+    "references": {
+      "title": "References | Atrium",
+      "description": "Selected Atrium projects across hospitality, residential, office, and public spaces — bespoke interiors and custom furniture delivered with technical precision."
+    },
+    "production": {
+      "title": "Production & OEM Services | Atrium",
+      "description": "Your EU manufacturing partner — in-house CNC production, technical development, and complete project execution for investors, architects, and engineering companies."
+    },
+    "news": {
+      "title": "News | Atrium",
+      "description": "Updates from Atrium — showroom news, production capacity, responsible sourcing, and projects across European hospitality and residential developments."
+    },
+    "careers": {
+      "title": "Careers | Atrium",
+      "description": "Join Atrium in Ljutomer, Slovenia. Open roles across design, engineering, production, and our project office in a family-owned company grounded in craft."
+    },
+    "contact": {
+      "title": "Contact | Atrium",
+      "description": "Get in touch with the Atrium team for project enquiries, partnerships, and bespoke furniture production. Based in Ljutomer, Slovenia, delivering across Europe."
+    },
+    "design_your_space": {
+      "title": "Design Your Space | Atrium",
+      "description": "Design your space with Atrium — from curated furniture collections to fully bespoke interiors, guided by architects and interior professionals."
+    },
+    "privacy_policy": {
+      "title": "Privacy Notice | Atrium",
+      "description": "Learn how Atrium collects, uses, and protects your personal data."
+    },
+    "cookie_policy": {
+      "title": "Cookie Policy | Atrium",
+      "description": "Learn how Atrium uses cookies and similar technologies on this website."
+    },
+    "terms_of_use": {
+      "title": "Terms of Use | Atrium",
+      "description": "The terms governing access to and use of the Atrium website."
+    },
+    "coming_soon": {
+      "title": "Coming Soon | Atrium",
+      "description": "We're crafting something new. This page will be available soon."
+    },
+    "references_project": {
+      "description": "A bespoke interior and custom furniture project by Atrium, delivered with technical precision and lasting quality."
+    }
+  },
   "nav": {
     "home": "home",
     "references": "references",
