@@ -1,4 +1,57 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Atrium — Maßgefertigte Innenräume & Möbel",
+      "description": "Ein Familienunternehmen mit 130 Jahren Tradition, das maßgefertigte Innenräume und Möbel mit industrieller Präzision und bleibendem Wert schafft. EU-Produktion für Architekten, Investoren sowie Hotellerie-, Wohn- und Gewerbeprojekte."
+    },
+    "about": {
+      "title": "Über uns | Atrium",
+      "description": "Ein Familienunternehmen in vierter Generation mit über 130 Jahren Holzhandwerk-Tradition, spezialisiert auf komplette Innenräume und maßgefertigte Möbel aus Ljutomer, Slowenien."
+    },
+    "references": {
+      "title": "Referenzen | Atrium",
+      "description": "Ausgewählte Atrium-Projekte aus Hotellerie, Wohnbau, Büro und öffentlichem Raum — maßgefertigte Innenräume und Möbel, umgesetzt mit technischer Präzision."
+    },
+    "production": {
+      "title": "Produktion & OEM-Services | Atrium",
+      "description": "Ihr EU-Produktionspartner — hauseigene CNC-Fertigung, technische Entwicklung und vollständige Projektabwicklung für Investoren, Architekten und Ingenieurbüros."
+    },
+    "news": {
+      "title": "News | Atrium",
+      "description": "Neuigkeiten von Atrium — Showroom, Produktionskapazitäten, verantwortungsvolle Beschaffung und Projekte in europäischen Hotellerie- und Wohnbauvorhaben."
+    },
+    "careers": {
+      "title": "Karriere | Atrium",
+      "description": "Werden Sie Teil von Atrium in Ljutomer, Slowenien. Offene Stellen in Design, Technik, Produktion und Projektbüro in einem handwerklich geprägten Familienunternehmen."
+    },
+    "contact": {
+      "title": "Kontakt | Atrium",
+      "description": "Kontaktieren Sie das Atrium-Team für Projektanfragen, Partnerschaften und maßgefertigte Möbelproduktion. Ansässig in Ljutomer, Slowenien, mit Lieferung in ganz Europa."
+    },
+    "design_your_space": {
+      "title": "Gestalten Sie Ihren Raum | Atrium",
+      "description": "Gestalten Sie Ihren Raum mit Atrium — von kuratierten Möbelkollektionen bis zu vollständig maßgefertigten Innenräumen, begleitet von Architekten und Interieur-Fachleuten."
+    },
+    "privacy_policy": {
+      "title": "Datenschutzhinweis | Atrium",
+      "description": "Erfahren Sie, wie Atrium Ihre personenbezogenen Daten erhebt, verwendet und schützt."
+    },
+    "cookie_policy": {
+      "title": "Cookie-Richtlinie | Atrium",
+      "description": "Erfahren Sie, wie Atrium Cookies und ähnliche Technologien auf dieser Website einsetzt."
+    },
+    "terms_of_use": {
+      "title": "Nutzungsbedingungen | Atrium",
+      "description": "Die Bedingungen für den Zugriff auf und die Nutzung der Atrium-Website."
+    },
+    "coming_soon": {
+      "title": "Demnächst verfügbar | Atrium",
+      "description": "Wir arbeiten an etwas Neuem. Diese Seite ist bald verfügbar."
+    },
+    "references_project": {
+      "description": "Ein maßgefertigtes Innenraum- und Möbelprojekt von Atrium, umgesetzt mit technischer Präzision und bleibender Qualität."
+    }
+  },
   "nav": {
     "home": "startseite",
     "references": "referenzen",

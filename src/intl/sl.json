@@ -1,4 +1,57 @@
 {
+  "metadata": {
+    "home": {
+      "title": "Atrium — Pohištvo in interierji po meri",
+      "description": "Družinsko podjetje s 130-letno tradicijo, ki ustvarja interierje in pohištvo po meri z industrijsko natančnostjo in trajno vrednostjo. Proizvodnja v EU za arhitekte, investitorje ter hotelske, stanovanjske in poslovne projekte."
+    },
+    "about": {
+      "title": "O nas | Atrium",
+      "description": "Družinsko podjetje četrte generacije z več kot 130-letno tradicijo mizarstva, specializirano za celovite interierje in pohištvo po meri iz Ljutomera, Slovenija."
+    },
+    "references": {
+      "title": "Reference | Atrium",
+      "description": "Izbrani projekti Atrium na področju hotelirstva, stanovanjskih, poslovnih in javnih prostorov — interierji in pohištvo po meri, izvedeni s tehnično natančnostjo."
+    },
+    "production": {
+      "title": "Proizvodnja in OEM storitve | Atrium",
+      "description": "Vaš proizvodni partner v EU — lastna CNC-proizvodnja, tehnični razvoj in celovita izvedba projektov za investitorje, arhitekte in inženirska podjetja."
+    },
+    "news": {
+      "title": "Novice | Atrium",
+      "description": "Novice podjetja Atrium — razstavni salon, proizvodne zmogljivosti, odgovorno pridobivanje materialov in projekti v evropskih hotelskih in stanovanjskih programih."
+    },
+    "careers": {
+      "title": "Zaposlitev | Atrium",
+      "description": "Pridružite se ekipi Atrium v Ljutomeru. Prosta delovna mesta na področju oblikovanja, inženiringa, proizvodnje in projektne pisarne v družinskem podjetju, zasidranem v obrti."
+    },
+    "contact": {
+      "title": "Kontakt | Atrium",
+      "description": "Obrnite se na ekipo Atrium za povpraševanja o projektih, partnerstva in proizvodnjo pohištva po meri. S sedežem v Ljutomeru, z dostavo po vsej Evropi."
+    },
+    "design_your_space": {
+      "title": "Oblikujte svoj prostor | Atrium",
+      "description": "Oblikujte svoj prostor z Atrium — od izbranih kolekcij pohištva do popolnoma prilagojenih interierjev, pod vodstvom arhitektov in strokovnjakov za notranjo opremo."
+    },
+    "privacy_policy": {
+      "title": "Politika zasebnosti | Atrium",
+      "description": "Preberite, kako Atrium zbira, uporablja in varuje vaše osebne podatke."
+    },
+    "cookie_policy": {
+      "title": "Politika piškotkov | Atrium",
+      "description": "Preberite, kako Atrium uporablja piškotke in podobne tehnologije na tej spletni strani."
+    },
+    "terms_of_use": {
+      "title": "Pogoji uporabe | Atrium",
+      "description": "Pogoji, ki urejajo dostop do spletne strani Atrium in njeno uporabo."
+    },
+    "coming_soon": {
+      "title": "Kmalu na voljo | Atrium",
+      "description": "Pripravljamo nekaj novega. Ta stran bo kmalu na voljo."
+    },
+    "references_project": {
+      "description": "Projekt interierja in pohištva po meri podjetja Atrium, izveden s tehnično natančnostjo in trajno kakovostjo."
+    }
+  },
   "nav": {
     "home": "domov",
     "references": "reference",

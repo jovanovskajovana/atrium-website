@@ -1,4 +1,5 @@
 import { FC, ReactNode } from 'react'
+import type { Metadata } from 'next'
 import { Montserrat, Caveat } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
@@ -11,6 +12,8 @@ import Header from '@/components/Header'
 import { LenisProvider } from '@/components/LenisProvider'
 
 import { routing } from '@/i18n/routing'
+
+import { SITE_URL, buildPageMetadataFromNamespace } from '@/lib/metadata'
 
 import '@/styles/globals.css'
 
@@ -26,14 +29,6 @@ const caveat = Caveat({
   display: 'swap',
 })
 
-export const metadata = {
-  title: 'Atrium',
-  description: '',
-  icons: {
-    icon: '/assets/favicon.png',
-  },
-}
-
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
 }
@@ -41,6 +36,30 @@ export function generateStaticParams() {
 interface RootLayoutProps {
   children: ReactNode
   params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) {
+    return {}
+  }
+
+  const metadata = await buildPageMetadataFromNamespace({
+    locale,
+    page: 'home',
+    href: '/',
+  })
+
+  return {
+    metadataBase: new URL(SITE_URL),
+    icons: { icon: '/assets/favicon.png' },
+    ...metadata,
+  }
 }
 
 const RootLayout: FC<RootLayoutProps> = async ({ children, params }) => {
