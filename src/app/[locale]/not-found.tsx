@@ -2,11 +2,14 @@
 
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
+
+import Button from '@/components/Button'
+
+import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
 import { Link } from '@/i18n/navigation'
-import Button from '@/components/Button'
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
+
+import { gsap } from '@/lib/gsap'
 
 const NotFound = () => {
   const t = useTranslations()

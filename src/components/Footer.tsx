@@ -2,21 +2,21 @@
 
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Button from '@/components/Button'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import AtriumLogoFull from '@/components/icons/atrium-logo-full'
 import AtriumLogoMark from '@/components/icons/atrium-logo-mark'
 
-import { Link } from '@/i18n/navigation'
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { Link, usePathname } from '@/i18n/navigation'
+
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const Footer = () => {
   const t = useTranslations()
+  const pathname = usePathname()
   const footerRef = useRef<HTMLElement>(null)
 
   useIsomorphicLayoutEffect(() => {
@@ -72,10 +72,10 @@ const Footer = () => {
           onLeaveBack: () => contentTl.reverse(),
         })
       }
-    }, footer)
+    })
 
     return () => ctx.revert()
-  }, [])
+  }, [pathname])
 
   return (
     <footer

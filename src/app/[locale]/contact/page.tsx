@@ -2,8 +2,6 @@
 
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Button from '@/components/Button'
 
@@ -11,7 +9,7 @@ import { COMPANY, TEAM_CONTACTS } from '@/constants/contacts'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const ContactPage = () => {
   const t = useTranslations()

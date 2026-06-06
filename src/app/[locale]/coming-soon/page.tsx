@@ -18,7 +18,6 @@ import {
   CHEVRON_A,
   CROSSBAR_T,
 } from '@/constants/intro-animation'
-
 import { COMPANY } from '@/constants/contacts'
 
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'

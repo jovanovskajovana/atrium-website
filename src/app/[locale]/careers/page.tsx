@@ -2,19 +2,17 @@
 
 import { useRef } from 'react'
 import { useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import Button from '@/components/Button'
 import IconArrow from '@/components/icons/icon-arrow'
 
 import { JOB_LISTINGS } from '@/constants/careers'
 
-import { Link } from '@/i18n/navigation'
-
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { Link } from '@/i18n/navigation'
+
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const CareersPage = () => {
   const t = useTranslations()

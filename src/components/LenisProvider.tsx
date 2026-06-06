@@ -1,66 +1,74 @@
 'use client'
 
-import { createContext, useContext, useState, type ReactNode } from 'react'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import Lenis from 'lenis'
+import { useEffect, type ReactNode } from 'react'
+import { ReactLenis, useLenis } from 'lenis/react'
 import type { LenisOptions } from 'lenis'
-
-import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
-
 import 'lenis/dist/lenis.css'
 
-gsap.registerPlugin(ScrollTrigger)
+import { usePathname } from '@/i18n/navigation'
 
-const LenisContext = createContext<Lenis | null>(null)
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
-export const useLenis = (): Lenis | null => useContext(LenisContext)
+export { useLenis }
+
+const defaultOptions: LenisOptions = {
+  duration: 1.2,
+  easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+  smoothWheel: true,
+  wheelMultiplier: 1,
+  touchMultiplier: 2,
+  infinite: false,
+  syncTouch: false,
+  anchors: true,
+  autoRaf: false,
+}
 
 interface LenisProviderProps {
   children: ReactNode
   options?: LenisOptions
 }
 
+const LenisGsapBridge = () => {
+  const pathname = usePathname()
+  const lenis = useLenis(ScrollTrigger.update)
+
+  useEffect(() => {
+    if (!lenis) return
+
+    const update = (time: number) => lenis.raf(time * 1000)
+
+    gsap.ticker.add(update)
+    gsap.ticker.lagSmoothing(0)
+
+    return () => {
+      gsap.ticker.remove(update)
+    }
+  }, [lenis])
+
+  useEffect(() => {
+    if (!lenis) return
+
+    lenis.scrollTo(0, { immediate: true, force: true })
+
+    const rafId = requestAnimationFrame(() => {
+      lenis.resize()
+      ScrollTrigger.refresh()
+    })
+
+    return () => cancelAnimationFrame(rafId)
+  }, [pathname, lenis])
+
+  return null
+}
+
 export const LenisProvider = ({
   children,
   options = {},
 }: LenisProviderProps) => {
-  const [lenis, setLenis] = useState<Lenis | null>(null)
-
-  useIsomorphicLayoutEffect(() => {
-    const lenisInstance = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-      wheelMultiplier: 1,
-      touchMultiplier: 2,
-      infinite: false,
-      syncTouch: false,
-      anchors: true,
-      ...options,
-    })
-
-    const onScroll = () => ScrollTrigger.update()
-
-    lenisInstance.on('scroll', onScroll)
-
-    const tick = (time: number) => {
-      lenisInstance.raf(time * 1000)
-    }
-
-    gsap.ticker.add(tick)
-
-    gsap.ticker.lagSmoothing(0)
-
-    setLenis(lenisInstance)
-
-    return () => {
-      gsap.ticker.remove(tick)
-      ;(lenisInstance as any).off?.('scroll', onScroll)
-      lenisInstance.destroy()
-      setLenis(null)
-    }
-  }, [])
-
-  return <LenisContext.Provider value={lenis}>{children}</LenisContext.Provider>
+  return (
+    <ReactLenis root options={{ ...defaultOptions, ...options }}>
+      <LenisGsapBridge />
+      {children}
+    </ReactLenis>
+  )
 }

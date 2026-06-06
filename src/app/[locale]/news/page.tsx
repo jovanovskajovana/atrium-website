@@ -3,17 +3,15 @@
 import { useRef } from 'react'
 import Image from 'next/image'
 import { useLocale, useTranslations } from 'next-intl'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 import { NEWS_ARTICLES } from '@/constants/news'
 
-import { Link } from '@/i18n/navigation'
-import { getDateLocale } from '@/i18n/locale'
-
 import useIsomorphicLayoutEffect from '@/hooks/useIsomorphicLayoutEffect'
 
-gsap.registerPlugin(ScrollTrigger)
+import { getDateLocale } from '@/i18n/locale'
+import { Link } from '@/i18n/navigation'
+
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 
 const NewsPage = () => {
   const t = useTranslations()

@@ -6,8 +6,8 @@ import IconArrow from '@/components/icons/icon-arrow'
 
 import { NEWS_ARTICLES, getNewsArticleBySlug } from '@/constants/news'
 
-import { Link } from '@/i18n/navigation'
 import { getDateLocale } from '@/i18n/locale'
+import { Link } from '@/i18n/navigation'
 
 interface NewsSlugPageProps {
   params: Promise<{ locale: string; slug: string }>
