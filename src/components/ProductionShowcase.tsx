@@ -164,6 +164,7 @@ const ProductionShowcase = () => {
             pin: true,
             pinSpacing: true,
             scrub: 1,
+            refreshPriority: 1,
             animation: states,
             onRefresh: () => syncProgress(states.progress()),
           })
