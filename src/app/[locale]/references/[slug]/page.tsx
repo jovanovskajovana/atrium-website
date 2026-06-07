@@ -60,6 +60,11 @@ const ProjectPage = async ({ params }: Props) => {
 
   const galleryImages = project.gallery.slice(1)
 
+  const currentIndex = PROJECTS.findIndex((p) => p.slug === project.slug)
+  const prevProject =
+    PROJECTS[(currentIndex - 1 + PROJECTS.length) % PROJECTS.length]
+  const nextProject = PROJECTS[(currentIndex + 1) % PROJECTS.length]
+
   return (
     <main className="overflow-x-hidden">
       <section className="pt-[18.5vh] pb-[10%]">
@@ -141,6 +146,39 @@ const ProjectPage = async ({ params }: Props) => {
             </div>
           </div>
         )}
+
+        <nav className="grid grid-cols-2 gap-x-[1.5vw] border-t border-black-100/15 max-w-[75vw] pt-[2.5%] mt-[6%] mx-auto">
+          <Link
+            href={{
+              pathname: '/references/[slug]',
+              params: { slug: prevProject.slug },
+            }}
+            className="group flex flex-col items-start"
+          >
+            <span className="text-[0.75vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[0.8vw]">
+              {t('references.detail.prev')}
+            </span>
+            <span className="flex items-center gap-[0.5vw] text-[1.5vw] text-black-100 font-[500] leading-[1.2] uppercase">
+              <IconArrow className="w-[0.9vw] h-[0.9vw] rotate-[225deg] transition-transform duration-500 ease-out group-hover:-translate-x-[0.3vw]" />
+              {t(`references.project_${prevProject.slug}`)}
+            </span>
+          </Link>
+          <Link
+            href={{
+              pathname: '/references/[slug]',
+              params: { slug: nextProject.slug },
+            }}
+            className="group flex flex-col items-end text-right"
+          >
+            <span className="text-[0.75vw] text-black-100/50 font-[500] tracking-[0.2em] uppercase mb-[0.8vw]">
+              {t('references.detail.next')}
+            </span>
+            <span className="flex items-center gap-[0.5vw] text-[1.5vw] text-black-100 font-[500] leading-[1.2] uppercase">
+              {t(`references.project_${nextProject.slug}`)}
+              <IconArrow className="w-[0.9vw] h-[0.9vw] rotate-45 transition-transform duration-500 ease-out group-hover:translate-x-[0.3vw]" />
+            </span>
+          </Link>
+        </nav>
       </section>
     </main>
   )

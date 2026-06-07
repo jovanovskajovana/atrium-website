@@ -202,7 +202,9 @@
       "location": "Standort",
       "year": "Ausführungsjahr",
       "client": "Auftraggeber",
-      "gallery": "Galerie"
+      "gallery": "Galerie",
+      "prev": "Vorheriges Projekt",
+      "next": "Nächstes Projekt"
     },
     "project_restaurant-interior_description": "Ein warmer, materialbetonter Gastraum, in dem maßgefertigte Eichentischlerei und haptische Oberflächen ein intimes Gästeerlebnis rahmen.",
     "project_boutique-hotel_description": "Ein Boutique-Rückzugsort, in dem individuelle Möbel und natürliche Oberflächen ruhige, charaktervolle Räume mit starkem Ortsbezug schaffen.",

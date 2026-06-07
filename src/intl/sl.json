@@ -202,7 +202,9 @@
       "location": "Lokacija",
       "year": "Leto izvedbe",
       "client": "Naročnik",
-      "gallery": "Galerija"
+      "gallery": "Galerija",
+      "prev": "Prejšnji projekt",
+      "next": "Naslednji projekt"
     },
     "project_restaurant-interior_description": "Topla, materialno bogata jedilnica, kjer mizarstvo iz hrastovine po meri in otipljive površine uokvirjajo intimno izkušnjo gostov.",
     "project_boutique-hotel_description": "Butični umik, kjer pohištvo po meri in naravne obdelave ustvarjajo umirjene, značajne sobe z močnim občutkom prostora.",

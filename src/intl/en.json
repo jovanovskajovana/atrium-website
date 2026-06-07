@@ -202,7 +202,9 @@
       "location": "Location",
       "year": "Year completed",
       "client": "Client",
-      "gallery": "Gallery"
+      "gallery": "Gallery",
+      "prev": "Previous project",
+      "next": "Next project"
     },
     "project_restaurant-interior_description": "A warm, material-led dining room where bespoke oak joinery and tactile surfaces frame an intimate guest experience.",
     "project_boutique-hotel_description": "A boutique retreat where custom furniture and natural finishes create calm, characterful rooms with a strong sense of place.",
