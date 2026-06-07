@@ -194,7 +194,28 @@
     "project_luxury-apartment": "Luksuzno stanovanje",
     "project_wellness-center": "Wellness center",
     "project_urban-loft": "Mestno podstrešje",
-    "project_conference-hall": "Konferenčna dvorana"
+    "project_conference-hall": "Konferenčna dvorana",
+    "detail": {
+      "back": "Nazaj na reference",
+      "overview": "Podrobnosti projekta",
+      "architecture": "Arhitektura",
+      "location": "Lokacija",
+      "year": "Leto izvedbe",
+      "client": "Naročnik",
+      "gallery": "Galerija"
+    },
+    "project_restaurant-interior_description": "Topla, materialno bogata jedilnica, kjer mizarstvo iz hrastovine po meri in otipljive površine uokvirjajo intimno izkušnjo gostov.",
+    "project_boutique-hotel_description": "Butični umik, kjer pohištvo po meri in naravne obdelave ustvarjajo umirjene, značajne sobe z močnim občutkom prostora.",
+    "project_penthouse-suite_description": "Prefinjen interier penthouse stanovanja, ki uravnoteža odprt bivalni prostor z ročno izdelanimi detajli in tihim razkošjem.",
+    "project_private-residence_description": "Družinski dom, ki ga opredeljujejo iskreni materiali, vgrajeni shranjevalni prostori in pohištvo, izdelano za desetletja.",
+    "project_hotel-lobby_description": "Prihodni prostor, zasnovan, da naredi vtis – skulpturalno mizarstvo se združuje s trpežnimi detajli hotelskega razreda.",
+    "project_executive-office_description": "Osredotočeno delovno okolje, kjer mize po meri, obloge in akustični detajli podpirajo jasnost in zbranost.",
+    "project_design-studio_description": "Prilagodljiv kreativni studio z modularnimi delovnimi mesti in robustnimi površinami za vsakodnevno ustvarjanje.",
+    "project_corporate-lounge_description": "Gostoljuben salon, ki združuje udobje in prepoznavnost blagovne znamke s sedeži po meri in toplimi toni lesa.",
+    "project_luxury-apartment_description": "Interier stanovanja, oblikovan okoli finih furnirjev, brezšivnih omar in skrbno premišljenih razmerij.",
+    "project_wellness-center_description": "Pomirjujoče wellness okolje, ki uporablja mehke oblike, naravne materiale in detajle, odporne na vlago.",
+    "project_urban-loft_description": "Odprta predelava podstrešja, kjer se izpostavljena konstrukcija sreča s toplim pohištvom po meri in pametnim shranjevanjem.",
+    "project_conference-hall_description": "Velikoformatni konferenčni prostor, zasnovan za akustiko, trpežnost in samozavesten prvi vtis."
   },
   "production": {
     "section_1_title_1": "Temeljimo na izkušnjah",

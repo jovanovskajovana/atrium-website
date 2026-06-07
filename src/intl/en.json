@@ -194,7 +194,28 @@
     "project_luxury-apartment": "Luxury Apartment",
     "project_wellness-center": "Wellness Center",
     "project_urban-loft": "Urban Loft",
-    "project_conference-hall": "Conference Hall"
+    "project_conference-hall": "Conference Hall",
+    "detail": {
+      "back": "Back to references",
+      "overview": "Project details",
+      "architecture": "Architecture",
+      "location": "Location",
+      "year": "Year completed",
+      "client": "Client",
+      "gallery": "Gallery"
+    },
+    "project_restaurant-interior_description": "A warm, material-led dining room where bespoke oak joinery and tactile surfaces frame an intimate guest experience.",
+    "project_boutique-hotel_description": "A boutique retreat where custom furniture and natural finishes create calm, characterful rooms with a strong sense of place.",
+    "project_penthouse-suite_description": "A refined penthouse interior that balances open living space with handcrafted detailing and quiet luxury.",
+    "project_private-residence_description": "A family home defined by honest materials, integrated storage, and furniture built to last for decades.",
+    "project_hotel-lobby_description": "An arrival space designed to impress, combining sculptural joinery with durable, hospitality-grade detailing.",
+    "project_executive-office_description": "A focused workplace where bespoke desks, panelling, and acoustic detailing support clarity and concentration.",
+    "project_design-studio_description": "A flexible creative studio with modular workstations and robust surfaces built for everyday making.",
+    "project_corporate-lounge_description": "A welcoming lounge that blends comfort and brand presence through tailored seating and warm timber tones.",
+    "project_luxury-apartment_description": "An apartment interior crafted around fine veneers, seamless cabinetry, and carefully considered proportions.",
+    "project_wellness-center_description": "A calming wellness environment that uses soft forms, natural materials, and moisture-resilient detailing.",
+    "project_urban-loft_description": "An open loft conversion where exposed structure meets warm, custom-built furniture and clever storage.",
+    "project_conference-hall_description": "A large-format conference space engineered for acoustics, durability, and a confident first impression."
   },
   "production": {
     "section_1_title_1": "Built on experience",
