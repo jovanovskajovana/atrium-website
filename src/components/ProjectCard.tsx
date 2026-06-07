@@ -54,7 +54,7 @@ export const ProjectCard = ({
         <p className="text-[1vw] text-black-100 font-[550] leading-[1.3] uppercase mt-[1em]">
           {projectTitle}
         </p>
-        <p className="text-[0.82vw] text-black-100/60 font-[450] uppercase mt-[1%]">
+        <p className="text-[0.82vw] text-black-100/60 font-[500] uppercase mt-[1%]">
           {t(`references.sector_${project.sector}`)}
         </p>
       </Link>

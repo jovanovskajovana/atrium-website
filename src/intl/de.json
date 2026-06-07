@@ -194,7 +194,30 @@
     "project_luxury-apartment": "Luxuswohnung",
     "project_wellness-center": "Wellnesszentrum",
     "project_urban-loft": "Stadtloft",
-    "project_conference-hall": "Konferenzsaal"
+    "project_conference-hall": "Konferenzsaal",
+    "detail": {
+      "back": "Zurück zu Referenzen",
+      "overview": "Projektdetails",
+      "architecture": "Architektur",
+      "location": "Standort",
+      "year": "Ausführungsjahr",
+      "client": "Auftraggeber",
+      "gallery": "Galerie",
+      "prev": "Vorheriges Projekt",
+      "next": "Nächstes Projekt"
+    },
+    "project_restaurant-interior_description": "Ein warmer, materialbetonter Gastraum, in dem maßgefertigte Eichentischlerei und haptische Oberflächen ein intimes Gästeerlebnis rahmen.",
+    "project_boutique-hotel_description": "Ein Boutique-Rückzugsort, in dem individuelle Möbel und natürliche Oberflächen ruhige, charaktervolle Räume mit starkem Ortsbezug schaffen.",
+    "project_penthouse-suite_description": "Ein veredeltes Penthouse-Interieur, das offenen Wohnraum mit handwerklichen Details und stillem Luxus ausbalanciert.",
+    "project_private-residence_description": "Ein Familienhaus, geprägt von ehrlichen Materialien, integriertem Stauraum und Möbeln, die für Jahrzehnte gebaut sind.",
+    "project_hotel-lobby_description": "Ein Ankunftsbereich, der beeindrucken soll – skulpturale Tischlerei trifft auf robuste Detaillierung in Hotelqualität.",
+    "project_executive-office_description": "Ein konzentrierter Arbeitsplatz, an dem maßgefertigte Schreibtische, Vertäfelungen und akustische Details Klarheit und Fokus unterstützen.",
+    "project_design-studio_description": "Ein flexibles Kreativstudio mit modularen Arbeitsplätzen und robusten Oberflächen für das tägliche Schaffen.",
+    "project_corporate-lounge_description": "Eine einladende Lounge, die Komfort und Markenpräsenz durch maßgeschneiderte Sitzmöbel und warme Holztöne verbindet.",
+    "project_luxury-apartment_description": "Ein Wohnungsinterieur, gestaltet um feine Furniere, nahtlose Schranklösungen und sorgfältig durchdachte Proportionen.",
+    "project_wellness-center_description": "Eine beruhigende Wellness-Umgebung mit weichen Formen, natürlichen Materialien und feuchtigkeitsbeständiger Detaillierung.",
+    "project_urban-loft_description": "Ein offener Loft-Umbau, in dem sichtbare Struktur auf warme, maßgefertigte Möbel und clevere Stauraumlösungen trifft.",
+    "project_conference-hall_description": "Ein großformatiger Konferenzraum, ausgelegt auf Akustik, Langlebigkeit und einen selbstbewussten ersten Eindruck."
   },
   "production": {
     "section_1_title_1": "Erfahrung als Fundament",
